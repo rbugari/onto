@@ -66,6 +66,21 @@ python -m unittest discover -s tests
 python -m compileall src tests streamlit_app.py
 ```
 
+## Ejecutar la demo local
+
+Con una release Nexo ya aprobada, la demo muestra el context pack, ejecuta una pregunta respondible, una abstencion y la bateria Argos:
+
+```powershell
+python scripts/run_onto_demo.py fabric-gold-sic-risk-pilot
+```
+
+Para consultar una pregunta propia o evitar la bateria automatica:
+
+```powershell
+python scripts/run_onto_demo.py fabric-gold-sic-risk-pilot --question "Que es gold_sic.fact_riesgo?"
+python scripts/run_onto_demo.py fabric-gold-sic-risk-pilot --skip-evaluation
+```
+
 ## Persistencia local
 
 - Proyectos: `data/projects/*.json`

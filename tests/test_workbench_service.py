@@ -437,6 +437,24 @@ class WorkbenchServiceTests(unittest.TestCase):
                 "invalid-contract",
             )
 
+    def test_argos_ignores_generic_comparison_words_when_no_evidence_matches(self) -> None:
+        context_pack = {
+            "release_id": "release-test",
+            "query_contract": {
+                "allowed_operations": ["SELECT"],
+                "requires_approved_data_binding": True,
+                "disallowed_operations": ["INSERT", "UPDATE", "DELETE", "DDL"],
+            },
+            "usage_boundary": "Solo usar la evidencia aprobada.",
+            "concepts": [{"id": "concept-1", "name": "Riesgo", "definition": "Nivel calculado."}],
+        }
+
+        investigation = investigate_context_pack(
+            context_pack, "Que planeta es mas grande?", "investigation-test"
+        )
+
+        self.assertEqual(investigation["manifest"]["status"], "abstained")
+
     def test_nexo_release_includes_reviewed_canonical_model_elements(self) -> None:
         project = self.service.create_project("Canonical model")
         assessment = self.service.create_atlas_assessment(project.id, "Client", "Sales", "Product")

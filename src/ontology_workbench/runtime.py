@@ -5,7 +5,7 @@ import re
 from ontology_workbench.models import utc_now_iso
 
 
-STOP_WORDS = {"que", "como", "para", "con", "del", "las", "los", "una", "uno", "por", "sobre", "desde", "este", "esta", "son", "hay", "the", "and"}
+STOP_WORDS = {"que", "como", "para", "con", "del", "las", "los", "una", "uno", "por", "sobre", "desde", "este", "esta", "son", "hay", "mas", "más", "the", "and"}
 
 
 def investigate_context_pack(context_pack: dict[str, object], question: str, investigation_id: str) -> dict[str, object]:
