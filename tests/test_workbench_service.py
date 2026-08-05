@@ -19,7 +19,7 @@ from ontology_workbench.storage import ProjectStore
 from ontology_workbench.context_scanner import CONTEXT_CHUNK_SIZE, build_document_chunks, load_llm_settings
 from ontology_workbench.nexo_diff import compare_nexo_artifacts
 from ontology_workbench.fabric_adapter import execute_fabric_read_only_query, load_fabric_settings
-from ontology_workbench.runtime import investigate_context_pack
+from ontology_workbench.runtime import investigate_context_pack, select_fabric_query
 
 
 class WorkbenchServiceTests(unittest.TestCase):
@@ -432,9 +432,34 @@ class WorkbenchServiceTests(unittest.TestCase):
         draft = self.service.create_nexo_draft(project.id, str(assessment["manifest"]["run_id"]))
         self.service.bulk_update_nexo_candidates(project.id, str(draft["manifest"]["draft_id"]), [item["candidate_id"] for item in draft["candidates"]], "approved", "Reviewer", "Owner", "Test")
         release = self.service.publish_nexo_release(project.id, str(draft["manifest"]["draft_id"]), "Owner", "Test")
-        answer = self.service.investigate_release(project.id, str(release["manifest"]["release_id"]), "Que es Cliente Activo?")
-        abstention = self.service.investigate_release(project.id, str(release["manifest"]["release_id"]), "Que planeta es mas grande?")
-        self.assertEqual(answer["manifest"]["status"], "answered")
+        context_pack_path = Path(str(release["package_path"])) / "agent_context_pack.json"
+        context_pack = json.loads(context_pack_path.read_text(encoding="utf-8"))
+        context_pack["data_bindings"] = [{"name": "gold_sic.fact_riesgo -> gold_sic.fact_riesgo"}]
+        context_pack_path.write_text(json.dumps(context_pack), encoding="utf-8")
+        with patch("ontology_workbench.service.execute_fabric_read_only_query") as execute_query:
+            execute_query.return_value = {
+                "status": "connected_read_only_query",
+                "query_name": "risk_summary",
+                "operation": "SELECT",
+                "rows": [{"total_rows": 3, "distinct_sic": 2, "latest_calculation": "2026-08-05"}],
+            }
+            live_answer = self.service.investigate_release(
+                project.id, str(release["manifest"]["release_id"]), "Cuantos riesgos hay?"
+            )
+            abstention = self.service.investigate_release(
+                project.id, str(release["manifest"]["release_id"]), "Que planeta es mas grande?"
+            )
+        execute_query.assert_called_once_with("risk_summary")
+        self.assertEqual(live_answer["manifest"]["mode"], "deterministic-context-pack-plus-fabric-read-only")
+        self.assertIn("3 registros de riesgo", live_answer["answer"])
+        context_pack["data_bindings"] = []
+        context_pack_path.write_text(json.dumps(context_pack), encoding="utf-8")
+        blocked = self.service.investigate_release(
+            project.id, str(release["manifest"]["release_id"]), "Cuantos riesgos hay?"
+        )
+        self.assertNotIn("live_query", blocked)
+        self.assertEqual(blocked["manifest"]["mode"], "deterministic-context-pack")
+        self.assertEqual(live_answer["manifest"]["status"], "answered")
         self.assertEqual(abstention["manifest"]["status"], "abstained")
         evaluation_cases = self.service.suggest_argos_evaluation_cases(
             project.id, str(release["manifest"]["release_id"])
@@ -470,6 +495,12 @@ class WorkbenchServiceTests(unittest.TestCase):
         )
 
         self.assertEqual(investigation["manifest"]["status"], "abstained")
+
+    def test_argos_routes_only_unambiguous_fabric_data_questions(self) -> None:
+        self.assertEqual(select_fabric_query("Cuantos riesgos hay?"), "risk_summary")
+        self.assertEqual(select_fabric_query("Cuales son los niveles de riesgo?"), "risk_levels")
+        self.assertEqual(select_fabric_query("Cuantos valores REAL y DEFAULT hay?"), "impact_statuses")
+        self.assertEqual(select_fabric_query("Como se calcula el riesgo?"), None)
 
     def test_nexo_release_includes_reviewed_canonical_model_elements(self) -> None:
         project = self.service.create_project("Canonical model")

@@ -8,6 +8,20 @@ from ontology_workbench.models import utc_now_iso
 STOP_WORDS = {"que", "como", "para", "con", "del", "las", "los", "una", "uno", "por", "sobre", "desde", "este", "esta", "son", "hay", "mas", "más", "the", "and"}
 
 
+def select_fabric_query(question: str) -> str | None:
+    """Route only unambiguous aggregate questions to the named Fabric gateway queries."""
+    tokens = _tokens(question)
+    if {"real", "default"}.issubset(tokens):
+        return "impact_statuses"
+    if ("nivel" in tokens or "niveles" in tokens) and ("riesgo" in tokens or "riesgos" in tokens):
+        return "risk_levels"
+    if ("cuantos" in tokens or "cuántos" in tokens or "total" in tokens) and ("riesgo" in tokens or "riesgos" in tokens):
+        return "risk_summary"
+    if "impacto" in tokens and ({"real", "default", "resumen"} & tokens):
+        return "impact_summary"
+    return None
+
+
 def investigate_context_pack(context_pack: dict[str, object], question: str, investigation_id: str) -> dict[str, object]:
     _validate_query_contract(context_pack)
     tokens = _tokens(question)

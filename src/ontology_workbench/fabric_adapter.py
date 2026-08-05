@@ -31,6 +31,12 @@ FABRIC_QUERY_TEMPLATES = {
         "ORDER BY total_rows DESC"
     ),
 }
+FABRIC_QUERY_BINDING_TABLES = {
+    "risk_summary": "gold_sic.fact_riesgo",
+    "risk_levels": "gold_sic.fact_riesgo",
+    "impact_summary": "gold_sic.fact_impacto_bloque",
+    "impact_statuses": "gold_sic.fact_impacto",
+}
 
 
 class FabricConnectionError(RuntimeError):

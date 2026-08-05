@@ -47,7 +47,6 @@ def render_project_selector() -> str | None:
 
 def open_product_area(area: str) -> None:
     st.session_state["active_product_area"] = area
-    st.rerun()
 
 
 def render_factory_home(project) -> None:
@@ -793,6 +792,15 @@ def render_argos_runtime(project_id: str) -> None:
     if result:
         st.info(str(result["answer"]))
         st.caption(f"Estado: {result['manifest']['status']} · Paquete: {result['package_path']}")
+        live_query = result.get("live_query")
+        if live_query:
+            st.success(
+                f"Fabric live · {live_query.get('query_name', 'consulta')} · "
+                f"{live_query.get('operation', 'SELECT')} · "
+                f"{len(live_query.get('rows', []))} resultado(s)"
+            )
+            if live_query.get("rows"):
+                st.dataframe(live_query["rows"], width="stretch", hide_index=True)
         if result["retrieval"]:
             st.dataframe(result["retrieval"], width="stretch", hide_index=True)
 

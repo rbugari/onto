@@ -27,11 +27,12 @@ from ontology_workbench.nexo_curation import build_consolidation_suggestions
 from ontology_workbench.nexo_diff import compare_nexo_artifacts
 from ontology_workbench.interoperability import TARGETS, build_publication_package
 from ontology_workbench.fabric_adapter import (
+    FABRIC_QUERY_BINDING_TABLES,
     discover_fabric_metadata as run_fabric_metadata_discovery,
     execute_fabric_read_only_query,
     fabric_connection_check,
 )
-from ontology_workbench.runtime import investigate_context_pack
+from ontology_workbench.runtime import investigate_context_pack, select_fabric_query
 from ontology_workbench.runtime_evaluation import evaluate_context_pack, suggest_evaluation_cases
 from ontology_workbench.storage import ProjectStore
 
@@ -861,6 +862,13 @@ class WorkbenchService:
         context_pack = json.loads((Path(str(release["package_path"])) / "agent_context_pack.json").read_text(encoding="utf-8"))
         investigation_id = f"argos-{utc_now_iso().replace(':', '-').replace('+', '-')}-{uuid.uuid4().hex[:12]}"
         investigation = investigate_context_pack(context_pack, question.strip(), investigation_id)
+        query_name = select_fabric_query(question)
+        if query_name and _has_fabric_query_binding(context_pack, query_name):
+            query_result = self.execute_fabric_validation_query(query_name)
+            investigation["live_query"] = query_result
+            investigation["manifest"]["mode"] = "deterministic-context-pack-plus-fabric-read-only"
+            investigation["answer"] = _format_fabric_query_answer(query_name, query_result)
+            investigation["manifest"]["status"] = "answered"
         investigation["package_path"] = str(self.store.save_runtime_investigation(project_id, investigation))
         return investigation
 
@@ -911,3 +919,45 @@ class WorkbenchService:
             for block in iter(lambda: source.read(1024 * 1024), b""):
                 digest.update(block)
         return digest.hexdigest()
+
+
+def _format_fabric_query_answer(query_name: str, query_result: dict[str, object]) -> str:
+    rows = [row for row in query_result.get("rows", []) if isinstance(row, dict)]
+    if query_name == "risk_summary" and rows:
+        row = rows[0]
+        return (
+            f"Consulta real Fabric: {row.get('total_rows', 0)} registros de riesgo, "
+            f"{row.get('distinct_sic', 0)} SIC distintos; última ejecución: "
+            f"{row.get('latest_calculation', 'sin fecha')}."
+        )
+    if query_name == "impact_summary" and rows:
+        row = rows[0]
+        return (
+            f"Consulta real Fabric: {row.get('reales', 0)} valores REAL, "
+            f"{row.get('proxies', 0)} proxies, {row.get('pendientes', 0)} pendientes y "
+            f"{row.get('no_disponibles', 0)} no disponibles."
+        )
+    if query_name in {"risk_levels", "impact_statuses"}:
+        if query_name == "impact_statuses":
+            details = "; ".join(
+                f"{row.get('tipo_valor', 'sin tipo')}/{row.get('estado', 'sin estado')}: {row.get('total_rows', 0)}"
+                for row in rows
+            )
+            return f"Consulta real Fabric: {details}."
+        details = "; ".join(
+            f"{row.get('riesgo_final_texto', 'sin nivel')}: {row.get('total_rows', 0)}"
+            for row in rows
+        )
+        return f"Consulta real Fabric: {details}."
+    return "Consulta real Fabric ejecutada sin resultados agregados."
+
+
+def _has_fabric_query_binding(context_pack: dict[str, object], query_name: str) -> bool:
+    required_table = FABRIC_QUERY_BINDING_TABLES.get(query_name)
+    if not required_table:
+        return False
+    return any(
+        required_table in str(binding.get("name", ""))
+        for binding in context_pack.get("data_bindings", [])
+        if isinstance(binding, dict)
+    )
