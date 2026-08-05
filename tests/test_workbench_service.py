@@ -503,6 +503,11 @@ class WorkbenchServiceTests(unittest.TestCase):
         self.assertEqual(package["manifest"]["publication_mode"], "local_mapping_only")
         self.assertTrue(Path(str(package["package_path"])).exists())
         self.assertTrue(package["mapping"]["mappings"])
+        mappings = package["mapping"]["mappings"]
+        self.assertTrue(all(str(mapping["source_id"]).strip() for mapping in mappings))
+        binding_mappings = [mapping for mapping in mappings if mapping["source_type"] == "data_binding"]
+        self.assertEqual(len(binding_mappings), 1)
+        self.assertEqual(binding_mappings[0]["target_object_kind"], "approved_source_binding")
 
     def test_semantic_comparison_detects_changed_definition_between_releases(self) -> None:
         baseline = {
