@@ -83,7 +83,7 @@ Primer corte implementado: una release aprobada puede generar un paquete local d
 
 **Gate:** la bateria valida evidencia, abstencion y autorizacion antes de ampliar cobertura.
 
-Primer corte implementado: Argos consulta únicamente el `agent_context_pack` de una release local, devuelve los elementos recuperados y se abstiene cuando no encuentra evidencia. La aplicación puede preparar una batería base desde la release, editar sus casos y evaluar `answered`/`abstained` más la evidencia esperada. Cada evaluación deja su manifest, resumen y resultados por caso bajo `data/runtime/<project>/<release>/evaluations/`. Aún faltan gateway read-only a una fuente autorizada, controles de permisos y casos de grano incompatible propios de un dominio piloto.
+Primer corte implementado: Argos consulta únicamente el `agent_context_pack` de una release local, devuelve los elementos recuperados y se abstiene cuando no encuentra evidencia. La aplicación puede preparar una batería base desde la release, editar sus casos y evaluar `answered`/`abstained` más la evidencia esperada. Cada evaluación deja su manifest, resumen y resultados por caso bajo `data/runtime/<project>/<release>/evaluations/`. Para el piloto Fabric actual, el gate se cierra dentro de la aplicación local usando metadata, bindings y mappings ya aprobados; el gateway read-only, los controles de permisos y los casos de grano incompatible quedan fuera de alcance hasta que el piloto demuestre valor con preguntas reales.
 
 ## Fase 5 - Evaluacion de evolucion posterior
 

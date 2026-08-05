@@ -36,6 +36,10 @@ La entrada web es una portada de **Ontology Factory**: permite elegir el proyect
 - Interoperabilidad: paquetes locales de mapping revisable para Microsoft Fabric o Databricks, sin publicación externa.
 - Snapshots locales para versionado simple y restauracion.
 
+### Alcance actual del piloto Fabric
+
+Fabric se utiliza como fuente técnica autorizada para descubrir metadata y validar bindings. La operación del piloto permanece dentro de la aplicación local: Atlas, Nexo, Argos y los mappings se ejecutan sobre artefactos locales. No se requiere todavía un gateway de consultas, control multiusuario ni publicación externa para cerrar esta fase.
+
 ## Estructura
 
 - `streamlit_app.py`: interfaz local.
