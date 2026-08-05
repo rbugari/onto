@@ -19,6 +19,7 @@ from ontology_workbench.storage import ProjectStore
 from ontology_workbench.context_scanner import CONTEXT_CHUNK_SIZE, build_document_chunks, load_llm_settings
 from ontology_workbench.nexo_diff import compare_nexo_artifacts
 from ontology_workbench.fabric_adapter import load_fabric_settings
+from ontology_workbench.runtime import investigate_context_pack
 
 
 class WorkbenchServiceTests(unittest.TestCase):
@@ -427,6 +428,14 @@ class WorkbenchServiceTests(unittest.TestCase):
         )
         self.assertEqual(evaluation["summary"]["failed"], 0)
         self.assertTrue(Path(str(evaluation["package_path"])).exists())
+        context_pack = release["agent_context_pack"]
+        self.assertEqual(context_pack["query_contract"]["allowed_operations"], ["SELECT"])
+        with self.assertRaisesRegex(ValueError, "operaciones mutantes"):
+            investigate_context_pack(
+                {**context_pack, "query_contract": {"allowed_operations": ["SELECT"], "requires_approved_data_binding": True, "disallowed_operations": []}},
+                "Que es Cliente Activo?",
+                "invalid-contract",
+            )
 
     def test_nexo_release_includes_reviewed_canonical_model_elements(self) -> None:
         project = self.service.create_project("Canonical model")

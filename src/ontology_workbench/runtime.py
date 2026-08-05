@@ -9,6 +9,7 @@ STOP_WORDS = {"que", "como", "para", "con", "del", "las", "los", "una", "uno", "
 
 
 def investigate_context_pack(context_pack: dict[str, object], question: str, investigation_id: str) -> dict[str, object]:
+    _validate_query_contract(context_pack)
     tokens = _tokens(question)
     items = [
         {"item_type": item_type, **dict(item)}
@@ -45,6 +46,20 @@ def investigate_context_pack(context_pack: dict[str, object], question: str, inv
         "answer": answer,
         "usage_boundary": context_pack["usage_boundary"],
     }
+
+
+def _validate_query_contract(context_pack: dict[str, object]) -> None:
+    query_contract = context_pack.get("query_contract")
+    if not isinstance(query_contract, dict):
+        raise ValueError("La release no contiene un contrato de consulta válido")
+    allowed_operations = query_contract.get("allowed_operations")
+    disallowed_operations = query_contract.get("disallowed_operations")
+    if query_contract.get("requires_approved_data_binding") is not True:
+        raise ValueError("Argos requiere source bindings aprobados")
+    if allowed_operations != ["SELECT"] or not isinstance(disallowed_operations, list):
+        raise ValueError("Argos solo permite consultas SELECT")
+    if not any(operation in disallowed_operations for operation in ("INSERT", "UPDATE", "DELETE", "DDL")):
+        raise ValueError("El contrato debe bloquear operaciones mutantes")
 
 
 def _tokens(value: str) -> set[str]:
