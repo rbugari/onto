@@ -1,0 +1,24 @@
+{
+  "format": "nexo-ontology-release-v0.2",
+  "product": "Nexo",
+  "release_id": "release-2026-08-05T07-39-11-00-00-a2a9f38c93b5",
+  "draft_id": "nexo-2026-08-03T10-05-26-00-00-c72cb829b99e",
+  "project_id": "fabric-gold-sic-risk-pilot",
+  "created_at": "2026-08-05T07:39:11+00:00",
+  "released_by": "ONTO - revision funcional simulada",
+  "release_note": "Release revisada tras ratificar seis bindings directos de Fabric.",
+  "source_assessment": {
+    "run_id": "atlas-2026-08-03T10-05-26-00-00-13ff390ffbcf",
+    "created_at": "2026-08-03T10:05:26+00:00",
+    "scope": {
+      "project_id": "fabric-gold-sic-risk-pilot",
+      "client_id": "fabric",
+      "domain_id": "gold-sic-risk",
+      "data_product_id": "gold-sic"
+    }
+  },
+  "approved_candidates": 586,
+  "rejected_candidates": 21,
+  "approved_model_elements": 6,
+  "rejected_model_elements": 0
+}

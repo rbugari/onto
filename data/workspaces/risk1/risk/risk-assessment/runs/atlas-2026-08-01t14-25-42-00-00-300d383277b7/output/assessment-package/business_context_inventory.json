@@ -1,0 +1,6 @@
+{
+  "status": "invalidated",
+  "invalidated_at": "2026-08-01T14:25:42+00:00",
+  "reason": "Document identifiers were repaired; regenerate the scanner inventory from re-extracted sources.",
+  "message": "El inventario debe regenerarse antes de reutilizarse en Atlas."
+}

@@ -1,0 +1,2050 @@
+{
+  "format": "onto-fabric-metadata-discovery-v0.1",
+  "mode": "read_only_metadata",
+  "server": "f44sq3l2irfe5itcs65ld2hme4-y3b4rqduvonepfrtu4k3htpra4.datawarehouse.fabric.microsoft.com",
+  "database": "RAN_DE_DW_200_SILVER",
+  "tables": [
+    {
+      "schema": "gold_sic",
+      "name": "bridge_risc_amenaca_filter",
+      "type": "BASE TABLE"
+    },
+    {
+      "schema": "gold_sic",
+      "name": "dim_amenaca_filter",
+      "type": "BASE TABLE"
+    },
+    {
+      "schema": "gold_sic",
+      "name": "dim_regla",
+      "type": "BASE TABLE"
+    },
+    {
+      "schema": "gold_sic",
+      "name": "dim_risc_filter",
+      "type": "BASE TABLE"
+    },
+    {
+      "schema": "gold_sic",
+      "name": "dim_sig",
+      "type": "BASE TABLE"
+    },
+    {
+      "schema": "gold_sic",
+      "name": "dim_supuesto_modelo",
+      "type": "BASE TABLE"
+    },
+    {
+      "schema": "gold_sic",
+      "name": "fact_impacto",
+      "type": "BASE TABLE"
+    },
+    {
+      "schema": "gold_sic",
+      "name": "fact_impacto_bloque",
+      "type": "BASE TABLE"
+    },
+    {
+      "schema": "gold_sic",
+      "name": "fact_impacto_sig",
+      "type": "BASE TABLE"
+    },
+    {
+      "schema": "gold_sic",
+      "name": "fact_probabilidad",
+      "type": "BASE TABLE"
+    },
+    {
+      "schema": "gold_sic",
+      "name": "fact_probabilidad_bloque",
+      "type": "BASE TABLE"
+    },
+    {
+      "schema": "gold_sic",
+      "name": "fact_probabilidad_sig",
+      "type": "BASE TABLE"
+    },
+    {
+      "schema": "gold_sic",
+      "name": "fact_riesgo",
+      "type": "BASE TABLE"
+    },
+    {
+      "schema": "gold_sic",
+      "name": "vw_impacto_matriz_reglas_por_sig",
+      "type": "VIEW"
+    },
+    {
+      "schema": "gold_sic",
+      "name": "vw_probabilidad_matriz_reglas_por_sig",
+      "type": "VIEW"
+    },
+    {
+      "schema": "gold_sic",
+      "name": "vw_riesgo_resumen",
+      "type": "VIEW"
+    }
+  ],
+  "columns": [
+    {
+      "schema": "gold_sic",
+      "table": "bridge_risc_amenaca_filter",
+      "name": "id_risc",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 1
+    },
+    {
+      "schema": "gold_sic",
+      "table": "bridge_risc_amenaca_filter",
+      "name": "risc",
+      "data_type": "varchar",
+      "nullable": "NO",
+      "ordinal_position": 2
+    },
+    {
+      "schema": "gold_sic",
+      "table": "bridge_risc_amenaca_filter",
+      "name": "id_amenaca",
+      "data_type": "varchar",
+      "nullable": "NO",
+      "ordinal_position": 3
+    },
+    {
+      "schema": "gold_sic",
+      "table": "bridge_risc_amenaca_filter",
+      "name": "amenaca_acc",
+      "data_type": "varchar",
+      "nullable": "NO",
+      "ordinal_position": 4
+    },
+    {
+      "schema": "gold_sic",
+      "table": "bridge_risc_amenaca_filter",
+      "name": "fecha_carga",
+      "data_type": "datetime2",
+      "nullable": "YES",
+      "ordinal_position": 5
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_amenaca_filter",
+      "name": "id_amenaca",
+      "data_type": "varchar",
+      "nullable": "NO",
+      "ordinal_position": 1
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_amenaca_filter",
+      "name": "amenaca_acc",
+      "data_type": "varchar",
+      "nullable": "NO",
+      "ordinal_position": 2
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_amenaca_filter",
+      "name": "fecha_carga",
+      "data_type": "datetime2",
+      "nullable": "YES",
+      "ordinal_position": 3
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "dominio_modelo",
+      "data_type": "varchar",
+      "nullable": "NO",
+      "ordinal_position": 1
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "codigo_regla",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 2
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "bloque",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 3
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "id_risc",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 4
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "risc",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 5
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "id_amenaca",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 6
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "amenaca_acc",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 7
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "id_font",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 8
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "font_integracio",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 9
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "camps",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 10
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "info_font",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 11
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "info_analitzada",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 12
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "cidat_degradation",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 13
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "regla_baix",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 14
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "regla_mig",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 15
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "regla_alt",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 16
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "regla_molt_alt",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 17
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "tipo_valor_default",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 18
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "activa",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 19
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "fecha_carga",
+      "data_type": "datetime2",
+      "nullable": "YES",
+      "ordinal_position": 20
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "peso_regla",
+      "data_type": "decimal",
+      "nullable": "YES",
+      "ordinal_position": 21
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "default_nivel_num",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 22
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "default_nivel_texto",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 23
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "tiene_default_configurado",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 24
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_regla",
+      "name": "dominio_modelo_visible",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 25
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_risc_filter",
+      "name": "id_risc",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 1
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_risc_filter",
+      "name": "risc",
+      "data_type": "varchar",
+      "nullable": "NO",
+      "ordinal_position": 2
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_risc_filter",
+      "name": "fecha_carga",
+      "data_type": "datetime2",
+      "nullable": "YES",
+      "ordinal_position": 3
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "sic",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 1
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "nom_app",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 2
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "num_usuarios_max",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 3
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "rto",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 4
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "rpo",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 5
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "key_seguretat",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 6
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "key_privacitat",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 7
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "key_visibilitat",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 8
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "key_disponibilitat",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 9
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "criticidad_negocio",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 10
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "confidencialitat",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 11
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "integritat",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 12
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "disponibilitat",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 13
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "autenticitat",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 14
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "tracabilitat",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 15
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "cidat_max_nivel",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 16
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "ens_nivel_sistema",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 17
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "fecha_carga",
+      "data_type": "datetime2",
+      "nullable": "YES",
+      "ordinal_position": 18
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "codigo_departamento",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 19
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "cpd_codigo",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 20
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_sig",
+      "name": "cpd_lot_id",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 21
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_supuesto_modelo",
+      "name": "dominio_modelo",
+      "data_type": "varchar",
+      "nullable": "NO",
+      "ordinal_position": 1
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_supuesto_modelo",
+      "name": "codigo_regla",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 2
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_supuesto_modelo",
+      "name": "tema",
+      "data_type": "varchar",
+      "nullable": "NO",
+      "ordinal_position": 3
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_supuesto_modelo",
+      "name": "fuente_o_proxy",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 4
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_supuesto_modelo",
+      "name": "tipo",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 5
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_supuesto_modelo",
+      "name": "descripcion",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 6
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_supuesto_modelo",
+      "name": "es_vigente",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 7
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_supuesto_modelo",
+      "name": "vigente_desde",
+      "data_type": "datetime2",
+      "nullable": "YES",
+      "ordinal_position": 8
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_supuesto_modelo",
+      "name": "vigente_hasta",
+      "data_type": "datetime2",
+      "nullable": "YES",
+      "ordinal_position": 9
+    },
+    {
+      "schema": "gold_sic",
+      "table": "dim_supuesto_modelo",
+      "name": "dominio_modelo_visible",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 10
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "sic",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 1
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "codigo_regla",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 2
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "bloque",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 3
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "id_risc",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 4
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "nom_app",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 5
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "valor_fuente",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 6
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "nivel_num",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 7
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "nivel_texto",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 8
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "tipo_valor",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 9
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "c_nd",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 10
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "i_nd",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 11
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "d_nd",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 12
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "a_nd",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 13
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "t_nd",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 14
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "estado",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 15
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "supuesto_nota",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 16
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "run_id",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 17
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "version_modelo",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 18
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "fecha_calculo",
+      "data_type": "datetime2",
+      "nullable": "YES",
+      "ordinal_position": 19
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "usa_default",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 20
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto",
+      "name": "peso_regla",
+      "data_type": "decimal",
+      "nullable": "YES",
+      "ordinal_position": 21
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_bloque",
+      "name": "sic",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 1
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_bloque",
+      "name": "bloque",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 2
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_bloque",
+      "name": "id_risc",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 3
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_bloque",
+      "name": "nom_app",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 4
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_bloque",
+      "name": "promedio_impacto",
+      "data_type": "decimal",
+      "nullable": "YES",
+      "ordinal_position": 5
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_bloque",
+      "name": "reglas",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 6
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_bloque",
+      "name": "reales",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 7
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_bloque",
+      "name": "proxies",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 8
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_bloque",
+      "name": "pendientes",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 9
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_bloque",
+      "name": "no_disponibles",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 10
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_bloque",
+      "name": "nivel_bloque_num",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 11
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_bloque",
+      "name": "nivel_bloque_texto",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 12
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_bloque",
+      "name": "run_id",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 13
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_bloque",
+      "name": "version_modelo",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 14
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_bloque",
+      "name": "fecha_calculo",
+      "data_type": "datetime2",
+      "nullable": "YES",
+      "ordinal_position": 15
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_sig",
+      "name": "sic",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 1
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_sig",
+      "name": "nom_app",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 2
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_sig",
+      "name": "promedio_impacto",
+      "data_type": "decimal",
+      "nullable": "YES",
+      "ordinal_position": 3
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_sig",
+      "name": "riesgos",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 4
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_sig",
+      "name": "reales",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 5
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_sig",
+      "name": "proxies",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 6
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_sig",
+      "name": "pendientes",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 7
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_sig",
+      "name": "no_disponibles",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 8
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_sig",
+      "name": "nivel_final_num",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 9
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_sig",
+      "name": "nivel_final_texto",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 10
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_sig",
+      "name": "run_id",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 11
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_sig",
+      "name": "version_modelo",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 12
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_impacto_sig",
+      "name": "fecha_calculo",
+      "data_type": "datetime2",
+      "nullable": "YES",
+      "ordinal_position": 13
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad",
+      "name": "sic",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 1
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad",
+      "name": "codigo_regla",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 2
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad",
+      "name": "bloque",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 3
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad",
+      "name": "id_risc",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 4
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad",
+      "name": "nom_app",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 5
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad",
+      "name": "valor",
+      "data_type": "decimal",
+      "nullable": "YES",
+      "ordinal_position": 6
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad",
+      "name": "nivel_num",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 7
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad",
+      "name": "nivel_texto",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 8
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad",
+      "name": "tipo_valor",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 9
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad",
+      "name": "run_id",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 10
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad",
+      "name": "version_modelo",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 11
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad",
+      "name": "fecha_calculo",
+      "data_type": "datetime2",
+      "nullable": "YES",
+      "ordinal_position": 12
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad",
+      "name": "usa_default",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 13
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad",
+      "name": "peso_regla",
+      "data_type": "decimal",
+      "nullable": "YES",
+      "ordinal_position": 14
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_bloque",
+      "name": "sic",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 1
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_bloque",
+      "name": "bloque",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 2
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_bloque",
+      "name": "id_risc",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 3
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_bloque",
+      "name": "nom_app",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 4
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_bloque",
+      "name": "promedio_valor",
+      "data_type": "decimal",
+      "nullable": "YES",
+      "ordinal_position": 5
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_bloque",
+      "name": "reglas",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 6
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_bloque",
+      "name": "reales",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 7
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_bloque",
+      "name": "proxies",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 8
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_bloque",
+      "name": "defaults_cnt",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 9
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_bloque",
+      "name": "constantes",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 10
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_bloque",
+      "name": "nivel_bloque_num",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 11
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_bloque",
+      "name": "nivel_bloque_texto",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 12
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_bloque",
+      "name": "run_id",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 13
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_bloque",
+      "name": "version_modelo",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 14
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_bloque",
+      "name": "fecha_calculo",
+      "data_type": "datetime2",
+      "nullable": "YES",
+      "ordinal_position": 15
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_sig",
+      "name": "sic",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 1
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_sig",
+      "name": "nom_app",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 2
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_sig",
+      "name": "promedio_probabilidad",
+      "data_type": "decimal",
+      "nullable": "YES",
+      "ordinal_position": 3
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_sig",
+      "name": "reglas",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 4
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_sig",
+      "name": "reales",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 5
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_sig",
+      "name": "proxies",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 6
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_sig",
+      "name": "defaults_cnt",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 7
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_sig",
+      "name": "constantes",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 8
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_sig",
+      "name": "nivel_final_num",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 9
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_sig",
+      "name": "nivel_final_texto",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 10
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_sig",
+      "name": "run_id",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 11
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_sig",
+      "name": "version_modelo",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 12
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_probabilidad_sig",
+      "name": "fecha_calculo",
+      "data_type": "datetime2",
+      "nullable": "YES",
+      "ordinal_position": 13
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_riesgo",
+      "name": "sic",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 1
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_riesgo",
+      "name": "bloque",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 2
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_riesgo",
+      "name": "id_risc",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 3
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_riesgo",
+      "name": "nom_app",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 4
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_riesgo",
+      "name": "probabilidad_raw",
+      "data_type": "decimal",
+      "nullable": "YES",
+      "ordinal_position": 5
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_riesgo",
+      "name": "probabilidad_final_num",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 6
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_riesgo",
+      "name": "probabilidad_final_texto",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 7
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_riesgo",
+      "name": "impacto_raw",
+      "data_type": "decimal",
+      "nullable": "YES",
+      "ordinal_position": 8
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_riesgo",
+      "name": "impacto_final_num",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 9
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_riesgo",
+      "name": "impacto_final_texto",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 10
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_riesgo",
+      "name": "riesgo_raw",
+      "data_type": "decimal",
+      "nullable": "YES",
+      "ordinal_position": 11
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_riesgo",
+      "name": "riesgo_final_num",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 12
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_riesgo",
+      "name": "riesgo_final_texto",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 13
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_riesgo",
+      "name": "metodo_calculo",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 14
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_riesgo",
+      "name": "run_id",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 15
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_riesgo",
+      "name": "version_modelo",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 16
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_riesgo",
+      "name": "fecha_calculo",
+      "data_type": "datetime2",
+      "nullable": "YES",
+      "ordinal_position": 17
+    },
+    {
+      "schema": "gold_sic",
+      "table": "fact_riesgo",
+      "name": "codigo_departamento",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 18
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_impacto_matriz_reglas_por_sig",
+      "name": "sic",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 1
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_impacto_matriz_reglas_por_sig",
+      "name": "nom_app",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 2
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_impacto_matriz_reglas_por_sig",
+      "name": "101",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 3
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_impacto_matriz_reglas_por_sig",
+      "name": "102",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 4
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_impacto_matriz_reglas_por_sig",
+      "name": "103",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 5
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_impacto_matriz_reglas_por_sig",
+      "name": "104",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 6
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_impacto_matriz_reglas_por_sig",
+      "name": "105",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 7
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_impacto_matriz_reglas_por_sig",
+      "name": "201",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 8
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_impacto_matriz_reglas_por_sig",
+      "name": "202",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 9
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_impacto_matriz_reglas_por_sig",
+      "name": "203",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 10
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_impacto_matriz_reglas_por_sig",
+      "name": "204",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 11
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_impacto_matriz_reglas_por_sig",
+      "name": "205",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 12
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_impacto_matriz_reglas_por_sig",
+      "name": "301",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 13
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_impacto_matriz_reglas_por_sig",
+      "name": "401",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 14
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_impacto_matriz_reglas_por_sig",
+      "name": "402",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 15
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "sic",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 1
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "nom_app",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 2
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "1001",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 3
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "1002",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 4
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "1003",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 5
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "1004",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 6
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "1005",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 7
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "1006",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 8
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "2001",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 9
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "2002",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 10
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "2003",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 11
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "2004",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 12
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "2005",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 13
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "2006",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 14
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "2007",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 15
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "2008",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 16
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "2009",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 17
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "2010",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 18
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "2011",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 19
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "3001",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 20
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "3002",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 21
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "3003",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 22
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "3004",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 23
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "3005",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 24
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "3006",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 25
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "3007",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 26
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "3008",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 27
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "3009",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 28
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "3010",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 29
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "3011",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 30
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "3012",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 31
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "4001",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 32
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "4002",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 33
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "4003",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 34
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "4004",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 35
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "4005",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 36
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_probabilidad_matriz_reglas_por_sig",
+      "name": "4006",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 37
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_riesgo_resumen",
+      "name": "sic",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 1
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_riesgo_resumen",
+      "name": "nom_app",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 2
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_riesgo_resumen",
+      "name": "bloque",
+      "data_type": "int",
+      "nullable": "NO",
+      "ordinal_position": 3
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_riesgo_resumen",
+      "name": "id_risc",
+      "data_type": "int",
+      "nullable": "YES",
+      "ordinal_position": 4
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_riesgo_resumen",
+      "name": "probabilidad_raw",
+      "data_type": "decimal",
+      "nullable": "YES",
+      "ordinal_position": 5
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_riesgo_resumen",
+      "name": "probabilidad_final_num",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 6
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_riesgo_resumen",
+      "name": "probabilidad_final_texto",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 7
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_riesgo_resumen",
+      "name": "impacto_raw",
+      "data_type": "decimal",
+      "nullable": "YES",
+      "ordinal_position": 8
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_riesgo_resumen",
+      "name": "impacto_final_num",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 9
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_riesgo_resumen",
+      "name": "impacto_final_texto",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 10
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_riesgo_resumen",
+      "name": "riesgo_raw",
+      "data_type": "decimal",
+      "nullable": "YES",
+      "ordinal_position": 11
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_riesgo_resumen",
+      "name": "riesgo_final_num",
+      "data_type": "smallint",
+      "nullable": "YES",
+      "ordinal_position": 12
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_riesgo_resumen",
+      "name": "riesgo_final_texto",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 13
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_riesgo_resumen",
+      "name": "run_id",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 14
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_riesgo_resumen",
+      "name": "version_modelo",
+      "data_type": "varchar",
+      "nullable": "YES",
+      "ordinal_position": 15
+    },
+    {
+      "schema": "gold_sic",
+      "table": "vw_riesgo_resumen",
+      "name": "fecha_calculo",
+      "data_type": "datetime2",
+      "nullable": "YES",
+      "ordinal_position": 16
+    }
+  ],
+  "limits": {
+    "max_tables": 100,
+    "max_columns": 2000
+  },
+  "table_name_pattern": "",
+  "schema_name": "gold_sic",
+  "discovery_id": "fabric-discovery-2026-08-03T08-01-22-00-00-875df452c32b",
+  "project_id": "fabric-gold-sic-risk-pilot"
+}

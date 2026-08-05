@@ -1,0 +1,10 @@
+{
+  "operation": "review_only",
+  "requires": [
+    "release_inmutable",
+    "mapping_aprobado",
+    "identidad_autorizada",
+    "destino_configurado"
+  ],
+  "external_changes": []
+}

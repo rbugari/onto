@@ -1,0 +1,2370 @@
+[
+  {
+    "candidate_id": "candidate-concept-0001",
+    "candidate_type": "concept",
+    "name": "Actualizacion vigente",
+    "definition": "2026-06-10",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0002",
+    "candidate_type": "concept",
+    "name": "- Workspace",
+    "definition": "`W004_M007D_Risk_Analysis_DES`",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0003",
+    "candidate_type": "concept",
+    "name": "- Semantic model publicado",
+    "definition": "`Modelo_semantico_riesgos`",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0004",
+    "candidate_type": "concept",
+    "name": "- Semantic model id",
+    "definition": "`8437c406-92e2-409f-98e4-ef36ac3e8b81`",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0005",
+    "candidate_type": "concept",
+    "name": "- Reporte publicado",
+    "definition": "`MS_reporte1`",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0006",
+    "candidate_type": "concept",
+    "name": "- Report id",
+    "definition": "`5dcba636-4525-4835-a454-53e1200b78d2`",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0007",
+    "candidate_type": "concept",
+    "name": "- Dominios canonicos",
+    "definition": "`gold_sic`, `gold_lldt`, `gold_cultura`, `gold_governanca` y `gold_infra`",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0008",
+    "candidate_type": "concept",
+    "name": "- Esquemas retirados del circuito operativo",
+    "definition": "`gold` y `gold_pt`",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0009",
+    "candidate_type": "concept",
+    "name": "- Snapshot operativo visible para usuario",
+    "definition": "`dim_run_modelo[fecha_carga]`, considerando ciclo completo solo cuando los cinco dominios Gold tienen ejecucion correcta",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0010",
+    "candidate_type": "concept",
+    "name": "- Filtro transversal compartido de departamento",
+    "definition": "`dim_departamento_master[nombre_departamento]`",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0011",
+    "candidate_type": "concept",
+    "name": "- Dimension descriptiva maestra de riesgo",
+    "definition": "`dim_riesgo_master`",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0012",
+    "candidate_type": "concept",
+    "name": "- Dimension descriptiva maestra de amenaza",
+    "definition": "`dim_amenaza_master` para SIC e INFRA",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0013",
+    "candidate_type": "concept",
+    "name": "- `semantic_model/definition/`",
+    "definition": "fuente TMDL del modelo para cambios controlados.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0014",
+    "candidate_type": "concept",
+    "name": "- `semantic_model/model.bim`",
+    "definition": "representacion JSON util para Tabular Editor / XMLA.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0015",
+    "candidate_type": "concept",
+    "name": "- `semantic_model/README.md`",
+    "definition": "mapa corto del area semantica.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0016",
+    "candidate_type": "concept",
+    "name": "- `semantic_model/pres1/`",
+    "definition": "proyecto local del reporte cuando haga falta abrirlo manualmente en Desktop.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0017",
+    "candidate_type": "concept",
+    "name": "- `semantic_model/pres1.pbix`",
+    "definition": "stub minimo; no debe tomarse como copia portable completa del reporte operativo.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0018",
+    "candidate_type": "concept",
+    "name": "- `semantic_model/GUIA_ARMADO_PBIX_DEPTO_SIC_LLDT.md`",
+    "definition": "layout y reglas del reporte combinado publicado.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0019",
+    "candidate_type": "concept",
+    "name": "- `semantic_model/GUIA_ARMADO_PBIX_SIC.md`",
+    "definition": "patron SIC para paginas especificas del dominio.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0020",
+    "candidate_type": "concept",
+    "name": "- `semantic_model/GUIA_PAGINA_AMENAZAS_SIC.md`",
+    "definition": "blueprint operativo de la pagina de amenazas.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0021",
+    "candidate_type": "concept",
+    "name": "- `semantic_model/INFORME_SIC_DRILLTHROUGH.md`",
+    "definition": "patron de lectura y drillthrough para SIC.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0022",
+    "candidate_type": "concept",
+    "name": "- nivel final",
+    "definition": "`fact_riesgo_*`;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0023",
+    "candidate_type": "concept",
+    "name": "- nivel bloque",
+    "definition": "`fact_impacto_bloque_*` y `fact_probabilidad_bloque_*`;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0024",
+    "candidate_type": "concept",
+    "name": "- nivel regla",
+    "definition": "`fact_impacto_*` y `fact_probabilidad_*`, cuando el dominio lo publica.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0025",
+    "candidate_type": "concept",
+    "name": "- aplicaciones",
+    "definition": "`dim_aplicacion_sic`, `dim_aplicacion_infra`;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": ", explicabilidad y futuras lecturas asistidas por agentes.\n\n\n\nLa idea central es separar tres preguntas distintas:\n\n\n\n1. cual es el riesgo final de una entidad;\n\n2. que bloques explican ese resultado;\n\n3. que reglas concretas aportan a cada bloque.\n\n\n\nPor eso el modelo conserva hechos a tres niveles:\n\n\n\n- nivel final: `fact_riesgo_*`;\n\n- nivel bloque: `fact_impacto_bloque_*` y `fact_probabilidad_bloque_*`;\n\n- nivel regla: `fact_impacto_*` y `fact_probabilidad_*`, cuando el dominio lo publica.\n\n\n\nEl riesgo final no debe recalcularse en el reporte. La combinacion entre probabilidad e impacto ya ",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0026",
+    "candidate_type": "concept",
+    "name": "- departamentos de referencia con atributos auxiliares de SIC",
+    "definition": "`dim_aplicacion_cultura`, `dim_aplicacion_governanca`;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": ", explicabilidad y futuras lecturas asistidas por agentes.\n\n\n\nLa idea central es separar tres preguntas distintas:\n\n\n\n1. cual es el riesgo final de una entidad;\n\n2. que bloques explican ese resultado;\n\n3. que reglas concretas aportan a cada bloque.\n\n\n\nPor eso el modelo conserva hechos a tres niveles:\n\n\n\n- nivel final: `fact_riesgo_*`;\n\n- nivel bloque: `fact_impacto_bloque_*` y `fact_probabilidad_bloque_*`;\n\n- nivel regla: `fact_impacto_*` y `fact_probabilidad_*`, cuando el dominio lo publica.\n\n\n\nEl riesgo final no debe recalcularse en el reporte. La combinacion entre probabilidad e impacto ya ",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0027",
+    "candidate_type": "concept",
+    "name": "- departamentos LLDT",
+    "definition": "`dim_departamento_pt`;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": ", explicabilidad y futuras lecturas asistidas por agentes.\n\n\n\nLa idea central es separar tres preguntas distintas:\n\n\n\n1. cual es el riesgo final de una entidad;\n\n2. que bloques explican ese resultado;\n\n3. que reglas concretas aportan a cada bloque.\n\n\n\nPor eso el modelo conserva hechos a tres niveles:\n\n\n\n- nivel final: `fact_riesgo_*`;\n\n- nivel bloque: `fact_impacto_bloque_*` y `fact_probabilidad_bloque_*`;\n\n- nivel regla: `fact_impacto_*` y `fact_probabilidad_*`, cuando el dominio lo publica.\n\n\n\nEl riesgo final no debe recalcularse en el reporte. La combinacion entre probabilidad e impacto ya ",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0028",
+    "candidate_type": "concept",
+    "name": "- reglas",
+    "definition": "`dim_regla_sic`, `dim_regla_infra`, `dim_regla_pt`, `dim_regla_cultura`, `dim_regla_governanca`;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": ", explicabilidad y futuras lecturas asistidas por agentes.\n\n\n\nLa idea central es separar tres preguntas distintas:\n\n\n\n1. cual es el riesgo final de una entidad;\n\n2. que bloques explican ese resultado;\n\n3. que reglas concretas aportan a cada bloque.\n\n\n\nPor eso el modelo conserva hechos a tres niveles:\n\n\n\n- nivel final: `fact_riesgo_*`;\n\n- nivel bloque: `fact_impacto_bloque_*` y `fact_probabilidad_bloque_*`;\n\n- nivel regla: `fact_impacto_*` y `fact_probabilidad_*`, cuando el dominio lo publica.\n\n\n\nEl riesgo final no debe recalcularse en el reporte. La combinacion entre probabilidad e impacto ya ",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0029",
+    "candidate_type": "concept",
+    "name": "- supuestos",
+    "definition": "`dim_supuesto_modelo_sic`, `dim_supuesto_modelo_infra`, `dim_supuesto_modelo_pt`, `dim_supuesto_modelo_cultura`, `dim_supuesto_modelo_governanca`.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": ", explicabilidad y futuras lecturas asistidas por agentes.\n\n\n\nLa idea central es separar tres preguntas distintas:\n\n\n\n1. cual es el riesgo final de una entidad;\n\n2. que bloques explican ese resultado;\n\n3. que reglas concretas aportan a cada bloque.\n\n\n\nPor eso el modelo conserva hechos a tres niveles:\n\n\n\n- nivel final: `fact_riesgo_*`;\n\n- nivel bloque: `fact_impacto_bloque_*` y `fact_probabilidad_bloque_*`;\n\n- nivel regla: `fact_impacto_*` y `fact_probabilidad_*`, cuando el dominio lo publica.\n\n\n\nEl riesgo final no debe recalcularse en el reporte. La combinacion entre probabilidad e impacto ya ",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0030",
+    "candidate_type": "concept",
+    "name": "Regla practica",
+    "definition": "para analisis dentro de un eje se puede usar el id nativo; para analisis entre ejes usar siempre la clave con prefijo (`risk_key` o `amenaza_key`).",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": ", explicabilidad y futuras lecturas asistidas por agentes.\n\n\n\nLa idea central es separar tres preguntas distintas:\n\n\n\n1. cual es el riesgo final de una entidad;\n\n2. que bloques explican ese resultado;\n\n3. que reglas concretas aportan a cada bloque.\n\n\n\nPor eso el modelo conserva hechos a tres niveles:\n\n\n\n- nivel final: `fact_riesgo_*`;\n\n- nivel bloque: `fact_impacto_bloque_*` y `fact_probabilidad_bloque_*`;\n\n- nivel regla: `fact_impacto_*` y `fact_probabilidad_*`, cuando el dominio lo publica.\n\n\n\nEl riesgo final no debe recalcularse en el reporte. La combinacion entre probabilidad e impacto ya ",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0031",
+    "candidate_type": "concept",
+    "name": "- pagina ejecutiva SIC",
+    "definition": "empezar en `fact_riesgo_sic`, contar `sic` y agrupar por `riesgo_final_texto`, `risc`, departamento o aplicacion;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "al de la regla | relacion y detalle tecnico-funcional |\n\n| `regla_nombre` | nombre corto visible | filas de matriz, titulos y tooltips cortos |\n\n| `regla_descripcion` | descripcion funcional larga | tooltips, paginas de detalle y explicabilidad |\n\n| `bloque` | bloque de calculo | agrupar reglas por probabilidad o impacto |\n\n| `id_risc` / `risc` | riesgo funcional asociado | explicar que riesgo mide la regla |\n\n| `activa` | vigencia de la regla | filtrar catalogos o validar backlog funcional |\n\n\n\nLa regla recomendada en Power BI es mostrar `regla_nombre` como etiqueta principal y `regla_descrip",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0032",
+    "candidate_type": "concept",
+    "name": "- detalle de reglas SIC",
+    "definition": "usar `fact_probabilidad_sic` y `fact_impacto_sic` con `dim_regla_sic`, mostrando `tipo_valor`, `usa_default`, `peso_regla` y, si hace falta, `default_nivel_num` / `default_nivel_texto`;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "al de la regla | relacion y detalle tecnico-funcional |\n\n| `regla_nombre` | nombre corto visible | filas de matriz, titulos y tooltips cortos |\n\n| `regla_descripcion` | descripcion funcional larga | tooltips, paginas de detalle y explicabilidad |\n\n| `bloque` | bloque de calculo | agrupar reglas por probabilidad o impacto |\n\n| `id_risc` / `risc` | riesgo funcional asociado | explicar que riesgo mide la regla |\n\n| `activa` | vigencia de la regla | filtrar catalogos o validar backlog funcional |\n\n\n\nLa regla recomendada en Power BI es mostrar `regla_nombre` como etiqueta principal y `regla_descrip",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0033",
+    "candidate_type": "concept",
+    "name": "- amenazas SIC",
+    "definition": "usar `bridge_riesgo_amenaza_sic` con `dim_amenaza_master` y filtrar los facts por `risk_key`;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "al de la regla | relacion y detalle tecnico-funcional |\n\n| `regla_nombre` | nombre corto visible | filas de matriz, titulos y tooltips cortos |\n\n| `regla_descripcion` | descripcion funcional larga | tooltips, paginas de detalle y explicabilidad |\n\n| `bloque` | bloque de calculo | agrupar reglas por probabilidad o impacto |\n\n| `id_risc` / `risc` | riesgo funcional asociado | explicar que riesgo mide la regla |\n\n| `activa` | vigencia de la regla | filtrar catalogos o validar backlog funcional |\n\n\n\nLa regla recomendada en Power BI es mostrar `regla_nombre` como etiqueta principal y `regla_descrip",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0034",
+    "candidate_type": "concept",
+    "name": "- ficha de aplicacion",
+    "definition": "combinar `dim_aplicacion_sic` con `fact_riesgo_sic`, preferir `nombre_extendido` como etiqueta visible, y agregar detalle de reglas solo como tablas separadas.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "al de la regla | relacion y detalle tecnico-funcional |\n\n| `regla_nombre` | nombre corto visible | filas de matriz, titulos y tooltips cortos |\n\n| `regla_descripcion` | descripcion funcional larga | tooltips, paginas de detalle y explicabilidad |\n\n| `bloque` | bloque de calculo | agrupar reglas por probabilidad o impacto |\n\n| `id_risc` / `risc` | riesgo funcional asociado | explicar que riesgo mide la regla |\n\n| `activa` | vigencia de la regla | filtrar catalogos o validar backlog funcional |\n\n\n\nLa regla recomendada en Power BI es mostrar `regla_nombre` como etiqueta principal y `regla_descrip",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0035",
+    "candidate_type": "concept",
+    "name": "- resumen INFRA",
+    "definition": "`fact_riesgo_infra` con `dim_aplicacion_infra` y `dim_riesgo_master` filtrando dominio INFRA;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "al de la regla | relacion y detalle tecnico-funcional |\n\n| `regla_nombre` | nombre corto visible | filas de matriz, titulos y tooltips cortos |\n\n| `regla_descripcion` | descripcion funcional larga | tooltips, paginas de detalle y explicabilidad |\n\n| `bloque` | bloque de calculo | agrupar reglas por probabilidad o impacto |\n\n| `id_risc` / `risc` | riesgo funcional asociado | explicar que riesgo mide la regla |\n\n| `activa` | vigencia de la regla | filtrar catalogos o validar backlog funcional |\n\n\n\nLa regla recomendada en Power BI es mostrar `regla_nombre` como etiqueta principal y `regla_descrip",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0036",
+    "candidate_type": "concept",
+    "name": "- comparacion con SIC",
+    "definition": "usar medidas separadas por eje o visuales separados, no una unica cuenta mezclada sin dominio;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "al de la regla | relacion y detalle tecnico-funcional |\n\n| `regla_nombre` | nombre corto visible | filas de matriz, titulos y tooltips cortos |\n\n| `regla_descripcion` | descripcion funcional larga | tooltips, paginas de detalle y explicabilidad |\n\n| `bloque` | bloque de calculo | agrupar reglas por probabilidad o impacto |\n\n| `id_risc` / `risc` | riesgo funcional asociado | explicar que riesgo mide la regla |\n\n| `activa` | vigencia de la regla | filtrar catalogos o validar backlog funcional |\n\n\n\nLa regla recomendada en Power BI es mostrar `regla_nombre` como etiqueta principal y `regla_descrip",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0037",
+    "candidate_type": "concept",
+    "name": "- explicacion de reglas",
+    "definition": "`fact_probabilidad_infra` / `fact_impacto_infra` con `dim_regla_infra`, mostrando `tipo_valor`, `usa_default`, `peso_regla` y `default_nivel_num` / `default_nivel_texto` cuando aplique.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "al de la regla | relacion y detalle tecnico-funcional |\n\n| `regla_nombre` | nombre corto visible | filas de matriz, titulos y tooltips cortos |\n\n| `regla_descripcion` | descripcion funcional larga | tooltips, paginas de detalle y explicabilidad |\n\n| `bloque` | bloque de calculo | agrupar reglas por probabilidad o impacto |\n\n| `id_risc` / `risc` | riesgo funcional asociado | explicar que riesgo mide la regla |\n\n| `activa` | vigencia de la regla | filtrar catalogos o validar backlog funcional |\n\n\n\nLa regla recomendada en Power BI es mostrar `regla_nombre` como etiqueta principal y `regla_descrip",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0038",
+    "candidate_type": "concept",
+    "name": "- resumen LLDT por departamento",
+    "definition": "`fact_riesgo_pt` con `dim_departamento_master` o `dim_departamento_pt`;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "al de la regla | relacion y detalle tecnico-funcional |\n\n| `regla_nombre` | nombre corto visible | filas de matriz, titulos y tooltips cortos |\n\n| `regla_descripcion` | descripcion funcional larga | tooltips, paginas de detalle y explicabilidad |\n\n| `bloque` | bloque de calculo | agrupar reglas por probabilidad o impacto |\n\n| `id_risc` / `risc` | riesgo funcional asociado | explicar que riesgo mide la regla |\n\n| `activa` | vigencia de la regla | filtrar catalogos o validar backlog funcional |\n\n\n\nLa regla recomendada en Power BI es mostrar `regla_nombre` como etiqueta principal y `regla_descrip",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0039",
+    "candidate_type": "concept",
+    "name": "- detalle causal de probabilidad",
+    "definition": "`fact_probabilidad_pt` con `dim_regla_pt`, mostrando `tipo_valor`, `usa_default`, `peso_regla` y, si hace falta explicar configuracion, `default_nivel_num` / `default_nivel_texto` desde la dimension de regla;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "e | `fact_probabilidad_bloque_pt` | agregacion de probabilidad por bloque y riesgo |\n\n| impacto bloque | `fact_impacto_bloque_pt` | impacto final del bloque LLDT |\n\n| reglas | `dim_regla_pt` | reglas LLDT con nombre, descripcion larga, pesos y metadata de default |\n\n| riesgos | `dim_riesgo_filtro_pt`, `dim_riesgo_master` | filtro nativo o transversal de riesgo |\n\n\n\nConsultas recomendadas:\n\n\n\n- resumen LLDT por departamento: `fact_riesgo_pt` con `dim_departamento_master` o `dim_departamento_pt`;\n\n- detalle causal de probabilidad: `fact_probabilidad_pt` con `dim_regla_pt`, mostrando `tipo_valor`",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0040",
+    "candidate_type": "concept",
+    "name": "- lectura de impacto",
+    "definition": "usar `fact_impacto_bloque_pt`, porque LLDT publica impacto consolidado a nivel bloque;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "e | `fact_probabilidad_bloque_pt` | agregacion de probabilidad por bloque y riesgo |\n\n| impacto bloque | `fact_impacto_bloque_pt` | impacto final del bloque LLDT |\n\n| reglas | `dim_regla_pt` | reglas LLDT con nombre, descripcion larga, pesos y metadata de default |\n\n| riesgos | `dim_riesgo_filtro_pt`, `dim_riesgo_master` | filtro nativo o transversal de riesgo |\n\n\n\nConsultas recomendadas:\n\n\n\n- resumen LLDT por departamento: `fact_riesgo_pt` con `dim_departamento_master` o `dim_departamento_pt`;\n\n- detalle causal de probabilidad: `fact_probabilidad_pt` con `dim_regla_pt`, mostrando `tipo_valor`",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0041",
+    "candidate_type": "concept",
+    "name": "- comparacion transversal de riesgos",
+    "definition": "usar `risk_key` contra `dim_riesgo_master`.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "e | `fact_probabilidad_bloque_pt` | agregacion de probabilidad por bloque y riesgo |\n\n| impacto bloque | `fact_impacto_bloque_pt` | impacto final del bloque LLDT |\n\n| reglas | `dim_regla_pt` | reglas LLDT con nombre, descripcion larga, pesos y metadata de default |\n\n| riesgos | `dim_riesgo_filtro_pt`, `dim_riesgo_master` | filtro nativo o transversal de riesgo |\n\n\n\nConsultas recomendadas:\n\n\n\n- resumen LLDT por departamento: `fact_riesgo_pt` con `dim_departamento_master` o `dim_departamento_pt`;\n\n- detalle causal de probabilidad: `fact_probabilidad_pt` con `dim_regla_pt`, mostrando `tipo_valor`",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0042",
+    "candidate_type": "concept",
+    "name": "Nota",
+    "definition": "LLDT no tiene catalogo comun de amenazas. Las paginas de amenazas deben limitarse a SIC e INFRA.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "e | `fact_probabilidad_bloque_pt` | agregacion de probabilidad por bloque y riesgo |\n\n| impacto bloque | `fact_impacto_bloque_pt` | impacto final del bloque LLDT |\n\n| reglas | `dim_regla_pt` | reglas LLDT con nombre, descripcion larga, pesos y metadata de default |\n\n| riesgos | `dim_riesgo_filtro_pt`, `dim_riesgo_master` | filtro nativo o transversal de riesgo |\n\n\n\nConsultas recomendadas:\n\n\n\n- resumen LLDT por departamento: `fact_riesgo_pt` con `dim_departamento_master` o `dim_departamento_pt`;\n\n- detalle causal de probabilidad: `fact_probabilidad_pt` con `dim_regla_pt`, mostrando `tipo_valor`",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0043",
+    "candidate_type": "concept",
+    "name": "- resumen CULTURA",
+    "definition": "`fact_riesgo_cultura` con `dim_aplicacion_cultura` y `dim_departamento_master`;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "e | `fact_probabilidad_bloque_pt` | agregacion de probabilidad por bloque y riesgo |\n\n| impacto bloque | `fact_impacto_bloque_pt` | impacto final del bloque LLDT |\n\n| reglas | `dim_regla_pt` | reglas LLDT con nombre, descripcion larga, pesos y metadata de default |\n\n| riesgos | `dim_riesgo_filtro_pt`, `dim_riesgo_master` | filtro nativo o transversal de riesgo |\n\n\n\nConsultas recomendadas:\n\n\n\n- resumen LLDT por departamento: `fact_riesgo_pt` con `dim_departamento_master` o `dim_departamento_pt`;\n\n- detalle causal de probabilidad: `fact_probabilidad_pt` con `dim_regla_pt`, mostrando `tipo_valor`",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0044",
+    "candidate_type": "concept",
+    "name": "- explicabilidad",
+    "definition": "`fact_probabilidad_cultura` y `fact_impacto_cultura` con `dim_regla_cultura`;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "e | `fact_probabilidad_bloque_pt` | agregacion de probabilidad por bloque y riesgo |\n\n| impacto bloque | `fact_impacto_bloque_pt` | impacto final del bloque LLDT |\n\n| reglas | `dim_regla_pt` | reglas LLDT con nombre, descripcion larga, pesos y metadata de default |\n\n| riesgos | `dim_riesgo_filtro_pt`, `dim_riesgo_master` | filtro nativo o transversal de riesgo |\n\n\n\nConsultas recomendadas:\n\n\n\n- resumen LLDT por departamento: `fact_riesgo_pt` con `dim_departamento_master` o `dim_departamento_pt`;\n\n- detalle causal de probabilidad: `fact_probabilidad_pt` con `dim_regla_pt`, mostrando `tipo_valor`",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0045",
+    "candidate_type": "concept",
+    "name": "- gobierno de defaults",
+    "definition": "revisar `usa_default`, `tipo_valor`, `peso_regla`, `defaults_cnt` y `dim_supuesto_modelo_cultura`.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "e | `fact_probabilidad_bloque_pt` | agregacion de probabilidad por bloque y riesgo |\n\n| impacto bloque | `fact_impacto_bloque_pt` | impacto final del bloque LLDT |\n\n| reglas | `dim_regla_pt` | reglas LLDT con nombre, descripcion larga, pesos y metadata de default |\n\n| riesgos | `dim_riesgo_filtro_pt`, `dim_riesgo_master` | filtro nativo o transversal de riesgo |\n\n\n\nConsultas recomendadas:\n\n\n\n- resumen LLDT por departamento: `fact_riesgo_pt` con `dim_departamento_master` o `dim_departamento_pt`;\n\n- detalle causal de probabilidad: `fact_probabilidad_pt` con `dim_regla_pt`, mostrando `tipo_valor`",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0046",
+    "candidate_type": "concept",
+    "name": "- resumen GOVERNANCA",
+    "definition": "`fact_riesgo_governanca` con `dim_aplicacion_governanca` y `dim_departamento_master`;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "e | `fact_probabilidad_bloque_pt` | agregacion de probabilidad por bloque y riesgo |\n\n| impacto bloque | `fact_impacto_bloque_pt` | impacto final del bloque LLDT |\n\n| reglas | `dim_regla_pt` | reglas LLDT con nombre, descripcion larga, pesos y metadata de default |\n\n| riesgos | `dim_riesgo_filtro_pt`, `dim_riesgo_master` | filtro nativo o transversal de riesgo |\n\n\n\nConsultas recomendadas:\n\n\n\n- resumen LLDT por departamento: `fact_riesgo_pt` con `dim_departamento_master` o `dim_departamento_pt`;\n\n- detalle causal de probabilidad: `fact_probabilidad_pt` con `dim_regla_pt`, mostrando `tipo_valor`",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0047",
+    "candidate_type": "concept",
+    "name": "- detalle del bloque 4000",
+    "definition": "usar facts de regla con `dim_regla_governanca` y filtrar por bloque;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "e | `fact_probabilidad_bloque_pt` | agregacion de probabilidad por bloque y riesgo |\n\n| impacto bloque | `fact_impacto_bloque_pt` | impacto final del bloque LLDT |\n\n| reglas | `dim_regla_pt` | reglas LLDT con nombre, descripcion larga, pesos y metadata de default |\n\n| riesgos | `dim_riesgo_filtro_pt`, `dim_riesgo_master` | filtro nativo o transversal de riesgo |\n\n\n\nConsultas recomendadas:\n\n\n\n- resumen LLDT por departamento: `fact_riesgo_pt` con `dim_departamento_master` o `dim_departamento_pt`;\n\n- detalle causal de probabilidad: `fact_probabilidad_pt` con `dim_regla_pt`, mostrando `tipo_valor`",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0048",
+    "candidate_type": "concept",
+    "name": "- revision de cobertura",
+    "definition": "usar facts de bloque y columnas `reales`, `proxies`, `defaults_cnt`, `constantes`.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "e | `fact_probabilidad_bloque_pt` | agregacion de probabilidad por bloque y riesgo |\n\n| impacto bloque | `fact_impacto_bloque_pt` | impacto final del bloque LLDT |\n\n| reglas | `dim_regla_pt` | reglas LLDT con nombre, descripcion larga, pesos y metadata de default |\n\n| riesgos | `dim_riesgo_filtro_pt`, `dim_riesgo_master` | filtro nativo o transversal de riesgo |\n\n\n\nConsultas recomendadas:\n\n\n\n- resumen LLDT por departamento: `fact_riesgo_pt` con `dim_departamento_master` o `dim_departamento_pt`;\n\n- detalle causal de probabilidad: `fact_probabilidad_pt` con `dim_regla_pt`, mostrando `tipo_valor`",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0049",
+    "candidate_type": "concept",
+    "name": "- SIC",
+    "definition": "distinct count de `fact_riesgo_sic[sic]` o medida `SICs` si aplica al visual;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "e | `fact_probabilidad_bloque_pt` | agregacion de probabilidad por bloque y riesgo |\n\n| impacto bloque | `fact_impacto_bloque_pt` | impacto final del bloque LLDT |\n\n| reglas | `dim_regla_pt` | reglas LLDT con nombre, descripcion larga, pesos y metadata de default |\n\n| riesgos | `dim_riesgo_filtro_pt`, `dim_riesgo_master` | filtro nativo o transversal de riesgo |\n\n\n\nConsultas recomendadas:\n\n\n\n- resumen LLDT por departamento: `fact_riesgo_pt` con `dim_departamento_master` o `dim_departamento_pt`;\n\n- detalle causal de probabilidad: `fact_probabilidad_pt` con `dim_regla_pt`, mostrando `tipo_valor`",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0050",
+    "candidate_type": "concept",
+    "name": "- INFRA",
+    "definition": "distinct count de `fact_riesgo_infra[sic]` o medida `INFRAs` si aplica al visual;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "e | `fact_probabilidad_bloque_pt` | agregacion de probabilidad por bloque y riesgo |\n\n| impacto bloque | `fact_impacto_bloque_pt` | impacto final del bloque LLDT |\n\n| reglas | `dim_regla_pt` | reglas LLDT con nombre, descripcion larga, pesos y metadata de default |\n\n| riesgos | `dim_riesgo_filtro_pt`, `dim_riesgo_master` | filtro nativo o transversal de riesgo |\n\n\n\nConsultas recomendadas:\n\n\n\n- resumen LLDT por departamento: `fact_riesgo_pt` con `dim_departamento_master` o `dim_departamento_pt`;\n\n- detalle causal de probabilidad: `fact_probabilidad_pt` con `dim_regla_pt`, mostrando `tipo_valor`",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0051",
+    "candidate_type": "concept",
+    "name": "- LLDT",
+    "definition": "distinct count de `fact_riesgo_pt[codigo_departamento]`;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "e | `fact_probabilidad_bloque_pt` | agregacion de probabilidad por bloque y riesgo |\n\n| impacto bloque | `fact_impacto_bloque_pt` | impacto final del bloque LLDT |\n\n| reglas | `dim_regla_pt` | reglas LLDT con nombre, descripcion larga, pesos y metadata de default |\n\n| riesgos | `dim_riesgo_filtro_pt`, `dim_riesgo_master` | filtro nativo o transversal de riesgo |\n\n\n\nConsultas recomendadas:\n\n\n\n- resumen LLDT por departamento: `fact_riesgo_pt` con `dim_departamento_master` o `dim_departamento_pt`;\n\n- detalle causal de probabilidad: `fact_probabilidad_pt` con `dim_regla_pt`, mostrando `tipo_valor`",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0052",
+    "candidate_type": "concept",
+    "name": "- CULTURA",
+    "definition": "distinct count de `fact_riesgo_cultura[codigo_departamento_ref]`;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "e | `fact_probabilidad_bloque_pt` | agregacion de probabilidad por bloque y riesgo |\n\n| impacto bloque | `fact_impacto_bloque_pt` | impacto final del bloque LLDT |\n\n| reglas | `dim_regla_pt` | reglas LLDT con nombre, descripcion larga, pesos y metadata de default |\n\n| riesgos | `dim_riesgo_filtro_pt`, `dim_riesgo_master` | filtro nativo o transversal de riesgo |\n\n\n\nConsultas recomendadas:\n\n\n\n- resumen LLDT por departamento: `fact_riesgo_pt` con `dim_departamento_master` o `dim_departamento_pt`;\n\n- detalle causal de probabilidad: `fact_probabilidad_pt` con `dim_regla_pt`, mostrando `tipo_valor`",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0053",
+    "candidate_type": "concept",
+    "name": "- GOVERNANCA",
+    "definition": "distinct count de `fact_riesgo_governanca[codigo_departamento_ref]`.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "e | `fact_probabilidad_bloque_pt` | agregacion de probabilidad por bloque y riesgo |\n\n| impacto bloque | `fact_impacto_bloque_pt` | impacto final del bloque LLDT |\n\n| reglas | `dim_regla_pt` | reglas LLDT con nombre, descripcion larga, pesos y metadata de default |\n\n| riesgos | `dim_riesgo_filtro_pt`, `dim_riesgo_master` | filtro nativo o transversal de riesgo |\n\n\n\nConsultas recomendadas:\n\n\n\n- resumen LLDT por departamento: `fact_riesgo_pt` con `dim_departamento_master` o `dim_departamento_pt`;\n\n- detalle causal de probabilidad: `fact_probabilidad_pt` con `dim_regla_pt`, mostrando `tipo_valor`",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0054",
+    "candidate_type": "concept",
+    "name": "- que dominio responde",
+    "definition": "`SIC`, `LLDT`, `CULTURA`, `GOVERNANCA`, `INFRA` o combinado;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0055",
+    "candidate_type": "concept",
+    "name": "- cual es el grano visible",
+    "definition": "SIC, departamento o riesgo;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0056",
+    "candidate_type": "concept",
+    "name": "- cual es la medida principal",
+    "definition": "conteo, distinct count o texto de clasificacion;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0057",
+    "candidate_type": "concept",
+    "name": "- Riesgo descriptivo",
+    "definition": "`dim_riesgo_master`",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0058",
+    "candidate_type": "concept",
+    "name": "- Departamento transversal",
+    "definition": "`dim_departamento_master`",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0059",
+    "candidate_type": "concept",
+    "name": "- Detalle SIC",
+    "definition": "`dim_aplicacion_sic`",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0060",
+    "candidate_type": "concept",
+    "name": "- Detalle LLDT",
+    "definition": "`dim_departamento_pt` solo cuando haga falta bajar al scope nativo LLDT",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0061",
+    "candidate_type": "concept",
+    "name": "- Detalle INFRA",
+    "definition": "`dim_aplicacion_infra` y dimensiones de amenaza/riesgo INFRA cuando la lectura sea de infraestructura",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0062",
+    "candidate_type": "concept",
+    "name": "- SIC detalle",
+    "definition": "riesgo, nivel final, SIC",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0063",
+    "candidate_type": "concept",
+    "name": "- SIC amenazas",
+    "definition": "amenaza, departamento; riesgo y nivel final entran completos sin slicers expuestos, y las grillas se filtran con [Tiene SICs visibles] = 1 o [SICs] > 0",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0064",
+    "candidate_type": "concept",
+    "name": "- SIC detalle maximo",
+    "definition": "fecha, departamento y SIC; dos grillas separadas para impacto y probabilidad por codigo de regla",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0065",
+    "candidate_type": "concept",
+    "name": "- Bajo",
+    "definition": "verde suave",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0066",
+    "candidate_type": "concept",
+    "name": "- Medio",
+    "definition": "arena",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0067",
+    "candidate_type": "concept",
+    "name": "- Alto",
+    "definition": "naranja suave",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0068",
+    "candidate_type": "concept",
+    "name": "- Muy alto",
+    "definition": "rojo o rosa suave",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0069",
+    "candidate_type": "concept",
+    "name": "- que artefacto se toco",
+    "definition": "semantic model o reporte;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0070",
+    "candidate_type": "concept",
+    "name": "- Si cambia el estado general del frente BI",
+    "definition": "actualizar esta guia.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-006",
+      "source_excerpt": "model o reporte;\n\n- si hubo refresh del dataset;\n\n- que consulta DAX o chequeo se uso para validar;\n\n- que guia del repo refleja el nuevo estado.\n\n\n\n## Flujo recomendado para cambiar el modelo semantico\n\n\n\n1. Editar `definition/` o `model.bim` segun la herramienta elegida.\n\n2. Para cambios acotados, preferir deploy parcial sobre la definicion publicada.\n\n3. Publicar la parte afectada del modelo.\n\n4. Refrescar el dataset.\n\n5. Validar con DAX que la tabla, relacion o medida devuelve lo esperado.\n\n6. Recién despues tocar el reporte publicado.\n\n7. Actualizar esta documentacion y las guias satelite",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0071",
+    "candidate_type": "concept",
+    "name": "- Si cambia el mapa de artefactos locales",
+    "definition": "actualizar `semantic_model/README.md`.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-006",
+      "source_excerpt": "model o reporte;\n\n- si hubo refresh del dataset;\n\n- que consulta DAX o chequeo se uso para validar;\n\n- que guia del repo refleja el nuevo estado.\n\n\n\n## Flujo recomendado para cambiar el modelo semantico\n\n\n\n1. Editar `definition/` o `model.bim` segun la herramienta elegida.\n\n2. Para cambios acotados, preferir deploy parcial sobre la definicion publicada.\n\n3. Publicar la parte afectada del modelo.\n\n4. Refrescar el dataset.\n\n5. Validar con DAX que la tabla, relacion o medida devuelve lo esperado.\n\n6. Recién despues tocar el reporte publicado.\n\n7. Actualizar esta documentacion y las guias satelite",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0072",
+    "candidate_type": "concept",
+    "name": "- Si cambia el layout del reporte combinado",
+    "definition": "actualizar `semantic_model/GUIA_ARMADO_PBIX_DEPTO_SIC_LLDT.md`.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-006",
+      "source_excerpt": "model o reporte;\n\n- si hubo refresh del dataset;\n\n- que consulta DAX o chequeo se uso para validar;\n\n- que guia del repo refleja el nuevo estado.\n\n\n\n## Flujo recomendado para cambiar el modelo semantico\n\n\n\n1. Editar `definition/` o `model.bim` segun la herramienta elegida.\n\n2. Para cambios acotados, preferir deploy parcial sobre la definicion publicada.\n\n3. Publicar la parte afectada del modelo.\n\n4. Refrescar el dataset.\n\n5. Validar con DAX que la tabla, relacion o medida devuelve lo esperado.\n\n6. Recién despues tocar el reporte publicado.\n\n7. Actualizar esta documentacion y las guias satelite",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0073",
+    "candidate_type": "concept",
+    "name": "- Si cambia una pagina especifica SIC",
+    "definition": "actualizar `semantic_model/GUIA_ARMADO_PBIX_SIC.md`, `semantic_model/GUIA_PAGINA_AMENAZAS_SIC.md` o `semantic_model/INFORME_SIC_DRILLTHROUGH.md`.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-006",
+      "source_excerpt": "model o reporte;\n\n- si hubo refresh del dataset;\n\n- que consulta DAX o chequeo se uso para validar;\n\n- que guia del repo refleja el nuevo estado.\n\n\n\n## Flujo recomendado para cambiar el modelo semantico\n\n\n\n1. Editar `definition/` o `model.bim` segun la herramienta elegida.\n\n2. Para cambios acotados, preferir deploy parcial sobre la definicion publicada.\n\n3. Publicar la parte afectada del modelo.\n\n4. Refrescar el dataset.\n\n5. Validar con DAX que la tabla, relacion o medida devuelve lo esperado.\n\n6. Recién despues tocar el reporte publicado.\n\n7. Actualizar esta documentacion y las guias satelite",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0074",
+    "candidate_type": "concept",
+    "name": "- Si cambia la puerta de entrada del repo",
+    "definition": "actualizar `docs/INDICE_DOCUMENTACION.md`.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-006",
+      "source_excerpt": "model o reporte;\n\n- si hubo refresh del dataset;\n\n- que consulta DAX o chequeo se uso para validar;\n\n- que guia del repo refleja el nuevo estado.\n\n\n\n## Flujo recomendado para cambiar el modelo semantico\n\n\n\n1. Editar `definition/` o `model.bim` segun la herramienta elegida.\n\n2. Para cambios acotados, preferir deploy parcial sobre la definicion publicada.\n\n3. Publicar la parte afectada del modelo.\n\n4. Refrescar el dataset.\n\n5. Validar con DAX que la tabla, relacion o medida devuelve lo esperado.\n\n6. Recién despues tocar el reporte publicado.\n\n7. Actualizar esta documentacion y las guias satelite",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0075",
+    "candidate_type": "concept",
+    "name": "Fecha",
+    "definition": "2026-06-10",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0076",
+    "candidate_type": "concept",
+    "name": "Objetivo",
+    "definition": "explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0077",
+    "candidate_type": "concept",
+    "name": "> Estado del documento",
+    "definition": "guia funcional vigente del calculo Gold.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0078",
+    "candidate_type": "concept",
+    "name": "> Alcance",
+    "definition": "explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0079",
+    "candidate_type": "concept",
+    "name": "> Actualizacion 2026-06-04",
+    "definition": "las reglas SIC 1002, 2010, 3002 y 3010 quedan fijadas con la definicion del workbook v3.1: perimetro base desde `silver.fact_perimetro.base_attributes_noncompleted`, filtrando `status = Alta`, tomando solo la foto mas reciente y calculando `% despliegue base = 1 - (base_attributes_noncompleted / 6)`.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0080",
+    "candidate_type": "concept",
+    "name": "> Actualizacion 2026-06-10",
+    "definition": "CULTURA y GOVERNANCA pasan a publicarse a grano departamento con una unica valoracion por riesgo y departamento. Ambos dominios conservan un SIC canonico como atributo auxiliar, pero la clave de calculo y consolidacion final es `codigo_departamento_ref`.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0081",
+    "candidate_type": "concept",
+    "name": "- bloque 100",
+    "definition": "indisponibilidad de servicios o sistemas;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0082",
+    "candidate_type": "concept",
+    "name": "- bloque 200",
+    "definition": "compromiso y perdida de informacion;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0083",
+    "candidate_type": "concept",
+    "name": "- bloque 300",
+    "definition": "compromiso del equipo o plataforma;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0084",
+    "candidate_type": "concept",
+    "name": "- bloque 400",
+    "definition": "incumplimiento legal y normativo.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0085",
+    "candidate_type": "concept",
+    "name": "- probabilidad",
+    "definition": "que tan expuesto esta ese riesgo;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0086",
+    "candidate_type": "concept",
+    "name": "- impacto",
+    "definition": "que daño produciria si se materializa.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0087",
+    "candidate_type": "concept",
+    "name": "- el riesgo final no se calcula con promedio ni ponderacion lineal",
+    "definition": "se cruza probabilidad e impacto en una matriz 4x4 de doble entrada.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0088",
+    "candidate_type": "concept",
+    "name": "- reglas 101-105, 201-204, 301, 401-402",
+    "definition": "impacto;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0089",
+    "candidate_type": "concept",
+    "name": "- reglas 1001-1999, 2001-2999, 3001-3999, 4001-4999",
+    "definition": "probabilidad.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0090",
+    "candidate_type": "concept",
+    "name": "- 100 / 1000",
+    "definition": "indisponibilidad",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0091",
+    "candidate_type": "concept",
+    "name": "- 200 / 2000",
+    "definition": "compromiso y perdida de informacion",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0092",
+    "candidate_type": "concept",
+    "name": "- 300 / 3000",
+    "definition": "compromiso del equipo o plataforma",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0093",
+    "candidate_type": "concept",
+    "name": "- 400 / 4000",
+    "definition": "incumplimiento legal y normativo",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0094",
+    "candidate_type": "concept",
+    "name": "- `LLDT_SIC_EMULADO`",
+    "definition": "impacto LLDT resuelto con mezcla de datos departamentales y SIC emulado por departamento.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0095",
+    "candidate_type": "concept",
+    "name": "- La matriz vigente ya no debe mantenerse hardcodeada en Gold",
+    "definition": "se publica como fuente manual canonica `shared_risk_final_matrix.xlsx`, se carga en Bronze como `dbo.raw_shared_risk_final_matrix` y se consume desde `silver.ref_risk_final_matrix`.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "e` | porcentaje de equipos con sistema operativo obsoleto |\n\n| `security_score` | puntuacion de seguridad/perimetro publicada para la aplicacion o SIC |\n\n| `total_attributes_noncompleted` | cantidad de atributos de perimetro sin completar; si es 0 el perimetro esta mejor resuelto |\n\n| `critical_open_count` | numero de vulnerabilidades criticas abiertas |\n\n| `valor_exposicion` | exposicion CPD ya traducida a BAIX, MIG, ALT o MOLT ALT |\n\n| `is_t11` | indicador de exposicion a publico / internet |\n\n| `has_gicar` | indica integracion con GICAR para autenticacion |\n\n| `num_usuarios_max` / `num_usua",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0096",
+    "candidate_type": "concept",
+    "name": "Esto es importante para negocio",
+    "definition": "un `DEFAULT` LLDT no significa que el control este bien medido. Significa que el modelo no dispone de dato usable y adopta una hipotesis de continuidad.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "ra | Como se calcula | Valores / niveles | Tipo y default |\n\n|---|---|---|---|---|---|\n\n| 3001 | Antivirus | `% equipos con antivirus` | misma logica que 1001, aplicada al riesgo de compromiso del equipo | >= 96% = BAIX; 91-95 = MIG; 86-90 = ALT; < 86 = MOLT ALT | `REAL` si hay dato; `DEFAULT` si falta y se asume 100% |\n\n| 3002 | EDR | `% equipos con EDR` | misma logica que 1002 | >= 96% = BAIX; 91-95 = MIG; 86-90 = ALT; < 86 = MOLT ALT | `REAL` si hay dato; `DEFAULT` si falta y se asume 100% |\n\n| 3003 | Parches desactualizados | `% equipos con mas de 60 dias sin actualizar` | misma logica que",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0097",
+    "candidate_type": "concept",
+    "name": "- la traduccion vigente es directa",
+    "definition": "`Si` = BAIX, `No` = MOLT ALT, sin dato usable = MIG `DEFAULT`;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "a |\n\n| 203 | Criticidad del sistema | misma semantica que 105 | criticidad 0-1 = 4; 2-3 = 3; 4 = 2; resto = 1 | `REAL`; `DEFAULT` si falta |\n\n| 204 | Clasificacion de la informacion | usa `key_seguretat` del catalogo SIC/CIDAT | 1-4 se toman como nivel directo; si falta se aplica 4 | `REAL` si existe; `DEFAULT` al maximo si falta |\n\n\n\n### Bloque 300. Compromiso del equipo o plataforma\n\n\n\n| Regla | Objetivo funcional | Como se calcula | Valores / niveles | Tipo y default |\n\n|---|---|---|---|---|\n\n| 301 | Volumetria de usuarios y criticidad del sistema | combina `criticidad_negocio` y `num_usuar",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0098",
+    "candidate_type": "concept",
+    "name": "- la 301 y la 402 siguen la misma lectura operativa que la 102",
+    "definition": "`REAL` cuando el SIC critico usable esta informado y `DEFAULT` cuando falta.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "a |\n\n| 203 | Criticidad del sistema | misma semantica que 105 | criticidad 0-1 = 4; 2-3 = 3; 4 = 2; resto = 1 | `REAL`; `DEFAULT` si falta |\n\n| 204 | Clasificacion de la informacion | usa `key_seguretat` del catalogo SIC/CIDAT | 1-4 se toman como nivel directo; si falta se aplica 4 | `REAL` si existe; `DEFAULT` al maximo si falta |\n\n\n\n### Bloque 300. Compromiso del equipo o plataforma\n\n\n\n| Regla | Objetivo funcional | Como se calcula | Valores / niveles | Tipo y default |\n\n|---|---|---|---|---|\n\n| 301 | Volumetria de usuarios y criticidad del sistema | combina `criticidad_negocio` y `num_usuar",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0099",
+    "candidate_type": "concept",
+    "name": "- `valor` o dato fuente",
+    "definition": "es el porcentaje, recuento, si/no o constante original que llega a una regla;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "para el departamento;\n\n- la 201 debe leerse como `REAL` cuando el SIC critico usable esta informado y como `DEFAULT` cuando falta.\n\n- la 301 y la 402 siguen la misma lectura operativa que la 102: `REAL` cuando el SIC critico usable esta informado y `DEFAULT` cuando falta.\n\n\n\nPor lo tanto, el impacto LLDT no debe leerse como una severidad unica replicada a cuatro riesgos. Debe leerse como una construccion por bloque apoyada en una mezcla fija y trazable entre catalogo departamental y SIC emulado.\n\n\n\n## 10.6. Como debe leerse el bloque 4000 de GOVERNANCA\n\n\n\nEl bloque 4000 de GOVERNANCA no debe l",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0100",
+    "candidate_type": "concept",
+    "name": "- `nivel_num` y `nivel_texto`",
+    "definition": "son la traduccion de ese dato a la escala comun del modelo, donde `1 = BAIX`, `2 = MIG`, `3 = ALT` y `4 = MOLT ALT`;",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "para el departamento;\n\n- la 201 debe leerse como `REAL` cuando el SIC critico usable esta informado y como `DEFAULT` cuando falta.\n\n- la 301 y la 402 siguen la misma lectura operativa que la 102: `REAL` cuando el SIC critico usable esta informado y `DEFAULT` cuando falta.\n\n\n\nPor lo tanto, el impacto LLDT no debe leerse como una severidad unica replicada a cuatro riesgos. Debe leerse como una construccion por bloque apoyada en una mezcla fija y trazable entre catalogo departamental y SIC emulado.\n\n\n\n## 10.6. Como debe leerse el bloque 4000 de GOVERNANCA\n\n\n\nEl bloque 4000 de GOVERNANCA no debe l",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0101",
+    "candidate_type": "concept",
+    "name": "- `peso_regla`",
+    "definition": "es el factor con el que una regla entra al agregado del bloque o del eje completo.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "para el departamento;\n\n- la 201 debe leerse como `REAL` cuando el SIC critico usable esta informado y como `DEFAULT` cuando falta.\n\n- la 301 y la 402 siguen la misma lectura operativa que la 102: `REAL` cuando el SIC critico usable esta informado y `DEFAULT` cuando falta.\n\n\n\nPor lo tanto, el impacto LLDT no debe leerse como una severidad unica replicada a cuatro riesgos. Debe leerse como una construccion por bloque apoyada en una mezcla fija y trazable entre catalogo departamental y SIC emulado.\n\n\n\n## 10.6. Como debe leerse el bloque 4000 de GOVERNANCA\n\n\n\nEl bloque 4000 de GOVERNANCA no debe l",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0102",
+    "candidate_type": "concept",
+    "name": "Unidad de lectura",
+    "definition": "departamento o ambito de puestos.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "para el departamento;\n\n- la 201 debe leerse como `REAL` cuando el SIC critico usable esta informado y como `DEFAULT` cuando falta.\n\n- la 301 y la 402 siguen la misma lectura operativa que la 102: `REAL` cuando el SIC critico usable esta informado y `DEFAULT` cuando falta.\n\n\n\nPor lo tanto, el impacto LLDT no debe leerse como una severidad unica replicada a cuatro riesgos. Debe leerse como una construccion por bloque apoyada en una mezcla fija y trazable entre catalogo departamental y SIC emulado.\n\n\n\n## 10.6. Como debe leerse el bloque 4000 de GOVERNANCA\n\n\n\nEl bloque 4000 de GOVERNANCA no debe l",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0103",
+    "candidate_type": "concept",
+    "name": "No sustituye la documentacion detallada de cada script. Su funcion es operativa",
+    "definition": "explicar el orden, la dependencia y el criterio de uso.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001",
+      "source_excerpt": "# Guia operativa del ciclo\n\n\n\nFecha: 2026-04-27  \n\nObjetivo: describir el flujo real del proyecto, separar lo que ya esta operativo de lo que sigue pendiente y dejar una referencia unica para ejecucion y mantenimiento.\n\n\n\n---\n\n\n\n## Alcance\n\n\n\nEsta guia ordena el ciclo completo en seis tramos:\n\n\n\n1. validacion y publicacion de ManualLoads;\n\n2. precheck tecnico del ciclo;\n\n3. sincronizacion de ManualLoads a Silver;\n\n4. recarga del core Silver compartido;\n\n5. recalculo de Gold;\n\n6. refresh del modelo semantico cuando la ejecucion es end to end.\n\n\n\nNo sustituye la documentacion detallada de cada s",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-concept-0104",
+    "candidate_type": "concept",
+    "name": "Nota operativa",
+    "definition": "`NOTEBOOK_Import_CPD_EDR` no forma parte del camino canonico vigente de SIC si el entorno ya opera con `silver.fact_crowdstrike_cpd` -> `silver.vw_crowdstrike_cpd_current`.",
+    "status": "pending_review",
+    "confidence": 0.55,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001",
+      "source_excerpt": "# Guia operativa del ciclo\n\n\n\nFecha: 2026-04-27  \n\nObjetivo: describir el flujo real del proyecto, separar lo que ya esta operativo de lo que sigue pendiente y dejar una referencia unica para ejecucion y mantenimiento.\n\n\n\n---\n\n\n\n## Alcance\n\n\n\nEsta guia ordena el ciclo completo en seis tramos:\n\n\n\n1. validacion y publicacion de ManualLoads;\n\n2. precheck tecnico del ciclo;\n\n3. sincronizacion de ManualLoads a Silver;\n\n4. recarga del core Silver compartido;\n\n5. recalculo de Gold;\n\n6. refresh del modelo semantico cuando la ejecucion es end to end.\n\n\n\nNo sustituye la documentacion detallada de cada s",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0105",
+    "candidate_type": "business_rule",
+    "name": "- `semantic_model/pres1.pbix`: stub minimo; no debe tomarse como copia portable completa del reporte operativo.",
+    "definition": "- `semantic_model/pres1.pbix`: stub minimo; no debe tomarse como copia portable completa del reporte operativo.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "# Guia maestra del modelo semantico y del reporte publicado\n\n\n\nActualizacion vigente: 2026-06-10\n\n\n\n## Objetivo\n\n\n\nDejar en una sola ruta la documentacion operativa del modelo semantico y del reporte publicado en Fabric / Power BI.\n\n\n\nEsta guia reemplaza el uso disperso de notas temporales, referencias a PBIX minimos o estados intermedios del modelo. El objetivo es que cualquiera pueda entender:\n\n\n\n1. cual es el estado publicado vigente;\n\n2. que artefactos locales son fuente de trabajo;\n\n3. como extender el modelo o el reporte sin romper el consumo;\n\n4. que lineamientos hay que respetar para c",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0106",
+    "candidate_type": "business_rule",
+    "name": "El riesgo final no debe recalcularse en el reporte. La combinacion entre probabilidad e impacto ya llega desde Gold medi",
+    "definition": "El riesgo final no debe recalcularse en el reporte. La combinacion entre probabilidad e impacto ya llega desde Gold mediante la matriz 4 x 4 publicada en `silver.ref_risk_final_matrix`. En Power BI se debe leer `riesgo_final_num` y `riesgo_final_texto` como resultado final del calculo.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": ", explicabilidad y futuras lecturas asistidas por agentes.\n\n\n\nLa idea central es separar tres preguntas distintas:\n\n\n\n1. cual es el riesgo final de una entidad;\n\n2. que bloques explican ese resultado;\n\n3. que reglas concretas aportan a cada bloque.\n\n\n\nPor eso el modelo conserva hechos a tres niveles:\n\n\n\n- nivel final: `fact_riesgo_*`;\n\n- nivel bloque: `fact_impacto_bloque_*` y `fact_probabilidad_bloque_*`;\n\n- nivel regla: `fact_impacto_*` y `fact_probabilidad_*`, cuando el dominio lo publica.\n\n\n\nEl riesgo final no debe recalcularse en el reporte. La combinacion entre probabilidad e impacto ya ",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0107",
+    "candidate_type": "business_rule",
+    "name": "| Amenazas asociadas a riesgos | `bridge_riesgo_amenaza_sic` o `bridge_riesgo_amenaza_infra` | `dim_amenaza_master`, `di",
+    "definition": "| Amenazas asociadas a riesgos | `bridge_riesgo_amenaza_sic` o `bridge_riesgo_amenaza_infra` | `dim_amenaza_master`, `dim_riesgo_master` | solo SIC e INFRA |",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": ", explicabilidad y futuras lecturas asistidas por agentes.\n\n\n\nLa idea central es separar tres preguntas distintas:\n\n\n\n1. cual es el riesgo final de una entidad;\n\n2. que bloques explican ese resultado;\n\n3. que reglas concretas aportan a cada bloque.\n\n\n\nPor eso el modelo conserva hechos a tres niveles:\n\n\n\n- nivel final: `fact_riesgo_*`;\n\n- nivel bloque: `fact_impacto_bloque_*` y `fact_probabilidad_bloque_*`;\n\n- nivel regla: `fact_impacto_*` y `fact_probabilidad_*`, cuando el dominio lo publica.\n\n\n\nEl riesgo final no debe recalcularse en el reporte. La combinacion entre probabilidad e impacto ya ",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0108",
+    "candidate_type": "business_rule",
+    "name": "La regla recomendada en Power BI es mostrar `regla_nombre` como etiqueta principal y `regla_descripcion` como descripcio",
+    "definition": "La regla recomendada en Power BI es mostrar `regla_nombre` como etiqueta principal y `regla_descripcion` como descripcion extendida. `codigo_regla` debe quedar visible cuando el usuario necesite trazabilidad o conciliacion con Gold.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "al de la regla | relacion y detalle tecnico-funcional |\n\n| `regla_nombre` | nombre corto visible | filas de matriz, titulos y tooltips cortos |\n\n| `regla_descripcion` | descripcion funcional larga | tooltips, paginas de detalle y explicabilidad |\n\n| `bloque` | bloque de calculo | agrupar reglas por probabilidad o impacto |\n\n| `id_risc` / `risc` | riesgo funcional asociado | explicar que riesgo mide la regla |\n\n| `activa` | vigencia de la regla | filtrar catalogos o validar backlog funcional |\n\n\n\nLa regla recomendada en Power BI es mostrar `regla_nombre` como etiqueta principal y `regla_descrip",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0109",
+    "candidate_type": "business_rule",
+    "name": "Nota: LLDT no tiene catalogo comun de amenazas. Las paginas de amenazas deben limitarse a SIC e INFRA.",
+    "definition": "Nota: LLDT no tiene catalogo comun de amenazas. Las paginas de amenazas deben limitarse a SIC e INFRA.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "e | `fact_probabilidad_bloque_pt` | agregacion de probabilidad por bloque y riesgo |\n\n| impacto bloque | `fact_impacto_bloque_pt` | impacto final del bloque LLDT |\n\n| reglas | `dim_regla_pt` | reglas LLDT con nombre, descripcion larga, pesos y metadata de default |\n\n| riesgos | `dim_riesgo_filtro_pt`, `dim_riesgo_master` | filtro nativo o transversal de riesgo |\n\n\n\nConsultas recomendadas:\n\n\n\n- resumen LLDT por departamento: `fact_riesgo_pt` con `dim_departamento_master` o `dim_departamento_pt`;\n\n- detalle causal de probabilidad: `fact_probabilidad_pt` con `dim_regla_pt`, mostrando `tipo_valor`",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0110",
+    "candidate_type": "business_rule",
+    "name": "Igual que CULTURA, no debe usarse para paginas de amenazas porque no tiene bridge de amenaza compartido.",
+    "definition": "Igual que CULTURA, no debe usarse para paginas de amenazas porque no tiene bridge de amenaza compartido.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "e | `fact_probabilidad_bloque_pt` | agregacion de probabilidad por bloque y riesgo |\n\n| impacto bloque | `fact_impacto_bloque_pt` | impacto final del bloque LLDT |\n\n| reglas | `dim_regla_pt` | reglas LLDT con nombre, descripcion larga, pesos y metadata de default |\n\n| riesgos | `dim_riesgo_filtro_pt`, `dim_riesgo_master` | filtro nativo o transversal de riesgo |\n\n\n\nConsultas recomendadas:\n\n\n\n- resumen LLDT por departamento: `fact_riesgo_pt` con `dim_departamento_master` o `dim_departamento_pt`;\n\n- detalle causal de probabilidad: `fact_probabilidad_pt` con `dim_regla_pt`, mostrando `tipo_valor`",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0111",
+    "candidate_type": "business_rule",
+    "name": "- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_departamento_ref]` y, solo ",
+    "definition": "- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_departamento_ref]` y, solo si hace falta trazabilidad, `dim_aplicacion_cultura[sic]` o `dim_aplicacion_cultura[nom_app]`;",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0112",
+    "candidate_type": "business_rule",
+    "name": "- GOVERNANCA: `dim_aplicacion_governanca[nombre_departamento_ref]`, `dim_aplicacion_governanca[codigo_departamento_ref]`",
+    "definition": "- GOVERNANCA: `dim_aplicacion_governanca[nombre_departamento_ref]`, `dim_aplicacion_governanca[codigo_departamento_ref]` y, solo si hace falta trazabilidad, `dim_aplicacion_governanca[sic]` o `dim_aplicacion_governanca[nom_app]`.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0113",
+    "candidate_type": "business_rule",
+    "name": "- que decision deberia habilitar la pagina.",
+    "definition": "- que decision deberia habilitar la pagina.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0114",
+    "candidate_type": "business_rule",
+    "name": "- no debe reconstruirse en DAX como promedio, redondeo ni combinacion lineal de `probabilidad_final_num` e `impacto_fina",
+    "definition": "- no debe reconstruirse en DAX como promedio, redondeo ni combinacion lineal de `probabilidad_final_num` e `impacto_final_num`.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0115",
+    "candidate_type": "business_rule",
+    "name": "La misma escala deberia repetirse entre paginas para que el usuario no reaprenda el mapa cromatico.",
+    "definition": "La misma escala deberia repetirse entre paginas para que el usuario no reaprenda el mapa cromatico.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0116",
+    "candidate_type": "business_rule",
+    "name": "El reporte operativo actual se administró en servicio y no debe documentarse como si dependiera de `pres1.pbix`.",
+    "definition": "El reporte operativo actual se administró en servicio y no debe documentarse como si dependiera de `pres1.pbix`.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0117",
+    "candidate_type": "business_rule",
+    "name": "Cada ajuste importante del frente BI deberia dejar asentado:",
+    "definition": "Cada ajuste importante del frente BI deberia dejar asentado:",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_riesgo_master[risc]` cuando la lectura sea por riesgo compartido, fijando o mostrando `dominio_modelo` si hay varios ejes.\n\n\n\nFiltros por eje:\n\n\n\n- SIC: `dim_aplicacion_sic[nombre_extendido]`, y dejar `dim_aplicacion_sic[sic]` como apoyo tecnico cuando haga falta, mas `dim_amenaza_master[amenaca_acc]`;\n\n- INFRA: `dim_aplicacion_infra[sic]`, `dim_aplicacion_infra[nom_app]`, `dim_amenaza_master[amenaca_acc]`;\n\n- LLDT: `dim_departamento_pt[nombre_departamento]` cuando la pagina sea solo LLDT;\n\n- CULTURA: `dim_aplicacion_cultura[nombre_departamento_ref]`, `dim_aplicacion_cultura[codigo_depart",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0118",
+    "candidate_type": "business_rule",
+    "name": "No deben figurar como flujo vigente en ninguna guia principal:",
+    "definition": "No deben figurar como flujo vigente en ninguna guia principal:",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-006",
+      "source_excerpt": "model o reporte;\n\n- si hubo refresh del dataset;\n\n- que consulta DAX o chequeo se uso para validar;\n\n- que guia del repo refleja el nuevo estado.\n\n\n\n## Flujo recomendado para cambiar el modelo semantico\n\n\n\n1. Editar `definition/` o `model.bim` segun la herramienta elegida.\n\n2. Para cambios acotados, preferir deploy parcial sobre la definicion publicada.\n\n3. Publicar la parte afectada del modelo.\n\n4. Refrescar el dataset.\n\n5. Validar con DAX que la tabla, relacion o medida devuelve lo esperado.\n\n6. Recién despues tocar el reporte publicado.\n\n7. Actualizar esta documentacion y las guias satelite",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0119",
+    "candidate_type": "business_rule",
+    "name": "- `silver.dim_lldt_cidat` aporta la valoracion propia del departamento y `codi_dialeg` indica el SIC por defecto que deb",
+    "definition": "- `silver.dim_lldt_cidat` aporta la valoracion propia del departamento y `codi_dialeg` indica el SIC por defecto que debe emularse cuando una regla de impacto necesita datos SIC.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0120",
+    "candidate_type": "business_rule",
+    "name": "- La matriz vigente ya no debe mantenerse hardcodeada en Gold: se publica como fuente manual canonica `shared_risk_final",
+    "definition": "- La matriz vigente ya no debe mantenerse hardcodeada en Gold: se publica como fuente manual canonica `shared_risk_final_matrix.xlsx`, se carga en Bronze como `dbo.raw_shared_risk_final_matrix` y se consume desde `silver.ref_risk_final_matrix`.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "e` | porcentaje de equipos con sistema operativo obsoleto |\n\n| `security_score` | puntuacion de seguridad/perimetro publicada para la aplicacion o SIC |\n\n| `total_attributes_noncompleted` | cantidad de atributos de perimetro sin completar; si es 0 el perimetro esta mejor resuelto |\n\n| `critical_open_count` | numero de vulnerabilidades criticas abiertas |\n\n| `valor_exposicion` | exposicion CPD ya traducida a BAIX, MIG, ALT o MOLT ALT |\n\n| `is_t11` | indicador de exposicion a publico / internet |\n\n| `has_gicar` | indica integracion con GICAR para autenticacion |\n\n| `num_usuarios_max` / `num_usua",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0121",
+    "candidate_type": "business_rule",
+    "name": "- la consolidada `fact_riesgo` une probabilidad e impacto por `codigo_departamento_ref` e `id_risc`; no debe forzarse un",
+    "definition": "- la consolidada `fact_riesgo` une probabilidad e impacto por `codigo_departamento_ref` e `id_risc`; no debe forzarse un join adicional por bloque entre ambas facts porque en estos ejes las codificaciones de bloque de probabilidad e impacto no coinciden numericamente.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "e` | porcentaje de equipos con sistema operativo obsoleto |\n\n| `security_score` | puntuacion de seguridad/perimetro publicada para la aplicacion o SIC |\n\n| `total_attributes_noncompleted` | cantidad de atributos de perimetro sin completar; si es 0 el perimetro esta mejor resuelto |\n\n| `critical_open_count` | numero de vulnerabilidades criticas abiertas |\n\n| `valor_exposicion` | exposicion CPD ya traducida a BAIX, MIG, ALT o MOLT ALT |\n\n| `is_t11` | indicador de exposicion a publico / internet |\n\n| `has_gicar` | indica integracion con GICAR para autenticacion |\n\n| `num_usuarios_max` / `num_usua",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0122",
+    "candidate_type": "business_rule",
+    "name": "- LLDT ya no debe leerse como una severidad unica replicada a cuatro bloques;",
+    "definition": "- LLDT ya no debe leerse como una severidad unica replicada a cuatro bloques;",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "ra | Como se calcula | Valores / niveles | Tipo y default |\n\n|---|---|---|---|---|---|\n\n| 3001 | Antivirus | `% equipos con antivirus` | misma logica que 1001, aplicada al riesgo de compromiso del equipo | >= 96% = BAIX; 91-95 = MIG; 86-90 = ALT; < 86 = MOLT ALT | `REAL` si hay dato; `DEFAULT` si falta y se asume 100% |\n\n| 3002 | EDR | `% equipos con EDR` | misma logica que 1002 | >= 96% = BAIX; 91-95 = MIG; 86-90 = ALT; < 86 = MOLT ALT | `REAL` si hay dato; `DEFAULT` si falta y se asume 100% |\n\n| 3003 | Parches desactualizados | `% equipos con mas de 60 dias sin actualizar` | misma logica que",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0123",
+    "candidate_type": "business_rule",
+    "name": "- cada bloque sale de una mezcla distinta entre la valoracion propia del departamento y el SIC que ese departamento debe",
+    "definition": "- cada bloque sale de una mezcla distinta entre la valoracion propia del departamento y el SIC que ese departamento debe emular.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "ra | Como se calcula | Valores / niveles | Tipo y default |\n\n|---|---|---|---|---|---|\n\n| 3001 | Antivirus | `% equipos con antivirus` | misma logica que 1001, aplicada al riesgo de compromiso del equipo | >= 96% = BAIX; 91-95 = MIG; 86-90 = ALT; < 86 = MOLT ALT | `REAL` si hay dato; `DEFAULT` si falta y se asume 100% |\n\n| 3002 | EDR | `% equipos con EDR` | misma logica que 1002 | >= 96% = BAIX; 91-95 = MIG; 86-90 = ALT; < 86 = MOLT ALT | `REAL` si hay dato; `DEFAULT` si falta y se asume 100% |\n\n| 3003 | Parches desactualizados | `% equipos con mas de 60 dias sin actualizar` | misma logica que",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0124",
+    "candidate_type": "business_rule",
+    "name": "La interpretacion de negocio debe mirar siempre tambien el `tipo_valor`, no solo el nivel numerico.",
+    "definition": "La interpretacion de negocio debe mirar siempre tambien el `tipo_valor`, no solo el nivel numerico.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "a |\n\n| 203 | Criticidad del sistema | misma semantica que 105 | criticidad 0-1 = 4; 2-3 = 3; 4 = 2; resto = 1 | `REAL`; `DEFAULT` si falta |\n\n| 204 | Clasificacion de la informacion | usa `key_seguretat` del catalogo SIC/CIDAT | 1-4 se toman como nivel directo; si falta se aplica 4 | `REAL` si existe; `DEFAULT` al maximo si falta |\n\n\n\n### Bloque 300. Compromiso del equipo o plataforma\n\n\n\n| Regla | Objetivo funcional | Como se calcula | Valores / niveles | Tipo y default |\n\n|---|---|---|---|---|\n\n| 301 | Volumetria de usuarios y criticidad del sistema | combina `criticidad_negocio` y `num_usuar",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0125",
+    "candidate_type": "business_rule",
+    "name": "No debe leerse como una escala ascendente simple de 1 a 4.",
+    "definition": "No debe leerse como una escala ascendente simple de 1 a 4.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "a |\n\n| 203 | Criticidad del sistema | misma semantica que 105 | criticidad 0-1 = 4; 2-3 = 3; 4 = 2; resto = 1 | `REAL`; `DEFAULT` si falta |\n\n| 204 | Clasificacion de la informacion | usa `key_seguretat` del catalogo SIC/CIDAT | 1-4 se toman como nivel directo; si falta se aplica 4 | `REAL` si existe; `DEFAULT` al maximo si falta |\n\n\n\n### Bloque 300. Compromiso del equipo o plataforma\n\n\n\n| Regla | Objetivo funcional | Como se calcula | Valores / niveles | Tipo y default |\n\n|---|---|---|---|---|\n\n| 301 | Volumetria de usuarios y criticidad del sistema | combina `criticidad_negocio` y `num_usuar",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0126",
+    "candidate_type": "business_rule",
+    "name": "## 10.5. Como debe leerse el impacto LLDT",
+    "definition": "## 10.5. Como debe leerse el impacto LLDT",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "a |\n\n| 203 | Criticidad del sistema | misma semantica que 105 | criticidad 0-1 = 4; 2-3 = 3; 4 = 2; resto = 1 | `REAL`; `DEFAULT` si falta |\n\n| 204 | Clasificacion de la informacion | usa `key_seguretat` del catalogo SIC/CIDAT | 1-4 se toman como nivel directo; si falta se aplica 4 | `REAL` si existe; `DEFAULT` al maximo si falta |\n\n\n\n### Bloque 300. Compromiso del equipo o plataforma\n\n\n\n| Regla | Objetivo funcional | Como se calcula | Valores / niveles | Tipo y default |\n\n|---|---|---|---|---|\n\n| 301 | Volumetria de usuarios y criticidad del sistema | combina `criticidad_negocio` y `num_usuar",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0127",
+    "candidate_type": "business_rule",
+    "name": "- la 102 se alinea a la logica SIC de criticidad + usuarios, pero en LLDT debe leerse como `REAL` cuando `silver.dim_lld",
+    "definition": "- la 102 se alinea a la logica SIC de criticidad + usuarios, pero en LLDT debe leerse como `REAL` cuando `silver.dim_lldt_cidat.codi_dialeg` informa un SIC critico usable para el departamento;",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "a |\n\n| 203 | Criticidad del sistema | misma semantica que 105 | criticidad 0-1 = 4; 2-3 = 3; 4 = 2; resto = 1 | `REAL`; `DEFAULT` si falta |\n\n| 204 | Clasificacion de la informacion | usa `key_seguretat` del catalogo SIC/CIDAT | 1-4 se toman como nivel directo; si falta se aplica 4 | `REAL` si existe; `DEFAULT` al maximo si falta |\n\n\n\n### Bloque 300. Compromiso del equipo o plataforma\n\n\n\n| Regla | Objetivo funcional | Como se calcula | Valores / niveles | Tipo y default |\n\n|---|---|---|---|---|\n\n| 301 | Volumetria de usuarios y criticidad del sistema | combina `criticidad_negocio` y `num_usuar",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0128",
+    "candidate_type": "business_rule",
+    "name": "- la 201 debe leerse como `REAL` cuando el SIC critico usable esta informado y como `DEFAULT` cuando falta.",
+    "definition": "- la 201 debe leerse como `REAL` cuando el SIC critico usable esta informado y como `DEFAULT` cuando falta.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "a |\n\n| 203 | Criticidad del sistema | misma semantica que 105 | criticidad 0-1 = 4; 2-3 = 3; 4 = 2; resto = 1 | `REAL`; `DEFAULT` si falta |\n\n| 204 | Clasificacion de la informacion | usa `key_seguretat` del catalogo SIC/CIDAT | 1-4 se toman como nivel directo; si falta se aplica 4 | `REAL` si existe; `DEFAULT` al maximo si falta |\n\n\n\n### Bloque 300. Compromiso del equipo o plataforma\n\n\n\n| Regla | Objetivo funcional | Como se calcula | Valores / niveles | Tipo y default |\n\n|---|---|---|---|---|\n\n| 301 | Volumetria de usuarios y criticidad del sistema | combina `criticidad_negocio` y `num_usuar",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0129",
+    "candidate_type": "business_rule",
+    "name": "Por lo tanto, el impacto LLDT no debe leerse como una severidad unica replicada a cuatro riesgos. Debe leerse como una c",
+    "definition": "Por lo tanto, el impacto LLDT no debe leerse como una severidad unica replicada a cuatro riesgos. Debe leerse como una construccion por bloque apoyada en una mezcla fija y trazable entre catalogo departamental y SIC emulado.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "a |\n\n| 203 | Criticidad del sistema | misma semantica que 105 | criticidad 0-1 = 4; 2-3 = 3; 4 = 2; resto = 1 | `REAL`; `DEFAULT` si falta |\n\n| 204 | Clasificacion de la informacion | usa `key_seguretat` del catalogo SIC/CIDAT | 1-4 se toman como nivel directo; si falta se aplica 4 | `REAL` si existe; `DEFAULT` al maximo si falta |\n\n\n\n### Bloque 300. Compromiso del equipo o plataforma\n\n\n\n| Regla | Objetivo funcional | Como se calcula | Valores / niveles | Tipo y default |\n\n|---|---|---|---|---|\n\n| 301 | Volumetria de usuarios y criticidad del sistema | combina `criticidad_negocio` y `num_usuar",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0130",
+    "candidate_type": "business_rule",
+    "name": "- la 201 debe leerse como `REAL` cuando el SIC critico usable esta informado y como `DEFAULT` cuando falta.",
+    "definition": "- la 201 debe leerse como `REAL` cuando el SIC critico usable esta informado y como `DEFAULT` cuando falta.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "para el departamento;\n\n- la 201 debe leerse como `REAL` cuando el SIC critico usable esta informado y como `DEFAULT` cuando falta.\n\n- la 301 y la 402 siguen la misma lectura operativa que la 102: `REAL` cuando el SIC critico usable esta informado y `DEFAULT` cuando falta.\n\n\n\nPor lo tanto, el impacto LLDT no debe leerse como una severidad unica replicada a cuatro riesgos. Debe leerse como una construccion por bloque apoyada en una mezcla fija y trazable entre catalogo departamental y SIC emulado.\n\n\n\n## 10.6. Como debe leerse el bloque 4000 de GOVERNANCA\n\n\n\nEl bloque 4000 de GOVERNANCA no debe l",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0131",
+    "candidate_type": "business_rule",
+    "name": "Por lo tanto, el impacto LLDT no debe leerse como una severidad unica replicada a cuatro riesgos. Debe leerse como una c",
+    "definition": "Por lo tanto, el impacto LLDT no debe leerse como una severidad unica replicada a cuatro riesgos. Debe leerse como una construccion por bloque apoyada en una mezcla fija y trazable entre catalogo departamental y SIC emulado.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "para el departamento;\n\n- la 201 debe leerse como `REAL` cuando el SIC critico usable esta informado y como `DEFAULT` cuando falta.\n\n- la 301 y la 402 siguen la misma lectura operativa que la 102: `REAL` cuando el SIC critico usable esta informado y `DEFAULT` cuando falta.\n\n\n\nPor lo tanto, el impacto LLDT no debe leerse como una severidad unica replicada a cuatro riesgos. Debe leerse como una construccion por bloque apoyada en una mezcla fija y trazable entre catalogo departamental y SIC emulado.\n\n\n\n## 10.6. Como debe leerse el bloque 4000 de GOVERNANCA\n\n\n\nEl bloque 4000 de GOVERNANCA no debe l",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0132",
+    "candidate_type": "business_rule",
+    "name": "## 10.6. Como debe leerse el bloque 4000 de GOVERNANCA",
+    "definition": "## 10.6. Como debe leerse el bloque 4000 de GOVERNANCA",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "para el departamento;\n\n- la 201 debe leerse como `REAL` cuando el SIC critico usable esta informado y como `DEFAULT` cuando falta.\n\n- la 301 y la 402 siguen la misma lectura operativa que la 102: `REAL` cuando el SIC critico usable esta informado y `DEFAULT` cuando falta.\n\n\n\nPor lo tanto, el impacto LLDT no debe leerse como una severidad unica replicada a cuatro riesgos. Debe leerse como una construccion por bloque apoyada en una mezcla fija y trazable entre catalogo departamental y SIC emulado.\n\n\n\n## 10.6. Como debe leerse el bloque 4000 de GOVERNANCA\n\n\n\nEl bloque 4000 de GOVERNANCA no debe l",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0133",
+    "candidate_type": "business_rule",
+    "name": "El bloque 4000 de GOVERNANCA no debe leerse como una copia mecanica del 4000 SIC.",
+    "definition": "El bloque 4000 de GOVERNANCA no debe leerse como una copia mecanica del 4000 SIC.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "para el departamento;\n\n- la 201 debe leerse como `REAL` cuando el SIC critico usable esta informado y como `DEFAULT` cuando falta.\n\n- la 301 y la 402 siguen la misma lectura operativa que la 102: `REAL` cuando el SIC critico usable esta informado y `DEFAULT` cuando falta.\n\n\n\nPor lo tanto, el impacto LLDT no debe leerse como una severidad unica replicada a cuatro riesgos. Debe leerse como una construccion por bloque apoyada en una mezcla fija y trazable entre catalogo departamental y SIC emulado.\n\n\n\n## 10.6. Como debe leerse el bloque 4000 de GOVERNANCA\n\n\n\nEl bloque 4000 de GOVERNANCA no debe l",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0134",
+    "candidate_type": "business_rule",
+    "name": "En el estado vigente del repositorio no conviven varias versiones funcionales activas del modelo. Por eso el valor canon",
+    "definition": "En el estado vigente del repositorio no conviven varias versiones funcionales activas del modelo. Por eso el valor canonico por defecto de `version_modelo` es `v1_modelo_actual` en los cinco dominios y solo debe cambiarse cuando se quiera dejar trazada de forma explicita una variante coexistente.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "para el departamento;\n\n- la 201 debe leerse como `REAL` cuando el SIC critico usable esta informado y como `DEFAULT` cuando falta.\n\n- la 301 y la 402 siguen la misma lectura operativa que la 102: `REAL` cuando el SIC critico usable esta informado y `DEFAULT` cuando falta.\n\n\n\nPor lo tanto, el impacto LLDT no debe leerse como una severidad unica replicada a cuatro riesgos. Debe leerse como una construccion por bloque apoyada en una mezcla fija y trazable entre catalogo departamental y SIC emulado.\n\n\n\n## 10.6. Como debe leerse el bloque 4000 de GOVERNANCA\n\n\n\nEl bloque 4000 de GOVERNANCA no debe l",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0135",
+    "candidate_type": "business_rule",
+    "name": "El modelo vigente permite explicar el resultado a negocio de forma consistente en los 5 ejes, pero la lectura correcta d",
+    "definition": "El modelo vigente permite explicar el resultado a negocio de forma consistente en los 5 ejes, pero la lectura correcta debe distinguir tres cosas:",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "3. `gold_governanca.fact_probabilidad` y `gold_governanca.fact_impacto` para bajar al detalle de reglas;\n\n4. `gold_governanca.dim_regla` y `gold_governanca.dim_supuesto_modelo` para interpretar codigos, defaults y el remapeo del bloque 4000.\n\n\n\nLectura funcional minima de una fila GOVERNANCA:\n\n\n\n- `sic` identifica el sistema o aplicacion;\n\n- `bloque` indica si el resultado pertenece al riesgo 200 o 400;\n\n- `probabilidad_final_num` e `impacto_final_num` muestran los niveles finales del bloque;\n\n- `riesgo_final_num` expresa el nivel publicado;\n\n- `run_id` y `version_modelo` permiten auditar la e",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0136",
+    "candidate_type": "business_rule",
+    "name": "Antes de una recarga completa o de un ciclo critico deberia comprobarse:",
+    "definition": "Antes de una recarga completa o de un ciclo critico deberia comprobarse:",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001",
+      "source_excerpt": "# Guia operativa del ciclo\n\n\n\nFecha: 2026-04-27  \n\nObjetivo: describir el flujo real del proyecto, separar lo que ya esta operativo de lo que sigue pendiente y dejar una referencia unica para ejecucion y mantenimiento.\n\n\n\n---\n\n\n\n## Alcance\n\n\n\nEsta guia ordena el ciclo completo en seis tramos:\n\n\n\n1. validacion y publicacion de ManualLoads;\n\n2. precheck tecnico del ciclo;\n\n3. sincronizacion de ManualLoads a Silver;\n\n4. recarga del core Silver compartido;\n\n5. recalculo de Gold;\n\n6. refresh del modelo semantico cuando la ejecucion es end to end.\n\n\n\nNo sustituye la documentacion detallada de cada s",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0137",
+    "candidate_type": "business_rule",
+    "name": "El script de full reload debe interpretarse junto con el estado actual del repositorio. No todo el proyecto cabe ya en l",
+    "definition": "El script de full reload debe interpretarse junto con el estado actual del repositorio. No todo el proyecto cabe ya en la fotografia historica del reload inicial; por eso conviene tratar esta guia como la referencia de flujo y el indice SQL como la referencia de inventario.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001",
+      "source_excerpt": "# Guia operativa del ciclo\n\n\n\nFecha: 2026-04-27  \n\nObjetivo: describir el flujo real del proyecto, separar lo que ya esta operativo de lo que sigue pendiente y dejar una referencia unica para ejecucion y mantenimiento.\n\n\n\n---\n\n\n\n## Alcance\n\n\n\nEsta guia ordena el ciclo completo en seis tramos:\n\n\n\n1. validacion y publicacion de ManualLoads;\n\n2. precheck tecnico del ciclo;\n\n3. sincronizacion de ManualLoads a Silver;\n\n4. recarga del core Silver compartido;\n\n5. recalculo de Gold;\n\n6. refresh del modelo semantico cuando la ejecucion es end to end.\n\n\n\nNo sustituye la documentacion detallada de cada s",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0138",
+    "candidate_type": "business_rule",
+    "name": "- la referencia de alcance para decidir que objetos deben mantenerse por el calculo es [GUIA_SILVER_MINIMO_RIESGO.md](GU",
+    "definition": "- la referencia de alcance para decidir que objetos deben mantenerse por el calculo es [GUIA_SILVER_MINIMO_RIESGO.md](GUIA_SILVER_MINIMO_RIESGO.md);",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001",
+      "source_excerpt": "# Guia operativa del ciclo\n\n\n\nFecha: 2026-04-27  \n\nObjetivo: describir el flujo real del proyecto, separar lo que ya esta operativo de lo que sigue pendiente y dejar una referencia unica para ejecucion y mantenimiento.\n\n\n\n---\n\n\n\n## Alcance\n\n\n\nEsta guia ordena el ciclo completo en seis tramos:\n\n\n\n1. validacion y publicacion de ManualLoads;\n\n2. precheck tecnico del ciclo;\n\n3. sincronizacion de ManualLoads a Silver;\n\n4. recarga del core Silver compartido;\n\n5. recalculo de Gold;\n\n6. refresh del modelo semantico cuando la ejecucion es end to end.\n\n\n\nNo sustituye la documentacion detallada de cada s",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0139",
+    "candidate_type": "business_rule",
+    "name": "- `10_CREATE_SP_MASTER_ORCHESTRATOR.sql`, `13_FULL_RELOAD_SILVER.sql` y `33_PRECHECK_CICLO.sql` deben leerse como operat",
+    "definition": "- `10_CREATE_SP_MASTER_ORCHESTRATOR.sql`, `13_FULL_RELOAD_SILVER.sql` y `33_PRECHECK_CICLO.sql` deben leerse como operativa legacy o generalista, no como definicion exacta del core de riesgo.",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001",
+      "source_excerpt": "# Guia operativa del ciclo\n\n\n\nFecha: 2026-04-27  \n\nObjetivo: describir el flujo real del proyecto, separar lo que ya esta operativo de lo que sigue pendiente y dejar una referencia unica para ejecucion y mantenimiento.\n\n\n\n---\n\n\n\n## Alcance\n\n\n\nEsta guia ordena el ciclo completo en seis tramos:\n\n\n\n1. validacion y publicacion de ManualLoads;\n\n2. precheck tecnico del ciclo;\n\n3. sincronizacion de ManualLoads a Silver;\n\n4. recarga del core Silver compartido;\n\n5. recalculo de Gold;\n\n6. refresh del modelo semantico cuando la ejecucion es end to end.\n\n\n\nNo sustituye la documentacion detallada de cada s",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0140",
+    "candidate_type": "business_rule",
+    "name": "- en esos dos dominios la consolidada final `fact_riesgo` debe cruzar probabilidad e impacto por `codigo_departamento_re",
+    "definition": "- en esos dos dominios la consolidada final `fact_riesgo` debe cruzar probabilidad e impacto por `codigo_departamento_ref` e `id_risc`; no debe añadirse un match extra por bloque entre ambas facts;",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "ta del core de riesgo.\n\n\n\n---\n\n\n\n## Tramo 4. Riesgo de puestos de trabajo\n\n\n\n### Estado\n\n\n\nOperativo en esquema canonico gold_lldt como unico dominio vigente para LLDT.\n\n\n\nEl impacto LLDT se resuelve hoy con una mezcla entre valoracion departamental propia y SIC emulado por departamento desde `silver.dim_lldt_cidat`.\n\n\n\n### Patrón de ejecucion\n\n\n\n1. Silver de identidad y fuentes auxiliares preparado.\n\n2. Carga del modelo gold_lldt.\n\n3. Validacion del modelo gold_lldt.\n\n\n\nNota operativa actual:\n\n\n\n- hoy el impacto de LLDT no hereda automaticamente desde SIC, pero si usa `codi_dialeg` como SIC e",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-business_rule-0141",
+    "candidate_type": "business_rule",
+    "name": "Siguen siendo utiles, pero no deben ser el primer punto de entrada:",
+    "definition": "Siguen siendo utiles, pero no deben ser el primer punto de entrada:",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-003",
+      "source_excerpt": "TE_INFRA_CIDAT_BRONZE.sql](../sql/64_CREATE_INFRA_CIDAT_BRONZE.sql) y [../sql/65_CREATE_GOLD_INFRA.sql](../sql/65_CREATE_GOLD_INFRA.sql) si el entorno aun no los tiene actualizados.\n\n2. Lanzar la ejecucion unica con `EXEC audit.usp_run_risk_cycle @modo_carga_sic = 'sql_v1_silver';` o, si se esta armando el pipeline end to end, ejecutar por separado `audit.usp_precheck_risk_cycle`, `silver.usp_sync_manual_loads_to_silver`, `silver.usp_load_all_dimensions_core` y `audit.usp_run_gold_risk_models`.\n\n3. Si el ciclo bloquea en precheck, revisar la salida de `audit.usp_precheck_risk_cycle` y coordina",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-kpi-0142",
+    "candidate_type": "kpi",
+    "name": "- sumar `riesgo_final_num`, `impacto_final_num` o `probabilidad_final_num` como metrica principal;",
+    "definition": "- sumar `riesgo_final_num`, `impacto_final_num` o `probabilidad_final_num` como metrica principal;",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "al de la regla | relacion y detalle tecnico-funcional |\n\n| `regla_nombre` | nombre corto visible | filas de matriz, titulos y tooltips cortos |\n\n| `regla_descripcion` | descripcion funcional larga | tooltips, paginas de detalle y explicabilidad |\n\n| `bloque` | bloque de calculo | agrupar reglas por probabilidad o impacto |\n\n| `id_risc` / `risc` | riesgo funcional asociado | explicar que riesgo mide la regla |\n\n| `activa` | vigencia de la regla | filtrar catalogos o validar backlog funcional |\n\n\n\nLa regla recomendada en Power BI es mostrar `regla_nombre` como etiqueta principal y `regla_descrip",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-kpi-0143",
+    "candidate_type": "kpi",
+    "name": "| `is_t11` | indicador de exposicion a publico / internet |",
+    "definition": "| `is_t11` | indicador de exposicion a publico / internet |",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nFecha: 2026-06-10\n\nObjetivo: explicar a responsables funcionales y dueños del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `gold_infra`, incluyendo reglas, valores posibles, defaults, proxies, constantes y trazabilidad por regla.\n\n> Actualizacion 2026-",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-kpi-0144",
+    "candidate_type": "kpi",
+    "name": "| `is_t11` | indicador de exposicion a publico / internet |",
+    "definition": "| `is_t11` | indicador de exposicion a publico / internet |",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "e` | porcentaje de equipos con sistema operativo obsoleto |\n\n| `security_score` | puntuacion de seguridad/perimetro publicada para la aplicacion o SIC |\n\n| `total_attributes_noncompleted` | cantidad de atributos de perimetro sin completar; si es 0 el perimetro esta mejor resuelto |\n\n| `critical_open_count` | numero de vulnerabilidades criticas abiertas |\n\n| `valor_exposicion` | exposicion CPD ya traducida a BAIX, MIG, ALT o MOLT ALT |\n\n| `is_t11` | indicador de exposicion a publico / internet |\n\n| `has_gicar` | indica integracion con GICAR para autenticacion |\n\n| `num_usuarios_max` / `num_usua",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-kpi-0145",
+    "candidate_type": "kpi",
+    "name": "| 1003 | Parches desactualizados | `% equipos con mas de 60 dias sin actualizar` | usa la metrica operativa real de parc",
+    "definition": "| 1003 | Parches desactualizados | `% equipos con mas de 60 dias sin actualizar` | usa la metrica operativa real de parchado del ambito | < 30% = BAIX; 30-79 = MIG; 80-89 = ALT; >= 90 = MOLT ALT | `REAL` si hay dato; `DEFAULT` si falta y se asume 0% |",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003",
+      "source_excerpt": "El calculo Gold LLDT tiene dos particularidades importantes:\n\n\n\n1. la probabilidad si se materializa regla por regla;\n\n2. el impacto no se publica regla por regla, pero si se construye bloque por bloque combinando reglas LLDT propias con reglas derivadas del SIC emulado por departamento.\n\n\n\nImpacto LLDT vigente:\n\n\n\n- toma `key_seguretat` y C/I/D/A/T desde `silver.dim_lldt_cidat` para la valoracion propia del departamento;\n\n- usa `codi_dialeg` de esa misma tabla como SIC por defecto a emular;\n\n- resuelve con ese SIC emulado las reglas de impacto que dependen de RTO, criticidad, usuarios o T11/p",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-kpi-0146",
+    "candidate_type": "kpi",
+    "name": "| 2011 | Formacion usuarios correo / plataforma | training departamental | reutiliza el mismo indicador de formacion del",
+    "definition": "| 2011 | Formacion usuarios correo / plataforma | training departamental | reutiliza el mismo indicador de formacion del bloque 200 | > 60% = BAIX; 45-60 = MIG; 30-44 = ALT; < 30 = MOLT ALT | `REAL` si hay training activo; `DEFAULT` si falta y se asume 100% |",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003",
+      "source_excerpt": "El calculo Gold LLDT tiene dos particularidades importantes:\n\n\n\n1. la probabilidad si se materializa regla por regla;\n\n2. el impacto no se publica regla por regla, pero si se construye bloque por bloque combinando reglas LLDT propias con reglas derivadas del SIC emulado por departamento.\n\n\n\nImpacto LLDT vigente:\n\n\n\n- toma `key_seguretat` y C/I/D/A/T desde `silver.dim_lldt_cidat` para la valoracion propia del departamento;\n\n- usa `codi_dialeg` de esa misma tabla como SIC por defecto a emular;\n\n- resuelve con ese SIC emulado las reglas de impacto que dependen de RTO, criticidad, usuarios o T11/p",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-kpi-0147",
+    "candidate_type": "kpi",
+    "name": "| 2012 | Parches desactualizados para credenciales | `% equipos con mas de 60 dias sin actualizar` | usa la metrica oper",
+    "definition": "| 2012 | Parches desactualizados para credenciales | `% equipos con mas de 60 dias sin actualizar` | usa la metrica operativa real de parchado para exposicion a credenciales | < 30% = BAIX; 30-79 = MIG; 80-89 = ALT; >= 90 = MOLT ALT | `REAL` si hay dato; `DEFAULT` si falta y se asume 0% |",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003",
+      "source_excerpt": "El calculo Gold LLDT tiene dos particularidades importantes:\n\n\n\n1. la probabilidad si se materializa regla por regla;\n\n2. el impacto no se publica regla por regla, pero si se construye bloque por bloque combinando reglas LLDT propias con reglas derivadas del SIC emulado por departamento.\n\n\n\nImpacto LLDT vigente:\n\n\n\n- toma `key_seguretat` y C/I/D/A/T desde `silver.dim_lldt_cidat` para la valoracion propia del departamento;\n\n- usa `codi_dialeg` de esa misma tabla como SIC por defecto a emular;\n\n- resuelve con ese SIC emulado las reglas de impacto que dependen de RTO, criticidad, usuarios o T11/p",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  },
+  {
+    "candidate_id": "candidate-kpi-0148",
+    "candidate_type": "kpi",
+    "name": "| 4001 | Formacion de usuarios en cumplimiento | training departamental | reutiliza el indicador de formacion para cumpl",
+    "definition": "| 4001 | Formacion de usuarios en cumplimiento | training departamental | reutiliza el indicador de formacion para cumplimiento | > 60% = BAIX; 45-60 = MIG; 30-44 = ALT; < 30 = MOLT ALT | `REAL` si hay training activo; `DEFAULT` si falta y se asume 100% |",
+    "status": "pending_review",
+    "confidence": 0.5,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "ra | Como se calcula | Valores / niveles | Tipo y default |\n\n|---|---|---|---|---|---|\n\n| 3001 | Antivirus | `% equipos con antivirus` | misma logica que 1001, aplicada al riesgo de compromiso del equipo | >= 96% = BAIX; 91-95 = MIG; 86-90 = ALT; < 86 = MOLT ALT | `REAL` si hay dato; `DEFAULT` si falta y se asume 100% |\n\n| 3002 | EDR | `% equipos con EDR` | misma logica que 1002 | >= 96% = BAIX; 91-95 = MIG; 86-90 = ALT; < 86 = MOLT ALT | `REAL` si hay dato; `DEFAULT` si falta y se asume 100% |\n\n| 3003 | Parches desactualizados | `% equipos con mas de 60 dias sin actualizar` | misma logica que",
+      "evidence_status": "traceable"
+    },
+    "decision": null
+  }
+]

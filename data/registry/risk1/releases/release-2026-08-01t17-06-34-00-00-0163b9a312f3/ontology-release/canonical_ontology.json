@@ -1,0 +1,1202 @@
+{
+  "format": "nexo-canonical-ontology-v0.1",
+  "project_id": "risk1",
+  "concepts": [
+    {
+      "id": "candidate-concept-0001",
+      "name": "riesgo final",
+      "definition": "Resultado final del calculo de riesgo, recibido desde Gold y representado mediante probabilidad e impacto combinados.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-concept-0002",
+      "name": "risk_key",
+      "definition": "Clave tecnica formada por dominio e identificador de riesgo, con el formato DOMINIO|id_risc.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-concept-0003",
+      "name": "amenaza_key",
+      "definition": "Clave tecnica formada por dominio e identificador de amenaza, con el formato DOMINIO|id_amenaca.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-concept-0004",
+      "name": "SIC",
+      "definition": "Eje de aplicaciones y sistemas cuya entidad principal es la aplicacion identificada por sic.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-concept-0005",
+      "name": "INFRA",
+      "definition": "Eje aplicacional equivalente a SIC en estructura semantica, con alcance propio; funcionalmente representa activos de infraestructura.",
+      "confidence": 0.96,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-concept-0006",
+      "name": "LLDT",
+      "definition": "Eje que representa riesgo de puestos de trabajo o ambito departamental; su entidad principal es el departamento o scope funcional.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-concept-0007",
+      "name": "riesgo_final_num",
+      "definition": "Valor numérico de riesgo que llega calculado en Gold mediante una matriz 4x4 de doble entrada entre probabilidad e impacto.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-concept-0008",
+      "name": "riesgo_final_texto",
+      "definition": "Clasificación textual utilizada para representar la severidad del riesgo en matrices y visuales.",
+      "confidence": 0.94,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-concept-0009",
+      "name": "fecha_carga",
+      "definition": "Referencia temporal visible del snapshot o ejecución publicada.",
+      "confidence": 0.97,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-concept-0010",
+      "name": "codigo_departamento_ref",
+      "definition": "Entidad principal y grano de referencia publicado para los dominios CULTURA y GOVERNANCA.",
+      "confidence": 0.96,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-concept-0011",
+      "name": "riesgo final",
+      "definition": "Resultado de cruzar el nivel final de probabilidad y el nivel final de impacto en una matriz 4x4 de doble entrada.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0012",
+      "name": "escala de riesgo",
+      "definition": "Escala común de cuatro niveles: 1 BAIX/bajo, 2 MIG/medio, 3 ALT/alto y 4 MOLT ALT/muy alto.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0013",
+      "name": "pct_antivirus",
+      "definition": "Porcentaje de equipos del ámbito con antivirus desplegado y operativo.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0014",
+      "name": "pct_edr",
+      "definition": "Porcentaje de equipos con EDR desplegado y operativo.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0015",
+      "name": "security_score",
+      "definition": "Puntuación de seguridad o perímetro publicada para la aplicación o SIC.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-concept-0016",
+      "name": "criticidad_negocio",
+      "definition": "Criticidad del sistema en escala de inventario; en la implementación actual los valores bajos representan mayor criticidad.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-concept-0017",
+      "name": "rto",
+      "definition": "Tiempo máximo tolerable de indisponibilidad.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-concept-0018",
+      "name": "SIC",
+      "definition": "Dominio que calcula riesgo por sistema o aplicacion critica, con probabilidad e impacto regla a regla y agregacion posterior por bloque y por SIC.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-concept-0019",
+      "name": "LLDT",
+      "definition": "Dominio cuyo impacto vigente combina valoraciones departamentales propias con reglas que emulan un SIC del departamento.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-concept-0020",
+      "name": "default LLDT",
+      "definition": "Hipotesis provisional, normalmente optimista, utilizada cuando falta un dato usable para no bloquear el calculo.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-concept-0021",
+      "name": "default SIC",
+      "definition": "Resultado neutral o controlado aplicado normalmente cuando falta informacion en SIC.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006"
+      }
+    },
+    {
+      "id": "candidate-concept-0022",
+      "name": "impacto SIC",
+      "definition": "Valoracion por regla de los efectos de la indisponibilidad, compromiso, perdida de informacion o incumplimiento asociados a un SIC.",
+      "confidence": 0.9,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006"
+      }
+    },
+    {
+      "id": "candidate-concept-0023",
+      "name": "nivel",
+      "definition": "Severidad final de una regla ya interpretada por el modelo; no representa porcentaje de cumplimiento ni un valor booleano.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008"
+      }
+    },
+    {
+      "id": "candidate-concept-0024",
+      "name": "peso_regla",
+      "definition": "Factor con el que una regla participa en el agregado del bloque o del eje completo.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008"
+      }
+    },
+    {
+      "id": "candidate-concept-0025",
+      "name": "criticidad_negocio",
+      "definition": "Escala funcional en la que los valores 0 y 1 implican mayor severidad, 2 y 3 severidad intermedia y 4 menor severidad relativa.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007"
+      }
+    },
+    {
+      "id": "candidate-concept-0026",
+      "name": "resultado final de riesgo",
+      "definition": "Resultado obtenido al cruzar la probabilidad final y el impacto final del bloque mediante la matriz 4x4.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009"
+      }
+    },
+    {
+      "id": "candidate-concept-0027",
+      "name": "sic",
+      "definition": "Identifica el sistema o aplicación.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010"
+      }
+    },
+    {
+      "id": "candidate-concept-0028",
+      "name": "bloque",
+      "definition": "Indica si el resultado pertenece al riesgo 200 o 400.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010"
+      }
+    },
+    {
+      "id": "candidate-concept-0029",
+      "name": "probabilidad_final_num",
+      "definition": "Muestra el nivel final de probabilidad del bloque.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010"
+      }
+    },
+    {
+      "id": "candidate-concept-0030",
+      "name": "impacto_final_num",
+      "definition": "Muestra el nivel final de impacto del bloque.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010"
+      }
+    },
+    {
+      "id": "candidate-concept-0031",
+      "name": "riesgo_final_num",
+      "definition": "Expresa el nivel publicado de riesgo.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010"
+      }
+    },
+    {
+      "id": "candidate-concept-0032",
+      "name": "run_id",
+      "definition": "Permite auditar la ejecución exacta.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010"
+      }
+    },
+    {
+      "id": "candidate-concept-0033",
+      "name": "version_modelo",
+      "definition": "Permite auditar la versión exacta del modelo ejecutado.",
+      "confidence": 0.95,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010"
+      }
+    },
+    {
+      "id": "candidate-concept-0034",
+      "name": "codi_dialeg",
+      "definition": "Se utiliza como SIC emulado por departamento cuando una regla de impacto necesita datos SIC.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "2026-06-18T16-02-39+00-00",
+        "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-concept-0035",
+      "name": "codigo_departamento_ref",
+      "definition": "Clave canónica de consolidación en CULTURA y GOVERNANCA.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "2026-06-18T16-02-39+00-00",
+        "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002"
+      }
+    }
+  ],
+  "business_rules": [
+    {
+      "id": "candidate-business_rule-0036",
+      "name": "El riesgo final no debe recalcularse en Power BI; debe utilizarse el resultado recibido desde Gold.",
+      "definition": "El riesgo final no debe recalcularse en Power BI; debe utilizarse el resultado recibido desde Gold.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0037",
+      "name": "Para análisis entre dominios se debe utilizar risk_key o amenaza_key con prefijo de dominio; los identificadores nativos",
+      "definition": "Para análisis entre dominios se debe utilizar risk_key o amenaza_key con prefijo de dominio; los identificadores nativos solo son válidos dentro del eje correspondiente.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0038",
+      "name": "La distribución por severidad debe contar entidades y no sumar niveles numéricos.",
+      "definition": "La distribución por severidad debe contar entidades y no sumar niveles numéricos.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0039",
+      "name": "En SIC, las filas de detalle de reglas tienen grano sic + regla + riesgo + run_id.",
+      "definition": "En SIC, las filas de detalle de reglas tienen grano sic + regla + riesgo + run_id.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0040",
+      "name": "El snapshot completo solo se considera válido cuando los cinco dominios Gold tienen una ejecución correcta.",
+      "definition": "El snapshot completo solo se considera válido cuando los cinco dominios Gold tienen una ejecución correcta.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0041",
+      "name": "El número de severidad (`riesgo_final_num`) debe utilizarse para ordenar y no para sumar.",
+      "definition": "El número de severidad (`riesgo_final_num`) debe utilizarse para ordenar y no para sumar.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0042",
+      "name": "No se debe reconstruir `riesgo_final_num` en DAX como promedio, redondeo o combinación lineal de probabilidad e impacto.",
+      "definition": "No se debe reconstruir `riesgo_final_num` en DAX como promedio, redondeo o combinación lineal de probabilidad e impacto.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0043",
+      "name": "La ejecución vigente debe determinarse mediante `dim_run_modelo` y no mediante facts aisladas.",
+      "definition": "La ejecución vigente debe determinarse mediante `dim_run_modelo` y no mediante facts aisladas.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0044",
+      "name": "Para páginas ejecutivas se debe utilizar el conteo distinto de la entidad correspondiente al dominio.",
+      "definition": "Para páginas ejecutivas se debe utilizar el conteo distinto de la entidad correspondiente al dominio.",
+      "confidence": 0.96,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0045",
+      "name": "CULTURA y GOVERNANCA no deben utilizarse para páginas de amenazas porque no publican un bridge de amenazas compartido.",
+      "definition": "CULTURA y GOVERNANCA no deben utilizarse para páginas de amenazas porque no publican un bridge de amenazas compartido.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0046",
+      "name": "Si una página combina dominios, deben utilizarse bloques separados y mostrar o fijar `dominio_modelo`.",
+      "definition": "Si una página combina dominios, deben utilizarse bloques separados y mostrar o fijar `dominio_modelo`.",
+      "confidence": 0.97,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0047",
+      "name": "Cada eje calcula cuatro riesgos: indisponibilidad, compromiso y pérdida de información, compromiso del equipo o platafor",
+      "definition": "Cada eje calcula cuatro riesgos: indisponibilidad, compromiso y pérdida de información, compromiso del equipo o plataforma, e incumplimiento legal y normativo.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0048",
+      "name": "El riesgo final se obtiene mediante una matriz 4x4 que cruza probabilidad e impacto; no se calcula mediante promedio ni ",
+      "definition": "El riesgo final se obtiene mediante una matriz 4x4 que cruza probabilidad e impacto; no se calcula mediante promedio ni ponderación lineal.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0049",
+      "name": "La matriz final vigente debe consumirse desde una fuente manual canónica y no mantenerse hardcodeada en Gold.",
+      "definition": "La matriz final vigente debe consumirse desde una fuente manual canónica y no mantenerse hardcodeada en Gold.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0050",
+      "name": "Cuando no existe un dato usable, el modelo aplica un valor por defecto para no romper el cálculo.",
+      "definition": "Cuando no existe un dato usable, el modelo aplica un valor por defecto para no romper el cálculo.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0051",
+      "name": "CULTURA y GOVERNANCA se publican a grano departamento con una única valoración por riesgo y departamento.",
+      "definition": "CULTURA y GOVERNANCA se publican a grano departamento con una única valoración por riesgo y departamento.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0052",
+      "name": "CULTURA activa únicamente riesgos de los bloques 200 y 400.",
+      "definition": "CULTURA activa únicamente riesgos de los bloques 200 y 400.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0053",
+      "name": "GOVERNANCA activa riesgos de los bloques 200 y 400.",
+      "definition": "GOVERNANCA activa riesgos de los bloques 200 y 400.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0054",
+      "name": "En CULTURA y GOVERNANCA, la consolidación final se realiza por codigo_departamento_ref e id_risc y no debe forzarse un j",
+      "definition": "En CULTURA y GOVERNANCA, la consolidación final se realiza por codigo_departamento_ref e id_risc y no debe forzarse un join adicional por bloque entre las facts.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0055",
+      "name": "La regla LLDT 1001 clasifica la probabilidad según la cobertura de antivirus: >=96% BAIX, 91-95 MIG, 86-90 ALT y <86 MOL",
+      "definition": "La regla LLDT 1001 clasifica la probabilidad según la cobertura de antivirus: >=96% BAIX, 91-95 MIG, 86-90 ALT y <86 MOLT ALT; si falta el dato se asume 100%.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0056",
+      "name": "La regla LLDT 1003 clasifica la probabilidad según el porcentaje de equipos con más de 60 días sin actualizar: <30% BAIX",
+      "definition": "La regla LLDT 1003 clasifica la probabilidad según el porcentaje de equipos con más de 60 días sin actualizar: <30% BAIX, 30-79 MIG, 80-89 ALT y >=90 MOLT ALT; si falta el dato se asume 0%.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0057",
+      "name": "La regla LLDT 2002 es constante y siempre clasifica como BAIX.",
+      "definition": "La regla LLDT 2002 es constante y siempre clasifica como BAIX.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0058",
+      "name": "La regla LLDT 2005 es constante y siempre clasifica como MOLT ALT, con valor fijo de 0% de MFA.",
+      "definition": "La regla LLDT 2005 es constante y siempre clasifica como MOLT ALT, con valor fijo de 0% de MFA.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0059",
+      "name": "La regla LLDT 2006 clasifica la formación según la cobertura de asistentes frente al parque de workstations: >60% BAIX, ",
+      "definition": "La regla LLDT 2006 clasifica la formación según la cobertura de asistentes frente al parque de workstations: >60% BAIX, 45-60 MIG, 30-44 ALT y <30 MOLT ALT; si falta training activo se asume 100%.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0060",
+      "name": "El impacto LLDT combina reglas propias de LLDT con reglas derivadas de un SIC emulado por departamento y se agrega por b",
+      "definition": "El impacto LLDT combina reglas propias de LLDT con reglas derivadas de un SIC emulado por departamento y se agrega por bloque.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0061",
+      "name": "En LLDT, si falta una cobertura positiva se asume normalmente 100%.",
+      "definition": "En LLDT, si falta una cobertura positiva se asume normalmente 100%.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0062",
+      "name": "En LLDT, si falta una cobertura negativa se asume normalmente 0%.",
+      "definition": "En LLDT, si falta una cobertura negativa se asume normalmente 0%.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0063",
+      "name": "El impacto LLDT busca la fila del departamento, toma codi_dialeg como SIC emulado y calcula reglas con atributos del SIC",
+      "definition": "El impacto LLDT busca la fila del departamento, toma codi_dialeg como SIC emulado y calcula reglas con atributos del SIC y del departamento.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0064",
+      "name": "El impacto LLDT se agrega promediando por bloque las reglas resultantes.",
+      "definition": "El impacto LLDT se agrega promediando por bloque las reglas resultantes.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0065",
+      "name": "La regla SIC 1001 clasifica la cobertura EDR por SIC en BAIX, MIG, ALT o MOLT ALT según porcentajes definidos.",
+      "definition": "La regla SIC 1001 clasifica la cobertura EDR por SIC en BAIX, MIG, ALT o MOLT ALT según porcentajes definidos.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0066",
+      "name": "Las reglas SIC 2002, 2003 y 2004 consideran MFA cubierto al 100% y siempre asignan BAIX.",
+      "definition": "Las reglas SIC 2002, 2003 y 2004 consideran MFA cubierto al 100% y siempre asignan BAIX.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0067",
+      "name": "La regla SIC 2005 considera inexistente el MFA de usuarios a nivel aplicacion/SIC y siempre asigna MOLT ALT.",
+      "definition": "La regla SIC 2005 considera inexistente el MFA de usuarios a nivel aplicacion/SIC y siempre asigna MOLT ALT.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0068",
+      "name": "La regla SIC 4001 asigna BAIX con certificacion activa vigente, MOLT ALT con certificacion caducada o no vigente y MIG D",
+      "definition": "La regla SIC 4001 asigna BAIX con certificacion activa vigente, MOLT ALT con certificacion caducada o no vigente y MIG DEFAULT sin certificacion usable.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0069",
+      "name": "Las reglas SIC 4002 a 4006 convierten un valor departamental Si en BAIX, No en MOLT ALT y ausencia de dato en MIG.",
+      "definition": "Las reglas SIC 4002 a 4006 convierten un valor departamental Si en BAIX, No en MOLT ALT y ausencia de dato en MIG.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0070",
+      "name": "La probabilidad se agrega por bloque mediante un promedio ponderado de niveles cuando existen pesos positivos; si no exi",
+      "definition": "La probabilidad se agrega por bloque mediante un promedio ponderado de niveles cuando existen pesos positivos; si no existen, se utiliza el promedio simple.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0071",
+      "name": "Después del promedio de probabilidad, el resultado se redondea al entero más cercano y se expresa como BAIX, MIG, ALT o ",
+      "definition": "Después del promedio de probabilidad, el resultado se redondea al entero más cercano y se expresa como BAIX, MIG, ALT o MOLT ALT.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0072",
+      "name": "La regla 401 de SIC toma el máximo entre C, I, D, A y T; si no hay CIDAT, aplica un default de nivel 2.",
+      "definition": "La regla 401 de SIC toma el máximo entre C, I, D, A y T; si no hay CIDAT, aplica un default de nivel 2.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0073",
+      "name": "En SIC, la traducción vigente de gobernanza departamental es Si = BAIX, No = MOLT ALT y sin dato usable = MIG DEFAULT.",
+      "definition": "En SIC, la traducción vigente de gobernanza departamental es Si = BAIX, No = MOLT ALT y sin dato usable = MIG DEFAULT.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0074",
+      "name": "El bloque 4000 de GOVERNANCA remapea las reglas 4003-4007 desde las reglas 4002-4006 de gobernanza departamental.",
+      "definition": "El bloque 4000 de GOVERNANCA remapea las reglas 4003-4007 desde las reglas 4002-4006 de gobernanza departamental.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0075",
+      "name": "La lectura funcional de una fila debe distinguir el sistema o aplicación, el bloque de riesgo, los niveles finales, el n",
+      "definition": "La lectura funcional de una fila debe distinguir el sistema o aplicación, el bloque de riesgo, los niveles finales, el nivel publicado y la ejecución exacta.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0076",
+      "name": "Para explicar un resultado Gold se debe comenzar por la fact final, abrir la fact de bloque correspondiente, bajar al de",
+      "definition": "Para explicar un resultado Gold se debe comenzar por la fact final, abrir la fact de bloque correspondiente, bajar al detalle por regla y cerrar con las dimensiones de reglas, supuestos y la ejecución auditada.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0077",
+      "name": "El ciclo debe validar shortcuts y orígenes antes de mover datos físicos.",
+      "definition": "El ciclo debe validar shortcuts y orígenes antes de mover datos físicos.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "2026-06-18T16-02-39+00-00",
+        "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0078",
+      "name": "El precheck debe comprobar que las tablas Bronze existen, que los shortcuts responden, que las columnas mínimas siguen e",
+      "definition": "El precheck debe comprobar que las tablas Bronze existen, que los shortcuts responden, que las columnas mínimas siguen estando, que la fuente no está vacía por error y que las fuentes snapshot tienen una fotografía utilizable.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "2026-06-18T16-02-39+00-00",
+        "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0079",
+      "name": "El flujo operativo completo sigue el orden Landing, Bronze ready, Silver, Gold y refresh del modelo semántico.",
+      "definition": "El flujo operativo completo sigue el orden Landing, Bronze ready, Silver, Gold y refresh del modelo semántico.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "2026-06-18T16-02-39+00-00",
+        "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0080",
+      "name": "El impacto de LLDT no hereda automáticamente desde SIC.",
+      "definition": "El impacto de LLDT no hereda automáticamente desde SIC.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "2026-06-18T16-02-39+00-00",
+        "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0081",
+      "name": "Las reglas de impacto 103, 105 y 203 deben distinguir dato real de dato faltante: REAL/OK si existe criticidad y DEFAULT",
+      "definition": "Las reglas de impacto 103, 105 y 203 deben distinguir dato real de dato faltante: REAL/OK si existe criticidad y DEFAULT/SIN_DATO si no existe.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "2026-06-18T16-02-39+00-00",
+        "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0082",
+      "name": "Las reglas 104 y 202 utilizan is_t11 como criterio operativo T11/público.",
+      "definition": "Las reglas 104 y 202 utilizan is_t11 como criterio operativo T11/público.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "2026-06-18T16-02-39+00-00",
+        "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0083",
+      "name": "Las reglas 4002-4006 se evalúan directamente por departamento en sí/no.",
+      "definition": "Las reglas 4002-4006 se evalúan directamente por departamento en sí/no.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "2026-06-18T16-02-39+00-00",
+        "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0084",
+      "name": "La regla 4001 puede quedar en DEFAULT cuando no hay SIC certificados materializados.",
+      "definition": "La regla 4001 puede quedar en DEFAULT cuando no hay SIC certificados materializados.",
+      "confidence": 0.95,
+      "source_binding": {
+        "source_document_id": "2026-06-18T16-02-39+00-00",
+        "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0085",
+      "name": "En CULTURA y GOVERNANCA la consolidación final debe cruzar probabilidad e impacto por codigo_departamento_ref e id_risc,",
+      "definition": "En CULTURA y GOVERNANCA la consolidación final debe cruzar probabilidad e impacto por codigo_departamento_ref e id_risc, sin añadir un match extra por bloque.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "2026-06-18T16-02-39+00-00",
+        "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0086",
+      "name": "La operación vigente asume recarga completa de las tablas Gold en cada ejecución de CULTURA y GOVERNANCA.",
+      "definition": "La operación vigente asume recarga completa de las tablas Gold en cada ejecución de CULTURA y GOVERNANCA.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "2026-06-18T16-02-39+00-00",
+        "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002"
+      }
+    }
+  ],
+  "kpis": [
+    {
+      "id": "candidate-kpi-0087",
+      "name": "Distribución de entidades por severidad del riesgo final.",
+      "definition": "Distribución de entidades por severidad del riesgo final.",
+      "confidence": 0.96,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-kpi-0088",
+      "name": "Promedio y cobertura de reglas de probabilidad por bloque.",
+      "definition": "Promedio y cobertura de reglas de probabilidad por bloque.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-kpi-0089",
+      "name": "Promedio y cobertura de reglas o fuentes de impacto por bloque.",
+      "definition": "Promedio y cobertura de reglas o fuentes de impacto por bloque.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-kpi-0090",
+      "name": "Cobertura de valores reales, proxies, pendientes y no disponibles para evaluar la calidad del cálculo.",
+      "definition": "Cobertura de valores reales, proxies, pendientes y no disponibles para evaluar la calidad del cálculo.",
+      "confidence": 0.97,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-kpi-0091",
+      "name": "Conteo distinto de SIC.",
+      "definition": "Conteo distinto de SIC.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-kpi-0092",
+      "name": "Conteo distinto de departamentos para LLDT.",
+      "definition": "Conteo distinto de departamentos para LLDT.",
+      "confidence": 0.97,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-kpi-0093",
+      "name": "Conteo distinto de departamentos de referencia para CULTURA.",
+      "definition": "Conteo distinto de departamentos de referencia para CULTURA.",
+      "confidence": 0.97,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-kpi-0094",
+      "name": "Conteo distinto de departamentos de referencia para GOVERNANCA.",
+      "definition": "Conteo distinto de departamentos de referencia para GOVERNANCA.",
+      "confidence": 0.97,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-kpi-0095",
+      "name": "Porcentaje de equipos con antivirus desplegado y operativo.",
+      "definition": "Porcentaje de equipos con antivirus desplegado y operativo.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0096",
+      "name": "Porcentaje de equipos con EDR desplegado y operativo.",
+      "definition": "Porcentaje de equipos con EDR desplegado y operativo.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0097",
+      "name": "Porcentaje de equipos con más de 60 días sin actualizar Windows.",
+      "definition": "Porcentaje de equipos con más de 60 días sin actualizar Windows.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0098",
+      "name": "Número de tickets o alertas departamentales cerradas usados como señal operativa.",
+      "definition": "Número de tickets o alertas departamentales cerradas usados como señal operativa.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0099",
+      "name": "Porcentaje de usuarios con MFA en VPN.",
+      "definition": "Porcentaje de usuarios con MFA en VPN.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0100",
+      "name": "Porcentaje de usuarios con MFA en O365.",
+      "definition": "Porcentaje de usuarios con MFA en O365.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0101",
+      "name": "Cobertura de formación calculada sobre asistentes frente al parque de equipos del ámbito.",
+      "definition": "Cobertura de formación calculada sobre asistentes frente al parque de equipos del ámbito.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0102",
+      "name": "Porcentaje de equipos cifrados.",
+      "definition": "Porcentaje de equipos cifrados.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0103",
+      "name": "Cantidad de atributos de perímetro sin completar.",
+      "definition": "Cantidad de atributos de perímetro sin completar.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0104",
+      "name": "Número de vulnerabilidades críticas abiertas.",
+      "definition": "Número de vulnerabilidades críticas abiertas.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0105",
+      "name": "Porcentaje de cobertura EDR por SIC.",
+      "definition": "Porcentaje de cobertura EDR por SIC.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-kpi-0106",
+      "name": "Porcentaje de despliegue del perimetro base, calculado como 1 - (base_attributes_noncompleted / 6).",
+      "definition": "Porcentaje de despliegue del perimetro base, calculado como 1 - (base_attributes_noncompleted / 6).",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-kpi-0107",
+      "name": "Numero de vulnerabilidades criticas abiertas o no remediadas.",
+      "definition": "Numero de vulnerabilidades criticas abiertas o no remediadas.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-kpi-0108",
+      "name": "Numero de alertas criticas no resueltas mediante tickets asociados.",
+      "definition": "Numero de alertas criticas no resueltas mediante tickets asociados.",
+      "confidence": 0.96,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-kpi-0109",
+      "name": "Porcentaje de hosts obsoletos vinculados al SIC.",
+      "definition": "Porcentaje de hosts obsoletos vinculados al SIC.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006"
+      }
+    },
+    {
+      "id": "candidate-kpi-0110",
+      "name": "Numero maximo de usuarios afectados por un SIC.",
+      "definition": "Numero maximo de usuarios afectados por un SIC.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006"
+      }
+    },
+    {
+      "id": "candidate-kpi-0111",
+      "name": "Conteo de reglas REAL, DEFAULT y CONSTANTE por bloque.",
+      "definition": "Conteo de reglas REAL, DEFAULT y CONSTANTE por bloque.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007"
+      }
+    },
+    {
+      "id": "candidate-kpi-0112",
+      "name": "Conteo de reglas no disponibles en los agregados de impacto SIC.",
+      "definition": "Conteo de reglas no disponibles en los agregados de impacto SIC.",
+      "confidence": 0.96,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007"
+      }
+    },
+    {
+      "id": "candidate-kpi-0113",
+      "name": "Probabilidad final agregada por bloque.",
+      "definition": "Probabilidad final agregada por bloque.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009"
+      }
+    },
+    {
+      "id": "candidate-kpi-0114",
+      "name": "Impacto final agregado por bloque.",
+      "definition": "Impacto final agregado por bloque.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009"
+      }
+    },
+    {
+      "id": "candidate-kpi-0115",
+      "name": "Riesgo final por bloque y por SIC.",
+      "definition": "Riesgo final por bloque y por SIC.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+        "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009"
+      }
+    },
+    {
+      "id": "candidate-kpi-0116",
+      "name": "Número de filas generadas en la ejecución Gold de LLDT.",
+      "definition": "Número de filas generadas en la ejecución Gold de LLDT.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "2026-06-18T16-02-39+00-00",
+        "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-kpi-0117",
+      "name": "Número de filas generadas en la ejecución Gold de SIC.",
+      "definition": "Número de filas generadas en la ejecución Gold de SIC.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "2026-06-18T16-02-39+00-00",
+        "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-kpi-0118",
+      "name": "Cobertura del archivo manual de defaults respecto al catálogo activo de reglas.",
+      "definition": "Cobertura del archivo manual de defaults respecto al catálogo activo de reglas.",
+      "confidence": 0.99,
+      "source_binding": {
+        "source_document_id": "2026-06-18T16-02-39+00-00",
+        "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-kpi-0119",
+      "name": "Estado de éxito de las ejecuciones Gold.",
+      "definition": "Estado de éxito de las ejecuciones Gold.",
+      "confidence": 0.98,
+      "source_binding": {
+        "source_document_id": "2026-06-18T16-02-39+00-00",
+        "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002"
+      }
+    }
+  ],
+  "relationships": [],
+  "warning": "La primera release Nexo no infiere relaciones sin una decision humana explicita."
+}

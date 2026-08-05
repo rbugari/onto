@@ -1,0 +1,134 @@
+[
+  {
+    "element_id": "model-source_binding-6331228fa0bb",
+    "element_type": "source_binding",
+    "name": "gold_sic.dim_sig -> gold_sic.dim_sig",
+    "definition": "Binding inferido automaticamente desde una referencia explicita y plenamente cualificada a una tabla Fabric en la evidencia funcional.",
+    "owner": "Codex automatic review",
+    "linked_candidate_ids": [
+      "candidate-concept-0051",
+      "candidate-technical-asset-0354"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-03T10:05:51+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-05T07-39-11-00-00-808ccc51ccb3",
+      "element_id": "model-source_binding-6331228fa0bb",
+      "status": "approved",
+      "reviewer": "ONTO - revision funcional simulada",
+      "reviewer_role": "Business steward / arquitecto",
+      "note": "Ratificado: binding directo entre concepto aprobado y activo Fabric homonimo, con evidencia funcional trazable.",
+      "decided_at": "2026-08-05T07:39:11+00:00"
+    }
+  },
+  {
+    "element_id": "model-source_binding-bceab1c003bb",
+    "element_type": "source_binding",
+    "name": "gold_sic.dim_regla -> gold_sic.dim_regla",
+    "definition": "Binding inferido automaticamente desde una referencia explicita y plenamente cualificada a una tabla Fabric en la evidencia funcional.",
+    "owner": "Codex automatic review",
+    "linked_candidate_ids": [
+      "candidate-concept-0052",
+      "candidate-technical-asset-0352"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-03T10:05:51+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-05T07-39-11-00-00-efc406c080f6",
+      "element_id": "model-source_binding-bceab1c003bb",
+      "status": "approved",
+      "reviewer": "ONTO - revision funcional simulada",
+      "reviewer_role": "Business steward / arquitecto",
+      "note": "Ratificado: binding directo entre concepto aprobado y activo Fabric homonimo, con evidencia funcional trazable.",
+      "decided_at": "2026-08-05T07:39:11+00:00"
+    }
+  },
+  {
+    "element_id": "model-source_binding-742d33ca3b3b",
+    "element_type": "source_binding",
+    "name": "gold_sic.dim_supuesto_modelo -> gold_sic.dim_supuesto_modelo",
+    "definition": "Binding inferido automaticamente desde una referencia explicita y plenamente cualificada a una tabla Fabric en la evidencia funcional.",
+    "owner": "Codex automatic review",
+    "linked_candidate_ids": [
+      "candidate-concept-0053",
+      "candidate-technical-asset-0355"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-03T10:05:51+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-05T07-39-11-00-00-b943e1da32e4",
+      "element_id": "model-source_binding-742d33ca3b3b",
+      "status": "approved",
+      "reviewer": "ONTO - revision funcional simulada",
+      "reviewer_role": "Business steward / arquitecto",
+      "note": "Ratificado: binding directo entre concepto aprobado y activo Fabric homonimo, con evidencia funcional trazable.",
+      "decided_at": "2026-08-05T07:39:11+00:00"
+    }
+  },
+  {
+    "element_id": "model-source_binding-a05908100530",
+    "element_type": "source_binding",
+    "name": "gold_sic.fact_probabilidad -> gold_sic.fact_probabilidad",
+    "definition": "Binding inferido automaticamente desde una referencia explicita y plenamente cualificada a una tabla Fabric en la evidencia funcional.",
+    "owner": "Codex automatic review",
+    "linked_candidate_ids": [
+      "candidate-concept-0054",
+      "candidate-technical-asset-0359"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-03T10:05:51+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-05T07-39-11-00-00-48679179135c",
+      "element_id": "model-source_binding-a05908100530",
+      "status": "approved",
+      "reviewer": "ONTO - revision funcional simulada",
+      "reviewer_role": "Business steward / arquitecto",
+      "note": "Ratificado: binding directo entre concepto aprobado y activo Fabric homonimo, con evidencia funcional trazable.",
+      "decided_at": "2026-08-05T07:39:11+00:00"
+    }
+  },
+  {
+    "element_id": "model-source_binding-4cab1d717e35",
+    "element_type": "source_binding",
+    "name": "gold_sic.fact_impacto -> gold_sic.fact_impacto",
+    "definition": "Binding inferido automaticamente desde una referencia explicita y plenamente cualificada a una tabla Fabric en la evidencia funcional.",
+    "owner": "Codex automatic review",
+    "linked_candidate_ids": [
+      "candidate-concept-0057",
+      "candidate-technical-asset-0356"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-03T10:05:51+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-05T07-39-11-00-00-7e7425608157",
+      "element_id": "model-source_binding-4cab1d717e35",
+      "status": "approved",
+      "reviewer": "ONTO - revision funcional simulada",
+      "reviewer_role": "Business steward / arquitecto",
+      "note": "Ratificado: binding directo entre concepto aprobado y activo Fabric homonimo, con evidencia funcional trazable.",
+      "decided_at": "2026-08-05T07:39:11+00:00"
+    }
+  },
+  {
+    "element_id": "model-source_binding-0cff68787e24",
+    "element_type": "source_binding",
+    "name": "gold_sic.fact_riesgo -> gold_sic.fact_riesgo",
+    "definition": "Binding inferido automaticamente desde una referencia explicita y plenamente cualificada a una tabla Fabric en la evidencia funcional.",
+    "owner": "Codex automatic review",
+    "linked_candidate_ids": [
+      "candidate-concept-0060",
+      "candidate-technical-asset-0362"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-03T10:05:52+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-05T07-39-11-00-00-84411a526e12",
+      "element_id": "model-source_binding-0cff68787e24",
+      "status": "approved",
+      "reviewer": "ONTO - revision funcional simulada",
+      "reviewer_role": "Business steward / arquitecto",
+      "note": "Ratificado: binding directo entre concepto aprobado y activo Fabric homonimo, con evidencia funcional trazable.",
+      "decided_at": "2026-08-05T07:39:11+00:00"
+    }
+  }
+]

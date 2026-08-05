@@ -1,0 +1,72 @@
+{
+  "created_at": "2026-08-01T16:37:26+00:00",
+  "mode": "openai",
+  "candidate_count": 119,
+  "suggestions": [
+    {
+      "suggestion_id": "consolidation-001",
+      "status": "pending_review",
+      "canonical_candidate_id": "candidate-concept-0001",
+      "duplicate_candidate_ids": [
+        "candidate-concept-0011"
+      ],
+      "reason": "Coincidencia exacta de tipo y nombre normalizado."
+    },
+    {
+      "suggestion_id": "consolidation-002",
+      "status": "pending_review",
+      "canonical_candidate_id": "candidate-concept-0004",
+      "duplicate_candidate_ids": [
+        "candidate-concept-0018",
+        "candidate-concept-0027"
+      ],
+      "reason": "Coincidencia exacta de tipo y nombre normalizado."
+    },
+    {
+      "suggestion_id": "consolidation-003",
+      "status": "pending_review",
+      "canonical_candidate_id": "candidate-concept-0006",
+      "duplicate_candidate_ids": [
+        "candidate-concept-0019"
+      ],
+      "reason": "Coincidencia exacta de tipo y nombre normalizado."
+    },
+    {
+      "suggestion_id": "consolidation-004",
+      "status": "pending_review",
+      "canonical_candidate_id": "candidate-concept-0007",
+      "duplicate_candidate_ids": [
+        "candidate-concept-0031"
+      ],
+      "reason": "Coincidencia exacta de tipo y nombre normalizado."
+    },
+    {
+      "suggestion_id": "consolidation-005",
+      "status": "pending_review",
+      "canonical_candidate_id": "candidate-concept-0010",
+      "duplicate_candidate_ids": [
+        "candidate-concept-0035"
+      ],
+      "reason": "Coincidencia exacta de tipo y nombre normalizado."
+    },
+    {
+      "suggestion_id": "consolidation-006",
+      "status": "pending_review",
+      "canonical_candidate_id": "candidate-concept-0016",
+      "duplicate_candidate_ids": [
+        "candidate-concept-0025"
+      ],
+      "reason": "Coincidencia exacta de tipo y nombre normalizado."
+    },
+    {
+      "suggestion_id": "consolidation-007",
+      "status": "pending_review",
+      "canonical_candidate_id": "candidate-kpi-0104",
+      "duplicate_candidate_ids": [
+        "candidate-kpi-0107"
+      ],
+      "reason": "Ambos candidatos representan el número de vulnerabilidades críticas abiertas o no remediadas."
+    }
+  ],
+  "warning": "Las sugerencias no modifican candidatos ni decisiones de ontologia."
+}

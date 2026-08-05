@@ -1,0 +1,3649 @@
+{
+  "client": "risk1",
+  "domain": "risk1",
+  "project_id": "risk1",
+  "run_id": "2026-08-01T15:32:42+00:00",
+  "source_documents": [
+    {
+      "document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "project_id": "risk1",
+      "filename": "GUIA_MODELO_SEMANTICO_Y_REPORTE_PUBLICADO.md",
+      "stored_path": "C:\\Users\\rfbugari\\OneDrive - Sopra Steria\\onto\\data\\context\\risk1\\input\\documentation\\2026-06-18T16-02-38+00-00_GUIA_MODELO_SEMANTICO_Y_REPORTE_PUBLICADO.md",
+      "doc_type": "functional_docs",
+      "content_type": "text/markdown",
+      "uploaded_at": "2026-06-18T16:02:38+00:00",
+      "extraction_status": "extracted",
+      "extracted_text_path": "data\\context\\risk1\\working\\extracted_text\\document-2026-08-01T14-25-42-00-00-8b31b81ddd29.txt",
+      "extracted_chars": 29859,
+      "notes": "re-extracted-after-id-repair"
+    },
+    {
+      "document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "project_id": "risk1",
+      "filename": "GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "stored_path": "C:\\Users\\rfbugari\\OneDrive - Sopra Steria\\onto\\data\\context\\risk1\\input\\documentation\\2026-06-18T16-02-38+00-00_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "doc_type": "functional_docs",
+      "content_type": "text/markdown",
+      "uploaded_at": "2026-06-18T16:02:39+00:00",
+      "extraction_status": "extracted",
+      "extracted_text_path": "data\\context\\risk1\\working\\extracted_text\\document-2026-08-01T14-25-42-00-00-9a4a31f487e9.txt",
+      "extracted_chars": 51797,
+      "notes": "re-extracted-after-id-repair"
+    },
+    {
+      "document_id": "2026-06-18T16-02-39+00-00",
+      "project_id": "risk1",
+      "filename": "GUIA_OPERATIVA_CICLO.md",
+      "stored_path": "C:\\Users\\rfbugari\\OneDrive - Sopra Steria\\onto\\data\\context\\risk1\\input\\documentation\\2026-06-18T16-02-39+00-00_GUIA_OPERATIVA_CICLO.md",
+      "doc_type": "functional_docs",
+      "content_type": "text/markdown",
+      "uploaded_at": "2026-06-18T16:02:39+00:00",
+      "extraction_status": "extracted",
+      "extracted_text_path": "C:\\Users\\rfbugari\\OneDrive - Sopra Steria\\onto\\data\\context\\risk1\\working\\extracted_text\\2026-06-18T16-02-39+00-00.txt",
+      "extracted_chars": 13998,
+      "notes": ""
+    }
+  ],
+  "business_terms": [
+    {
+      "term": "riesgo final",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "cual es el riesgo final de una entidad",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "bloque",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "que bloques explican ese resultado",
+      "confidence": 0.96,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "regla",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "que reglas concretas aportan a cada bloque",
+      "confidence": 0.97,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "SIC",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "SIC representa el eje de aplicaciones y sistemas",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "INFRA",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "INFRA es un eje aplicacional equivalente a SIC en estructura semantica",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "LLDT",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "LLDT representa riesgo de puestos de trabajo o ambito departamental",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "snapshot operativo",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "Snapshot operativo visible para usuario",
+      "confidence": 0.95,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "SIC",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "SIC: distinct count de `fact_riesgo_sic[sic]`",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "riesgo final",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`riesgo_final_num` ya llega calculado en Gold con la matriz 4x4",
+      "confidence": 0.96,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "severidad",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "usar `riesgo_final_texto` como columna/fila de clasificacion",
+      "confidence": 0.95,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "snapshot publicado",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "Respetar el snapshot publicado",
+      "confidence": 0.93,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "amenazas",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "LLDT no tiene catalogo comun de amenazas",
+      "confidence": 0.94,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "riesgo",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "Cada riesgo tiene dos frentes: probabilidad e impacto.",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "probabilidad",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "probabilidad: que tan expuesto esta ese riesgo",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "impacto",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "impacto: que daño produciria si se materializa",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "SIC",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "SIC: riesgo sobre sistemas de informacion criticos y aplicaciones.",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "CULTURA",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "CULTURA: riesgo de cultura sobre el mismo universo funcional de SIC, pero publicado con una unica valoracion por departamento y foco en training.",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "GOVERNANCA",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "GOVERNANCA: riesgo de governanca sobre el mismo universo funcional de SIC, tambien publicado por departamento y con bloque 4000 propio.",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "LLDT",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "LLDT: riesgo sobre puestos de trabajo y sus ambitos de uso.",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "INFRA",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "INFRA: riesgo de infraestructura con scope funcional propio.",
+      "confidence": 0.97,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "REAL",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "La regla usa una fuente considerada valida y activa para ese calculo.",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "DEFAULT",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "La regla no tiene dato usable para ese activo o ambito y el modelo aplica un valor por defecto.",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "CONSTANTE",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "La regla queda cerrada por decision funcional con un valor fijo.",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "LLDT_SIC_EMULADO",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "Es la etiqueta especial vigente del impacto LLDT.",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "bloque 100",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "bloque 100: indisponibilidad de servicios o sistemas",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "bloque 200",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "bloque 200: compromiso y perdida de informacion",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "bloque 300",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "bloque 300: compromiso del equipo o plataforma",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "bloque 400",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "bloque 400: incumplimiento legal y normativo",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "SIC",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "SIC calcula riesgo por sistema / aplicacion critica.",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "LLDT",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "En LLDT, la mayoria de los defaults son provisionales y optimistas.",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "REAL",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "`REAL` si hay dato.",
+      "confidence": 0.97,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "DEFAULT",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "Significa que el modelo no dispone de dato usable y adopta una hipotesis de continuidad.",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "CONSTANTE",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "siempre BAIX",
+      "confidence": 0.94,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "BAIX",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "con GICAR = BAIX; sin GICAR = ALT",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "MIG",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "sin SIC certificado usable = MIG `DEFAULT`",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "ALT",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "sin GICAR = ALT",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "MOLT ALT",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "solo certificacion caducada/no vigente = MOLT ALT",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "bloque de riesgo",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "promedia por bloque las reglas resultantes y publica ese nivel agregado",
+      "confidence": 0.96,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "SIC",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "Unidad de lectura: SIC o aplicacion critica.",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "bloque de riesgo",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "bloque e id_risc indican el riesgo evaluado",
+      "confidence": 0.95,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "nivel_num",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "1 = BAIX, 2 = MIG, 3 = ALT y 4 = MOLT ALT",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "tipo_valor",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "medicion real del control; default por falta de cobertura; constante funcional pactada",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "version_modelo",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "el valor canonico por defecto de version_modelo es v1_modelo_actual",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "SIC",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "El dominio SIC ya tiene esquema propio gold_sic",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "Gold",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001",
+      "source_excerpt": "recalculo de Gold",
+      "confidence": 0.9,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "ManualLoads",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001",
+      "source_excerpt": "validacion y publicacion de ManualLoads",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "Silver",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001",
+      "source_excerpt": "sincronizacion de ManualLoads a Silver",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "precheck tecnico",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001",
+      "source_excerpt": "precheck tecnico del ciclo",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "riesgo de puestos de trabajo",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "Tramo 4. Riesgo de puestos de trabajo",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "CULTURA",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "desde 2026-06-02 el mismo orquestador Gold ya integra tambien CULTURA",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "GOVERNANCA",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "desde 2026-06-02 el mismo orquestador Gold ya integra tambien CULTURA y GOVERNANCA",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "INFRA",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "el scope propio de INFRA ya se publica",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "dato real",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "lo que esta medido con dato real",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "default",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "lo que entra al resultado por default",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "constante funcional",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "lo que entra al resultado por constante funcional",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    }
+  ],
+  "definitions": [
+    {
+      "term": "riesgo final",
+      "definition": "Resultado final del calculo de riesgo, recibido desde Gold y representado mediante probabilidad e impacto combinados.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "El riesgo final no debe recalcularse en el reporte. La combinacion entre probabilidad e impacto ya llega desde Gold",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "risk_key",
+      "definition": "Clave tecnica formada por dominio e identificador de riesgo, con el formato DOMINIO|id_risc.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "risk_key | clave tecnica DOMINIO|id_risc",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "amenaza_key",
+      "definition": "Clave tecnica formada por dominio e identificador de amenaza, con el formato DOMINIO|id_amenaca.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "amenaza_key | clave tecnica DOMINIO|id_amenaca",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "SIC",
+      "definition": "Eje de aplicaciones y sistemas cuya entidad principal es la aplicacion identificada por sic.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "SIC representa el eje de aplicaciones y sistemas con el detalle funcional mas completo. Su entidad principal es la aplicacion identificada por sic.",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "INFRA",
+      "definition": "Eje aplicacional equivalente a SIC en estructura semantica, con alcance propio; funcionalmente representa activos de infraestructura.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "INFRA es un eje aplicacional equivalente a SIC en estructura semantica, pero con scope propio",
+      "confidence": 0.96,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "LLDT",
+      "definition": "Eje que representa riesgo de puestos de trabajo o ambito departamental; su entidad principal es el departamento o scope funcional.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "LLDT representa riesgo de puestos de trabajo o ambito departamental",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "riesgo_final_num",
+      "definition": "Valor numérico de riesgo que llega calculado en Gold mediante una matriz 4x4 de doble entrada entre probabilidad e impacto.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`riesgo_final_num` ya llega calculado en Gold con la matriz 4x4 de doble entrada entre probabilidad e impacto",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "riesgo_final_texto",
+      "definition": "Clasificación textual utilizada para representar la severidad del riesgo en matrices y visuales.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "usar `riesgo_final_texto` como columna/fila de clasificacion",
+      "confidence": 0.94,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "fecha_carga",
+      "definition": "Referencia temporal visible del snapshot o ejecución publicada.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "La referencia temporal visible es `dim_run_modelo[fecha_carga]`",
+      "confidence": 0.97,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "codigo_departamento_ref",
+      "definition": "Entidad principal y grano de referencia publicado para los dominios CULTURA y GOVERNANCA.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "Su entidad principal es el departamento de referencia publicado en `codigo_departamento_ref`",
+      "confidence": 0.96,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "riesgo final",
+      "definition": "Resultado de cruzar el nivel final de probabilidad y el nivel final de impacto en una matriz 4x4 de doble entrada.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "el riesgo final ... se cruza probabilidad e impacto en una matriz 4x4 de doble entrada.",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "escala de riesgo",
+      "definition": "Escala común de cuatro niveles: 1 BAIX/bajo, 2 MIG/medio, 3 ALT/alto y 4 MOLT ALT/muy alto.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "1 = BAIX / bajo; 2 = MIG / medio; 3 = ALT / alto; 4 = MOLT ALT / muy alto",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "pct_antivirus",
+      "definition": "Porcentaje de equipos del ámbito con antivirus desplegado y operativo.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "porcentaje de equipos del ambito con antivirus desplegado y operativo",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "pct_edr",
+      "definition": "Porcentaje de equipos con EDR desplegado y operativo.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "porcentaje de equipos con EDR desplegado y operativo",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "security_score",
+      "definition": "Puntuación de seguridad o perímetro publicada para la aplicación o SIC.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "puntuacion de seguridad/perimetro publicada para la aplicacion o SIC",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "criticidad_negocio",
+      "definition": "Criticidad del sistema en escala de inventario; en la implementación actual los valores bajos representan mayor criticidad.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "en la implementacion actual los valores bajos representan mayor criticidad",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "rto",
+      "definition": "Tiempo máximo tolerable de indisponibilidad.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "tiempo maximo tolerable de indisponibilidad",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "SIC",
+      "definition": "Dominio que calcula riesgo por sistema o aplicacion critica, con probabilidad e impacto regla a regla y agregacion posterior por bloque y por SIC.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "SIC calcula riesgo por sistema / aplicacion critica. SIC si calcula probabilidad regla por regla; SIC si calcula impacto regla por regla; luego agrega por bloque y obtiene riesgo final por bloque y por SIC.",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "LLDT",
+      "definition": "Dominio cuyo impacto vigente combina valoraciones departamentales propias con reglas que emulan un SIC del departamento.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "cada bloque sale de una mezcla distinta entre la valoracion propia del departamento y el SIC que ese departamento debe emular.",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "default LLDT",
+      "definition": "Hipotesis provisional, normalmente optimista, utilizada cuando falta un dato usable para no bloquear el calculo.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "un `DEFAULT` LLDT no significa que el control este bien medido. Significa que el modelo no dispone de dato usable y adopta una hipotesis de continuidad.",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "default SIC",
+      "definition": "Resultado neutral o controlado aplicado normalmente cuando falta informacion en SIC.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "En SIC, el default no suele ser optimista como en LLDT. Normalmente es neutral o controlado.",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "impacto SIC",
+      "definition": "Valoracion por regla de los efectos de la indisponibilidad, compromiso, perdida de informacion o incumplimiento asociados a un SIC.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "Impacto SIC por regla",
+      "confidence": 0.9,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "nivel",
+      "definition": "Severidad final de una regla ya interpretada por el modelo; no representa porcentaje de cumplimiento ni un valor booleano.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "no significa porcentaje de cumplimiento; no significa si la regla da verdadero o falso; significa severidad final",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "peso_regla",
+      "definition": "Factor con el que una regla participa en el agregado del bloque o del eje completo.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "peso_regla: es el factor con el que una regla entra al agregado",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "criticidad_negocio",
+      "definition": "Escala funcional en la que los valores 0 y 1 implican mayor severidad, 2 y 3 severidad intermedia y 4 menor severidad relativa.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "valores 0 y 1 implican mayor severidad; 2 y 3 severidad intermedia; 4 menor severidad relativa",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "resultado final de riesgo",
+      "definition": "Resultado obtenido al cruzar la probabilidad final y el impacto final del bloque mediante la matriz 4x4.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "cruza probabilidad final e impacto final del bloque y publica el riesgo resultante",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "sic",
+      "definition": "Identifica el sistema o aplicación.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "sic identifica el sistema o aplicacion",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "bloque",
+      "definition": "Indica si el resultado pertenece al riesgo 200 o 400.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "bloque indica si el resultado pertenece al riesgo 200 o 400",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "probabilidad_final_num",
+      "definition": "Muestra el nivel final de probabilidad del bloque.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "probabilidad_final_num e impacto_final_num muestran los niveles finales del bloque",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "impacto_final_num",
+      "definition": "Muestra el nivel final de impacto del bloque.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "probabilidad_final_num e impacto_final_num muestran los niveles finales del bloque",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "riesgo_final_num",
+      "definition": "Expresa el nivel publicado de riesgo.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "riesgo_final_num expresa el nivel publicado",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "run_id",
+      "definition": "Permite auditar la ejecución exacta.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "run_id y version_modelo permiten auditar la ejecucion exacta",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "version_modelo",
+      "definition": "Permite auditar la versión exacta del modelo ejecutado.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "run_id y version_modelo permiten auditar la ejecucion exacta",
+      "confidence": 0.95,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "codi_dialeg",
+      "definition": "Se utiliza como SIC emulado por departamento cuando una regla de impacto necesita datos SIC.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "usa codi_dialeg como SIC emulado cuando una regla de impacto necesita datos SIC",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "codigo_departamento_ref",
+      "definition": "Clave canónica de consolidación en CULTURA y GOVERNANCA.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "ambos dominios publican codigo_departamento_ref como clave canonica de consolidacion",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    }
+  ],
+  "business_rules": [
+    {
+      "text": "El riesgo final no debe recalcularse en Power BI; debe utilizarse el resultado recibido desde Gold.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "El riesgo final no debe recalcularse en el reporte.",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Para análisis entre dominios se debe utilizar risk_key o amenaza_key con prefijo de dominio; los identificadores nativos solo son válidos dentro del eje correspondiente.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "para analisis entre ejes usar siempre la clave con prefijo",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "La distribución por severidad debe contar entidades y no sumar niveles numéricos.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "contar entidades, no sumar nivel numerico",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "En SIC, las filas de detalle de reglas tienen grano sic + regla + riesgo + run_id.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "la repeticion de filas responde al grano natural sic + regla + riesgo + run_id",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "El snapshot completo solo se considera válido cuando los cinco dominios Gold tienen una ejecución correcta.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "considerando ciclo completo solo cuando los cinco dominios Gold tienen ejecucion correcta",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "El número de severidad (`riesgo_final_num`) debe utilizarse para ordenar y no para sumar.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "El numero de severidad (`riesgo_final_num`) sirve para ordenar, no para sumar.",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "No se debe reconstruir `riesgo_final_num` en DAX como promedio, redondeo o combinación lineal de probabilidad e impacto.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "no debe reconstruirse en DAX como promedio, redondeo ni combinacion lineal",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "La ejecución vigente debe determinarse mediante `dim_run_modelo` y no mediante facts aisladas.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "No inferir la ejecucion vigente mirando facts sueltas.",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Para páginas ejecutivas se debe utilizar el conteo distinto de la entidad correspondiente al dominio.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "Para paginas ejecutivas, la medida principal suele ser un conteo de entidades",
+      "confidence": 0.96,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "CULTURA y GOVERNANCA no deben utilizarse para páginas de amenazas porque no publican un bridge de amenazas compartido.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "No usar CULTURA para analisis de amenazas; no publica bridge de amenazas como SIC o INFRA.",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Si una página combina dominios, deben utilizarse bloques separados y mostrar o fijar `dominio_modelo`.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "usar bloques separados por dominio; fijar `dim_riesgo_master[dominio_modelo]`",
+      "confidence": 0.97,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Cada eje calcula cuatro riesgos: indisponibilidad, compromiso y pérdida de información, compromiso del equipo o plataforma, e incumplimiento legal y normativo.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "Cada eje calcula 4 riesgos",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "El riesgo final se obtiene mediante una matriz 4x4 que cruza probabilidad e impacto; no se calcula mediante promedio ni ponderación lineal.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "el riesgo final no se calcula con promedio ni ponderacion lineal",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "La matriz final vigente debe consumirse desde una fuente manual canónica y no mantenerse hardcodeada en Gold.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "La matriz vigente ya no debe mantenerse hardcodeada en Gold",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Cuando no existe un dato usable, el modelo aplica un valor por defecto para no romper el cálculo.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "el modelo aplica un valor por defecto para no romper el calculo",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "CULTURA y GOVERNANCA se publican a grano departamento con una única valoración por riesgo y departamento.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "CULTURA y GOVERNANCA pasan a publicarse a grano departamento con una unica valoracion por riesgo y departamento.",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "CULTURA activa únicamente riesgos de los bloques 200 y 400.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "solo activa riesgos de los bloques 200 y 400",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "GOVERNANCA activa riesgos de los bloques 200 y 400.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "activa riesgos de los bloques 200 y 400",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "En CULTURA y GOVERNANCA, la consolidación final se realiza por codigo_departamento_ref e id_risc y no debe forzarse un join adicional por bloque entre las facts.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "la consolidada fact_riesgo une probabilidad e impacto por codigo_departamento_ref e id_risc",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "La regla LLDT 1001 clasifica la probabilidad según la cobertura de antivirus: >=96% BAIX, 91-95 MIG, 86-90 ALT y <86 MOLT ALT; si falta el dato se asume 100%.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003",
+      "source_excerpt": "1001 | Despliegue antivirus | ... >= 96% = BAIX; 91-95 = MIG; 86-90 = ALT; < 86 = MOLT ALT",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "La regla LLDT 1003 clasifica la probabilidad según el porcentaje de equipos con más de 60 días sin actualizar: <30% BAIX, 30-79 MIG, 80-89 ALT y >=90 MOLT ALT; si falta el dato se asume 0%.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003",
+      "source_excerpt": "1003 | Parches desactualizados | ... < 30% = BAIX; 30-79 = MIG; 80-89 = ALT; >= 90 = MOLT ALT",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "La regla LLDT 2002 es constante y siempre clasifica como BAIX.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003",
+      "source_excerpt": "2002 | MFA VPN administradores | decision funcional | ... siempre BAIX | CONSTANTE",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "La regla LLDT 2005 es constante y siempre clasifica como MOLT ALT, con valor fijo de 0% de MFA.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003",
+      "source_excerpt": "2005 | MFA cuentas genericas | ... siempre MOLT ALT | CONSTANTE, valor fijo 0% MFA",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "La regla LLDT 2006 clasifica la formación según la cobertura de asistentes frente al parque de workstations: >60% BAIX, 45-60 MIG, 30-44 ALT y <30 MOLT ALT; si falta training activo se asume 100%.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003",
+      "source_excerpt": "2006 | Formacion usuarios | ... > 60% = BAIX; 45-60 = MIG; 30-44 = ALT; < 30 = MOLT ALT",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "El impacto LLDT combina reglas propias de LLDT con reglas derivadas de un SIC emulado por departamento y se agrega por bloque.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003",
+      "source_excerpt": "el impacto no se publica regla por regla, pero si se construye bloque por bloque combinando reglas LLDT propias con reglas derivadas del SIC emulado por departamento",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "En LLDT, si falta una cobertura positiva se asume normalmente 100%.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "si falta una cobertura positiva, suele asumirse 100%",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "En LLDT, si falta una cobertura negativa se asume normalmente 0%.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "si falta una cobertura negativa, suele asumirse 0%",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "El impacto LLDT busca la fila del departamento, toma codi_dialeg como SIC emulado y calcula reglas con atributos del SIC y del departamento.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "busca la fila del departamento en `silver.dim_lldt_cidat`; toma `codi_dialeg` como SIC emulado del departamento",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "El impacto LLDT se agrega promediando por bloque las reglas resultantes.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "promedia por bloque las reglas resultantes y publica ese nivel agregado en `gold_lldt.fact_impacto_bloque`.",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "La regla SIC 1001 clasifica la cobertura EDR por SIC en BAIX, MIG, ALT o MOLT ALT según porcentajes definidos.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": ">= 95% = BAIX; 91-94 = MIG; 86-90 = ALT; < 86 = MOLT ALT",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Las reglas SIC 2002, 2003 y 2004 consideran MFA cubierto al 100% y siempre asignan BAIX.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "se considera cubierto al 100%; siempre BAIX",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "La regla SIC 2005 considera inexistente el MFA de usuarios a nivel aplicacion/SIC y siempre asigna MOLT ALT.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "se considera que no existe MFA de usuarios a nivel aplicacion/SIC; siempre MOLT ALT",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "La regla SIC 4001 asigna BAIX con certificacion activa vigente, MOLT ALT con certificacion caducada o no vigente y MIG DEFAULT sin certificacion usable.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "certificacion activa vigente = BAIX `REAL`, solo certificacion caducada/no vigente = MOLT ALT `REAL`, sin SIC certificado usable = MIG `DEFAULT`",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Las reglas SIC 4002 a 4006 convierten un valor departamental Si en BAIX, No en MOLT ALT y ausencia de dato en MIG.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "`Si` = BAIX, `No` = MOLT ALT, sin dato usable = MIG",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "La probabilidad se agrega por bloque mediante un promedio ponderado de niveles cuando existen pesos positivos; si no existen, se utiliza el promedio simple.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "si la suma de pesos ... SUM(nivel_num * peso_regla) / SUM(peso_regla); si no hay pesos positivos, AVG(nivel_num)",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Después del promedio de probabilidad, el resultado se redondea al entero más cercano y se expresa como BAIX, MIG, ALT o MOLT ALT.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "el motor redondea el resultado al entero mas cercano y lo vuelve a expresar como BAIX, MIG, ALT o MOLT ALT",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "La regla 401 de SIC toma el máximo entre C, I, D, A y T; si no hay CIDAT, aplica un default de nivel 2.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "toma el maximo entre C, I, D, A y T ... DEFAULT nivel 2 si falta",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "En SIC, la traducción vigente de gobernanza departamental es Si = BAIX, No = MOLT ALT y sin dato usable = MIG DEFAULT.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "Si = BAIX, No = MOLT ALT, sin dato usable = MIG DEFAULT",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "El bloque 4000 de GOVERNANCA remapea las reglas 4003-4007 desde las reglas 4002-4006 de gobernanza departamental.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "4003-4007 reutilizan gobernanza departamental, pero con remapeo explicito ... 4002-4006",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "La lectura funcional de una fila debe distinguir el sistema o aplicación, el bloque de riesgo, los niveles finales, el nivel publicado y la ejecución exacta.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "sic identifica... bloque indica... probabilidad_final_num e impacto_final_num... riesgo_final_num... run_id y version_modelo",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Para explicar un resultado Gold se debe comenzar por la fact final, abrir la fact de bloque correspondiente, bajar al detalle por regla y cerrar con las dimensiones de reglas, supuestos y la ejecución auditada.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "la secuencia correcta es: empezar por la fact final; abrir la fact de bloque; bajar a la fact de detalle por regla; cerrar la interpretacion",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "El ciclo debe validar shortcuts y orígenes antes de mover datos físicos.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001",
+      "source_excerpt": "El ciclo ya puede validar shortcuts/origenes antes de mover datos fisicos",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "El precheck debe comprobar que las tablas Bronze existen, que los shortcuts responden, que las columnas mínimas siguen estando, que la fuente no está vacía por error y que las fuentes snapshot tienen una fotografía utilizable.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001",
+      "source_excerpt": "que las tablas Bronze existen; que los shortcuts responden; que las columnas minimas siguen estando; que la fuente no quedo vacia",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "El flujo operativo completo sigue el orden Landing, Bronze ready, Silver, Gold y refresh del modelo semántico.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001",
+      "source_excerpt": "Files/ManualLoads -> Validate + Publish a Bronze -> Precheck tecnico -> Sync ManualLoads -> Silver -> Gold -> Refresh modelo semantico",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "El impacto de LLDT no hereda automáticamente desde SIC.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "hoy el impacto de LLDT no hereda automaticamente desde SIC",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Las reglas de impacto 103, 105 y 203 deben distinguir dato real de dato faltante: REAL/OK si existe criticidad y DEFAULT/SIN_DATO si no existe.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "las reglas 103, 105 y 203 ya distinguen dato real frente a dato faltante: REAL/OK si hay criticidad y DEFAULT/SIN_DATO si no",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Las reglas 104 y 202 utilizan is_t11 como criterio operativo T11/público.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "las reglas 104 y 202 ya consumen ... is_t11 como criterio operativo T11/publico",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Las reglas 4002-4006 se evalúan directamente por departamento en sí/no.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "las reglas 4002-4006 ya consumen ... con evaluacion directa por departamento en si/no",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "La regla 4001 puede quedar en DEFAULT cuando no hay SIC certificados materializados.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "La 4001 ya consume ... siguio en DEFAULT porque no hubo SIC certificados materializados",
+      "confidence": 0.95,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "En CULTURA y GOVERNANCA la consolidación final debe cruzar probabilidad e impacto por codigo_departamento_ref e id_risc, sin añadir un match extra por bloque.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "la consolidada final fact_riesgo debe cruzar probabilidad e impacto por codigo_departamento_ref e id_risc; no debe añadirse un match extra por bloque",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "La operación vigente asume recarga completa de las tablas Gold en cada ejecución de CULTURA y GOVERNANCA.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "la operacion vigente asume recarga completa de tablas Gold en cada ejecucion",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    }
+  ],
+  "kpis": [
+    {
+      "text": "Distribución de entidades por severidad del riesgo final.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "Distribucion por severidad",
+      "confidence": 0.96,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Promedio y cobertura de reglas de probabilidad por bloque.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "Resumen de probabilidad por bloque",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Promedio y cobertura de reglas o fuentes de impacto por bloque.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "Resumen de impacto por bloque",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Cobertura de valores reales, proxies, pendientes y no disponibles para evaluar la calidad del cálculo.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "Calidad de calculo, proxies y defaults",
+      "confidence": 0.97,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Conteo distinto de SIC.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "SIC: distinct count de `fact_riesgo_sic[sic]` o medida `SICs`",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Conteo distinto de departamentos para LLDT.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "LLDT: distinct count de `fact_riesgo_pt[codigo_departamento]`",
+      "confidence": 0.97,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Conteo distinto de departamentos de referencia para CULTURA.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "CULTURA: distinct count de `fact_riesgo_cultura[codigo_departamento_ref]`",
+      "confidence": 0.97,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Conteo distinto de departamentos de referencia para GOVERNANCA.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "GOVERNANCA: distinct count de `fact_riesgo_governanca[codigo_departamento_ref]`",
+      "confidence": 0.97,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Porcentaje de equipos con antivirus desplegado y operativo.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "pct_antivirus | porcentaje de equipos del ambito con antivirus desplegado y operativo",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Porcentaje de equipos con EDR desplegado y operativo.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "pct_edr / pct_edr_current | porcentaje de equipos con EDR desplegado y operativo",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Porcentaje de equipos con más de 60 días sin actualizar Windows.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "pct_patch_gt_60 | porcentaje de equipos con mas de 60 dias sin actualizar Windows",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Número de tickets o alertas departamentales cerradas usados como señal operativa.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "alert_ticket_count | numero de tickets/alertas departamentales cerradas usados como senal operativa",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Porcentaje de usuarios con MFA en VPN.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "pct_mfa_vpn | porcentaje de usuarios con MFA en VPN",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Porcentaje de usuarios con MFA en O365.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "pct_mfa_o365 | porcentaje de usuarios con MFA en O365",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Cobertura de formación calculada sobre asistentes frente al parque de equipos del ámbito.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "pct_training_attendance | cobertura de formacion, calculada sobre asistentes frente al parque de equipos del ambito",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Porcentaje de equipos cifrados.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "pct_encrypted | porcentaje de equipos cifrados",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Cantidad de atributos de perímetro sin completar.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "total_attributes_noncompleted | cantidad de atributos de perimetro sin completar",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Número de vulnerabilidades críticas abiertas.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "critical_open_count | numero de vulnerabilidades criticas abiertas",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Porcentaje de cobertura EDR por SIC.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "cobertura EDR por hosts relacionados con el SIC",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Porcentaje de despliegue del perimetro base, calculado como 1 - (base_attributes_noncompleted / 6).",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "calcula `% despliegue base = 1 - (base_attributes_noncompleted / 6)`",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Numero de vulnerabilidades criticas abiertas o no remediadas.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "cuenta vulnerabilidades criticas no remediadas",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Numero de alertas criticas no resueltas mediante tickets asociados.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "tickets departamentales asociados al SIC",
+      "confidence": 0.96,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Porcentaje de hosts obsoletos vinculados al SIC.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "`% hosts obsoletos` vinculados al SIC",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Numero maximo de usuarios afectados por un SIC.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "usa `num_usuarios_max` del SIC emulado",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Conteo de reglas REAL, DEFAULT y CONSTANTE por bloque.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "cuantas reglas del bloque fueron REAL; cuantas quedaron en DEFAULT; cuantas son CONSTANTE",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Conteo de reglas no disponibles en los agregados de impacto SIC.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "y, en impacto, no disponibles",
+      "confidence": 0.96,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Probabilidad final agregada por bloque.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "resume la probabilidad final del bloque como agregado de niveles por regla",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Impacto final agregado por bloque.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "resume el impacto final por riesgo",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Riesgo final por bloque y por SIC.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "es la salida final del modelo SIC ... publica el riesgo resultante",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Número de filas generadas en la ejecución Gold de LLDT.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "99 filas LLDT",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Número de filas generadas en la ejecución Gold de SIC.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "3009 filas SIC",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Cobertura del archivo manual de defaults respecto al catálogo activo de reglas.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "84 reglas sobre 84",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Estado de éxito de las ejecuciones Gold.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "el modo sql_v1_silver ya ejecuto en SUCCESS",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    }
+  ],
+  "processes": [
+    {
+      "text": "Seleccionar el snapshot operativo visible mediante la fecha de carga del modelo.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "Snapshot operativo visible para usuario: dim_run_modelo[fecha_carga]",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Analizar el riesgo en tres niveles: resultado final, bloques explicativos y reglas concretas.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "La idea central es separar tres preguntas distintas",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Para explicar la probabilidad o el impacto, consultar los hechos de reglas correspondientes y sus dimensiones de reglas y supuestos.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "Por que salio esa probabilidad ... fact_probabilidad_*",
+      "confidence": 0.97,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Proceso recomendado para cambiar el modelo semántico: editar la definición, publicar la parte afectada, refrescar el dataset y validar con DAX antes de modificar el reporte.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-006",
+      "source_excerpt": "Editar `definition/` o `model.bim`... Publicar... Refrescar el dataset... Validar con DAX... Recién despues tocar el reporte publicado.",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Proceso recomendado para cambiar el reporte publicado: identificar el visual, modificar el reporte publicado, validar el visual y actualizar la guía funcional.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-006",
+      "source_excerpt": "Identificar el visual o pagina exacta... Cambiar el reporte publicado... Validar el visual... Actualizar la guia funcional.",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Antes de publicar una nueva página se debe comprobar la pregunta analítica, el dominio, la fecha, los filtros, la medida, la validación y la documentación.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-006",
+      "source_excerpt": "Checklist minimo antes de publicar una nueva pagina",
+      "confidence": 0.96,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Cálculo Gold de riesgo para los cinco ejes LLDT, SIC, CULTURA, GOVERNANCA e INFRA.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "explicar ... como funciona el calculo de riesgo en Gold para los cinco ejes del modelo",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Obtención del nivel final de probabilidad por bloque.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "se obtiene un nivel final de probabilidad del bloque",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Obtención del nivel final de impacto por bloque.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "se obtiene un nivel final de impacto del bloque",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Consolidación del riesgo final mediante la matriz de combinación probabilidad-impacto.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "riesgo_final_num = matriz_4x4(probabilidad_final_num, impacto_final_num)",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Recarga truncate-reload de las tablas Gold de CULTURA y GOVERNANCA en cada ejecución.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "las tablas Gold se recargan en modo truncate-reload en cada ejecucion",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Consolidación del impacto LLDT por bloque combinando valoración departamental y SIC emulado.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003",
+      "source_excerpt": "agrega el resultado por bloque y lo publica en gold_lldt.fact_impacto_bloque",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Calculo de riesgo SIC por reglas, seguido de agregacion por bloque y por SIC.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "calcula probabilidad regla por regla; calcula impacto regla por regla; luego agrega por bloque y obtiene riesgo final por bloque y por SIC.",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Resolucion del impacto LLDT mediante datos departamentales, SIC emulado y atributos operativos.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "calcula reglas SIC-emuladas con `silver.inv_sic_atributos_current` ... calcula la regla 204 ... calcula la regla 401",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Clasificacion de controles y evidencias como REAL, DEFAULT o CONSTANTE.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "`REAL` si hay dato; `DEFAULT` neutral nivel 2 si no hay mapeo usable",
+      "confidence": 0.96,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Identificar la ejecución en auditoría, consultar el resultado final, abrir el bloque explicativo y revisar el detalle de reglas y el catálogo funcional.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "identificar la ejecucion en auditoria; mirar el resultado final publicado; abrir el bloque; bajar al detalle de reglas",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Calcular la probabilidad por bloque agregando los niveles de las reglas con pesos configurados.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "fact_probabilidad_bloque agrega los nivel_num de las reglas del bloque",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Calcular el riesgo final cruzando probabilidad e impacto mediante una matriz 4x4.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "cruce con el impacto final del bloque usando la matriz 4x4 de doble entrada",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Auditar el cálculo mediante run_id y version_modelo.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "run_id y version_modelo permiten auditar la ejecucion exacta",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Ciclo operativo end to end: validar y publicar ManualLoads, ejecutar precheck, sincronizar a Silver, recargar el core Silver, recalcular Gold y refrescar el modelo semántico.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001",
+      "source_excerpt": "El alcance ... en seis tramos",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Proceso de explicación funcional de un resultado Gold mediante fact final, fact de bloque, detalle por regla, dimensiones interpretativas y auditoría.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "la secuencia correcta es: empezar por la fact final...",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Proceso de ejecución del riesgo SIC mediante el modo operativo sql_v1_silver.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "el unico modo operativo vigente del procedimiento es sql_v1_silver",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "text": "Proceso de ejecución unificada del ciclo mediante precheck, ManualLoads, Silver core y Gold.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "ya existe ejecucion unica precheck -> ManualLoads -> Silver core -> LLDT + SIC + CULTURA + GOVERNANCA + INFRA",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    }
+  ],
+  "states": [
+    {
+      "term": "activa",
+      "definition": "Estado de vigencia de una regla.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "activa | vigencia de la regla",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "ejecución correcta",
+      "definition": "Estado requerido de un dominio Gold para que el ciclo completo sea considerado válido.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "cuando los cinco dominios Gold tienen ejecucion correcta",
+      "confidence": 0.95,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "pendiente",
+      "definition": "Situación de cobertura o disponibilidad identificada en los hechos de bloque.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "reales, proxies, defaults_cnt, constantes, pendientes, no_disponibles",
+      "confidence": 0.9,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "Bajo",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "Bajo: verde suave",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "Medio",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "Medio: arena",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "Alto",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "Alto: naranja suave",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "Muy alto",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "Muy alto: rojo o rosa suave",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "BAIX",
+      "definition": "Nivel 1, bajo.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "1 = BAIX / bajo",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "MIG",
+      "definition": "Nivel 2, medio.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "2 = MIG / medio",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "ALT",
+      "definition": "Nivel 3, alto.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "3 = ALT / alto",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "MOLT ALT",
+      "definition": "Nivel 4, muy alto.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "4 = MOLT ALT / muy alto",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "REAL",
+      "definition": "La regla utiliza una fuente válida y activa.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "La regla usa una fuente considerada valida y activa",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "DEFAULT",
+      "definition": "La regla utiliza un valor por defecto cuando no hay dato usable.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "aplica un valor por defecto",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "CONSTANTE",
+      "definition": "La regla utiliza un valor fijo por decisión funcional.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "valor fijo, no porque exista una fuente dinamica",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "REAL",
+      "definition": "El resultado se calcula a partir de un dato disponible y usable.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "`REAL` si hay coverage",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "DEFAULT",
+      "definition": "El resultado se calcula mediante una hipotesis aplicada por ausencia de dato usable.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "si falta y se asume 100%",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "CONSTANTE",
+      "definition": "El resultado se fija por una decision funcional, sin depender de un dato variable.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "siempre BAIX",
+      "confidence": 0.95,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "certificacion activa vigente",
+      "definition": "Estado de certificacion que produce nivel BAIX REAL en la regla SIC 4001.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "certificacion activa vigente = BAIX `REAL`",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "certificacion caducada/no vigente",
+      "definition": "Estado de certificacion que produce nivel MOLT ALT REAL en la regla SIC 4001.",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "solo certificacion caducada/no vigente = MOLT ALT `REAL`",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "state": "REAL",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "medicion real del control",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "state": "DEFAULT",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "default por falta de cobertura",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "state": "CONSTANTE",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "constante funcional pactada",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "state": "SUCCESS",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "validar que la carga SIC termino en SUCCESS",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "SUCCESS",
+      "definition": "Estado de ejecución completada satisfactoriamente.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "ya ejecuto en SUCCESS en DW",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "REAL/OK",
+      "definition": "Estado que indica que existe criticidad y se utiliza un dato real.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "REAL/OK si hay criticidad",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "DEFAULT/SIN_DATO",
+      "definition": "Estado que indica que falta el dato de criticidad y se utiliza un valor por defecto.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "DEFAULT/SIN_DATO si no",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "DEFAULT",
+      "definition": "Estado utilizado cuando no hay SIC certificados materializados para la regla 4001.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "siguio en DEFAULT porque no hubo SIC certificados materializados",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "pendiente",
+      "definition": "Situación en la que una cobertura o formalización aún no está completada.",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "el pendiente real es completar cobertura",
+      "confidence": 0.95,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    }
+  ],
+  "synonyms": [
+    {
+      "term": "aplicación",
+      "synonym": "activo aplicacional",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "La entidad principal tambien se expone como sic por compatibilidad del contrato, aunque funcionalmente representa activo INFRA",
+      "confidence": 0.86,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "riesgo por departamento",
+      "synonym": "riesgo de puestos de trabajo o ámbito departamental",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "LLDT representa riesgo de puestos de trabajo o ambito departamental",
+      "confidence": 0.95,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "severidad",
+      "synonym": "riesgo_final_texto",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "usar `riesgo_final_texto` como columna/fila de clasificacion",
+      "confidence": 0.82,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "entidad aplicacional",
+      "synonym": "SIC",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "SIC: distinct count de `fact_riesgo_sic[sic]`",
+      "confidence": 0.7,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "BAIX",
+      "synonym": "bajo",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "1 = BAIX / bajo",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "MIG",
+      "synonym": "medio",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "2 = MIG / medio",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "ALT",
+      "synonym": "alto",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "3 = ALT / alto",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "MOLT ALT",
+      "synonym": "muy alto",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "4 = MOLT ALT / muy alto",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "indisponibilidad",
+      "synonym": "bloque 100",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "bloque 100: indisponibilidad de servicios o sistemas",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "compromiso y pérdida de información",
+      "synonym": "bloque 200",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "bloque 200: compromiso y perdida de informacion",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "compromiso del equipo o plataforma",
+      "synonym": "bloque 300",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "bloque 300: compromiso del equipo o plataforma",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "incumplimiento legal y normativo",
+      "synonym": "bloque 400",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "bloque 400: incumplimiento legal y normativo",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "aplicacion critica",
+      "synonym": "sistema / aplicacion critica",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "riesgo por sistema / aplicacion critica",
+      "confidence": 0.9,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "publico",
+      "synonym": "T11",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "T11/publico = ALT",
+      "confidence": 0.99,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "obsolescencia SO",
+      "synonym": "hosts obsoletos",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "`% hosts obsoletos`",
+      "confidence": 0.88,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "probabilidad final",
+      "synonyms": [
+        "nivel final de probabilidad",
+        "probabilidad agregada del bloque"
+      ],
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "probabilidad final del bloque como agregado de niveles por regla",
+      "confidence": 0.9,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "impacto final",
+      "synonyms": [
+        "nivel final de impacto",
+        "impacto agregado por bloque"
+      ],
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "resume el impacto final por riesgo",
+      "confidence": 0.9,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "aplicación",
+      "synonym": "sistema",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "sic identifica el sistema o aplicacion",
+      "confidence": 0.9,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "dato faltante",
+      "synonym": "SIN_DATO",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "DEFAULT/SIN_DATO si no",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "valor por defecto",
+      "synonym": "DEFAULT",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "lo que entra al resultado por default",
+      "confidence": 0.98,
+      "status": "pending_review",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    }
+  ],
+  "candidate_entities": [
+    {
+      "term": "aplicación SIC",
+      "matched_semantic_object": "dim_aplicacion_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "dim_aplicacion_sic | atributos de aplicacion",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "riesgo SIC",
+      "matched_semantic_object": "fact_riesgo_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "fact_riesgo_sic | salida final por sic, bloque y riesgo",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "regla de probabilidad SIC",
+      "matched_semantic_object": "fact_probabilidad_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "fact_probabilidad_sic | detalle por sic, codigo_regla y riesgo",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "regla de impacto SIC",
+      "matched_semantic_object": "fact_impacto_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "fact_impacto_sic | detalle por sic, codigo_regla y riesgo",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "impacto por bloque SIC",
+      "matched_semantic_object": "fact_impacto_bloque_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "fact_impacto_bloque_sic | promedio y cobertura de reglas de impacto por bloque",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "riesgo",
+      "matched_semantic_object": "dim_riesgo_master",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "Dimension descriptiva maestra de riesgo: dim_riesgo_master",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "departamento",
+      "matched_semantic_object": "dim_departamento_master",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "Filtro transversal compartido de departamento",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "snapshot del modelo",
+      "matched_semantic_object": "dim_run_modelo",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "dim_run_modelo | fijar el snapshot visible del modelo",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "SIC",
+      "matched_semantic_object": "fact_riesgo_sic[sic]",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "SIC: distinct count de `fact_riesgo_sic[sic]`",
+      "confidence": 0.96,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "riesgo",
+      "matched_semantic_object": "fact_riesgo_sic[risc]",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "comparacion transversal de riesgos: usar `risk_key` contra `dim_riesgo_master`",
+      "confidence": 0.86,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "departamento",
+      "matched_semantic_object": "fact_riesgo_sic[nombre_departamento]",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`dim_departamento_master[nombre_departamento]` cuando la pagina compare dominios",
+      "confidence": 0.9,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "ejecución del modelo",
+      "matched_semantic_object": "fact_riesgo_sic[run_id]",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "La referencia temporal visible es `dim_run_modelo[fecha_carga]`",
+      "confidence": 0.78,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "SIC",
+      "matched_semantic_object": "fact_riesgo_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "SIC: riesgo sobre sistemas de informacion criticos y aplicaciones.",
+      "confidence": 0.9,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "riesgo SIC",
+      "matched_semantic_object": "fact_riesgo_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "SIC: riesgo sobre sistemas de informacion criticos y aplicaciones.",
+      "confidence": 0.9,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "impacto SIC por regla",
+      "matched_semantic_object": "fact_impacto_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "cada regla queda marcada con un tipo de valor para que el resultado sea auditable y explicable.",
+      "confidence": 0.78,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "probabilidad SIC por regla",
+      "matched_semantic_object": "fact_probabilidad_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "se obtiene un nivel final de probabilidad del bloque",
+      "confidence": 0.78,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "impacto SIC por bloque",
+      "matched_semantic_object": "fact_impacto_bloque_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "detalle por regla, por bloque y por SIC",
+      "confidence": 0.82,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "riesgo final SIC",
+      "matched_semantic_object": "fact_riesgo_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "gold_sic.fact_riesgo",
+      "confidence": 0.9,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "departamento",
+      "matched_semantic_object": "fact_riesgo_sic[nombre_departamento]",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "la salida final queda a grano departamento",
+      "confidence": 0.82,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "regla de impacto",
+      "matched_semantic_object": "fact_impacto_sic[codigo_regla]",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "reglas 101-105, 201-204, 301, 401-402: impacto",
+      "confidence": 0.9,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "regla de probabilidad",
+      "matched_semantic_object": "fact_probabilidad_sic[codigo_regla]",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "reglas 1001-1999, 2001-2999, 3001-3999, 4001-4999: probabilidad",
+      "confidence": 0.9,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "bloque de impacto SIC",
+      "matched_semantic_object": "fact_impacto_bloque_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "detalle por regla, por bloque y por SIC",
+      "confidence": 0.8,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "SIC",
+      "matched_semantic_object": "fact_riesgo_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "SIC calcula riesgo por sistema / aplicacion critica.",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "impacto por regla SIC",
+      "matched_semantic_object": "fact_impacto_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "Impacto SIC por regla",
+      "confidence": 0.96,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "probabilidad por regla SIC",
+      "matched_semantic_object": "fact_probabilidad_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "Probabilidad SIC por regla",
+      "confidence": 0.96,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "impacto agregado por bloque SIC",
+      "matched_semantic_object": "fact_impacto_bloque_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "promedia por bloque las reglas resultantes",
+      "confidence": 0.9,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "regla de riesgo",
+      "matched_semantic_object": "fact_riesgo_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "calcula probabilidad regla por regla",
+      "confidence": 0.9,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "departamento",
+      "matched_semantic_object": "fact_riesgo_sic[nombre_departamento]",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "busca la fila del departamento",
+      "confidence": 0.86,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "SIC",
+      "matched_semantic_object": "fact_riesgo_sic[sic]",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "sic identifica el sistema o aplicacion",
+      "confidence": 0.98,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "bloque",
+      "matched_semantic_object": "fact_riesgo_sic[bloque]",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "bloque e id_risc indican el riesgo evaluado",
+      "confidence": 0.98,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "riesgo final",
+      "matched_semantic_object": "fact_riesgo_sic[riesgo_final_num]",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "riesgo_final_num expresa el nivel publicado",
+      "confidence": 0.98,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "probabilidad por regla",
+      "matched_semantic_object": "fact_probabilidad_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "una fila por regla de probabilidad y por SIC",
+      "confidence": 0.97,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "impacto por regla",
+      "matched_semantic_object": "fact_impacto_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "una fila por regla de impacto y por SIC",
+      "confidence": 0.97,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "impacto agregado por bloque",
+      "matched_semantic_object": "fact_impacto_bloque_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "resume el impacto final por riesgo",
+      "confidence": 0.97,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "SIC",
+      "matched_semantic_object": "fact_riesgo_sic",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "El dominio SIC ya tiene esquema propio gold_sic",
+      "confidence": 0.96,
+      "status": "suggested",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "resultado Gold",
+      "matched_semantic_object": "fact_riesgo_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "cualquier resultado Gold queda explicable",
+      "confidence": 0.9,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "probabilidad por regla",
+      "matched_semantic_object": "fact_probabilidad_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "bajar a la fact de detalle por regla",
+      "confidence": 0.88,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "impacto por regla",
+      "matched_semantic_object": "fact_impacto_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "bajar a la fact de detalle por regla",
+      "confidence": 0.88,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "impacto por bloque",
+      "matched_semantic_object": "fact_impacto_bloque_sic",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "abrir la fact de bloque correspondiente",
+      "confidence": 0.9,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "departamento",
+      "matched_semantic_object": "fact_riesgo_sic[nombre_departamento]",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "evaluacion directa por departamento en si/no",
+      "confidence": 0.86,
+      "status": "suggested",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "regla",
+      "matched_semantic_object": "fact_impacto_sic[codigo_regla]",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "fact de detalle por regla",
+      "confidence": 0.9,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "term": "ejecución del modelo",
+      "matched_semantic_object": "fact_riesgo_sic[run_id]",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "run_id y version_modelo permiten auditar la ejecucion exacta",
+      "confidence": 0.9,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    }
+  ],
+  "candidate_relationships": [
+    {
+      "source_term": "aplicación SIC",
+      "target_term": "riesgo SIC",
+      "relationship_type": "tiene riesgo",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "fact_riesgo_sic | salida final por sic, bloque y riesgo",
+      "confidence": 0.98,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "riesgo",
+      "target_term": "bloque",
+      "relationship_type": "se explica mediante",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "que bloques explican ese resultado",
+      "confidence": 0.98,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "bloque",
+      "target_term": "regla",
+      "relationship_type": "se descompone en",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "que reglas concretas aportan a cada bloque",
+      "confidence": 0.98,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "riesgo",
+      "target_term": "amenaza",
+      "relationship_type": "puede estar asociado a",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "Amenazas asociadas a riesgos",
+      "confidence": 0.96,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "departamento",
+      "target_term": "riesgo",
+      "relationship_type": "filtra o agrupa",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "Riesgo final por activo, SIC o departamento",
+      "confidence": 0.96,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "SIC",
+      "target_term": "riesgo",
+      "relationship_type": "tiene riesgo calculado",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "`fact_riesgo_sic`",
+      "confidence": 0.84,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "riesgo",
+      "target_term": "probabilidad e impacto",
+      "relationship_type": "se calcula mediante",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "matriz 4x4 de doble entrada entre probabilidad e impacto",
+      "confidence": 0.96,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "SIC",
+      "target_term": "amenaza",
+      "relationship_type": "puede analizarse por",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "SIC detalle: ... `dim_amenaza_master[amenaca_acc]`",
+      "confidence": 0.9,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "CULTURA",
+      "target_term": "codigo_departamento_ref",
+      "relationship_type": "tiene como entidad principal",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "Su entidad principal es el departamento de referencia publicado en `codigo_departamento_ref`",
+      "confidence": 0.98,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "GOVERNANCA",
+      "target_term": "codigo_departamento_ref",
+      "relationship_type": "tiene como entidad principal",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "su entidad principal tambien es `codigo_departamento_ref`",
+      "confidence": 0.98,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "SIC",
+      "target_term": "riesgo",
+      "relationship_type": "es_unidad_de_calculo_de",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "SIC: riesgo sobre sistemas de informacion criticos y aplicaciones.",
+      "confidence": 0.96,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "riesgo",
+      "target_term": "probabilidad",
+      "relationship_type": "tiene_componente",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "Cada riesgo tiene dos frentes: probabilidad e impacto.",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "riesgo",
+      "target_term": "impacto",
+      "relationship_type": "tiene_componente",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "Cada riesgo tiene dos frentes: probabilidad e impacto.",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "probabilidad",
+      "target_term": "riesgo final",
+      "relationship_type": "se_combina_con",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "riesgo_final_num = matriz_4x4(probabilidad_final_num, impacto_final_num)",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "impacto",
+      "target_term": "riesgo final",
+      "relationship_type": "se_combina_con",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "riesgo_final_num = matriz_4x4(probabilidad_final_num, impacto_final_num)",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "CULTURA",
+      "target_term": "departamento",
+      "relationship_type": "se_publica_a_grano_de",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "la salida final queda a grano departamento",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "GOVERNANCA",
+      "target_term": "departamento",
+      "relationship_type": "se_publica_a_grano_de",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "la salida final queda a grano departamento",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "LLDT",
+      "target_term": "SIC emulado",
+      "relationship_type": "utiliza_para_impacto",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003",
+      "source_excerpt": "usa codi_dialeg de esa misma tabla como SIC por defecto a emular",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "regla de probabilidad",
+      "target_term": "nivel de riesgo",
+      "relationship_type": "determina_mediante_umbral",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003",
+      "source_excerpt": ">= 96% = BAIX; 91-95 = MIG; 86-90 = ALT; < 86 = MOLT ALT",
+      "confidence": 0.98,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "SIC",
+      "target_term": "regla de riesgo",
+      "relationship_type": "se_calcula_mediante",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "SIC si calcula probabilidad regla por regla; SIC si calcula impacto regla por regla",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "regla de riesgo",
+      "target_term": "bloque de riesgo",
+      "relationship_type": "se_agrega_en",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "luego agrega por bloque",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "departamento",
+      "target_term": "SIC emulado",
+      "relationship_type": "se_resuelve_mediante",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "toma `codi_dialeg` como SIC emulado del departamento",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "SIC",
+      "target_term": "certificacion",
+      "relationship_type": "se_valora_por",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "`silver.fact_certificacion_sic` por SIC",
+      "confidence": 0.98,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "SIC",
+      "target_term": "hosts",
+      "relationship_type": "se_vincula_con",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "hosts obsoletos vinculados al SIC",
+      "confidence": 0.98,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "SIC",
+      "target_term": "bloque de riesgo",
+      "relationship_type": "se evalua mediante",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "una fila final por bloque y por SIC",
+      "confidence": 0.98,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "regla de probabilidad",
+      "target_term": "probabilidad por bloque",
+      "relationship_type": "se agrega en",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "fact_probabilidad_bloque agrega los nivel_num de las reglas del bloque",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "probabilidad final",
+      "target_term": "riesgo final",
+      "relationship_type": "se cruza con impacto mediante matriz 4x4",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "cruce con el impacto final del bloque usando la matriz 4x4",
+      "confidence": 0.99,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "run_id",
+      "target_term": "ejecucion del modelo",
+      "relationship_type": "identifica",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "run_id y version_modelo permiten auditar la ejecucion exacta",
+      "confidence": 0.98,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "resultado Gold",
+      "target_term": "probabilidad por regla",
+      "relationship_type": "se explica mediante",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "bajar a la fact de detalle por regla",
+      "confidence": 0.95,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "resultado Gold",
+      "target_term": "impacto por regla",
+      "relationship_type": "se explica mediante",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "bajar a la fact de detalle por regla",
+      "confidence": 0.95,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "resultado Gold",
+      "target_term": "impacto por bloque",
+      "relationship_type": "se descompone en",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "abrir la fact de bloque correspondiente",
+      "confidence": 0.95,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "resultado Gold",
+      "target_term": "ejecución del modelo",
+      "relationship_type": "se audita mediante",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "run_id y version_modelo permiten auditar la ejecucion exacta",
+      "confidence": 0.98,
+      "status": "suggested",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "CULTURA",
+      "target_term": "departamento",
+      "relationship_type": "se consolida por",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "codigo_departamento_ref como clave canonica de consolidacion",
+      "confidence": 0.98,
+      "status": "suggested",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "GOVERNANCA",
+      "target_term": "departamento",
+      "relationship_type": "se consolida por",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "codigo_departamento_ref como clave canonica de consolidacion",
+      "confidence": 0.98,
+      "status": "suggested",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "source_term": "probabilidad",
+      "target_term": "impacto",
+      "relationship_type": "se cruza para consolidar el riesgo",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "la consolidada final fact_riesgo debe cruzar probabilidad e impacto",
+      "confidence": 0.98,
+      "status": "suggested",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    }
+  ],
+  "ambiguities": [
+    {
+      "concept": "SIC",
+      "issue": "El término sic se utiliza como identificador de aplicación o activo en SIC e INFRA, pero en INFRA representa funcionalmente un activo de infraestructura.",
+      "severity": "medium",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "La entidad principal tambien se expone como sic por compatibilidad del contrato, aunque funcionalmente representa activo INFRA",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "impacto en LLDT",
+      "issue": "LLDT publica impacto a nivel de bloque, mientras que otros dominios pueden publicar impacto a nivel de regla.",
+      "severity": "medium",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "impacto bloque | impacto final del bloque LLDT",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "snapshot operativo",
+      "issue": "La documentación indica que el ciclo completo requiere cinco dominios Gold, pero no detalla los criterios exactos que determinan una ejecución correcta.",
+      "severity": "medium",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "ciclo completo solo cuando los cinco dominios Gold tienen ejecucion correcta",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "SIC",
+      "issue": "La documentación utiliza SIC como entidad de conteo y también como atributo auxiliar en otros dominios; debe confirmarse su significado funcional exacto y su alcance por dominio.",
+      "severity": "medium",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "CULTURA reutiliza atributos del universo aplicacional de SIC... `sic` queda solo como atributo canonico auxiliar.",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "riesgo_final_num",
+      "issue": "Se describe como severidad numérica calculada por matriz 4x4, pero no se detallan los umbrales ni la correspondencia completa con las etiquetas textuales.",
+      "severity": "medium",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`riesgo_final_num` ya llega calculado en Gold con la matriz 4x4",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "amenazas",
+      "issue": "La documentación indica que LLDT, CULTURA y GOVERNANCA no tienen una fuente de amenazas publicada, pero no define si existe una alternativa futura o un catálogo común planificado.",
+      "severity": "low",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "LLDT no tiene catalogo comun de amenazas.",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "ejecución vigente",
+      "issue": "Se establece que debe usarse `dim_run_modelo`, pero no se documenta el criterio funcional para seleccionar una ejecución cuando existen varias fechas o versiones.",
+      "severity": "high",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "No inferir la ejecucion vigente mirando facts sueltas.",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "CULTURA y GOVERNANCA",
+      "issue": "El resumen ejecutivo indica que cada eje calcula cuatro riesgos, pero la descripción operativa de CULTURA y GOVERNANCA indica que solo activan los bloques 200 y 400.",
+      "severity": "medium",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "Cada eje calcula 4 riesgos",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "CULTURA y GOVERNANCA",
+      "issue": "El mapa general muestra '2 y 4' riesgos para ambos dominios, mientras que la descripción operativa solo menciona los bloques 200 y 400; no queda explícito si se trata de dos riesgos activos o de cuatro riesgos con alguna subdivisión.",
+      "severity": "high",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "CULTURA | ... | 2 y 4",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "bloque 4000 de GOVERNANCA",
+      "issue": "Se indican defaults 3/2 según la regla concreta, pero no se especifica en el fragmento qué regla recibe cada valor.",
+      "severity": "medium",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "defaults observados en workbook son 4 para training, 2 para impacto y 3/2 segun la regla concreta del bloque 4000 de governanza.",
+      "confidence": 0.95,
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "reglas SIC 1002, 2010, 3002 y 3010",
+      "issue": "La actualización fija una definición basada en perímetro, pero el fragmento no detalla la correspondencia funcional individual de cada regla ni sus niveles resultantes.",
+      "severity": "medium",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "las reglas SIC 1002, 2010, 3002 y 3010 quedan fijadas con la definicion del workbook v3.1",
+      "confidence": 0.9,
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "LLDT",
+      "issue": "El texto describe defaults LLDT como generalmente optimistas, pero no detalla todos los defaults de cada regla ni si existen excepciones adicionales.",
+      "severity": "medium",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "la mayoria de los defaults son provisionales y optimistas",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "SIC emulado",
+      "issue": "No se define con precisión el criterio funcional para considerar usable un SIC emulado ni el tratamiento de múltiples filas posibles.",
+      "severity": "medium",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "toma `codi_dialeg` como SIC emulado del departamento",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "MFA de usuarios",
+      "issue": "La regla 2005 fija MOLT ALT porque se considera que no existe MFA a nivel aplicacion/SIC, pero no se indica si esta decision debe revisarse periódicamente.",
+      "severity": "high",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "se considera que no existe MFA de usuarios a nivel aplicacion/SIC",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "criticidad",
+      "issue": "Las reglas usan valores numericos de criticidad, pero no se proporciona el significado de cada valor ni la escala completa.",
+      "severity": "high",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "criticidad 0-1 = 4; 2-3 = 3; 4 = 2; resto = 1",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "niveles BAIX, MIG, ALT y MOLT ALT",
+      "issue": "Se proporcionan umbrales y orden operativo, pero no una definición empresarial general de cada nivel.",
+      "severity": "medium",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": ">= 95% = BAIX; 91-94 = MIG; 86-90 = ALT; < 86 = MOLT ALT",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "defaults",
+      "issue": "La política de ausencia de datos varía por eje: LLDT, SIC, CULTURA y GOVERNANCA utilizan defaults diferentes.",
+      "severity": "high",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "Los 5 ejes no tratan igual la falta de dato",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "bloque 4000",
+      "issue": "El bloque 4000 tiene una lógica distinta en SIC y GOVERNANCA; en GOVERNANCA existe remapeo de reglas.",
+      "severity": "high",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "El bloque 4000 de GOVERNANCA no debe leerse como una copia mecanica del 4000 SIC",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "criticidad_negocio",
+      "issue": "La escala no es ascendente: los valores bajos representan mayor severidad.",
+      "severity": "medium",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "No debe leerse como una escala ascendente simple de 1 a 4",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "agregacion de probabilidad",
+      "issue": "El resultado depende de si existen pesos positivos y de su configuración.",
+      "severity": "medium",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "si el dominio tiene pesos configurados ... el agregado es ponderado",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "SIC",
+      "issue": "El contenido identifica SIC como sistema o aplicación y también como dominio de riesgo con esquema propio, pero no define explícitamente si ambos usos representan exactamente la misma entidad de negocio.",
+      "severity": "medium",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "sic identifica el sistema o aplicacion",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "Gold",
+      "issue": "Se utiliza como capa de datos y como resultado calculado, sin una definición funcional única del término.",
+      "severity": "medium",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001",
+      "source_excerpt": "recalculo de Gold",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "bloque",
+      "issue": "Se indica que el bloque corresponde al riesgo 200 o 400, pero no se documenta el significado funcional completo de cada código.",
+      "severity": "medium",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "bloque indica si el resultado pertenece al riesgo 200 o 400",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "default",
+      "issue": "El contenido distingue default y constante funcional, pero no establece un catálogo completo ni criterios generales para diferenciar ambos casos.",
+      "severity": "high",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "lo que entra al resultado por default; lo que entra al resultado por constante funcional",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "concept": "codi_dialeg",
+      "issue": "Se describe como SIC emulado por departamento, pero no se define su correspondencia funcional completa con un SIC real.",
+      "severity": "medium",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "usa codi_dialeg como SIC emulado por departamento",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    }
+  ],
+  "questions_for_workshop": [
+    {
+      "question": "¿Cuál es la definición funcional oficial de severidad y cómo se interpretan los valores numéricos y textuales del riesgo final?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "usar riesgo_final_texto / riesgo_final_num",
+      "priority": "high",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Qué criterios concretos determinan que la ejecución de cada dominio Gold sea correcta?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "los cinco dominios Gold tienen ejecucion correcta",
+      "priority": "high",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Debe SIC considerarse exclusivamente una aplicación o también un activo de infraestructura cuando el dominio es INFRA?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "aunque funcionalmente representa activo INFRA",
+      "priority": "medium",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Cuál es la definición de negocio de un bloque y cómo se decide la agregación de sus reglas?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "Resumen de probabilidad por bloque",
+      "priority": "high",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Qué significan exactamente los estados o indicadores reales, proxies, defaults, pendientes y no disponibles?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "reales, proxies, defaults_cnt, constantes, pendientes, no_disponibles",
+      "priority": "medium",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Cuál es la definición funcional oficial de SIC y cuándo debe tratarse como entidad principal frente a atributo auxiliar?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "SIC ... `sic` queda solo como atributo canonico auxiliar.",
+      "priority": "medium",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Qué ejecución, versión o fecha debe considerarse vigente cuando existen múltiples registros en `dim_run_modelo`?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "La referencia temporal visible es `dim_run_modelo[fecha_carga]`.",
+      "priority": "high",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Cuál es la tabla de correspondencia entre `riesgo_final_num` y `riesgo_final_texto`?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "usar `riesgo_final_texto` como columna/fila de clasificacion",
+      "priority": "medium",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Debe mantenerse la misma escala cromática de severidad en todos los dominios y páginas?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "La misma escala deberia repetirse entre paginas",
+      "priority": "low",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Qué catálogo o fuente debe utilizarse para análisis de amenazas en dominios que no publican bridge de amenazas?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "No usar CULTURA para analisis de amenazas",
+      "priority": "medium",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿CULTURA y GOVERNANCA deben calcular dos riesgos activos, correspondientes a los bloques 200 y 400, o cuatro riesgos según la regla general del modelo?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "solo activa riesgos de los bloques 200 y 400",
+      "priority": "high",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Qué reglas concretas del bloque 4000 de GOVERNANCA utilizan los defaults 3 y 2?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "3/2 segun la regla concreta del bloque 4000 de governanza",
+      "priority": "medium",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Cuál es la definición funcional individual de las reglas SIC 1002, 2010, 3002 y 3010 en el workbook v3.1?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "las reglas SIC 1002, 2010, 3002 y 3010 quedan fijadas con la definicion del workbook v3.1",
+      "priority": "medium",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Cuál es el criterio exacto para agregar múltiples reglas de probabilidad dentro de cada bloque?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "se obtiene un nivel final de probabilidad del bloque",
+      "priority": "medium",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Cuál es el criterio exacto para agregar las reglas de impacto dentro de cada bloque en SIC, CULTURA y GOVERNANCA?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "detalle por regla, por bloque y por SIC",
+      "priority": "medium",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Cuál es la definición empresarial oficial de los niveles BAIX, MIG, ALT y MOLT ALT?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": ">= 95% = BAIX; 91-94 = MIG; 86-90 = ALT; < 86 = MOLT ALT",
+      "priority": "high",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Qué significan exactamente los valores numericos de criticidad 0, 1, 2, 3 y 4?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "criticidad 0-1 = 4; 2-3 = 3; 4 = 2; resto = 1",
+      "priority": "high",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Debe mantenerse como decision permanente que la regla SIC 2005 sea siempre MOLT ALT?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "siempre MOLT ALT",
+      "priority": "high",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Qué criterios determinan que un SIC emulado o un mapeo host-aplicacion-SIC sea usable?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "DEFAULT neutral nivel 2 si no hay mapeo usable",
+      "priority": "high",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Cómo debe interpretarse y comunicarse al negocio un resultado DEFAULT frente a un resultado REAL?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "un `DEFAULT` LLDT no significa que el control este bien medido",
+      "priority": "medium",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Qué periodicidad y responsable deben gobernar la revisión de las decisiones CONSTANTE?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "`CONSTANTE`",
+      "priority": "medium",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Cuál es la política de negocio aprobada para cada tipo de default en cada eje?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "Los 5 ejes no tratan igual la falta de dato",
+      "priority": "high",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Debe considerarse una regla con peso cero en los indicadores de calidad aunque no influya en el promedio?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "esa regla sigue visible en trazabilidad pero no influye en el promedio",
+      "priority": "medium",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Cuál es la definición funcional oficial de cada bloque e id_risc?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "bloque e id_risc indican que riesgo se esta leyendo",
+      "priority": "high",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Qué criterios determinan que un SIC sea considerado usable para las reglas que dependen de un SIC emulado?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "cuando el SIC critico usable esta informado",
+      "priority": "high",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Qué estados de ejecución, además de SUCCESS, deben considerarse válidos o publicables para negocio?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "validar que la carga SIC termino en SUCCESS",
+      "priority": "low",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Cuál es la definición funcional oficial de SIC y cómo se relaciona con el sistema o aplicación identificado por el campo sic?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "sic identifica el sistema o aplicacion",
+      "priority": "high",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Qué significado funcional tienen específicamente los bloques 200 y 400?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "bloque indica si el resultado pertenece al riesgo 200 o 400",
+      "priority": "high",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Qué criterios determinan cuándo un valor procede de un default y cuándo procede de una constante funcional?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "lo que entra al resultado por default; lo que entra al resultado por constante funcional",
+      "priority": "high",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Cuál es el catálogo oficial de estados de cálculo y qué acciones deben realizarse ante DEFAULT/SIN_DATO?",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "REAL/OK ... DEFAULT/SIN_DATO",
+      "priority": "high",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Debe codi_dialeg considerarse equivalente a un SIC real para todos los usos o únicamente para las reglas de impacto que requieren datos SIC?",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "usa codi_dialeg como SIC emulado cuando una regla de impacto necesita datos SIC",
+      "priority": "medium",
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "evidence_status": "traceable"
+    },
+    {
+      "question": "¿Qué definición de negocio debe utilizarse para los niveles de probabilidad, impacto y riesgo publicados?",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "probabilidad_final_num e impacto_final_num muestran los niveles finales ... riesgo_final_num expresa el nivel publicado",
+      "priority": "high",
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "evidence_status": "traceable"
+    }
+  ],
+  "scan_mode": "openai",
+  "chunking": {
+    "chunks": 19,
+    "chunk_size": 6000,
+    "overlap": 500
+  }
+}

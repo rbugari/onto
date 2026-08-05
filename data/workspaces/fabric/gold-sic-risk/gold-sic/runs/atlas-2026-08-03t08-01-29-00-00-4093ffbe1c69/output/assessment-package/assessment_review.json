@@ -1,0 +1,36 @@
+{
+  "status": "pending_review",
+  "scope": "assessment_baseline_only",
+  "warning": "Esta decision no aprueba ni publica una ontologia; solo registra la revision del assessment Atlas.",
+  "reviewed_at": null,
+  "reviewer": "",
+  "reviewer_role": "",
+  "note": "",
+  "open_gap_ids": [
+    "missing-business-sources",
+    "business-context-not-scanned",
+    "missing-owner"
+  ],
+  "review_requirements": [
+    {
+      "requirement_id": "confirm-assessment-baseline",
+      "status": "open",
+      "message": "Confirmar que fuentes, alcance y score representan el baseline a revisar."
+    },
+    {
+      "requirement_id": "missing-business-sources",
+      "status": "open",
+      "message": "Cargar glosarios, definiciones de KPI, procesos o documentacion funcional vigente."
+    },
+    {
+      "requirement_id": "business-context-not-scanned",
+      "status": "open",
+      "message": "Ejecutar el scanner documental y revisar sus resultados antes de generar candidatos ontologicos."
+    },
+    {
+      "requirement_id": "missing-owner",
+      "status": "open",
+      "message": "Asignar owner de negocio y steward tecnico en la metadata del assessment."
+    }
+  ]
+}

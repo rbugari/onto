@@ -1,0 +1,28 @@
+{
+  "format": "nexo-registry-draft-v0.1",
+  "product": "Nexo",
+  "draft_id": "nexo-2026-08-01T17-06-34-00-00-a8c366af2c23",
+  "created_at": "2026-08-01T17:06:34+00:00",
+  "project_id": "risk1",
+  "project_name": "risk1",
+  "source_assessment": {
+    "run_id": "atlas-2026-08-01T15-35-53-00-00-c13746d90e26",
+    "created_at": "2026-08-01T15:35:53+00:00",
+    "scope": {
+      "project_id": "risk1",
+      "client_id": "risk1",
+      "domain_id": "risk",
+      "data_product_id": "risk-assessment"
+    }
+  },
+  "candidate_summary": {
+    "total": 119,
+    "pending_review": 0,
+    "approved": 119,
+    "rejected": 0,
+    "concept": 35,
+    "business_rule": 51,
+    "kpi": 33
+  },
+  "warning": "Un draft Nexo contiene candidatos. No es una ontologia aprobada ni un paquete publicable."
+}

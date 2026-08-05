@@ -1,0 +1,33 @@
+{
+  "profile": "atlas-baseline-v0",
+  "scale": "0-5",
+  "overall_score": 4.0,
+  "interpretation": "strong_foundation",
+  "dimensions": [
+    {
+      "dimension": "semantic_metadata",
+      "score": 5,
+      "max_score": 5,
+      "evidence": "Cobertura de objetos tecnicos extraidos."
+    },
+    {
+      "dimension": "business_context",
+      "score": 5,
+      "max_score": 5,
+      "evidence": "Documentacion y contexto funcional disponible."
+    },
+    {
+      "dimension": "semantic_business_linkage",
+      "score": 3,
+      "max_score": 5,
+      "evidence": "Cruce basal entre fuentes tecnicas y funcionales."
+    },
+    {
+      "dimension": "governance_traceability",
+      "score": 3,
+      "max_score": 5,
+      "evidence": "Evidencia y estructura disponibles para iniciar revision."
+    }
+  ],
+  "warning": "Score basal determinista: orienta el assessment inicial y no sustituye la validacion humana ni el scoring de readiness final."
+}

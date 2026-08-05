@@ -1,0 +1,41 @@
+[
+  {
+    "document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+    "project_id": "risk1",
+    "filename": "GUIA_MODELO_SEMANTICO_Y_REPORTE_PUBLICADO.md",
+    "stored_path": "C:\\Users\\rfbugari\\OneDrive - Sopra Steria\\onto\\data\\context\\risk1\\input\\documentation\\2026-06-18T16-02-38+00-00_GUIA_MODELO_SEMANTICO_Y_REPORTE_PUBLICADO.md",
+    "doc_type": "functional_docs",
+    "content_type": "text/markdown",
+    "uploaded_at": "2026-06-18T16:02:38+00:00",
+    "extraction_status": "extracted",
+    "extracted_text_path": "data\\context\\risk1\\working\\extracted_text\\document-2026-08-01T14-25-42-00-00-8b31b81ddd29.txt",
+    "extracted_chars": 29859,
+    "notes": "re-extracted-after-id-repair"
+  },
+  {
+    "document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+    "project_id": "risk1",
+    "filename": "GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+    "stored_path": "C:\\Users\\rfbugari\\OneDrive - Sopra Steria\\onto\\data\\context\\risk1\\input\\documentation\\2026-06-18T16-02-38+00-00_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+    "doc_type": "functional_docs",
+    "content_type": "text/markdown",
+    "uploaded_at": "2026-06-18T16:02:39+00:00",
+    "extraction_status": "extracted",
+    "extracted_text_path": "data\\context\\risk1\\working\\extracted_text\\document-2026-08-01T14-25-42-00-00-9a4a31f487e9.txt",
+    "extracted_chars": 51797,
+    "notes": "re-extracted-after-id-repair"
+  },
+  {
+    "document_id": "2026-06-18T16-02-39+00-00",
+    "project_id": "risk1",
+    "filename": "GUIA_OPERATIVA_CICLO.md",
+    "stored_path": "C:\\Users\\rfbugari\\OneDrive - Sopra Steria\\onto\\data\\context\\risk1\\input\\documentation\\2026-06-18T16-02-39+00-00_GUIA_OPERATIVA_CICLO.md",
+    "doc_type": "functional_docs",
+    "content_type": "text/markdown",
+    "uploaded_at": "2026-06-18T16:02:39+00:00",
+    "extraction_status": "extracted",
+    "extracted_text_path": "C:\\Users\\rfbugari\\OneDrive - Sopra Steria\\onto\\data\\context\\risk1\\working\\extracted_text\\2026-06-18T16-02-39+00-00.txt",
+    "extracted_chars": 13998,
+    "notes": ""
+  }
+]

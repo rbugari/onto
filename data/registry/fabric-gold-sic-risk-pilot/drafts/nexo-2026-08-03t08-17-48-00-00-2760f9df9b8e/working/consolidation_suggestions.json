@@ -1,0 +1,111 @@
+{
+  "created_at": "2026-08-03T08:18:04+00:00",
+  "mode": "openai",
+  "candidate_count": 361,
+  "suggestions": [
+    {
+      "suggestion_id": "consolidation-001",
+      "status": "applied",
+      "canonical_candidate_id": "candidate-concept-0004",
+      "duplicate_candidate_ids": [
+        "candidate-concept-0006"
+      ],
+      "reason": "Coincidencia exacta de tipo y nombre normalizado.",
+      "decision": {
+        "decision_id": "consolidation-decision-2026-08-03T08-32-51-00-00-adfdcb71dbeb",
+        "suggestion_id": "consolidation-001",
+        "status": "applied",
+        "reviewer": "Codex automatic review",
+        "note": "Aplicacion automatica de duplicado exacto.",
+        "decided_at": "2026-08-03T08:32:51+00:00"
+      }
+    },
+    {
+      "suggestion_id": "consolidation-002",
+      "status": "applied",
+      "canonical_candidate_id": "candidate-business_rule-0072",
+      "duplicate_candidate_ids": [
+        "candidate-business_rule-0073"
+      ],
+      "reason": "Coincidencia exacta de tipo y nombre normalizado.",
+      "decision": {
+        "decision_id": "consolidation-decision-2026-08-03T08-32-51-00-00-efc438ec433b",
+        "suggestion_id": "consolidation-002",
+        "status": "applied",
+        "reviewer": "Codex automatic review",
+        "note": "Aplicacion automatica de duplicado exacto.",
+        "decided_at": "2026-08-03T08:32:51+00:00"
+      }
+    },
+    {
+      "suggestion_id": "consolidation-003",
+      "status": "applied",
+      "canonical_candidate_id": "candidate-business_rule-0074",
+      "duplicate_candidate_ids": [
+        "candidate-business_rule-0075"
+      ],
+      "reason": "Coincidencia exacta de tipo y nombre normalizado.",
+      "decision": {
+        "decision_id": "consolidation-decision-2026-08-03T08-32-52-00-00-fc2b0280b5c7",
+        "suggestion_id": "consolidation-003",
+        "status": "applied",
+        "reviewer": "Codex automatic review",
+        "note": "Aplicacion automatica de duplicado exacto.",
+        "decided_at": "2026-08-03T08:32:52+00:00"
+      }
+    },
+    {
+      "suggestion_id": "consolidation-004",
+      "status": "applied",
+      "canonical_candidate_id": "candidate-business_rule-0089",
+      "duplicate_candidate_ids": [
+        "candidate-business_rule-0090"
+      ],
+      "reason": "Coincidencia exacta de tipo y nombre normalizado.",
+      "decision": {
+        "decision_id": "consolidation-decision-2026-08-03T08-32-52-00-00-7af39e82772b",
+        "suggestion_id": "consolidation-004",
+        "status": "applied",
+        "reviewer": "Codex automatic review",
+        "note": "Aplicacion automatica de duplicado exacto.",
+        "decided_at": "2026-08-03T08:32:52+00:00"
+      }
+    },
+    {
+      "suggestion_id": "consolidation-005",
+      "status": "applied",
+      "canonical_candidate_id": "candidate-business_rule-0097",
+      "duplicate_candidate_ids": [
+        "candidate-business_rule-0098"
+      ],
+      "reason": "Coincidencia exacta de tipo y nombre normalizado.",
+      "decision": {
+        "decision_id": "consolidation-decision-2026-08-03T08-32-52-00-00-09c26ecd2c9f",
+        "suggestion_id": "consolidation-005",
+        "status": "applied",
+        "reviewer": "Codex automatic review",
+        "note": "Aplicacion automatica de duplicado exacto.",
+        "decided_at": "2026-08-03T08:32:52+00:00"
+      }
+    },
+    {
+      "suggestion_id": "consolidation-006",
+      "status": "pending_review",
+      "canonical_candidate_id": "candidate-concept-0005",
+      "duplicate_candidate_ids": [
+        "candidate-concept-0002"
+      ],
+      "reason": "Both represent the document's current status or vigencia, although one is phrased as a document-status heading."
+    },
+    {
+      "suggestion_id": "consolidation-007",
+      "status": "pending_review",
+      "canonical_candidate_id": "candidate-concept-0037",
+      "duplicate_candidate_ids": [
+        "candidate-concept-0040"
+      ],
+      "reason": "Both define the calculation or reading unit as a department or functional scope of workstations."
+    }
+  ],
+  "warning": "Las sugerencias no modifican candidatos ni decisiones de ontologia."
+}

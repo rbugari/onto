@@ -1,0 +1,10 @@
+{
+  "project_id": "risk1",
+  "status": "completed",
+  "completed_at": "2026-08-01T15:35:28+00:00",
+  "scan_mode": "openai",
+  "definitions": 35,
+  "business_rules": 51,
+  "kpis": 33,
+  "scanner_warning": ""
+}

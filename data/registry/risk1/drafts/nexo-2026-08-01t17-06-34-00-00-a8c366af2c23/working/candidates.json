@@ -1,0 +1,2977 @@
+[
+  {
+    "candidate_id": "candidate-concept-0001",
+    "candidate_type": "concept",
+    "name": "riesgo final",
+    "definition": "Resultado final del calculo de riesgo, recibido desde Gold y representado mediante probabilidad e impacto combinados.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "El riesgo final no debe recalcularse en el reporte. La combinacion entre probabilidad e impacto ya llega desde Gold",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-4206cd7aaf28",
+      "candidate_id": "candidate-concept-0001",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0002",
+    "candidate_type": "concept",
+    "name": "risk_key",
+    "definition": "Clave tecnica formada por dominio e identificador de riesgo, con el formato DOMINIO|id_risc.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "risk_key | clave tecnica DOMINIO|id_risc",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-3d20a2fcb715",
+      "candidate_id": "candidate-concept-0002",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0003",
+    "candidate_type": "concept",
+    "name": "amenaza_key",
+    "definition": "Clave tecnica formada por dominio e identificador de amenaza, con el formato DOMINIO|id_amenaca.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "amenaza_key | clave tecnica DOMINIO|id_amenaca",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-78176fd6294a",
+      "candidate_id": "candidate-concept-0003",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0004",
+    "candidate_type": "concept",
+    "name": "SIC",
+    "definition": "Eje de aplicaciones y sistemas cuya entidad principal es la aplicacion identificada por sic.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "SIC representa el eje de aplicaciones y sistemas con el detalle funcional mas completo. Su entidad principal es la aplicacion identificada por sic.",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-369abb1fa002",
+      "candidate_id": "candidate-concept-0004",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0005",
+    "candidate_type": "concept",
+    "name": "INFRA",
+    "definition": "Eje aplicacional equivalente a SIC en estructura semantica, con alcance propio; funcionalmente representa activos de infraestructura.",
+    "status": "approved",
+    "confidence": 0.96,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "INFRA es un eje aplicacional equivalente a SIC en estructura semantica, pero con scope propio",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-b3b8ffd22b8f",
+      "candidate_id": "candidate-concept-0005",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0006",
+    "candidate_type": "concept",
+    "name": "LLDT",
+    "definition": "Eje que representa riesgo de puestos de trabajo o ambito departamental; su entidad principal es el departamento o scope funcional.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "LLDT representa riesgo de puestos de trabajo o ambito departamental",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-201ac8fe8257",
+      "candidate_id": "candidate-concept-0006",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0007",
+    "candidate_type": "concept",
+    "name": "riesgo_final_num",
+    "definition": "Valor numérico de riesgo que llega calculado en Gold mediante una matriz 4x4 de doble entrada entre probabilidad e impacto.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "`riesgo_final_num` ya llega calculado en Gold con la matriz 4x4 de doble entrada entre probabilidad e impacto",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-2928c363dcbb",
+      "candidate_id": "candidate-concept-0007",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0008",
+    "candidate_type": "concept",
+    "name": "riesgo_final_texto",
+    "definition": "Clasificación textual utilizada para representar la severidad del riesgo en matrices y visuales.",
+    "status": "approved",
+    "confidence": 0.94,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "usar `riesgo_final_texto` como columna/fila de clasificacion",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-73b0b752442c",
+      "candidate_id": "candidate-concept-0008",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0009",
+    "candidate_type": "concept",
+    "name": "fecha_carga",
+    "definition": "Referencia temporal visible del snapshot o ejecución publicada.",
+    "status": "approved",
+    "confidence": 0.97,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "La referencia temporal visible es `dim_run_modelo[fecha_carga]`",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-58539ff97c19",
+      "candidate_id": "candidate-concept-0009",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0010",
+    "candidate_type": "concept",
+    "name": "codigo_departamento_ref",
+    "definition": "Entidad principal y grano de referencia publicado para los dominios CULTURA y GOVERNANCA.",
+    "status": "approved",
+    "confidence": 0.96,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "Su entidad principal es el departamento de referencia publicado en `codigo_departamento_ref`",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-99f1aa8532d1",
+      "candidate_id": "candidate-concept-0010",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0011",
+    "candidate_type": "concept",
+    "name": "riesgo final",
+    "definition": "Resultado de cruzar el nivel final de probabilidad y el nivel final de impacto en una matriz 4x4 de doble entrada.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "el riesgo final ... se cruza probabilidad e impacto en una matriz 4x4 de doble entrada.",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-4b4092b439c7",
+      "candidate_id": "candidate-concept-0011",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0012",
+    "candidate_type": "concept",
+    "name": "escala de riesgo",
+    "definition": "Escala común de cuatro niveles: 1 BAIX/bajo, 2 MIG/medio, 3 ALT/alto y 4 MOLT ALT/muy alto.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "1 = BAIX / bajo; 2 = MIG / medio; 3 = ALT / alto; 4 = MOLT ALT / muy alto",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-8f171029eeec",
+      "candidate_id": "candidate-concept-0012",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0013",
+    "candidate_type": "concept",
+    "name": "pct_antivirus",
+    "definition": "Porcentaje de equipos del ámbito con antivirus desplegado y operativo.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "porcentaje de equipos del ambito con antivirus desplegado y operativo",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-5cd2da3b7f71",
+      "candidate_id": "candidate-concept-0013",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0014",
+    "candidate_type": "concept",
+    "name": "pct_edr",
+    "definition": "Porcentaje de equipos con EDR desplegado y operativo.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "porcentaje de equipos con EDR desplegado y operativo",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-58d063ae5afd",
+      "candidate_id": "candidate-concept-0014",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0015",
+    "candidate_type": "concept",
+    "name": "security_score",
+    "definition": "Puntuación de seguridad o perímetro publicada para la aplicación o SIC.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "puntuacion de seguridad/perimetro publicada para la aplicacion o SIC",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-9a2a940b6249",
+      "candidate_id": "candidate-concept-0015",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0016",
+    "candidate_type": "concept",
+    "name": "criticidad_negocio",
+    "definition": "Criticidad del sistema en escala de inventario; en la implementación actual los valores bajos representan mayor criticidad.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "en la implementacion actual los valores bajos representan mayor criticidad",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-2291ee5cbcbc",
+      "candidate_id": "candidate-concept-0016",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0017",
+    "candidate_type": "concept",
+    "name": "rto",
+    "definition": "Tiempo máximo tolerable de indisponibilidad.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "tiempo maximo tolerable de indisponibilidad",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-00f16174ca99",
+      "candidate_id": "candidate-concept-0017",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0018",
+    "candidate_type": "concept",
+    "name": "SIC",
+    "definition": "Dominio que calcula riesgo por sistema o aplicacion critica, con probabilidad e impacto regla a regla y agregacion posterior por bloque y por SIC.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "SIC calcula riesgo por sistema / aplicacion critica. SIC si calcula probabilidad regla por regla; SIC si calcula impacto regla por regla; luego agrega por bloque y obtiene riesgo final por bloque y por SIC.",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-7e02e036a78e",
+      "candidate_id": "candidate-concept-0018",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0019",
+    "candidate_type": "concept",
+    "name": "LLDT",
+    "definition": "Dominio cuyo impacto vigente combina valoraciones departamentales propias con reglas que emulan un SIC del departamento.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "cada bloque sale de una mezcla distinta entre la valoracion propia del departamento y el SIC que ese departamento debe emular.",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-a66e601b0406",
+      "candidate_id": "candidate-concept-0019",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0020",
+    "candidate_type": "concept",
+    "name": "default LLDT",
+    "definition": "Hipotesis provisional, normalmente optimista, utilizada cuando falta un dato usable para no bloquear el calculo.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "un `DEFAULT` LLDT no significa que el control este bien medido. Significa que el modelo no dispone de dato usable y adopta una hipotesis de continuidad.",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-b00b15ec09cf",
+      "candidate_id": "candidate-concept-0020",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0021",
+    "candidate_type": "concept",
+    "name": "default SIC",
+    "definition": "Resultado neutral o controlado aplicado normalmente cuando falta informacion en SIC.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "En SIC, el default no suele ser optimista como en LLDT. Normalmente es neutral o controlado.",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-e8a72361aa9e",
+      "candidate_id": "candidate-concept-0021",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0022",
+    "candidate_type": "concept",
+    "name": "impacto SIC",
+    "definition": "Valoracion por regla de los efectos de la indisponibilidad, compromiso, perdida de informacion o incumplimiento asociados a un SIC.",
+    "status": "approved",
+    "confidence": 0.9,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "Impacto SIC por regla",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-6b63ffe217f4",
+      "candidate_id": "candidate-concept-0022",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0023",
+    "candidate_type": "concept",
+    "name": "nivel",
+    "definition": "Severidad final de una regla ya interpretada por el modelo; no representa porcentaje de cumplimiento ni un valor booleano.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "no significa porcentaje de cumplimiento; no significa si la regla da verdadero o falso; significa severidad final",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-b37db25e9315",
+      "candidate_id": "candidate-concept-0023",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0024",
+    "candidate_type": "concept",
+    "name": "peso_regla",
+    "definition": "Factor con el que una regla participa en el agregado del bloque o del eje completo.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "peso_regla: es el factor con el que una regla entra al agregado",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-6748e4795d1c",
+      "candidate_id": "candidate-concept-0024",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0025",
+    "candidate_type": "concept",
+    "name": "criticidad_negocio",
+    "definition": "Escala funcional en la que los valores 0 y 1 implican mayor severidad, 2 y 3 severidad intermedia y 4 menor severidad relativa.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "valores 0 y 1 implican mayor severidad; 2 y 3 severidad intermedia; 4 menor severidad relativa",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-97d9345fba40",
+      "candidate_id": "candidate-concept-0025",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0026",
+    "candidate_type": "concept",
+    "name": "resultado final de riesgo",
+    "definition": "Resultado obtenido al cruzar la probabilidad final y el impacto final del bloque mediante la matriz 4x4.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "cruza probabilidad final e impacto final del bloque y publica el riesgo resultante",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-de8b68c56317",
+      "candidate_id": "candidate-concept-0026",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0027",
+    "candidate_type": "concept",
+    "name": "sic",
+    "definition": "Identifica el sistema o aplicación.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "sic identifica el sistema o aplicacion",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-c5e00a1befa3",
+      "candidate_id": "candidate-concept-0027",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0028",
+    "candidate_type": "concept",
+    "name": "bloque",
+    "definition": "Indica si el resultado pertenece al riesgo 200 o 400.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "bloque indica si el resultado pertenece al riesgo 200 o 400",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-8bb4e7f98f92",
+      "candidate_id": "candidate-concept-0028",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0029",
+    "candidate_type": "concept",
+    "name": "probabilidad_final_num",
+    "definition": "Muestra el nivel final de probabilidad del bloque.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "probabilidad_final_num e impacto_final_num muestran los niveles finales del bloque",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-485280bd33d4",
+      "candidate_id": "candidate-concept-0029",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0030",
+    "candidate_type": "concept",
+    "name": "impacto_final_num",
+    "definition": "Muestra el nivel final de impacto del bloque.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "probabilidad_final_num e impacto_final_num muestran los niveles finales del bloque",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-9e6c506ef865",
+      "candidate_id": "candidate-concept-0030",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0031",
+    "candidate_type": "concept",
+    "name": "riesgo_final_num",
+    "definition": "Expresa el nivel publicado de riesgo.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "riesgo_final_num expresa el nivel publicado",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-df929144c835",
+      "candidate_id": "candidate-concept-0031",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0032",
+    "candidate_type": "concept",
+    "name": "run_id",
+    "definition": "Permite auditar la ejecución exacta.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "run_id y version_modelo permiten auditar la ejecucion exacta",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-952bdd9a4a0d",
+      "candidate_id": "candidate-concept-0032",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0033",
+    "candidate_type": "concept",
+    "name": "version_modelo",
+    "definition": "Permite auditar la versión exacta del modelo ejecutado.",
+    "status": "approved",
+    "confidence": 0.95,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "run_id y version_modelo permiten auditar la ejecucion exacta",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-e7a012c43379",
+      "candidate_id": "candidate-concept-0033",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0034",
+    "candidate_type": "concept",
+    "name": "codi_dialeg",
+    "definition": "Se utiliza como SIC emulado por departamento cuando una regla de impacto necesita datos SIC.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "usa codi_dialeg como SIC emulado cuando una regla de impacto necesita datos SIC",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-b02c883f6d88",
+      "candidate_id": "candidate-concept-0034",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-concept-0035",
+    "candidate_type": "concept",
+    "name": "codigo_departamento_ref",
+    "definition": "Clave canónica de consolidación en CULTURA y GOVERNANCA.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "ambos dominios publican codigo_departamento_ref como clave canonica de consolidacion",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-48c7c623d0f7",
+      "candidate_id": "candidate-concept-0035",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0036",
+    "candidate_type": "business_rule",
+    "name": "El riesgo final no debe recalcularse en Power BI; debe utilizarse el resultado recibido desde Gold.",
+    "definition": "El riesgo final no debe recalcularse en Power BI; debe utilizarse el resultado recibido desde Gold.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "El riesgo final no debe recalcularse en el reporte.",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-48c3f4ccd4c0",
+      "candidate_id": "candidate-business_rule-0036",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0037",
+    "candidate_type": "business_rule",
+    "name": "Para análisis entre dominios se debe utilizar risk_key o amenaza_key con prefijo de dominio; los identificadores nativos",
+    "definition": "Para análisis entre dominios se debe utilizar risk_key o amenaza_key con prefijo de dominio; los identificadores nativos solo son válidos dentro del eje correspondiente.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "para analisis entre ejes usar siempre la clave con prefijo",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-36300e35ef19",
+      "candidate_id": "candidate-business_rule-0037",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0038",
+    "candidate_type": "business_rule",
+    "name": "La distribución por severidad debe contar entidades y no sumar niveles numéricos.",
+    "definition": "La distribución por severidad debe contar entidades y no sumar niveles numéricos.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "contar entidades, no sumar nivel numerico",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-b0185d11d676",
+      "candidate_id": "candidate-business_rule-0038",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0039",
+    "candidate_type": "business_rule",
+    "name": "En SIC, las filas de detalle de reglas tienen grano sic + regla + riesgo + run_id.",
+    "definition": "En SIC, las filas de detalle de reglas tienen grano sic + regla + riesgo + run_id.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-003",
+      "source_excerpt": "la repeticion de filas responde al grano natural sic + regla + riesgo + run_id",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-b29bd4f8f5c6",
+      "candidate_id": "candidate-business_rule-0039",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0040",
+    "candidate_type": "business_rule",
+    "name": "El snapshot completo solo se considera válido cuando los cinco dominios Gold tienen una ejecución correcta.",
+    "definition": "El snapshot completo solo se considera válido cuando los cinco dominios Gold tienen una ejecución correcta.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-001",
+      "source_excerpt": "considerando ciclo completo solo cuando los cinco dominios Gold tienen ejecucion correcta",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-9eddce40c7b0",
+      "candidate_id": "candidate-business_rule-0040",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0041",
+    "candidate_type": "business_rule",
+    "name": "El número de severidad (`riesgo_final_num`) debe utilizarse para ordenar y no para sumar.",
+    "definition": "El número de severidad (`riesgo_final_num`) debe utilizarse para ordenar y no para sumar.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "El numero de severidad (`riesgo_final_num`) sirve para ordenar, no para sumar.",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-29283a07b056",
+      "candidate_id": "candidate-business_rule-0041",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0042",
+    "candidate_type": "business_rule",
+    "name": "No se debe reconstruir `riesgo_final_num` en DAX como promedio, redondeo o combinación lineal de probabilidad e impacto.",
+    "definition": "No se debe reconstruir `riesgo_final_num` en DAX como promedio, redondeo o combinación lineal de probabilidad e impacto.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "no debe reconstruirse en DAX como promedio, redondeo ni combinacion lineal",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-7a7d799db6b6",
+      "candidate_id": "candidate-business_rule-0042",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0043",
+    "candidate_type": "business_rule",
+    "name": "La ejecución vigente debe determinarse mediante `dim_run_modelo` y no mediante facts aisladas.",
+    "definition": "La ejecución vigente debe determinarse mediante `dim_run_modelo` y no mediante facts aisladas.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "No inferir la ejecucion vigente mirando facts sueltas.",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-e917a5f1d96b",
+      "candidate_id": "candidate-business_rule-0043",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0044",
+    "candidate_type": "business_rule",
+    "name": "Para páginas ejecutivas se debe utilizar el conteo distinto de la entidad correspondiente al dominio.",
+    "definition": "Para páginas ejecutivas se debe utilizar el conteo distinto de la entidad correspondiente al dominio.",
+    "status": "approved",
+    "confidence": 0.96,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "Para paginas ejecutivas, la medida principal suele ser un conteo de entidades",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-2570aa1fb276",
+      "candidate_id": "candidate-business_rule-0044",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0045",
+    "candidate_type": "business_rule",
+    "name": "CULTURA y GOVERNANCA no deben utilizarse para páginas de amenazas porque no publican un bridge de amenazas compartido.",
+    "definition": "CULTURA y GOVERNANCA no deben utilizarse para páginas de amenazas porque no publican un bridge de amenazas compartido.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "No usar CULTURA para analisis de amenazas; no publica bridge de amenazas como SIC o INFRA.",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-8466a2c04ac9",
+      "candidate_id": "candidate-business_rule-0045",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0046",
+    "candidate_type": "business_rule",
+    "name": "Si una página combina dominios, deben utilizarse bloques separados y mostrar o fijar `dominio_modelo`.",
+    "definition": "Si una página combina dominios, deben utilizarse bloques separados y mostrar o fijar `dominio_modelo`.",
+    "status": "approved",
+    "confidence": 0.97,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-005",
+      "source_excerpt": "usar bloques separados por dominio; fijar `dim_riesgo_master[dominio_modelo]`",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-b93b7736d432",
+      "candidate_id": "candidate-business_rule-0046",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0047",
+    "candidate_type": "business_rule",
+    "name": "Cada eje calcula cuatro riesgos: indisponibilidad, compromiso y pérdida de información, compromiso del equipo o platafor",
+    "definition": "Cada eje calcula cuatro riesgos: indisponibilidad, compromiso y pérdida de información, compromiso del equipo o plataforma, e incumplimiento legal y normativo.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "Cada eje calcula 4 riesgos",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-99e6e022d56e",
+      "candidate_id": "candidate-business_rule-0047",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0048",
+    "candidate_type": "business_rule",
+    "name": "El riesgo final se obtiene mediante una matriz 4x4 que cruza probabilidad e impacto; no se calcula mediante promedio ni ",
+    "definition": "El riesgo final se obtiene mediante una matriz 4x4 que cruza probabilidad e impacto; no se calcula mediante promedio ni ponderación lineal.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "el riesgo final no se calcula con promedio ni ponderacion lineal",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-7a58310dcdba",
+      "candidate_id": "candidate-business_rule-0048",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0049",
+    "candidate_type": "business_rule",
+    "name": "La matriz final vigente debe consumirse desde una fuente manual canónica y no mantenerse hardcodeada en Gold.",
+    "definition": "La matriz final vigente debe consumirse desde una fuente manual canónica y no mantenerse hardcodeada en Gold.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "La matriz vigente ya no debe mantenerse hardcodeada en Gold",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-32767c40f774",
+      "candidate_id": "candidate-business_rule-0049",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0050",
+    "candidate_type": "business_rule",
+    "name": "Cuando no existe un dato usable, el modelo aplica un valor por defecto para no romper el cálculo.",
+    "definition": "Cuando no existe un dato usable, el modelo aplica un valor por defecto para no romper el cálculo.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "el modelo aplica un valor por defecto para no romper el calculo",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-e1940ef42179",
+      "candidate_id": "candidate-business_rule-0050",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0051",
+    "candidate_type": "business_rule",
+    "name": "CULTURA y GOVERNANCA se publican a grano departamento con una única valoración por riesgo y departamento.",
+    "definition": "CULTURA y GOVERNANCA se publican a grano departamento con una única valoración por riesgo y departamento.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "CULTURA y GOVERNANCA pasan a publicarse a grano departamento con una unica valoracion por riesgo y departamento.",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-f160287a6f21",
+      "candidate_id": "candidate-business_rule-0051",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0052",
+    "candidate_type": "business_rule",
+    "name": "CULTURA activa únicamente riesgos de los bloques 200 y 400.",
+    "definition": "CULTURA activa únicamente riesgos de los bloques 200 y 400.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "solo activa riesgos de los bloques 200 y 400",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-a5074c51c6e1",
+      "candidate_id": "candidate-business_rule-0052",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0053",
+    "candidate_type": "business_rule",
+    "name": "GOVERNANCA activa riesgos de los bloques 200 y 400.",
+    "definition": "GOVERNANCA activa riesgos de los bloques 200 y 400.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "activa riesgos de los bloques 200 y 400",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-b7162d8601c6",
+      "candidate_id": "candidate-business_rule-0053",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0054",
+    "candidate_type": "business_rule",
+    "name": "En CULTURA y GOVERNANCA, la consolidación final se realiza por codigo_departamento_ref e id_risc y no debe forzarse un j",
+    "definition": "En CULTURA y GOVERNANCA, la consolidación final se realiza por codigo_departamento_ref e id_risc y no debe forzarse un join adicional por bloque entre las facts.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-002",
+      "source_excerpt": "la consolidada fact_riesgo une probabilidad e impacto por codigo_departamento_ref e id_risc",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-dc5ca2f705bd",
+      "candidate_id": "candidate-business_rule-0054",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0055",
+    "candidate_type": "business_rule",
+    "name": "La regla LLDT 1001 clasifica la probabilidad según la cobertura de antivirus: >=96% BAIX, 91-95 MIG, 86-90 ALT y <86 MOL",
+    "definition": "La regla LLDT 1001 clasifica la probabilidad según la cobertura de antivirus: >=96% BAIX, 91-95 MIG, 86-90 ALT y <86 MOLT ALT; si falta el dato se asume 100%.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003",
+      "source_excerpt": "1001 | Despliegue antivirus | ... >= 96% = BAIX; 91-95 = MIG; 86-90 = ALT; < 86 = MOLT ALT",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-cdd1252757dd",
+      "candidate_id": "candidate-business_rule-0055",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0056",
+    "candidate_type": "business_rule",
+    "name": "La regla LLDT 1003 clasifica la probabilidad según el porcentaje de equipos con más de 60 días sin actualizar: <30% BAIX",
+    "definition": "La regla LLDT 1003 clasifica la probabilidad según el porcentaje de equipos con más de 60 días sin actualizar: <30% BAIX, 30-79 MIG, 80-89 ALT y >=90 MOLT ALT; si falta el dato se asume 0%.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003",
+      "source_excerpt": "1003 | Parches desactualizados | ... < 30% = BAIX; 30-79 = MIG; 80-89 = ALT; >= 90 = MOLT ALT",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-9cd2a10129c9",
+      "candidate_id": "candidate-business_rule-0056",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0057",
+    "candidate_type": "business_rule",
+    "name": "La regla LLDT 2002 es constante y siempre clasifica como BAIX.",
+    "definition": "La regla LLDT 2002 es constante y siempre clasifica como BAIX.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003",
+      "source_excerpt": "2002 | MFA VPN administradores | decision funcional | ... siempre BAIX | CONSTANTE",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-320e64990f21",
+      "candidate_id": "candidate-business_rule-0057",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0058",
+    "candidate_type": "business_rule",
+    "name": "La regla LLDT 2005 es constante y siempre clasifica como MOLT ALT, con valor fijo de 0% de MFA.",
+    "definition": "La regla LLDT 2005 es constante y siempre clasifica como MOLT ALT, con valor fijo de 0% de MFA.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003",
+      "source_excerpt": "2005 | MFA cuentas genericas | ... siempre MOLT ALT | CONSTANTE, valor fijo 0% MFA",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-ff486148615c",
+      "candidate_id": "candidate-business_rule-0058",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0059",
+    "candidate_type": "business_rule",
+    "name": "La regla LLDT 2006 clasifica la formación según la cobertura de asistentes frente al parque de workstations: >60% BAIX, ",
+    "definition": "La regla LLDT 2006 clasifica la formación según la cobertura de asistentes frente al parque de workstations: >60% BAIX, 45-60 MIG, 30-44 ALT y <30 MOLT ALT; si falta training activo se asume 100%.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003",
+      "source_excerpt": "2006 | Formacion usuarios | ... > 60% = BAIX; 45-60 = MIG; 30-44 = ALT; < 30 = MOLT ALT",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-7ab7fa980205",
+      "candidate_id": "candidate-business_rule-0059",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0060",
+    "candidate_type": "business_rule",
+    "name": "El impacto LLDT combina reglas propias de LLDT con reglas derivadas de un SIC emulado por departamento y se agrega por b",
+    "definition": "El impacto LLDT combina reglas propias de LLDT con reglas derivadas de un SIC emulado por departamento y se agrega por bloque.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-003",
+      "source_excerpt": "el impacto no se publica regla por regla, pero si se construye bloque por bloque combinando reglas LLDT propias con reglas derivadas del SIC emulado por departamento",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-7f1fbdc66eb5",
+      "candidate_id": "candidate-business_rule-0060",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0061",
+    "candidate_type": "business_rule",
+    "name": "En LLDT, si falta una cobertura positiva se asume normalmente 100%.",
+    "definition": "En LLDT, si falta una cobertura positiva se asume normalmente 100%.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "si falta una cobertura positiva, suele asumirse 100%",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-e463cefe6605",
+      "candidate_id": "candidate-business_rule-0061",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0062",
+    "candidate_type": "business_rule",
+    "name": "En LLDT, si falta una cobertura negativa se asume normalmente 0%.",
+    "definition": "En LLDT, si falta una cobertura negativa se asume normalmente 0%.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "si falta una cobertura negativa, suele asumirse 0%",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-37de434326ab",
+      "candidate_id": "candidate-business_rule-0062",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0063",
+    "candidate_type": "business_rule",
+    "name": "El impacto LLDT busca la fila del departamento, toma codi_dialeg como SIC emulado y calcula reglas con atributos del SIC",
+    "definition": "El impacto LLDT busca la fila del departamento, toma codi_dialeg como SIC emulado y calcula reglas con atributos del SIC y del departamento.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "busca la fila del departamento en `silver.dim_lldt_cidat`; toma `codi_dialeg` como SIC emulado del departamento",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-d05bf89845a9",
+      "candidate_id": "candidate-business_rule-0063",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0064",
+    "candidate_type": "business_rule",
+    "name": "El impacto LLDT se agrega promediando por bloque las reglas resultantes.",
+    "definition": "El impacto LLDT se agrega promediando por bloque las reglas resultantes.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-004",
+      "source_excerpt": "promedia por bloque las reglas resultantes y publica ese nivel agregado en `gold_lldt.fact_impacto_bloque`.",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-aed561668c20",
+      "candidate_id": "candidate-business_rule-0064",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0065",
+    "candidate_type": "business_rule",
+    "name": "La regla SIC 1001 clasifica la cobertura EDR por SIC en BAIX, MIG, ALT o MOLT ALT según porcentajes definidos.",
+    "definition": "La regla SIC 1001 clasifica la cobertura EDR por SIC en BAIX, MIG, ALT o MOLT ALT según porcentajes definidos.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": ">= 95% = BAIX; 91-94 = MIG; 86-90 = ALT; < 86 = MOLT ALT",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-e1daf14907d5",
+      "candidate_id": "candidate-business_rule-0065",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0066",
+    "candidate_type": "business_rule",
+    "name": "Las reglas SIC 2002, 2003 y 2004 consideran MFA cubierto al 100% y siempre asignan BAIX.",
+    "definition": "Las reglas SIC 2002, 2003 y 2004 consideran MFA cubierto al 100% y siempre asignan BAIX.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "se considera cubierto al 100%; siempre BAIX",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-67b0bcb62ea2",
+      "candidate_id": "candidate-business_rule-0066",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0067",
+    "candidate_type": "business_rule",
+    "name": "La regla SIC 2005 considera inexistente el MFA de usuarios a nivel aplicacion/SIC y siempre asigna MOLT ALT.",
+    "definition": "La regla SIC 2005 considera inexistente el MFA de usuarios a nivel aplicacion/SIC y siempre asigna MOLT ALT.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "se considera que no existe MFA de usuarios a nivel aplicacion/SIC; siempre MOLT ALT",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-d4fc17df7996",
+      "candidate_id": "candidate-business_rule-0067",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0068",
+    "candidate_type": "business_rule",
+    "name": "La regla SIC 4001 asigna BAIX con certificacion activa vigente, MOLT ALT con certificacion caducada o no vigente y MIG D",
+    "definition": "La regla SIC 4001 asigna BAIX con certificacion activa vigente, MOLT ALT con certificacion caducada o no vigente y MIG DEFAULT sin certificacion usable.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "certificacion activa vigente = BAIX `REAL`, solo certificacion caducada/no vigente = MOLT ALT `REAL`, sin SIC certificado usable = MIG `DEFAULT`",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-d717b1f61a3c",
+      "candidate_id": "candidate-business_rule-0068",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0069",
+    "candidate_type": "business_rule",
+    "name": "Las reglas SIC 4002 a 4006 convierten un valor departamental Si en BAIX, No en MOLT ALT y ausencia de dato en MIG.",
+    "definition": "Las reglas SIC 4002 a 4006 convierten un valor departamental Si en BAIX, No en MOLT ALT y ausencia de dato en MIG.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "`Si` = BAIX, `No` = MOLT ALT, sin dato usable = MIG",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-6bb5438bd000",
+      "candidate_id": "candidate-business_rule-0069",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0070",
+    "candidate_type": "business_rule",
+    "name": "La probabilidad se agrega por bloque mediante un promedio ponderado de niveles cuando existen pesos positivos; si no exi",
+    "definition": "La probabilidad se agrega por bloque mediante un promedio ponderado de niveles cuando existen pesos positivos; si no existen, se utiliza el promedio simple.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "si la suma de pesos ... SUM(nivel_num * peso_regla) / SUM(peso_regla); si no hay pesos positivos, AVG(nivel_num)",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-9d64bb32e326",
+      "candidate_id": "candidate-business_rule-0070",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0071",
+    "candidate_type": "business_rule",
+    "name": "Después del promedio de probabilidad, el resultado se redondea al entero más cercano y se expresa como BAIX, MIG, ALT o ",
+    "definition": "Después del promedio de probabilidad, el resultado se redondea al entero más cercano y se expresa como BAIX, MIG, ALT o MOLT ALT.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "el motor redondea el resultado al entero mas cercano y lo vuelve a expresar como BAIX, MIG, ALT o MOLT ALT",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-7cea95b3c381",
+      "candidate_id": "candidate-business_rule-0071",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0072",
+    "candidate_type": "business_rule",
+    "name": "La regla 401 de SIC toma el máximo entre C, I, D, A y T; si no hay CIDAT, aplica un default de nivel 2.",
+    "definition": "La regla 401 de SIC toma el máximo entre C, I, D, A y T; si no hay CIDAT, aplica un default de nivel 2.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "toma el maximo entre C, I, D, A y T ... DEFAULT nivel 2 si falta",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-d36a7b762941",
+      "candidate_id": "candidate-business_rule-0072",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0073",
+    "candidate_type": "business_rule",
+    "name": "En SIC, la traducción vigente de gobernanza departamental es Si = BAIX, No = MOLT ALT y sin dato usable = MIG DEFAULT.",
+    "definition": "En SIC, la traducción vigente de gobernanza departamental es Si = BAIX, No = MOLT ALT y sin dato usable = MIG DEFAULT.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "Si = BAIX, No = MOLT ALT, sin dato usable = MIG DEFAULT",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-2a383d809ade",
+      "candidate_id": "candidate-business_rule-0073",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0074",
+    "candidate_type": "business_rule",
+    "name": "El bloque 4000 de GOVERNANCA remapea las reglas 4003-4007 desde las reglas 4002-4006 de gobernanza departamental.",
+    "definition": "El bloque 4000 de GOVERNANCA remapea las reglas 4003-4007 desde las reglas 4002-4006 de gobernanza departamental.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-008",
+      "source_excerpt": "4003-4007 reutilizan gobernanza departamental, pero con remapeo explicito ... 4002-4006",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-f6af19821de4",
+      "candidate_id": "candidate-business_rule-0074",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0075",
+    "candidate_type": "business_rule",
+    "name": "La lectura funcional de una fila debe distinguir el sistema o aplicación, el bloque de riesgo, los niveles finales, el n",
+    "definition": "La lectura funcional de una fila debe distinguir el sistema o aplicación, el bloque de riesgo, los niveles finales, el nivel publicado y la ejecución exacta.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "sic identifica... bloque indica... probabilidad_final_num e impacto_final_num... riesgo_final_num... run_id y version_modelo",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-85aa510b69cf",
+      "candidate_id": "candidate-business_rule-0075",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0076",
+    "candidate_type": "business_rule",
+    "name": "Para explicar un resultado Gold se debe comenzar por la fact final, abrir la fact de bloque correspondiente, bajar al de",
+    "definition": "Para explicar un resultado Gold se debe comenzar por la fact final, abrir la fact de bloque correspondiente, bajar al detalle por regla y cerrar con las dimensiones de reglas, supuestos y la ejecución auditada.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-010",
+      "source_excerpt": "la secuencia correcta es: empezar por la fact final; abrir la fact de bloque; bajar a la fact de detalle por regla; cerrar la interpretacion",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-491302beb929",
+      "candidate_id": "candidate-business_rule-0076",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0077",
+    "candidate_type": "business_rule",
+    "name": "El ciclo debe validar shortcuts y orígenes antes de mover datos físicos.",
+    "definition": "El ciclo debe validar shortcuts y orígenes antes de mover datos físicos.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001",
+      "source_excerpt": "El ciclo ya puede validar shortcuts/origenes antes de mover datos fisicos",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-97656f6fed70",
+      "candidate_id": "candidate-business_rule-0077",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0078",
+    "candidate_type": "business_rule",
+    "name": "El precheck debe comprobar que las tablas Bronze existen, que los shortcuts responden, que las columnas mínimas siguen e",
+    "definition": "El precheck debe comprobar que las tablas Bronze existen, que los shortcuts responden, que las columnas mínimas siguen estando, que la fuente no está vacía por error y que las fuentes snapshot tienen una fotografía utilizable.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001",
+      "source_excerpt": "que las tablas Bronze existen; que los shortcuts responden; que las columnas minimas siguen estando; que la fuente no quedo vacia",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-fd4de607273e",
+      "candidate_id": "candidate-business_rule-0078",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0079",
+    "candidate_type": "business_rule",
+    "name": "El flujo operativo completo sigue el orden Landing, Bronze ready, Silver, Gold y refresh del modelo semántico.",
+    "definition": "El flujo operativo completo sigue el orden Landing, Bronze ready, Silver, Gold y refresh del modelo semántico.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-001",
+      "source_excerpt": "Files/ManualLoads -> Validate + Publish a Bronze -> Precheck tecnico -> Sync ManualLoads -> Silver -> Gold -> Refresh modelo semantico",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-d99edbdfb719",
+      "candidate_id": "candidate-business_rule-0079",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0080",
+    "candidate_type": "business_rule",
+    "name": "El impacto de LLDT no hereda automáticamente desde SIC.",
+    "definition": "El impacto de LLDT no hereda automáticamente desde SIC.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "hoy el impacto de LLDT no hereda automaticamente desde SIC",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-7d44ee896fa6",
+      "candidate_id": "candidate-business_rule-0080",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0081",
+    "candidate_type": "business_rule",
+    "name": "Las reglas de impacto 103, 105 y 203 deben distinguir dato real de dato faltante: REAL/OK si existe criticidad y DEFAULT",
+    "definition": "Las reglas de impacto 103, 105 y 203 deben distinguir dato real de dato faltante: REAL/OK si existe criticidad y DEFAULT/SIN_DATO si no existe.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "las reglas 103, 105 y 203 ya distinguen dato real frente a dato faltante: REAL/OK si hay criticidad y DEFAULT/SIN_DATO si no",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-93c3533aa8d7",
+      "candidate_id": "candidate-business_rule-0081",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0082",
+    "candidate_type": "business_rule",
+    "name": "Las reglas 104 y 202 utilizan is_t11 como criterio operativo T11/público.",
+    "definition": "Las reglas 104 y 202 utilizan is_t11 como criterio operativo T11/público.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "las reglas 104 y 202 ya consumen ... is_t11 como criterio operativo T11/publico",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-ba27f6a86439",
+      "candidate_id": "candidate-business_rule-0082",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0083",
+    "candidate_type": "business_rule",
+    "name": "Las reglas 4002-4006 se evalúan directamente por departamento en sí/no.",
+    "definition": "Las reglas 4002-4006 se evalúan directamente por departamento en sí/no.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "las reglas 4002-4006 ya consumen ... con evaluacion directa por departamento en si/no",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-f580de0b1b4a",
+      "candidate_id": "candidate-business_rule-0083",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0084",
+    "candidate_type": "business_rule",
+    "name": "La regla 4001 puede quedar en DEFAULT cuando no hay SIC certificados materializados.",
+    "definition": "La regla 4001 puede quedar en DEFAULT cuando no hay SIC certificados materializados.",
+    "status": "approved",
+    "confidence": 0.95,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "La 4001 ya consume ... siguio en DEFAULT porque no hubo SIC certificados materializados",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-d1b21cab991e",
+      "candidate_id": "candidate-business_rule-0084",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0085",
+    "candidate_type": "business_rule",
+    "name": "En CULTURA y GOVERNANCA la consolidación final debe cruzar probabilidad e impacto por codigo_departamento_ref e id_risc,",
+    "definition": "En CULTURA y GOVERNANCA la consolidación final debe cruzar probabilidad e impacto por codigo_departamento_ref e id_risc, sin añadir un match extra por bloque.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "la consolidada final fact_riesgo debe cruzar probabilidad e impacto por codigo_departamento_ref e id_risc; no debe añadirse un match extra por bloque",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-3ffa579cf828",
+      "candidate_id": "candidate-business_rule-0085",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-business_rule-0086",
+    "candidate_type": "business_rule",
+    "name": "La operación vigente asume recarga completa de las tablas Gold en cada ejecución de CULTURA y GOVERNANCA.",
+    "definition": "La operación vigente asume recarga completa de las tablas Gold en cada ejecución de CULTURA y GOVERNANCA.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "la operacion vigente asume recarga completa de tablas Gold en cada ejecucion",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-a8632a458149",
+      "candidate_id": "candidate-business_rule-0086",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0087",
+    "candidate_type": "kpi",
+    "name": "Distribución de entidades por severidad del riesgo final.",
+    "definition": "Distribución de entidades por severidad del riesgo final.",
+    "status": "approved",
+    "confidence": 0.96,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "Distribucion por severidad",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-975377773b86",
+      "candidate_id": "candidate-kpi-0087",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0088",
+    "candidate_type": "kpi",
+    "name": "Promedio y cobertura de reglas de probabilidad por bloque.",
+    "definition": "Promedio y cobertura de reglas de probabilidad por bloque.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "Resumen de probabilidad por bloque",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-3f5d1416d1c5",
+      "candidate_id": "candidate-kpi-0088",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0089",
+    "candidate_type": "kpi",
+    "name": "Promedio y cobertura de reglas o fuentes de impacto por bloque.",
+    "definition": "Promedio y cobertura de reglas o fuentes de impacto por bloque.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "Resumen de impacto por bloque",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-7ddcab913108",
+      "candidate_id": "candidate-kpi-0089",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0090",
+    "candidate_type": "kpi",
+    "name": "Cobertura de valores reales, proxies, pendientes y no disponibles para evaluar la calidad del cálculo.",
+    "definition": "Cobertura de valores reales, proxies, pendientes y no disponibles para evaluar la calidad del cálculo.",
+    "status": "approved",
+    "confidence": 0.97,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-002",
+      "source_excerpt": "Calidad de calculo, proxies y defaults",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-d9ba720d6e45",
+      "candidate_id": "candidate-kpi-0090",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0091",
+    "candidate_type": "kpi",
+    "name": "Conteo distinto de SIC.",
+    "definition": "Conteo distinto de SIC.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "SIC: distinct count de `fact_riesgo_sic[sic]` o medida `SICs`",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-0273f3d9a41b",
+      "candidate_id": "candidate-kpi-0091",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0092",
+    "candidate_type": "kpi",
+    "name": "Conteo distinto de departamentos para LLDT.",
+    "definition": "Conteo distinto de departamentos para LLDT.",
+    "status": "approved",
+    "confidence": 0.97,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "LLDT: distinct count de `fact_riesgo_pt[codigo_departamento]`",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-a4a93a3989ff",
+      "candidate_id": "candidate-kpi-0092",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0093",
+    "candidate_type": "kpi",
+    "name": "Conteo distinto de departamentos de referencia para CULTURA.",
+    "definition": "Conteo distinto de departamentos de referencia para CULTURA.",
+    "status": "approved",
+    "confidence": 0.97,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "CULTURA: distinct count de `fact_riesgo_cultura[codigo_departamento_ref]`",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-c5c1847c83f6",
+      "candidate_id": "candidate-kpi-0093",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0094",
+    "candidate_type": "kpi",
+    "name": "Conteo distinto de departamentos de referencia para GOVERNANCA.",
+    "definition": "Conteo distinto de departamentos de referencia para GOVERNANCA.",
+    "status": "approved",
+    "confidence": 0.97,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-8b31b81ddd29-chunk-004",
+      "source_excerpt": "GOVERNANCA: distinct count de `fact_riesgo_governanca[codigo_departamento_ref]`",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-f20e61044d83",
+      "candidate_id": "candidate-kpi-0094",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0095",
+    "candidate_type": "kpi",
+    "name": "Porcentaje de equipos con antivirus desplegado y operativo.",
+    "definition": "Porcentaje de equipos con antivirus desplegado y operativo.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "pct_antivirus | porcentaje de equipos del ambito con antivirus desplegado y operativo",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-7a3e8d595bfb",
+      "candidate_id": "candidate-kpi-0095",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0096",
+    "candidate_type": "kpi",
+    "name": "Porcentaje de equipos con EDR desplegado y operativo.",
+    "definition": "Porcentaje de equipos con EDR desplegado y operativo.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "pct_edr / pct_edr_current | porcentaje de equipos con EDR desplegado y operativo",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-c3b7185b96f3",
+      "candidate_id": "candidate-kpi-0096",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0097",
+    "candidate_type": "kpi",
+    "name": "Porcentaje de equipos con más de 60 días sin actualizar Windows.",
+    "definition": "Porcentaje de equipos con más de 60 días sin actualizar Windows.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "pct_patch_gt_60 | porcentaje de equipos con mas de 60 dias sin actualizar Windows",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-5449a2444f3e",
+      "candidate_id": "candidate-kpi-0097",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0098",
+    "candidate_type": "kpi",
+    "name": "Número de tickets o alertas departamentales cerradas usados como señal operativa.",
+    "definition": "Número de tickets o alertas departamentales cerradas usados como señal operativa.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "alert_ticket_count | numero de tickets/alertas departamentales cerradas usados como senal operativa",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-249ec651042b",
+      "candidate_id": "candidate-kpi-0098",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0099",
+    "candidate_type": "kpi",
+    "name": "Porcentaje de usuarios con MFA en VPN.",
+    "definition": "Porcentaje de usuarios con MFA en VPN.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "pct_mfa_vpn | porcentaje de usuarios con MFA en VPN",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-1a91c0c1039a",
+      "candidate_id": "candidate-kpi-0099",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0100",
+    "candidate_type": "kpi",
+    "name": "Porcentaje de usuarios con MFA en O365.",
+    "definition": "Porcentaje de usuarios con MFA en O365.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "pct_mfa_o365 | porcentaje de usuarios con MFA en O365",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-e8079845b1e7",
+      "candidate_id": "candidate-kpi-0100",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0101",
+    "candidate_type": "kpi",
+    "name": "Cobertura de formación calculada sobre asistentes frente al parque de equipos del ámbito.",
+    "definition": "Cobertura de formación calculada sobre asistentes frente al parque de equipos del ámbito.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "pct_training_attendance | cobertura de formacion, calculada sobre asistentes frente al parque de equipos del ambito",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-6cf6931763fe",
+      "candidate_id": "candidate-kpi-0101",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0102",
+    "candidate_type": "kpi",
+    "name": "Porcentaje de equipos cifrados.",
+    "definition": "Porcentaje de equipos cifrados.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "pct_encrypted | porcentaje de equipos cifrados",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-d6cbbc51b801",
+      "candidate_id": "candidate-kpi-0102",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0103",
+    "candidate_type": "kpi",
+    "name": "Cantidad de atributos de perímetro sin completar.",
+    "definition": "Cantidad de atributos de perímetro sin completar.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "total_attributes_noncompleted | cantidad de atributos de perimetro sin completar",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-25b7ccaec7f9",
+      "candidate_id": "candidate-kpi-0103",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0104",
+    "candidate_type": "kpi",
+    "name": "Número de vulnerabilidades críticas abiertas.",
+    "definition": "Número de vulnerabilidades críticas abiertas.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-001",
+      "source_excerpt": "critical_open_count | numero de vulnerabilidades criticas abiertas",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-8e820c470a06",
+      "candidate_id": "candidate-kpi-0104",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0105",
+    "candidate_type": "kpi",
+    "name": "Porcentaje de cobertura EDR por SIC.",
+    "definition": "Porcentaje de cobertura EDR por SIC.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "cobertura EDR por hosts relacionados con el SIC",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-f6f471b5cc6a",
+      "candidate_id": "candidate-kpi-0105",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0106",
+    "candidate_type": "kpi",
+    "name": "Porcentaje de despliegue del perimetro base, calculado como 1 - (base_attributes_noncompleted / 6).",
+    "definition": "Porcentaje de despliegue del perimetro base, calculado como 1 - (base_attributes_noncompleted / 6).",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "calcula `% despliegue base = 1 - (base_attributes_noncompleted / 6)`",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-81e1870d13e0",
+      "candidate_id": "candidate-kpi-0106",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0107",
+    "candidate_type": "kpi",
+    "name": "Numero de vulnerabilidades criticas abiertas o no remediadas.",
+    "definition": "Numero de vulnerabilidades criticas abiertas o no remediadas.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "cuenta vulnerabilidades criticas no remediadas",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-f28a7b02e31c",
+      "candidate_id": "candidate-kpi-0107",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0108",
+    "candidate_type": "kpi",
+    "name": "Numero de alertas criticas no resueltas mediante tickets asociados.",
+    "definition": "Numero de alertas criticas no resueltas mediante tickets asociados.",
+    "status": "approved",
+    "confidence": 0.96,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-005",
+      "source_excerpt": "tickets departamentales asociados al SIC",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-4c70d995a263",
+      "candidate_id": "candidate-kpi-0108",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0109",
+    "candidate_type": "kpi",
+    "name": "Porcentaje de hosts obsoletos vinculados al SIC.",
+    "definition": "Porcentaje de hosts obsoletos vinculados al SIC.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "`% hosts obsoletos` vinculados al SIC",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-0af27405e510",
+      "candidate_id": "candidate-kpi-0109",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0110",
+    "candidate_type": "kpi",
+    "name": "Numero maximo de usuarios afectados por un SIC.",
+    "definition": "Numero maximo de usuarios afectados por un SIC.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-006",
+      "source_excerpt": "usa `num_usuarios_max` del SIC emulado",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-60396245fd38",
+      "candidate_id": "candidate-kpi-0110",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0111",
+    "candidate_type": "kpi",
+    "name": "Conteo de reglas REAL, DEFAULT y CONSTANTE por bloque.",
+    "definition": "Conteo de reglas REAL, DEFAULT y CONSTANTE por bloque.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "cuantas reglas del bloque fueron REAL; cuantas quedaron en DEFAULT; cuantas son CONSTANTE",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-946d7d7ed22d",
+      "candidate_id": "candidate-kpi-0111",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0112",
+    "candidate_type": "kpi",
+    "name": "Conteo de reglas no disponibles en los agregados de impacto SIC.",
+    "definition": "Conteo de reglas no disponibles en los agregados de impacto SIC.",
+    "status": "approved",
+    "confidence": 0.96,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-007",
+      "source_excerpt": "y, en impacto, no disponibles",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-2fba6e86823c",
+      "candidate_id": "candidate-kpi-0112",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0113",
+    "candidate_type": "kpi",
+    "name": "Probabilidad final agregada por bloque.",
+    "definition": "Probabilidad final agregada por bloque.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "resume la probabilidad final del bloque como agregado de niveles por regla",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-19bc317ec63f",
+      "candidate_id": "candidate-kpi-0113",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0114",
+    "candidate_type": "kpi",
+    "name": "Impacto final agregado por bloque.",
+    "definition": "Impacto final agregado por bloque.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "resume el impacto final por riesgo",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-373b45359658",
+      "candidate_id": "candidate-kpi-0114",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0115",
+    "candidate_type": "kpi",
+    "name": "Riesgo final por bloque y por SIC.",
+    "definition": "Riesgo final por bloque y por SIC.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9",
+      "source_chunk_id": "document-2026-08-01T14-25-42-00-00-9a4a31f487e9-chunk-009",
+      "source_excerpt": "es la salida final del modelo SIC ... publica el riesgo resultante",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-9c88e71f51f8",
+      "candidate_id": "candidate-kpi-0115",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0116",
+    "candidate_type": "kpi",
+    "name": "Número de filas generadas en la ejecución Gold de LLDT.",
+    "definition": "Número de filas generadas en la ejecución Gold de LLDT.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "99 filas LLDT",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-648580283494",
+      "candidate_id": "candidate-kpi-0116",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0117",
+    "candidate_type": "kpi",
+    "name": "Número de filas generadas en la ejecución Gold de SIC.",
+    "definition": "Número de filas generadas en la ejecución Gold de SIC.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "3009 filas SIC",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-8f8367443516",
+      "candidate_id": "candidate-kpi-0117",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0118",
+    "candidate_type": "kpi",
+    "name": "Cobertura del archivo manual de defaults respecto al catálogo activo de reglas.",
+    "definition": "Cobertura del archivo manual de defaults respecto al catálogo activo de reglas.",
+    "status": "approved",
+    "confidence": 0.99,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "84 reglas sobre 84",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-fe481607344e",
+      "candidate_id": "candidate-kpi-0118",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  },
+  {
+    "candidate_id": "candidate-kpi-0119",
+    "candidate_type": "kpi",
+    "name": "Estado de éxito de las ejecuciones Gold.",
+    "definition": "Estado de éxito de las ejecuciones Gold.",
+    "status": "approved",
+    "confidence": 0.98,
+    "origin": "atlas-business-context",
+    "evidence": {
+      "source_document_id": "2026-06-18T16-02-39+00-00",
+      "source_chunk_id": "2026-06-18T16-02-39+00-00-chunk-002",
+      "source_excerpt": "el modo sql_v1_silver ya ejecuto en SUCCESS",
+      "evidence_status": "traceable"
+    },
+    "decision": {
+      "decision_id": "decision-2026-08-01T17-06-34-00-00-134de5edf894",
+      "candidate_id": "candidate-kpi-0119",
+      "status": "approved",
+      "reviewer": "SIMULATION - ONTO",
+      "reviewer_role": "simulated_reviewer",
+      "note": "SIMULATED approval for end-to-end release validation; not a human business decision.",
+      "decided_at": "2026-08-01T17:06:34+00:00",
+      "decision_mode": "bulk_review"
+    }
+  }
+]

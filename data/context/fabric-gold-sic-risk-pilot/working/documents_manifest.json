@@ -1,0 +1,41 @@
+[
+  {
+    "document_id": "document-2026-08-03T08-05-39-00-00-6faa92438425",
+    "project_id": "fabric-gold-sic-risk-pilot",
+    "filename": "GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+    "stored_path": "data\\context\\fabric-gold-sic-risk-pilot\\input\\documentation\\document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+    "doc_type": "functional_docs",
+    "content_type": "text/markdown",
+    "uploaded_at": "2026-08-03T08:05:39+00:00",
+    "extraction_status": "extracted",
+    "extracted_text_path": "data\\context\\fabric-gold-sic-risk-pilot\\working\\extracted_text\\document-2026-08-03T08-05-39-00-00-6faa92438425.txt",
+    "extracted_chars": 54146,
+    "notes": ""
+  },
+  {
+    "document_id": "document-2026-08-03T08-05-39-00-00-cbac64e005ab",
+    "project_id": "fabric-gold-sic-risk-pilot",
+    "filename": "CATALOGO_FUNCIONAL_REGLAS_RIESGO_VIGENTE.md",
+    "stored_path": "data\\context\\fabric-gold-sic-risk-pilot\\input\\documentation\\document-2026-08-03T08-05-39-00-00-cbac64e005ab_CATALOGO_FUNCIONAL_REGLAS_RIESGO_VIGENTE.md",
+    "doc_type": "functional_docs",
+    "content_type": "text/markdown",
+    "uploaded_at": "2026-08-03T08:05:39+00:00",
+    "extraction_status": "extracted",
+    "extracted_text_path": "data\\context\\fabric-gold-sic-risk-pilot\\working\\extracted_text\\document-2026-08-03T08-05-39-00-00-cbac64e005ab.txt",
+    "extracted_chars": 25850,
+    "notes": ""
+  },
+  {
+    "document_id": "document-2026-08-03T08-06-00-00-00-1df488be8fd1",
+    "project_id": "fabric-gold-sic-risk-pilot",
+    "filename": "CONTRATO_BI_GOLD_SIC_V2.md",
+    "stored_path": "data\\context\\fabric-gold-sic-risk-pilot\\input\\documentation\\document-2026-08-03T08-06-00-00-00-1df488be8fd1_CONTRATO_BI_GOLD_SIC_V2.md",
+    "doc_type": "functional_docs",
+    "content_type": "text/markdown",
+    "uploaded_at": "2026-08-03T08:06:00+00:00",
+    "extraction_status": "extracted",
+    "extracted_text_path": "data\\context\\fabric-gold-sic-risk-pilot\\working\\extracted_text\\document-2026-08-03T08-06-00-00-00-1df488be8fd1.txt",
+    "extracted_chars": 8152,
+    "notes": ""
+  }
+]

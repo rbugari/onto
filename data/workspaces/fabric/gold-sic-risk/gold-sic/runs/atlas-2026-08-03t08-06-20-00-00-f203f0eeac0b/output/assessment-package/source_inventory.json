@@ -1,0 +1,50 @@
+{
+  "summary": {
+    "technical_sources": 1,
+    "documents": 3,
+    "extracted_documents": 3,
+    "duplicate_document_ids": 0
+  },
+  "sources": [
+    {
+      "source_id": "document-2026-08-03T08-05-39-00-00-6faa92438425",
+      "source_reference": "document-2026-08-03T08-05-39-00-00-6faa92438425:GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "filename": "GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "document_type": "functional_docs",
+      "content_type": "text/markdown",
+      "extraction_status": "extracted",
+      "extracted_chars": 54146,
+      "content_sha256": "66beb3255c3b02b4fb24159db1a1ef95127502cca65b7407ea967f299b1c2e3b"
+    },
+    {
+      "source_id": "document-2026-08-03T08-05-39-00-00-cbac64e005ab",
+      "source_reference": "document-2026-08-03T08-05-39-00-00-cbac64e005ab:CATALOGO_FUNCIONAL_REGLAS_RIESGO_VIGENTE.md",
+      "filename": "CATALOGO_FUNCIONAL_REGLAS_RIESGO_VIGENTE.md",
+      "document_type": "functional_docs",
+      "content_type": "text/markdown",
+      "extraction_status": "extracted",
+      "extracted_chars": 25850,
+      "content_sha256": "a5e301f1b08d7a2bd8582c7e57a13beffe67911da88fa0fe8540ca6127825445"
+    },
+    {
+      "source_id": "document-2026-08-03T08-06-00-00-00-1df488be8fd1",
+      "source_reference": "document-2026-08-03T08-06-00-00-00-1df488be8fd1:CONTRATO_BI_GOLD_SIC_V2.md",
+      "filename": "CONTRATO_BI_GOLD_SIC_V2.md",
+      "document_type": "functional_docs",
+      "content_type": "text/markdown",
+      "extraction_status": "extracted",
+      "extracted_chars": 8152,
+      "content_sha256": "6b7a0e1c82e954c27df98546e58de285986d01079b8458efb5ff1b9bec9f0049"
+    }
+  ],
+  "technical_sources": [
+    {
+      "source_id": "technical-model",
+      "source_format": "fabric-information-schema",
+      "filename": "metadata_inventory.json",
+      "stored_path": "data\\fabric\\fabric-gold-sic-risk-pilot\\discoveries\\fabric-discovery-2026-08-03t08-01-22-00-00-875df452c32b\\metadata_inventory.json",
+      "content_sha256": "c5f00d8eb9ed72793ef583df560de735d520bfea9722e3b376ce37a2594c618f",
+      "integrity_status": "recorded"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "format": "atlas-assessment-v0.1",
+  "product": "Atlas",
+  "run_id": "atlas-2026-08-01T14-25-42-00-00-300d383277b7",
+  "created_at": "2026-08-01T14:25:42+00:00",
+  "scope": {
+    "project_id": "risk1",
+    "client_id": "risk1",
+    "domain_id": "risk",
+    "data_product_id": "risk-assessment"
+  },
+  "artifacts": [
+    "semantic_inventory.json",
+    "business_context_inventory.json",
+    "source_inventory.json",
+    "readiness_score.json",
+    "gap_backlog.json",
+    "execution_summary.md"
+  ],
+  "scoring_profile": "atlas-baseline-v0"
+}

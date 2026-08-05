@@ -1,0 +1,22 @@
+{
+  "format": "nexo-ontology-release-v0.1",
+  "product": "Nexo",
+  "release_id": "release-2026-08-01T17-06-34-00-00-0163b9a312f3",
+  "draft_id": "nexo-2026-08-01T17-06-34-00-00-a8c366af2c23",
+  "project_id": "risk1",
+  "created_at": "2026-08-01T17:06:34+00:00",
+  "released_by": "SIMULATION - ONTO",
+  "release_note": "SIMULATED release for end-to-end validation; not approved for production or business use.",
+  "source_assessment": {
+    "run_id": "atlas-2026-08-01T15-35-53-00-00-c13746d90e26",
+    "created_at": "2026-08-01T15:35:53+00:00",
+    "scope": {
+      "project_id": "risk1",
+      "client_id": "risk1",
+      "domain_id": "risk",
+      "data_product_id": "risk-assessment"
+    }
+  },
+  "approved_candidates": 119,
+  "rejected_candidates": 0
+}

@@ -1,0 +1,271 @@
+{"kind":"deck","id":"pr/h76sn6","name":"Deck"}
+{"kind":"layout","layoutId":"b585849d-d55a-4be6-b50f-afa9200d0e10","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"d57ec86f-1dc3-4b88-9df7-d43c447d1fff","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/324p1o","slide":1,"title":"ONTO","textShapes":7}
+{"kind":"textbox","id":"sh/pszylcn2","slide":1,"text":"ONTO","textPreview":"ONTO","textChars":4,"textLines":1,"bbox":[56,54,280,32]}
+{"kind":"textbox","id":"sh/2p8zaxob","slide":1,"text":"Convertir datos dispersos\nen conocimiento que impulsa decisiones","textPreview":"Convertir datos dispersos | en conocimiento que impulsa decisiones","textChars":64,"textLines":2,"bbox":[56,150,840,180]}
+{"kind":"textbox","id":"sh/3qhgj25w","slide":1,"text":"Una propuesta de valor para organizaciones que necesitan entender, gobernar y usar mejor sus activos de información.","textPreview":"Una propuesta de valor para organizaciones que necesitan entender, gobernar y usar mejor sus activos de información.","textChars":116,"textLines":1,"bbox":[60,385,720,72]}
+{"kind":"shape","id":"sh/g3qx8n6l","slide":1,"bbox":[925,88,242,448]}
+{"kind":"shape","id":"sh/hozyhsn6","slide":1,"bbox":[959,126,174,122]}
+{"kind":"shape","id":"sh/u18f6dof","slide":1,"bbox":[959,278,174,122]}
+{"kind":"shape","id":"sh/f2hgfi50","slide":1,"bbox":[959,430,174,68]}
+{"kind":"textbox","id":"sh/0zahkrmp","slide":1,"text":"EVIDENCIA","textPreview":"EVIDENCIA","textChars":9,"textLines":1,"bbox":[976,160,140,18]}
+{"kind":"textbox","id":"sh/lk3ytwna","slide":1,"text":"CONOCIMIENTO","textPreview":"CONOCIMIENTO","textChars":12,"textLines":1,"bbox":[976,312,140,18]}
+{"kind":"textbox","id":"sh/xsny14fq","slide":1,"text":"DECISIÓN","textPreview":"DECISIÓN","textChars":8,"textLines":1,"bbox":[976,455,140,18]}
+{"kind":"textbox","id":"sh/wrex8ze5","slide":1,"text":"Executive overview · Agosto 2026","textPreview":"Executive overview · Agosto 2026","textChars":32,"textLines":1,"bbox":[56,650,450,22]}
+{"kind":"notes","id":"nt/324p1o","slide":1,"text":""}
+{"kind":"slide","id":"sl/r01g8j","slide":2,"title":"EL DESAFÍO","textShapes":14}
+{"kind":"textbox","id":"sh/ud03ypk7","slide":2,"text":"EL DESAFÍO","textPreview":"EL DESAFÍO","textChars":10,"textLines":1,"bbox":[56,42,420,24]}
+{"kind":"textbox","id":"sh/hgr2t4ji","slide":2,"text":"La barrera no es la falta de datos: es la falta de significado confiable","textPreview":"La barrera no es la falta de datos: es la falta de significado confiable","textChars":72,"textLines":1,"bbox":[56,82,1090,100]}
+{"kind":"shape","id":"sh/wfil0z2x","slide":2,"bbox":[56,192,1168,0]}
+{"kind":"shape","id":"sh/7q9knulg","slide":2,"bbox":[56,668,1168,0]}
+{"kind":"textbox","id":"sh/mpgjupkv","slide":2,"text":"ONTO · Ontology Factory","textPreview":"ONTO · Ontology Factory","textChars":23,"textLines":1,"bbox":[56,681,280,18]}
+{"kind":"textbox","id":"sh/9cr2pk3m","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1180,681,44,18]}
+{"kind":"textbox","id":"sh/8bi1wz21","slide":2,"text":"Las organizaciones ya tienen modelos, tableros, reglas y documentación. El problema es que ese conocimiento vive fragmentado, es difícil de validar y casi imposible de reutilizar con seguridad.","textPreview":"Las organizaciones ya tienen modelos, tableros, reglas y documentación. El problema es que ese conocimiento vive fragmentado, es difícil ...","textChars":193,"textLines":1,"bbox":[56,210,690,105]}
+{"kind":"shape","id":"sh/zmpkjalk","slide":2,"bbox":[56,375,340,190]}
+{"kind":"shape","id":"sh/ylgjq5kz","slide":2,"bbox":[56,375,8,190]}
+{"kind":"textbox","id":"sh/oj6p83yh","slide":2,"text":"DATOS","textPreview":"DATOS","textChars":5,"textLines":1,"bbox":[84,399,290,20]}
+{"kind":"textbox","id":"sh/pkf6h8z2","slide":2,"text":"Activos abundantes","textPreview":"Activos abundantes","textChars":18,"textLines":1,"bbox":[84,433,290,56]}
+{"kind":"textbox","id":"sh/2xo76tgr","slide":2,"text":"BI, warehouse, lakehouse, reportes, procesos y documentos repartidos entre equipos.","textPreview":"BI, warehouse, lakehouse, reportes, procesos y documentos repartidos entre equipos.","textChars":83,"textLines":1,"bbox":[84,499,290,45]}
+{"kind":"shape","id":"sh/nyxofyhc","slide":2,"bbox":[444,375,340,190]}
+{"kind":"shape","id":"sh/0vmp4jyl","slide":2,"bbox":[444,375,8,190]}
+{"kind":"textbox","id":"sh/1wv6doz6","slide":2,"text":"PROBLEMA","textPreview":"PROBLEMA","textChars":8,"textLines":1,"bbox":[472,399,290,20]}
+{"kind":"textbox","id":"sh/et4729gf","slide":2,"text":"Contexto perdido","textPreview":"Contexto perdido","textChars":16,"textLines":1,"bbox":[472,433,290,56]}
+{"kind":"textbox","id":"sh/fudobeh0","slide":2,"text":"Las definiciones cambian, las reglas quedan implícitas y las decisiones dependen de memoria experta.","textPreview":"Las definiciones cambian, las reglas quedan implícitas y las decisiones dependen de memoria experta.","textChars":100,"textLines":1,"bbox":[472,499,290,45]}
+{"kind":"shape","id":"sh/krqpgnyp","slide":2,"bbox":[832,375,340,190]}
+{"kind":"shape","id":"sh/lszqpsfa","slide":2,"bbox":[832,375,8,190]}
+{"kind":"textbox","id":"sh/9wbydo3i","slide":2,"text":"CONSECUENCIA","textPreview":"CONSECUENCIA","textChars":12,"textLines":1,"bbox":[860,399,290,20]}
+{"kind":"textbox","id":"sh/8v2xkjmx","slide":2,"text":"Valor difícil de escalar","textPreview":"Valor difícil de escalar","textChars":24,"textLines":1,"bbox":[860,433,290,56]}
+{"kind":"textbox","id":"sh/7utgbelc","slide":2,"text":"Cada nuevo caso de uso vuelve a reconstruir el significado desde cero.","textPreview":"Cada nuevo caso de uso vuelve a reconstruir el significado desde cero.","textChars":70,"textLines":1,"bbox":[860,499,290,45]}
+{"kind":"notes","id":"nt/r01g8j","slide":2,"text":""}
+{"kind":"slide","id":"sl/a0ntla","slide":3,"title":"IMPACTO DE NEGOCIO","textShapes":13}
+{"kind":"textbox","id":"sh/e9szy54f","slide":3,"text":"IMPACTO DE NEGOCIO","textPreview":"IMPACTO DE NEGOCIO","textChars":18,"textLines":1,"bbox":[56,42,420,24]}
+{"kind":"textbox","id":"sh/1w3y9k36","slide":3,"text":"Cuando el conocimiento no está gobernado, la operación se vuelve más lenta y menos confiable","textPreview":"Cuando el conocimiento no está gobernado, la operación se vuelve más lenta y menos confiable","textChars":92,"textLines":1,"bbox":[56,82,1090,100]}
+{"kind":"shape","id":"sh/gvuh0fml","slide":3,"bbox":[56,192,1168,0]}
+{"kind":"shape","id":"sh/r61g3ql4","slide":3,"bbox":[56,668,1168,0]}
+{"kind":"textbox","id":"sh/65szul4j","slide":3,"text":"ONTO · Ontology Factory","textPreview":"ONTO · Ontology Factory","textChars":23,"textLines":1,"bbox":[56,681,280,18]}
+{"kind":"textbox","id":"sh/t8jy503u","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1180,681,44,18]}
+{"kind":"shape","id":"sh/s7ahwvmp","slide":3,"bbox":[70,235,12,12]}
+{"kind":"textbox","id":"sh/j2hgzqls","slide":3,"text":"Decisiones con fricción","textPreview":"Decisiones con fricción","textChars":23,"textLines":1,"bbox":[98,230,472,29]}
+{"kind":"textbox","id":"sh/i18fql47","slide":3,"text":"El equipo dedica tiempo a reconciliar definiciones antes de poder discutir resultados.","textPreview":"El equipo dedica tiempo a reconciliar definiciones antes de poder discutir resultados.","textChars":86,"textLines":1,"bbox":[98,263,472,58]}
+{"kind":"shape","id":"sh/sf690f69","slide":3,"bbox":[70,365,12,12]}
+{"kind":"textbox","id":"sh/tgfatknu","slide":3,"text":"Dependencia de especialistas","textPreview":"Dependencia de especialistas","textChars":28,"textLines":1,"bbox":[98,360,472,29]}
+{"kind":"textbox","id":"sh/6dory5o3","slide":3,"text":"La lectura correcta de modelos y reglas queda concentrada en pocas personas.","textPreview":"La lectura correcta de modelos y reglas queda concentrada en pocas personas.","textChars":76,"textLines":1,"bbox":[98,393,472,58]}
+{"kind":"shape","id":"sh/7ex8ra5o","slide":3,"bbox":[650,235,12,12]}
+{"kind":"textbox","id":"sh/kbm9wv6d","slide":3,"text":"Automatización con riesgo","textPreview":"Automatización con riesgo","textChars":25,"textLines":1,"bbox":[678,230,472,29]}
+{"kind":"textbox","id":"sh/5cvqp0ni","slide":3,"text":"Los asistentes pueden responder, pero no siempre saben qué fuente, definición o límite respetar.","textPreview":"Los asistentes pueden responder, pero no siempre saben qué fuente, definición o límite respetar.","textChars":96,"textLines":1,"bbox":[678,263,472,58]}
+{"kind":"shape","id":"sh/i94ru5o7","slide":3,"bbox":[650,365,12,12]}
+{"kind":"textbox","id":"sh/jad8naps","slide":3,"text":"Iniciativas que no escalan","textPreview":"Iniciativas que no escalan","textChars":26,"textLines":1,"bbox":[678,360,472,29]}
+{"kind":"textbox","id":"sh/47q98z6h","slide":3,"text":"Cada área documenta a su manera y el conocimiento no se convierte en un activo común.","textPreview":"Cada área documenta a su manera y el conocimiento no se convierte en un activo común.","textChars":85,"textLines":1,"bbox":[678,393,472,58]}
+{"kind":"shape","id":"sh/p8za14n2","slide":3,"bbox":[56,535,1110,72]}
+{"kind":"textbox","id":"sh/dcbi50bu","slide":3,"text":"La oportunidad: convertir conocimiento existente en una base reutilizable, auditable y preparada para agentes.","textPreview":"La oportunidad: convertir conocimiento existente en una base reutilizable, auditable y preparada para agentes.","textChars":110,"textLines":1,"bbox":[82,552,1050,40]}
+{"kind":"notes","id":"nt/a0ntla","slide":3,"text":""}
+{"kind":"slide","id":"sl/rgppsq","slide":4,"title":"LA PROPUESTA","textShapes":16}
+{"kind":"textbox","id":"sh/jitwbalo","slide":4,"text":"LA PROPUESTA","textPreview":"LA PROPUESTA","textChars":12,"textLines":1,"bbox":[56,42,420,24]}
+{"kind":"textbox","id":"sh/k32dkfm9","slide":4,"text":"ONTO convierte evidencia dispersa en conocimiento listo para ser usado","textPreview":"ONTO convierte evidencia dispersa en conocimiento listo para ser usado","textChars":70,"textLines":1,"bbox":[56,82,1090,100]}
+{"kind":"shape","id":"sh/l4bedk3u","slide":4,"bbox":[56,192,1168,0]}
+{"kind":"shape","id":"sh/ad0vel47","slide":4,"bbox":[56,668,1168,0]}
+{"kind":"textbox","id":"sh/be9w7qls","slide":4,"text":"ONTO · Ontology Factory","textPreview":"ONTO · Ontology Factory","textChars":23,"textLines":1,"bbox":[56,681,280,18]}
+{"kind":"textbox","id":"sh/wfidgvmd","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1180,681,44,18]}
+{"kind":"textbox","id":"sh/xgbe903y","slide":4,"text":"No es otra capa de documentación. Es una fábrica de conocimiento que ordena lo que la organización ya sabe, lo valida con las personas correctas y lo vuelve utilizable para consultas y agentes.","textPreview":"No es otra capa de documentación. Es una fábrica de conocimiento que ordena lo que la organización ya sabe, lo valida con las personas co...","textChars":193,"textLines":1,"bbox":[56,205,680,82]}
+{"kind":"shape","id":"sh/m90val4b","slide":4,"bbox":[56,360,322,190]}
+{"kind":"textbox","id":"sh/na9w3qlg","slide":4,"text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[80,382,40,36]}
+{"kind":"textbox","id":"sh/761oz290","slide":4,"text":"Inventariar","textPreview":"Inventariar","textChars":11,"textLines":1,"bbox":[80,432,250,34]}
+{"kind":"textbox","id":"sh/m5s7qxsf","slide":4,"text":"Entender activos, contexto y brechas.","textPreview":"Entender activos, contexto y brechas.","textChars":37,"textLines":1,"bbox":[80,482,260,52]}
+{"kind":"textbox","id":"sh/98361sr6","slide":4,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[386,435,40,35]}
+{"kind":"shape","id":"sh/87upsnql","slide":4,"bbox":[426,360,322,190]}
+{"kind":"textbox","id":"sh/valo329c","slide":4,"text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[450,382,40,36]}
+{"kind":"textbox","id":"sh/u9c7ux8r","slide":4,"text":"Validar","textPreview":"Validar","textChars":7,"textLines":1,"bbox":[450,432,250,34]}
+{"kind":"textbox","id":"sh/hc365cr2","slide":4,"text":"Transformar hallazgos en conocimiento revisable.","textPreview":"Transformar hallazgos en conocimiento revisable.","textChars":48,"textLines":1,"bbox":[450,482,260,52]}
+{"kind":"textbox","id":"sh/wbupw7qh","slide":4,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[756,435,40,35]}
+{"kind":"shape","id":"sh/behori9s","slide":4,"bbox":[796,360,322,190]}
+{"kind":"textbox","id":"sh/qd8nids7","slide":4,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[820,382,40,36]}
+{"kind":"textbox","id":"sh/e9grqlsv","slide":4,"text":"Usar","textPreview":"Usar","textChars":4,"textLines":1,"bbox":[820,432,250,34]}
+{"kind":"textbox","id":"sh/fapszqtg","slide":4,"text":"Responder e investigar con evidencia y límites.","textPreview":"Responder e investigar con evidencia y límites.","textChars":47,"textLines":1,"bbox":[820,482,260,52]}
+{"kind":"notes","id":"nt/rgppsq","slide":4,"text":""}
+{"kind":"slide","id":"sl/7m058d","slide":5,"title":"EL PORTAFOLIO","textShapes":14}
+{"kind":"textbox","id":"sh/ny5kvm54","slide":5,"text":"EL PORTAFOLIO","textPreview":"EL PORTAFOLIO","textChars":13,"textLines":1,"bbox":[56,42,420,24]}
+{"kind":"textbox","id":"sh/8zelormp","slide":5,"text":"Tres productos conectados, cada uno con un resultado de negocio claro","textPreview":"Tres productos conectados, cada uno con un resultado de negocio claro","textChars":69,"textLines":1,"bbox":[56,82,1090,100]}
+{"kind":"shape","id":"sh/90n2xwna","slide":5,"bbox":[56,192,1168,0]}
+{"kind":"shape","id":"sh/ytcjihon","slide":5,"bbox":[56,668,1168,0]}
+{"kind":"textbox","id":"sh/zu5krm58","slide":5,"text":"ONTO · Ontology Factory","textPreview":"ONTO · Ontology Factory","textChars":23,"textLines":1,"bbox":[56,681,280,18]}
+{"kind":"textbox","id":"sh/0ve1k76d","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1180,681,44,18]}
+{"kind":"shape","id":"sh/lwn2tcny","slide":5,"bbox":[56,220,340,300]}
+{"kind":"shape","id":"sh/ipg3u14r","slide":5,"bbox":[56,220,8,300]}
+{"kind":"textbox","id":"sh/jqpk365c","slide":5,"text":"PRODUCTO 1 · ATLAS","textPreview":"PRODUCTO 1 · ATLAS","textChars":18,"textLines":1,"bbox":[84,244,290,20]}
+{"kind":"textbox","id":"sh/vux0fe1g","slide":5,"text":"Saber dónde estamos parados","textPreview":"Saber dónde estamos parados","textChars":27,"textLines":1,"bbox":[84,278,290,56]}
+{"kind":"textbox","id":"sh/utoz69kv","slide":5,"text":"Assessment de activos y documentación: cobertura, evidencia, score de readiness y backlog de brechas.","textPreview":"Assessment de activos y documentación: cobertura, evidencia, score de readiness y backlog de brechas.","textChars":101,"textLines":1,"bbox":[84,344,290,155]}
+{"kind":"shape","id":"sh/hwfih4j6","slide":5,"bbox":[444,220,340,300]}
+{"kind":"shape","id":"sh/wv6h8z2l","slide":5,"bbox":[444,220,8,300]}
+{"kind":"textbox","id":"sh/jix0je1c","slide":5,"text":"PRODUCTO 2 · NEXO","textPreview":"PRODUCTO 2 · NEXO","textChars":17,"textLines":1,"bbox":[472,244,290,20]}
+{"kind":"textbox","id":"sh/ihoza9kr","slide":5,"text":"Convertir hallazgos en conocimiento aprobable","textPreview":"Convertir hallazgos en conocimiento aprobable","textChars":45,"textLines":1,"bbox":[472,278,290,56]}
+{"kind":"textbox","id":"sh/5kziloji","slide":5,"text":"Candidatos trazables, revisión humana, consolidación y releases que separan lo validado de lo supuesto.","textPreview":"Candidatos trazables, revisión humana, consolidación y releases que separan lo validado de lo supuesto.","textChars":103,"textLines":1,"bbox":[472,344,290,155]}
+{"kind":"shape","id":"sh/4jqhcj2x","slide":5,"bbox":[832,220,340,300]}
+{"kind":"shape","id":"sh/rmh0ny18","slide":5,"bbox":[832,220,8,300]}
+{"kind":"textbox","id":"sh/6l8zetk3","slide":5,"text":"PRODUCTO 3 · ARGOS","textPreview":"PRODUCTO 3 · ARGOS","textChars":18,"textLines":1,"bbox":[860,244,290,20]}
+{"kind":"textbox","id":"sh/2tcb2h87","slide":5,"text":"Usar conocimiento con contexto y límites","textPreview":"Usar conocimiento con contexto y límites","textChars":40,"textLines":1,"bbox":[860,278,290,56]}
+{"kind":"textbox","id":"sh/nulcvmps","slide":5,"text":"Investigador que responde sólo dentro de una release, cita evidencia y se abstiene cuando no corresponde.","textPreview":"Investigador que responde sólo dentro de una release, cita evidencia y se abstiene cuando no corresponde.","textChars":105,"textLines":1,"bbox":[860,344,290,155]}
+{"kind":"textbox","id":"sh/ovet4rqd","slide":5,"text":"Cada producto puede aportar valor por sí mismo. Juntos crean una capacidad continua de conocimiento gobernado.","textPreview":"Cada producto puede aportar valor por sí mismo. Juntos crean una capacidad continua de conocimiento gobernado.","textChars":110,"textLines":1,"bbox":[56,570,1100,35]}
+{"kind":"notes","id":"nt/7m058d","slide":5,"text":""}
+{"kind":"slide","id":"sl/tn01hq","slide":6,"title":"ATLAS","textShapes":13}
+{"kind":"textbox","id":"sh/k725wnip","slide":6,"text":"ATLAS","textPreview":"ATLAS","textChars":5,"textLines":1,"bbox":[56,42,420,24]}
+{"kind":"textbox","id":"sh/j6to3i14","slide":6,"text":"Antes de transformar, hay que saber qué conocimiento ya existe y qué falta","textPreview":"Antes de transformar, hay que saber qué conocimiento ya existe y qué falta","textChars":74,"textLines":1,"bbox":[56,82,1090,100]}
+{"kind":"shape","id":"sh/i5knud0j","slide":6,"bbox":[56,192,1168,0]}
+{"kind":"shape","id":"sh/tcv69sj6","slide":6,"bbox":[56,668,1168,0]}
+{"kind":"textbox","id":"sh/sbm50nil","slide":6,"text":"ONTO · Ontology Factory","textPreview":"ONTO · Ontology Factory","textChars":23,"textLines":1,"bbox":[56,681,280,18]}
+{"kind":"textbox","id":"sh/7ato7i1g","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1180,681,44,18]}
+{"kind":"textbox","id":"sh/69knyd0v","slide":6,"text":"Atlas ofrece una conversación concreta con el negocio y los equipos de datos: qué activos son útiles, qué definiciones son confiables y dónde están los riesgos de interpretación.","textPreview":"Atlas ofrece una conversación concreta con el negocio y los equipos de datos: qué activos son útiles, qué definiciones son confiables y d...","textChars":178,"textLines":1,"bbox":[56,210,670,85]}
+{"kind":"shape","id":"sh/9grmxoj2","slide":6,"bbox":[760,215,12,12]}
+{"kind":"textbox","id":"sh/ofi5o32h","slide":6,"text":"Inventario común","textPreview":"Inventario común","textChars":16,"textLines":1,"bbox":[788,210,352,29]}
+{"kind":"textbox","id":"sh/edkbylkb","slide":6,"text":"Modelos, reportes y documentación visibles en un mismo diagnóstico.","textPreview":"Modelos, reportes y documentación visibles en un mismo diagnóstico.","textChars":67,"textLines":1,"bbox":[788,243,352,58]}
+{"kind":"shape","id":"sh/fetc7q1w","slide":6,"bbox":[760,323,12,12]}
+{"kind":"textbox","id":"sh/gfmt0v2h","slide":6,"text":"Readiness explicable","textPreview":"Readiness explicable","textChars":20,"textLines":1,"bbox":[788,318,352,29]}
+{"kind":"textbox","id":"sh/10vu9gj2","slide":6,"text":"Una lectura clara de cobertura, contexto, trazabilidad y gobierno.","textPreview":"Una lectura clara de cobertura, contexto, trazabilidad y gobierno.","textChars":66,"textLines":1,"bbox":[788,351,352,58]}
+{"kind":"shape","id":"sh/214b2lkn","slide":6,"bbox":[760,431,12,12]}
+{"kind":"textbox","id":"sh/32dcbq1s","slide":6,"text":"Backlog accionable","textPreview":"Backlog accionable","textChars":18,"textLines":1,"bbox":[788,426,352,29]}
+{"kind":"textbox","id":"sh/o3mt4v2d","slide":6,"text":"Brechas ordenadas para decidir qué corregir primero.","textPreview":"Brechas ordenadas para decidir qué corregir primero.","textChars":52,"textLines":1,"bbox":[788,459,352,58]}
+{"kind":"shape","id":"sh/p4vud0jy","slide":6,"bbox":[56,385,620,156]}
+{"kind":"textbox","id":"sh/q54v650j","slide":6,"text":"Resultado para el cliente","textPreview":"Resultado para el cliente","textChars":25,"textLines":1,"bbox":[84,414,380,28]}
+{"kind":"textbox","id":"sh/b6dcfa14","slide":6,"text":"Un punto de partida compartido para priorizar inversiones de datos, gobierno y automatización.","textPreview":"Un punto de partida compartido para priorizar inversiones de datos, gobierno y automatización.","textChars":94,"textLines":1,"bbox":[84,457,540,58]}
+{"kind":"notes","id":"nt/tn01hq","slide":6,"text":""}
+{"kind":"slide","id":"sl/xfvso5","slide":7,"title":"NEXO","textShapes":13}
+{"kind":"textbox","id":"sh/14ve5snu","slide":7,"text":"NEXO","textPreview":"NEXO","textChars":4,"textLines":1,"bbox":[56,42,420,24]}
+{"kind":"textbox","id":"sh/ehkfuxo3","slide":7,"text":"El conocimiento deja de ser una opinión cuando se puede revisar, decidir y versionar","textPreview":"El conocimiento deja de ser una opinión cuando se puede revisar, decidir y versionar","textChars":84,"textLines":1,"bbox":[56,82,1090,100]}
+{"kind":"shape","id":"sh/fitw3i5o","slide":7,"bbox":[56,192,1168,0]}
+{"kind":"shape","id":"sh/sf2xsn6d","slide":7,"bbox":[56,668,1168,0]}
+{"kind":"textbox","id":"sh/dgbe1sny","slide":7,"text":"ONTO · Ontology Factory","textPreview":"ONTO · Ontology Factory","textChars":23,"textLines":1,"bbox":[56,681,280,18]}
+{"kind":"textbox","id":"sh/qdkvqdo7","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1180,681,44,18]}
+{"kind":"textbox","id":"sh/retwzi5s","slide":7,"text":"Nexo convierte los hallazgos de Atlas en candidatos de negocio: conceptos, reglas y KPIs con evidencia. Las personas deciden qué queda aprobado y por qué.","textPreview":"Nexo convierte los hallazgos de Atlas en candidatos de negocio: conceptos, reglas y KPIs con evidencia. Las personas deciden qué queda ap...","textChars":154,"textLines":1,"bbox":[56,210,700,80]}
+{"kind":"shape","id":"sh/cb6x476h","slide":7,"bbox":[56,350,580,58]}
+{"kind":"textbox","id":"sh/xcfexcn2","slide":7,"text":"Evidencia","textPreview":"Evidencia","textChars":9,"textLines":1,"bbox":[78,364,150,24]}
+{"kind":"textbox","id":"sh/p03yhcjm","slide":7,"text":"Cada elemento conserva la fuente que lo respalda.","textPreview":"Cada elemento conserva la fuente que lo respalda.","textChars":49,"textLines":1,"bbox":[240,365,360,22]}
+{"kind":"shape","id":"sh/4zaxo721","slide":7,"bbox":[56,432,580,58]}
+{"kind":"textbox","id":"sh/3y1gf21g","slide":7,"text":"Decisión","textPreview":"Decisión","textChars":8,"textLines":1,"bbox":[78,446,150,24]}
+{"kind":"textbox","id":"sh/2xsfmxkv","slide":7,"text":"Aprobaciones, rechazos y consolidaciones quedan auditables.","textPreview":"Aprobaciones, rechazos y consolidaciones quedan auditables.","textChars":59,"textLines":1,"bbox":[240,447,360,22]}
+{"kind":"shape","id":"sh/hwjydsja","slide":7,"bbox":[56,514,580,58]}
+{"kind":"textbox","id":"sh/gvaxkn25","slide":7,"text":"Release","textPreview":"Release","textChars":7,"textLines":1,"bbox":[78,528,150,24]}
+{"kind":"textbox","id":"sh/fu1gbi1k","slide":7,"text":"Sólo el conocimiento revisado pasa a ser reutilizable.","textPreview":"Sólo el conocimiento revisado pasa a ser reutilizable.","textChars":54,"textLines":1,"bbox":[240,529,360,22]}
+{"kind":"shape","id":"sh/utsfixkz","slide":7,"bbox":[765,330,340,232]}
+{"kind":"textbox","id":"sh/lsnypwju","slide":7,"text":"De hallazgo a activo","textPreview":"De hallazgo a activo","textChars":20,"textLines":1,"bbox":[795,362,270,28]}
+{"kind":"textbox","id":"sh/0ruhgri9","slide":7,"text":"Sin decisiones ocultas.\nSin publicación automática.\nSin perder la evidencia.","textPreview":"Sin decisiones ocultas. | Sin publicación automática. | Sin perder la evidencia.","textChars":76,"textLines":3,"bbox":[795,414,260,100]}
+{"kind":"notes","id":"nt/xfvso5","slide":7,"text":""}
+{"kind":"slide","id":"sl/vinf3k","slide":8,"title":"ARGOS","textShapes":14}
+{"kind":"textbox","id":"sh/fy58ny1o","slide":8,"text":"ARGOS","textPreview":"ARGOS","textChars":5,"textLines":1,"bbox":[56,42,420,24]}
+{"kind":"textbox","id":"sh/0zepwj29","slide":8,"text":"Un investigador útil no es el que responde todo: es el que sabe cuándo no debe responder","textPreview":"Un investigador útil no es el que responde todo: es el que sabe cuándo no debe responder","textChars":88,"textLines":1,"bbox":[56,82,1090,100]}
+{"kind":"shape","id":"sh/10nqpoju","slide":8,"bbox":[56,192,1168,0]}
+{"kind":"shape","id":"sh/21w7ytkz","slide":8,"bbox":[56,668,1168,0]}
+{"kind":"textbox","id":"sh/n258ry1k","slide":8,"text":"ONTO · Ontology Factory","textPreview":"ONTO · Ontology Factory","textChars":23,"textLines":1,"bbox":[56,681,280,18]}
+{"kind":"textbox","id":"sh/o3yp0325","slide":8,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1180,681,44,18]}
+{"kind":"textbox","id":"sh/p47qt8jq","slide":8,"text":"Argos se apoya en releases aprobadas. Puede guiar a equipos, explicar términos y ayudar a investigar sin saltarse las definiciones, fuentes o límites definidos por la organización.","textPreview":"Argos se apoya en releases aprobadas. Puede guiar a equipos, explicar términos y ayudar a investigar sin saltarse las definiciones, fuent...","textChars":180,"textLines":1,"bbox":[56,210,740,90]}
+{"kind":"shape","id":"sh/a5g72dkb","slide":8,"bbox":[56,365,330,190]}
+{"kind":"shape","id":"sh/b6p8vi1w","slide":8,"bbox":[56,365,8,190]}
+{"kind":"textbox","id":"sh/f6xwnu18","slide":8,"text":"CONFIANZA","textPreview":"CONFIANZA","textChars":9,"textLines":1,"bbox":[84,389,280,20]}
+{"kind":"textbox","id":"sh/e5ofep0n","slide":8,"text":"Respuestas con contexto","textPreview":"Respuestas con contexto","textChars":23,"textLines":1,"bbox":[84,423,280,56]}
+{"kind":"textbox","id":"sh/18fep4je","slide":8,"text":"Las respuestas parten de conocimiento aprobado, no de una búsqueda libre sin marco.","textPreview":"Las respuestas parten de conocimiento aprobado, no de una búsqueda libre sin marco.","textChars":83,"textLines":1,"bbox":[84,489,280,45]}
+{"kind":"shape","id":"sh/076xgzit","slide":8,"bbox":[450,365,330,190]}
+{"kind":"shape","id":"sh/ridwju1w","slide":8,"bbox":[450,365,8,190]}
+{"kind":"textbox","id":"sh/qh4vap0r","slide":8,"text":"TRAZABILIDAD","textPreview":"TRAZABILIDAD","textChars":12,"textLines":1,"bbox":[478,389,280,20]}
+{"kind":"textbox","id":"sh/d4vel4j2","slide":8,"text":"Evidencia visible","textPreview":"Evidencia visible","textChars":17,"textLines":1,"bbox":[478,423,280,56]}
+{"kind":"textbox","id":"sh/s3mdczih","slide":8,"text":"Cada consulta puede volver a la definición, regla o fuente que la respalda.","textPreview":"Cada consulta puede volver a la definición, regla o fuente que la respalda.","textChars":75,"textLines":1,"bbox":[478,489,280,45]}
+{"kind":"shape","id":"sh/behwve1g","slide":8,"bbox":[844,365,330,190]}
+{"kind":"shape","id":"sh/ad8fmt0v","slide":8,"bbox":[844,365,8,190]}
+{"kind":"textbox","id":"sh/65crahof","slide":8,"text":"CONTROL","textPreview":"CONTROL","textChars":7,"textLines":1,"bbox":[872,389,280,20]}
+{"kind":"textbox","id":"sh/76l83mp0","slide":8,"text":"Abstención explícita","textPreview":"Abstención explícita","textChars":20,"textLines":1,"bbox":[872,423,280,56]}
+{"kind":"textbox","id":"sh/87u9cr65","slide":8,"text":"Cuando no hay evidencia suficiente, el producto declara el límite en lugar de inventar.","textPreview":"Cuando no hay evidencia suficiente, el producto declara el límite en lugar de inventar.","textChars":87,"textLines":1,"bbox":[872,489,280,45]}
+{"kind":"notes","id":"nt/vinf3k","slide":8,"text":""}
+{"kind":"slide","id":"sl/vxijj9","slide":9,"title":"POR QUÉ COMPRARLO","textShapes":16}
+{"kind":"textbox","id":"sh/29gbqlor","slide":9,"text":"POR QUÉ COMPRARLO","textPreview":"POR QUÉ COMPRARLO","textChars":17,"textLines":1,"bbox":[56,42,420,24]}
+{"kind":"textbox","id":"sh/pwrul0ni","slide":9,"text":"ONTO convierte la complejidad de información en una ventaja operativa","textPreview":"ONTO convierte la complejidad de información en una ventaja operativa","textChars":69,"textLines":1,"bbox":[56,82,1090,100]}
+{"kind":"shape","id":"sh/4bytsv6x","slide":9,"bbox":[56,192,1168,0]}
+{"kind":"shape","id":"sh/f6psfq50","slide":9,"bbox":[56,668,1168,0]}
+{"kind":"textbox","id":"sh/u5gbmlov","slide":9,"text":"ONTO · Ontology Factory","textPreview":"ONTO · Ontology Factory","textChars":23,"textLines":1,"bbox":[56,681,280,18]}
+{"kind":"textbox","id":"sh/h87uhgn6","slide":9,"text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[1180,681,44,18]}
+{"kind":"textbox","id":"sh/g7ytob6l","slide":9,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[56,210,50,28]}
+{"kind":"textbox","id":"sh/725sb654","slide":9,"text":"Acelera decisiones","textPreview":"Acelera decisiones","textChars":18,"textLines":1,"bbox":[111,210,420,29]}
+{"kind":"textbox","id":"sh/61wbi1oj","slide":9,"text":"Menos tiempo reconstruyendo contexto; más tiempo actuando sobre información entendida.","textPreview":"Menos tiempo reconstruyendo contexto; más tiempo actuando sobre información entendida.","textChars":86,"textLines":1,"bbox":[111,255,445,65]}
+{"kind":"textbox","id":"sh/wbut8nat","slide":9,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[631,210,50,28]}
+{"kind":"textbox","id":"sh/xcnahsbe","slide":9,"text":"Reduce riesgo semántico","textPreview":"Reduce riesgo semántico","textChars":23,"textLines":1,"bbox":[686,210,420,29]}
+{"kind":"textbox","id":"sh/a9cb6dsn","slide":9,"text":"Definiciones, reglas y límites dejan de depender de interpretaciones individuales.","textPreview":"Definiciones, reglas y límites dejan de depender de interpretaciones individuales.","textChars":82,"textLines":1,"bbox":[686,255,445,65]}
+{"kind":"textbox","id":"sh/balsfit8","slide":9,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[56,390,50,28]}
+{"kind":"textbox","id":"sh/onut4nah","slide":9,"text":"Hace viable la IA útil","textPreview":"Hace viable la IA útil","textChars":22,"textLines":1,"bbox":[111,390,420,29]}
+{"kind":"textbox","id":"sh/po3ad8b2","slide":9,"text":"Los agentes parten de conocimiento aprobado y saben cuándo abstenerse.","textPreview":"Los agentes parten de conocimiento aprobado y saben cuándo abstenerse.","textChars":70,"textLines":1,"bbox":[111,435,445,65]}
+{"kind":"textbox","id":"sh/2lcb2dsr","slide":9,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[631,390,50,28]}
+{"kind":"textbox","id":"sh/nmlsbitc","slide":9,"text":"Protege la inversión existente","textPreview":"Protege la inversión existente","textChars":30,"textLines":1,"bbox":[686,390,420,29]}
+{"kind":"textbox","id":"sh/8jytg7a1","slide":9,"text":"Aprovecha los activos ya construidos antes de reemplazar o duplicar plataformas.","textPreview":"Aprovecha los activos ya construidos antes de reemplazar o duplicar plataformas.","textChars":80,"textLines":1,"bbox":[686,435,445,65]}
+{"kind":"notes","id":"nt/vxijj9","slide":9,"text":""}
+{"kind":"slide","id":"sl/gz0pgo","slide":10,"title":"ENCAJE","textShapes":8}
+{"kind":"textbox","id":"sh/rq1w7y10","slide":10,"text":"ENCAJE","textPreview":"ENCAJE","textChars":6,"textLines":1,"bbox":[56,42,420,24]}
+{"kind":"textbox","id":"sh/srad0j2l","slide":10,"text":"No obliga a reemplazar el ecosistema: le da una capa de significado y gobierno","textPreview":"No obliga a reemplazar el ecosistema: le da una capa de significado y gobierno","textChars":78,"textLines":1,"bbox":[56,82,1090,100]}
+{"kind":"shape","id":"sh/tsje9oj6","slide":10,"bbox":[56,192,1168,0]}
+{"kind":"shape","id":"sh/i1svu9kj","slide":10,"bbox":[56,668,1168,0]}
+{"kind":"textbox","id":"sh/jm1w3e14","slide":10,"text":"ONTO · Ontology Factory","textPreview":"ONTO · Ontology Factory","textChars":23,"textLines":1,"bbox":[56,681,280,18]}
+{"kind":"textbox","id":"sh/4nadwj2p","slide":10,"text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1180,681,44,18]}
+{"kind":"textbox","id":"sh/5oje5oja","slide":10,"text":"La iniciativa puede partir de Power BI/Fabric, Databricks, warehouse, modelos semánticos, documentación funcional u otras fuentes autorizadas. ONTO mantiene un modelo canónico propio y se integra de forma progresiva.","textPreview":"La iniciativa puede partir de Power BI/Fabric, Databricks, warehouse, modelos semánticos, documentación funcional u otras fuentes autoriz...","textChars":216,"textLines":1,"bbox":[56,205,720,90]}
+{"kind":"shape","id":"sh/ux8vq9kn","slide":10,"bbox":[56,365,1110,170]}
+{"kind":"textbox","id":"sh/vyhcze1s","slide":10,"text":"Ecosistema actual","textPreview":"Ecosistema actual","textChars":17,"textLines":1,"bbox":[82,392,220,28]}
+{"kind":"textbox","id":"sh/jet872pk","slide":10,"text":"Modelos · Reportes · Datos · Procesos · Documentación","textPreview":"Modelos · Reportes · Datos · Procesos · Documentación","textChars":53,"textLines":1,"bbox":[82,435,950,36]}
+{"kind":"shape","id":"sh/ydk7yx8z","slide":10,"bbox":[82,485,900,0]}
+{"kind":"textbox","id":"sh/lgvq9c7q","slide":10,"text":"ONTO aporta: contexto compartido, decisiones auditables y conocimiento portable","textPreview":"ONTO aporta: contexto compartido, decisiones auditables y conocimiento portable","textChars":79,"textLines":1,"bbox":[82,502,980,24]}
+{"kind":"notes","id":"nt/gz0pgo","slide":10,"text":""}
+{"kind":"slide","id":"sl/2cjp5t","slide":11,"title":"CÓMO EMPEZAR","textShapes":17}
+{"kind":"textbox","id":"sh/y583ahsr","slide":11,"text":"CÓMO EMPEZAR","textPreview":"CÓMO EMPEZAR","textChars":12,"textLines":1,"bbox":[56,42,420,24]}
+{"kind":"textbox","id":"sh/lsj2lwr2","slide":11,"text":"Un piloto breve permite probar valor antes de escalar arquitectura o plataforma","textPreview":"Un piloto breve permite probar valor antes de escalar arquitectura o plataforma","textChars":79,"textLines":1,"bbox":[56,82,1090,100]}
+{"kind":"shape","id":"sh/kralcrah","slide":11,"bbox":[56,192,1168,0]}
+{"kind":"shape","id":"sh/b2hkfm90","slide":11,"bbox":[56,668,1168,0]}
+{"kind":"textbox","id":"sh/a183mhsf","slide":11,"text":"ONTO · Ontology Factory","textPreview":"ONTO · Ontology Factory","textChars":23,"textLines":1,"bbox":[56,681,280,18]}
+{"kind":"textbox","id":"sh/x4z2hcr6","slide":11,"text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1180,681,44,18]}
+{"kind":"textbox","id":"sh/c3qloral","slide":11,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[56,230,60,30]}
+{"kind":"shape","id":"sh/vyl4r694","slide":11,"bbox":[56,278,230,0]}
+{"kind":"textbox","id":"sh/uxs3i18j","slide":11,"text":"Elegir un dominio","textPreview":"Elegir un dominio","textChars":17,"textLines":1,"bbox":[56,310,240,52]}
+{"kind":"textbox","id":"sh/ofe5kv6h","slide":11,"text":"Un caso donde existan activos reales y necesidad de decisión.","textPreview":"Un caso donde existan activos reales y necesidad de decisión.","textChars":61,"textLines":1,"bbox":[56,382,240,82]}
+{"kind":"textbox","id":"sh/9gnmt072","slide":11,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[341,230,60,30]}
+{"kind":"shape","id":"sh/mdwnilob","slide":11,"bbox":[341,278,230,0]}
+{"kind":"textbox","id":"sh/ne54rqpw","slide":11,"text":"Ejecutar Atlas","textPreview":"Ejecutar Atlas","textChars":14,"textLines":1,"bbox":[341,310,240,52]}
+{"kind":"textbox","id":"sh/0bu5gb6l","slide":11,"text":"Inventario, contexto, evidencia y brechas priorizadas.","textPreview":"Inventario, contexto, evidencia y brechas priorizadas.","textChars":54,"textLines":1,"bbox":[341,382,240,82]}
+{"kind":"textbox","id":"sh/1c3mpg7q","slide":11,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[626,230,60,30]}
+{"kind":"shape","id":"sh/epcnelof","slide":11,"bbox":[626,278,230,0]}
+{"kind":"textbox","id":"sh/zal4n6p0","slide":11,"text":"Validar en Nexo","textPreview":"Validar en Nexo","textChars":15,"textLines":1,"bbox":[626,310,240,52]}
+{"kind":"textbox","id":"sh/cnu5cbq9","slide":11,"text":"Revisar candidatos y emitir una primera release.","textPreview":"Revisar candidatos y emitir una primera release.","textChars":48,"textLines":1,"bbox":[626,382,240,82]}
+{"kind":"textbox","id":"sh/do3mlg7u","slide":11,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[911,230,60,30]}
+{"kind":"shape","id":"sh/tsbut8vm","slide":11,"bbox":[911,278,230,0]}
+{"kind":"textbox","id":"sh/s72t03e1","slide":11,"text":"Probar Argos","textPreview":"Probar Argos","textChars":12,"textLines":1,"bbox":[911,310,240,52]}
+{"kind":"textbox","id":"sh/76tcrydg","slide":11,"text":"Resolver preguntas reales sobre conocimiento gobernado.","textPreview":"Resolver preguntas reales sobre conocimiento gobernado.","textChars":55,"textLines":1,"bbox":[911,382,240,82]}
+{"kind":"shape","id":"sh/65kbytwv","slide":11,"bbox":[56,545,1110,55]}
+{"kind":"textbox","id":"sh/l4bupova","slide":11,"text":"El resultado del piloto no es una demo: es evidencia para decidir cómo y dónde escalar.","textPreview":"El resultado del piloto no es una demo: es evidencia para decidir cómo y dónde escalar.","textChars":87,"textLines":1,"bbox":[82,560,1050,24]}
+{"kind":"notes","id":"nt/2cjp5t","slide":11,"text":""}
+{"kind":"slide","id":"sl/2h0qrf","slide":12,"title":"ENTREGABLES","textShapes":12}
+{"kind":"textbox","id":"sh/tw3ud8n2","slide":12,"text":"ENTREGABLES","textPreview":"ENTREGABLES","textChars":11,"textLines":1,"bbox":[56,42,420,24]}
+{"kind":"textbox","id":"sh/69sv2t4r","slide":12,"text":"El cliente recibe activos que puede seguir usando, no sólo una presentación final","textPreview":"El cliente recibe activos que puede seguir usando, no sólo una presentación final","textChars":81,"textLines":1,"bbox":[56,82,1090,100]}
+{"kind":"shape","id":"sh/ra1cby5c","slide":12,"bbox":[56,192,1168,0]}
+{"kind":"shape","id":"sh/47ad0jml","slide":12,"bbox":[56,668,1168,0]}
+{"kind":"textbox","id":"sh/58ju9on6","slide":12,"text":"ONTO · Ontology Factory","textPreview":"ONTO · Ontology Factory","textChars":23,"textLines":1,"bbox":[56,681,280,18]}
+{"kind":"textbox","id":"sh/i5svyt4f","slide":12,"text":"12","textPreview":"12","textChars":2,"textLines":1,"bbox":[1180,681,44,18]}
+{"kind":"shape","id":"sh/j61c7y50","slide":12,"bbox":[56,220,520,170]}
+{"kind":"shape","id":"sh/w3adwjmp","slide":12,"bbox":[56,220,8,170]}
+{"kind":"shape","id":"sh/h4ju5ona","slide":12,"bbox":[84,244,470,20]}
+{"kind":"textbox","id":"sh/hkvipwvu","slide":12,"text":"Diagnóstico","textPreview":"Diagnóstico","textChars":11,"textLines":1,"bbox":[84,278,470,56]}
+{"kind":"textbox","id":"sh/wj2hgre9","slide":12,"text":"Assessment con inventario, readiness, evidencia y backlog.","textPreview":"Assessment con inventario, readiness, evidencia y backlog.","textChars":58,"textLines":1,"bbox":[84,344,470,25]}
+{"kind":"shape","id":"sh/vyt0nmdo","slide":12,"bbox":[626,220,520,170]}
+{"kind":"shape","id":"sh/uxkzehw3","slide":12,"bbox":[626,220,8,170]}
+{"kind":"shape","id":"sh/9wbilcvi","slide":12,"bbox":[654,244,470,20]}
+{"kind":"textbox","id":"sh/8v2hc7ed","slide":12,"text":"Conocimiento validado","textPreview":"Conocimiento validado","textChars":21,"textLines":1,"bbox":[654,278,470,56]}
+{"kind":"textbox","id":"sh/7utgj2ds","slide":12,"text":"Release con definiciones, reglas y KPIs aprobados.","textPreview":"Release con definiciones, reglas y KPIs aprobados.","textChars":50,"textLines":1,"bbox":[654,344,470,25]}
+{"kind":"shape","id":"sh/mtkzaxw7","slide":12,"bbox":[56,410,520,170]}
+{"kind":"shape","id":"sh/lsryhcvm","slide":12,"bbox":[56,410,8,170]}
+{"kind":"shape","id":"sh/0rih87e1","slide":12,"bbox":[84,434,470,20]}
+{"kind":"textbox","id":"sh/cn69krq9","slide":12,"text":"Context pack","textPreview":"Context pack","textChars":12,"textLines":1,"bbox":[84,468,470,56]}
+{"kind":"textbox","id":"sh/xofqdw7u","slide":12,"text":"Base reusable para asistentes, agentes y nuevos casos de uso.","textPreview":"Base reusable para asistentes, agentes y nuevos casos de uso.","textChars":61,"textLines":1,"bbox":[84,534,470,25]}
+{"kind":"shape","id":"sh/qlori183","slide":12,"bbox":[626,410,520,170]}
+{"kind":"shape","id":"sh/bmx8b6po","slide":12,"bbox":[626,410,8,170]}
+{"kind":"shape","id":"sh/ojm9grqx","slide":12,"bbox":[654,434,470,20]}
+{"kind":"textbox","id":"sh/pkfq9w7i","slide":12,"text":"Decisiones trazables","textPreview":"Decisiones trazables","textChars":20,"textLines":1,"bbox":[654,468,470,56]}
+{"kind":"textbox","id":"sh/2h47eh87","slide":12,"text":"Registro de revisiones que explica qué se aceptó y por qué.","textPreview":"Registro de revisiones que explica qué se aceptó y por qué.","textChars":59,"textLines":1,"bbox":[654,534,470,25]}
+{"kind":"notes","id":"nt/2h0qrf","slide":12,"text":""}
+{"kind":"slide","id":"sl/vjglzz","slide":13,"title":"PRÓXIMA DECISIÓN","textShapes":5}
+{"kind":"textbox","id":"sh/badwzilc","slide":13,"text":"PRÓXIMA DECISIÓN","textPreview":"PRÓXIMA DECISIÓN","textChars":16,"textLines":1,"bbox":[56,56,330,24]}
+{"kind":"textbox","id":"sh/cb6dsnmh","slide":13,"text":"Elegir el primer dominio donde el conocimiento ya sea una limitación para decidir","textPreview":"Elegir el primer dominio donde el conocimiento ya sea una limitación para decidir","textChars":81,"textLines":1,"bbox":[56,132,960,130]}
+{"kind":"textbox","id":"sh/dcfe1s32","slide":13,"text":"Con un piloto acotado, ONTO puede demostrar valor sobre activos reales y construir la base para una IA más confiable.","textPreview":"Con un piloto acotado, ONTO puede demostrar valor sobre activos reales y construir la base para una IA más confiable.","textChars":117,"textLines":1,"bbox":[60,330,820,72]}
+{"kind":"shape","id":"sh/254vmd4f","slide":13,"bbox":[60,465,500,72]}
+{"kind":"textbox","id":"sh/36dwvi50","slide":13,"text":"Propuesta: iniciar Atlas sobre un dominio prioritario","textPreview":"Propuesta: iniciar Atlas sobre un dominio prioritario","textChars":53,"textLines":1,"bbox":[82,487,450,26]}
+{"kind":"textbox","id":"sh/o7mdonml","slide":13,"text":"Ontology Factory · una iniciativa de conocimiento gobernado","textPreview":"Ontology Factory · una iniciativa de conocimiento gobernado","textChars":59,"textLines":1,"bbox":[56,654,660,20]}
+{"kind":"notes","id":"nt/vjglzz","slide":13,"text":""}

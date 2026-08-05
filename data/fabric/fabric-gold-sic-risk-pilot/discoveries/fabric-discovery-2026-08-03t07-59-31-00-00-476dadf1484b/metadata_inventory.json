@@ -1,0 +1,15 @@
+{
+  "format": "onto-fabric-metadata-discovery-v0.1",
+  "mode": "read_only_metadata",
+  "server": "f44sq3l2irfe5itcs65ld2hme4-y3b4rqduvonepfrtu4k3htpra4.datawarehouse.fabric.microsoft.com",
+  "database": "RAN_DE_DW_200_SILVER",
+  "tables": [],
+  "columns": [],
+  "limits": {
+    "max_tables": 100,
+    "max_columns": 2000
+  },
+  "table_name_pattern": "gold_sic",
+  "discovery_id": "fabric-discovery-2026-08-03T07-59-31-00-00-476dadf1484b",
+  "project_id": "fabric-gold-sic-risk-pilot"
+}
