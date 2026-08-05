@@ -192,7 +192,7 @@ def render_atlas_assessment(project_id: str, project) -> None:
     with st.expander("Conector Microsoft Fabric · solo lectura", expanded=False):
         st.caption(
             "Reutiliza la identidad Entra delegada configurada en el entorno compartido. "
-            "Solo consulta metadata de INFORMATION_SCHEMA; no lee filas de negocio ni publica cambios."
+            "Solo permite metadata y consultas agregadas nombradas; no acepta SQL libre ni publica cambios."
         )
         filter_columns = st.columns(2)
         schema_name = filter_columns[0].text_input(
@@ -217,6 +217,33 @@ def render_atlas_assessment(project_id: str, project) -> None:
                 f"Conexión de solo lectura confirmada: {connection['identity']} · "
                 f"{connection['database']}"
             )
+        query_labels = {
+            "risk_summary": "Resumen de fact_riesgo",
+            "risk_levels": "Distribución de niveles de riesgo",
+            "impact_summary": "Resumen REAL / proxies / pendientes",
+            "impact_statuses": "Estados REAL / DEFAULT",
+        }
+        query_column, query_button_column = st.columns([2, 1])
+        query_name = query_column.selectbox(
+            "Consulta agregada read-only",
+            list(query_labels),
+            format_func=query_labels.get,
+            key=f"fabric-query-{project_id}",
+        )
+        if query_button_column.button("Ejecutar consulta real", key=f"fabric-query-run-{project_id}"):
+            try:
+                query_result = service.execute_fabric_validation_query(query_name)
+            except Exception as exc:
+                st.error(str(exc))
+            else:
+                st.session_state[f"fabric-query-result-{project_id}"] = query_result
+        query_result = st.session_state.get(f"fabric-query-result-{project_id}")
+        if query_result:
+            st.success(
+                f"Consulta real confirmada: {query_result['query_name']} · "
+                f"{query_result['operation']} · {len(query_result['rows'])} resultado(s)."
+            )
+            st.dataframe(query_result["rows"], width="stretch", hide_index=True)
         if discovery_column.button("Inventariar metadata Fabric", key=f"fabric-discover-{project_id}"):
             try:
                 discovery = service.discover_fabric_metadata(

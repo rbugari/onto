@@ -28,6 +28,7 @@ from ontology_workbench.nexo_diff import compare_nexo_artifacts
 from ontology_workbench.interoperability import TARGETS, build_publication_package
 from ontology_workbench.fabric_adapter import (
     discover_fabric_metadata as run_fabric_metadata_discovery,
+    execute_fabric_read_only_query,
     fabric_connection_check,
 )
 from ontology_workbench.runtime import investigate_context_pack
@@ -540,6 +541,9 @@ class WorkbenchService:
         package_path = self.store.save_atlas_assessment(package)
         package["package_path"] = str(package_path)
         return package
+
+    def execute_fabric_validation_query(self, query_name: str) -> dict[str, object]:
+        return execute_fabric_read_only_query(query_name)
 
     def list_atlas_assessments(self, project_id: str) -> list[dict[str, object]]:
         return self.store.list_atlas_assessments(project_id)

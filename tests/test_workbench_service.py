@@ -18,7 +18,7 @@ from ontology_workbench.service import WorkbenchService
 from ontology_workbench.storage import ProjectStore
 from ontology_workbench.context_scanner import CONTEXT_CHUNK_SIZE, build_document_chunks, load_llm_settings
 from ontology_workbench.nexo_diff import compare_nexo_artifacts
-from ontology_workbench.fabric_adapter import load_fabric_settings
+from ontology_workbench.fabric_adapter import execute_fabric_read_only_query, load_fabric_settings
 from ontology_workbench.runtime import investigate_context_pack
 
 
@@ -60,6 +60,22 @@ class WorkbenchServiceTests(unittest.TestCase):
         self.assertEqual(settings.server, "test.fabric.microsoft.com")
         self.assertEqual(settings.database, "test_warehouse")
         self.assertEqual(settings.auth_record_path, shared_env.parent / "data" / "fabric-auth-record.json")
+
+    def test_fabric_query_gateway_accepts_named_read_only_queries_only(self) -> None:
+        with self.assertRaisesRegex(ValueError, "Consulta Fabric no soportada"):
+            execute_fabric_read_only_query("select * from gold_sic.fact_riesgo")
+
+        with patch("ontology_workbench.service.execute_fabric_read_only_query") as execute_query:
+            execute_query.return_value = {
+                "status": "connected_read_only_query",
+                "query_name": "risk_summary",
+                "operation": "SELECT",
+                "rows": [{"total_rows": 1}],
+            }
+            result = self.service.execute_fabric_validation_query("risk_summary")
+
+        execute_query.assert_called_once_with("risk_summary")
+        self.assertEqual(result["operation"], "SELECT")
 
     def test_fabric_metadata_becomes_atlas_technical_evidence_without_business_rows(self) -> None:
         project = self.service.create_project("Fabric Atlas")

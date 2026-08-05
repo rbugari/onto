@@ -10,6 +10,27 @@ from dotenv import dotenv_values
 
 FABRIC_TOKEN_SCOPE = "https://database.windows.net//.default"
 FABRIC_CACHE_NAME = "agente-new-fabric"
+FABRIC_QUERY_TEMPLATES = {
+    "risk_summary": (
+        "SELECT COUNT_BIG(*) AS total_rows, COUNT(DISTINCT sic) AS distinct_sic, "
+        "MAX(fecha_calculo) AS latest_calculation FROM gold_sic.fact_riesgo"
+    ),
+    "risk_levels": (
+        "SELECT TOP (10) riesgo_final_texto, COUNT_BIG(*) AS total_rows "
+        "FROM gold_sic.fact_riesgo GROUP BY riesgo_final_texto ORDER BY total_rows DESC"
+    ),
+    "impact_summary": (
+        "SELECT COUNT_BIG(*) AS total_rows, COALESCE(SUM(reales), 0) AS reales, "
+        "COALESCE(SUM(proxies), 0) AS proxies, COALESCE(SUM(pendientes), 0) AS pendientes, "
+        "COALESCE(SUM(no_disponibles), 0) AS no_disponibles "
+        "FROM gold_sic.fact_impacto_bloque"
+    ),
+    "impact_statuses": (
+        "SELECT TOP (10) tipo_valor, estado, usa_default, COUNT_BIG(*) AS total_rows "
+        "FROM gold_sic.fact_impacto GROUP BY tipo_valor, estado, usa_default "
+        "ORDER BY total_rows DESC"
+    ),
+}
 
 
 class FabricConnectionError(RuntimeError):
@@ -85,6 +106,34 @@ def fabric_connection_check() -> dict[str, str]:
         "database": str(row.database_name),
         "identity": str(row.user_name),
         "server": settings.server,
+    }
+
+
+def execute_fabric_read_only_query(query_name: str) -> dict[str, object]:
+    """Execute one named, aggregate-only query; arbitrary SQL is never accepted."""
+    clean_name = query_name.strip().lower()
+    query = FABRIC_QUERY_TEMPLATES.get(clean_name)
+    if query is None:
+        raise ValueError("Consulta Fabric no soportada")
+    settings = load_fabric_settings()
+    with _connection(settings) as connection:
+        cursor = connection.cursor()
+        cursor.execute(query)
+        columns = [str(item[0]) for item in cursor.description]
+        rows = [
+            {
+                column: value.isoformat() if hasattr(value, "isoformat") else value
+                for column, value in zip(columns, row)
+            }
+            for row in cursor.fetchall()
+        ]
+    return {
+        "status": "connected_read_only_query",
+        "query_name": clean_name,
+        "operation": "SELECT",
+        "server": settings.server,
+        "database": settings.database,
+        "rows": rows,
     }
 
 

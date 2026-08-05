@@ -38,7 +38,7 @@ La entrada web es una portada de **Ontology Factory**: permite elegir el proyect
 
 ### Alcance actual del piloto Fabric
 
-Fabric se utiliza como fuente técnica autorizada para descubrir metadata y validar bindings. La operación del piloto permanece dentro de la aplicación local: Atlas, Nexo, Argos y los mappings se ejecutan sobre artefactos locales. No se requiere todavía un gateway de consultas, control multiusuario ni publicación externa para cerrar esta fase.
+Fabric se utiliza como fuente técnica autorizada para descubrir metadata, validar bindings y ejecutar cuatro consultas agregadas read-only nombradas. La operación del piloto permanece dentro de la aplicación local: Atlas, Nexo, Argos y los mappings se ejecutan sobre artefactos locales. No se acepta SQL libre, no se leen filas de detalle desde la interfaz y no se publica ningún cambio externo.
 
 ## Estructura
 
