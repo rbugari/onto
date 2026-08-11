@@ -1,0 +1,368 @@
+[
+  {
+    "case_id": "answer-01",
+    "question": "¿Qué es INFRA?",
+    "expected_status": "answered",
+    "expected_item_name": "INFRA",
+    "actual_status": "answered",
+    "retrieved_item_names": [],
+    "passed": false,
+    "failure_reason": "La respuesta no recuperó el elemento de evidencia esperado.",
+    "investigation": {
+      "manifest": {
+        "format": "argos-investigation-v0.2",
+        "investigation_id": "argos-2026-08-11T07-59-06-00-00-3daff777f37d",
+        "created_at": "2026-08-11T08:00:00+00:00",
+        "release_id": "release-2026-08-11T07-54-06-00-00-afcfe679c7b9",
+        "status": "answered",
+        "mode": "llm-context-pack"
+      },
+      "request": {
+        "question": "¿Qué es INFRA?"
+      },
+      "retrieval": [],
+      "answer": "INFRA es el riesgo de infraestructura. Tiene un alcance funcional propio, se publica en silver.dim_infra_cidat y utiliza un método de cálculo alineado con SIC.",
+      "interpretation": "La evidencia disponible define INFRA como un ámbito específico de evaluación de riesgo de infraestructura, separado funcionalmente de SIC aunque reutiliza una metodología equivalente. No se detallan aquí todos sus activos, reglas o resultados concretos.",
+      "suggested_questions": [
+        "¿Qué reglas componen el riesgo INFRA?",
+        "¿Cómo se calcula la probabilidad y el impacto de INFRA?",
+        "¿Qué diferencias hay entre INFRA y SIC?",
+        "¿Qué datos se utilizan para evaluar INFRA?"
+      ],
+      "visualization": null,
+      "live_query": null,
+      "llm_plan": {
+        "query_name": null,
+        "parameters": {},
+        "needs_stronger_model": false,
+        "reasoning_note": "La pregunta es conceptual y el contexto aprobado define INFRA como un riesgo de infraestructura con scope funcional propio, publicado en silver.dim_infra_cidat, cuyo método de cálculo está alineado con SIC. Ninguna consulta permitida del catálogo es necesaria ni adecuada para responder una definición."
+      },
+      "llm_response": {
+        "answer": "INFRA es el riesgo de infraestructura. Tiene un alcance funcional propio, se publica en silver.dim_infra_cidat y utiliza un método de cálculo alineado con SIC.",
+        "interpretation": "La evidencia disponible define INFRA como un ámbito específico de evaluación de riesgo de infraestructura, separado funcionalmente de SIC aunque reutiliza una metodología equivalente. No se detallan aquí todos sus activos, reglas o resultados concretos.",
+        "suggested_questions": [
+          "¿Qué reglas componen el riesgo INFRA?",
+          "¿Cómo se calcula la probabilidad y el impacto de INFRA?",
+          "¿Qué diferencias hay entre INFRA y SIC?",
+          "¿Qué datos se utilizan para evaluar INFRA?"
+        ],
+        "visualization": null,
+        "needs_stronger_model": false,
+        "reasoning_note": "La definición está explícitamente documentada con confianza moderada. La evidencia confirma el alcance funcional, la fuente publicada y la alineación metodológica con SIC, pero no aporta más detalle conceptual."
+      },
+      "usage_boundary": "Solo usar los elementos aprobados y sus source bindings; abstenerse fuera de esta evidencia.",
+      "reasoning_advisory": {
+        "level": "llm_reasoning_active",
+        "model_used": "configured-llm",
+        "configured_provider": "openai",
+        "configured_model": "gpt-5.6-luna",
+        "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+      },
+      "llm_used": true,
+      "package_path": "data\\runtime\\fabric-gold-sic-risk-pilot\\release-2026-08-11t07-54-06-00-00-afcfe679c7b9\\argos-2026-08-11t07-59-06-00-00-3daff777f37d"
+    }
+  },
+  {
+    "case_id": "answer-02",
+    "question": "¿Qué es Tipo?",
+    "expected_status": "answered",
+    "expected_item_name": "Tipo",
+    "actual_status": "answered",
+    "retrieved_item_names": [],
+    "passed": false,
+    "failure_reason": "La respuesta no recuperó el elemento de evidencia esperado.",
+    "investigation": {
+      "manifest": {
+        "format": "argos-investigation-v0.2",
+        "investigation_id": "argos-2026-08-11T08-00-00-00-00-5c7d759f2b96",
+        "created_at": "2026-08-11T08:00:54+00:00",
+        "release_id": "release-2026-08-11T07-54-06-00-00-afcfe679c7b9",
+        "status": "answered",
+        "mode": "llm-context-pack"
+      },
+      "request": {
+        "question": "¿Qué es Tipo?"
+      },
+      "retrieval": [],
+      "answer": "Tipo significa “Significado”.",
+      "interpretation": "La evidencia define explícitamente el concepto «Tipo» como «Significado». No se aporta más detalle sobre su uso específico.",
+      "suggested_questions": [
+        "¿Qué valores puede tener Tipo?",
+        "¿Dónde se utiliza el campo Tipo?",
+        "¿Cuál es la diferencia entre Tipo y nivel?",
+        "¿Qué significa REAL, DEFAULT y CONSTANTE?"
+      ],
+      "visualization": null,
+      "live_query": null,
+      "llm_plan": {
+        "query_name": null,
+        "parameters": {},
+        "needs_stronger_model": false,
+        "reasoning_note": "La pregunta solicita el significado de un concepto. El contexto aprobado define explícitamente Tipo como “Significado”, pero el catálogo solo permite consultas de riesgos y no consultas de metadatos o definiciones; por tanto, no corresponde ejecutar ninguna consulta."
+      },
+      "llm_response": {
+        "answer": "Tipo significa “Significado”.",
+        "interpretation": "La evidencia define explícitamente el concepto «Tipo» como «Significado». No se aporta más detalle sobre su uso específico.",
+        "suggested_questions": [
+          "¿Qué valores puede tener Tipo?",
+          "¿Dónde se utiliza el campo Tipo?",
+          "¿Cuál es la diferencia entre Tipo y nivel?",
+          "¿Qué significa REAL, DEFAULT y CONSTANTE?"
+        ],
+        "visualization": null,
+        "needs_stronger_model": false,
+        "reasoning_note": "La definición está explícita en la evidencia disponible; no es necesario consultar datos adicionales."
+      },
+      "usage_boundary": "Solo usar los elementos aprobados y sus source bindings; abstenerse fuera de esta evidencia.",
+      "reasoning_advisory": {
+        "level": "llm_reasoning_active",
+        "model_used": "configured-llm",
+        "configured_provider": "openai",
+        "configured_model": "gpt-5.6-luna",
+        "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+      },
+      "llm_used": true,
+      "package_path": "data\\runtime\\fabric-gold-sic-risk-pilot\\release-2026-08-11t07-54-06-00-00-afcfe679c7b9\\argos-2026-08-11t08-00-00-00-00-5c7d759f2b96"
+    }
+  },
+  {
+    "case_id": "answer-03",
+    "question": "¿Qué es REAL?",
+    "expected_status": "answered",
+    "expected_item_name": "REAL",
+    "actual_status": "answered",
+    "retrieved_item_names": [],
+    "passed": false,
+    "failure_reason": "La respuesta no recuperó el elemento de evidencia esperado.",
+    "investigation": {
+      "manifest": {
+        "format": "argos-investigation-v0.2",
+        "investigation_id": "argos-2026-08-11T08-00-54-00-00-132bb5d1a4f4",
+        "created_at": "2026-08-11T08:01:51+00:00",
+        "release_id": "release-2026-08-11T07-54-06-00-00-afcfe679c7b9",
+        "status": "answered",
+        "mode": "llm-context-pack"
+      },
+      "request": {
+        "question": "¿Qué es REAL?"
+      },
+      "retrieval": [],
+      "answer": "REAL significa que una regla se resolvió utilizando un dato usable procedente de Silver o de una fuente manual cargada. No significa que el valor sea constante ni que se haya aplicado un valor por defecto.",
+      "interpretation": "Es el tipo de resultado que indica que existe evidencia de datos para calcular la regla. Se diferencia de DEFAULT, que se aplica cuando falta un dato usable, y de CONSTANTE, cuyo valor está fijado por una decisión funcional.",
+      "suggested_questions": [
+        "¿Qué diferencia hay entre REAL, DEFAULT y CONSTANTE?",
+        "¿Qué reglas del modelo tienen resultado REAL?",
+        "¿Cómo puedo identificar el dato fuente que originó un resultado REAL?"
+      ],
+      "visualization": null,
+      "live_query": null,
+      "llm_plan": {
+        "query_name": null,
+        "parameters": {},
+        "needs_stronger_model": false,
+        "reasoning_note": "La pregunta es conceptual y el contexto aprobado define REAL como el tipo de resultado cuando la regla se resolvió con un dato usable de Silver o de una fuente manual cargada. Ninguna consulta permitida del catálogo es necesaria para responderla."
+      },
+      "llm_response": {
+        "answer": "REAL significa que una regla se resolvió utilizando un dato usable procedente de Silver o de una fuente manual cargada. No significa que el valor sea constante ni que se haya aplicado un valor por defecto.",
+        "interpretation": "Es el tipo de resultado que indica que existe evidencia de datos para calcular la regla. Se diferencia de DEFAULT, que se aplica cuando falta un dato usable, y de CONSTANTE, cuyo valor está fijado por una decisión funcional.",
+        "suggested_questions": [
+          "¿Qué diferencia hay entre REAL, DEFAULT y CONSTANTE?",
+          "¿Qué reglas del modelo tienen resultado REAL?",
+          "¿Cómo puedo identificar el dato fuente que originó un resultado REAL?"
+        ],
+        "visualization": null,
+        "needs_stronger_model": false,
+        "reasoning_note": "La evidencia define explícitamente REAL como una regla resuelta con dato usable de Silver o de una fuente manual cargada."
+      },
+      "usage_boundary": "Solo usar los elementos aprobados y sus source bindings; abstenerse fuera de esta evidencia.",
+      "reasoning_advisory": {
+        "level": "llm_reasoning_active",
+        "model_used": "configured-llm",
+        "configured_provider": "openai",
+        "configured_model": "gpt-5.6-luna",
+        "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+      },
+      "llm_used": true,
+      "package_path": "data\\runtime\\fabric-gold-sic-risk-pilot\\release-2026-08-11t07-54-06-00-00-afcfe679c7b9\\argos-2026-08-11t08-00-54-00-00-132bb5d1a4f4"
+    }
+  },
+  {
+    "case_id": "answer-04",
+    "question": "¿Qué es DEFAULT?",
+    "expected_status": "answered",
+    "expected_item_name": "DEFAULT",
+    "actual_status": "answered",
+    "retrieved_item_names": [],
+    "passed": false,
+    "failure_reason": "La respuesta no recuperó el elemento de evidencia esperado.",
+    "investigation": {
+      "manifest": {
+        "format": "argos-investigation-v0.2",
+        "investigation_id": "argos-2026-08-11T08-01-51-00-00-5d96c42b4e02",
+        "created_at": "2026-08-11T08:02:47+00:00",
+        "release_id": "release-2026-08-11T07-54-06-00-00-afcfe679c7b9",
+        "status": "answered",
+        "mode": "llm-context-pack"
+      },
+      "request": {
+        "question": "¿Qué es DEFAULT?"
+      },
+      "retrieval": [],
+      "answer": "DEFAULT significa que falta un dato usable para resolver una regla y, en lugar de dejar el cálculo incompleto, se aplica el valor funcional configurado para ese caso. Es un resultado controlado por ausencia de información, no una medición obtenida de una fuente dinámica.",
+      "interpretation": "Debe distinguirse de REAL, que indica que la regla se resolvió con datos utilizables de una fuente, y de CONSTANTE, que indica que el valor fue fijado por una decisión funcional. El valor concreto de DEFAULT depende de la regla: por ejemplo, algunas reglas aplican nivel 2, otras BAIX o MIG. La evidencia no define un único valor universal para todos los casos.",
+      "suggested_questions": [
+        "¿Qué valor DEFAULT aplica a una regla concreta?",
+        "¿Cómo se distingue DEFAULT de REAL y CONSTANTE?",
+        "¿Qué reglas del modelo utilizan DEFAULT?",
+        "¿Qué impacto tiene DEFAULT en el cálculo final del riesgo?"
+      ],
+      "visualization": null,
+      "live_query": null,
+      "llm_plan": {
+        "query_name": null,
+        "parameters": {},
+        "needs_stronger_model": false,
+        "reasoning_note": "La pregunta es conceptual y el contexto aprobado define DEFAULT: falta dato usable y se aplica el valor funcional configurado para no romper el cálculo. No es necesario ejecutar una consulta del catálogo."
+      },
+      "llm_response": {
+        "answer": "DEFAULT significa que falta un dato usable para resolver una regla y, en lugar de dejar el cálculo incompleto, se aplica el valor funcional configurado para ese caso. Es un resultado controlado por ausencia de información, no una medición obtenida de una fuente dinámica.",
+        "interpretation": "Debe distinguirse de REAL, que indica que la regla se resolvió con datos utilizables de una fuente, y de CONSTANTE, que indica que el valor fue fijado por una decisión funcional. El valor concreto de DEFAULT depende de la regla: por ejemplo, algunas reglas aplican nivel 2, otras BAIX o MIG. La evidencia no define un único valor universal para todos los casos.",
+        "suggested_questions": [
+          "¿Qué valor DEFAULT aplica a una regla concreta?",
+          "¿Cómo se distingue DEFAULT de REAL y CONSTANTE?",
+          "¿Qué reglas del modelo utilizan DEFAULT?",
+          "¿Qué impacto tiene DEFAULT en el cálculo final del riesgo?"
+        ],
+        "visualization": null,
+        "needs_stronger_model": false,
+        "reasoning_note": "La evidencia define DEFAULT de forma explícita como falta de dato usable con aplicación de un valor funcional configurado; también muestra que el valor concreto varía según la regla."
+      },
+      "usage_boundary": "Solo usar los elementos aprobados y sus source bindings; abstenerse fuera de esta evidencia.",
+      "reasoning_advisory": {
+        "level": "llm_reasoning_active",
+        "model_used": "configured-llm",
+        "configured_provider": "openai",
+        "configured_model": "gpt-5.6-luna",
+        "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+      },
+      "llm_used": true,
+      "package_path": "data\\runtime\\fabric-gold-sic-risk-pilot\\release-2026-08-11t07-54-06-00-00-afcfe679c7b9\\argos-2026-08-11t08-01-51-00-00-5d96c42b4e02"
+    }
+  },
+  {
+    "case_id": "answer-05",
+    "question": "¿Qué es CONSTANTE?",
+    "expected_status": "answered",
+    "expected_item_name": "CONSTANTE",
+    "actual_status": "answered",
+    "retrieved_item_names": [],
+    "passed": false,
+    "failure_reason": "La respuesta no recuperó el elemento de evidencia esperado.",
+    "investigation": {
+      "manifest": {
+        "format": "argos-investigation-v0.2",
+        "investigation_id": "argos-2026-08-11T08-02-47-00-00-84b2a1ffb184",
+        "created_at": "2026-08-11T08:03:44+00:00",
+        "release_id": "release-2026-08-11T07-54-06-00-00-afcfe679c7b9",
+        "status": "answered",
+        "mode": "llm-context-pack"
+      },
+      "request": {
+        "question": "¿Qué es CONSTANTE?"
+      },
+      "retrieval": [],
+      "answer": "CONSTANTE significa que el valor queda fijado por una decisión funcional y no se obtiene de una fuente dinámica. Por ejemplo, algunas reglas de MFA se consideran cubiertas al 100% y se clasifican siempre como BAIX; otras decisiones funcionales pueden fijar 0% y MOLT ALT.",
+      "interpretation": "Es un tipo de resultado vigente del modelo, distinto de REAL —calculado con datos utilizables— y DEFAULT —aplicado cuando falta un dato usable—. La evidencia no indica que CONSTANTE implique siempre el mismo nivel: depende de la regla funcional concreta.",
+      "suggested_questions": [
+        "¿Qué reglas están clasificadas como CONSTANTE?",
+        "¿Qué diferencia hay entre CONSTANTE, REAL y DEFAULT?",
+        "¿Qué valor y nivel tiene cada regla CONSTANTE?",
+        "¿Cómo afecta CONSTANTE al cálculo del riesgo final?"
+      ],
+      "visualization": null,
+      "live_query": null,
+      "llm_plan": {
+        "query_name": null,
+        "parameters": {},
+        "needs_stronger_model": false,
+        "reasoning_note": "La definición aprobada está disponible directamente en el contexto: CONSTANTE significa que el valor queda fijado por decisión funcional y no por una fuente dinámica. Ninguna consulta permitida del catálogo es necesaria para responder."
+      },
+      "llm_response": {
+        "answer": "CONSTANTE significa que el valor queda fijado por una decisión funcional y no se obtiene de una fuente dinámica. Por ejemplo, algunas reglas de MFA se consideran cubiertas al 100% y se clasifican siempre como BAIX; otras decisiones funcionales pueden fijar 0% y MOLT ALT.",
+        "interpretation": "Es un tipo de resultado vigente del modelo, distinto de REAL —calculado con datos utilizables— y DEFAULT —aplicado cuando falta un dato usable—. La evidencia no indica que CONSTANTE implique siempre el mismo nivel: depende de la regla funcional concreta.",
+        "suggested_questions": [
+          "¿Qué reglas están clasificadas como CONSTANTE?",
+          "¿Qué diferencia hay entre CONSTANTE, REAL y DEFAULT?",
+          "¿Qué valor y nivel tiene cada regla CONSTANTE?",
+          "¿Cómo afecta CONSTANTE al cálculo del riesgo final?"
+        ],
+        "visualization": null,
+        "needs_stronger_model": false,
+        "reasoning_note": "La definición está disponible directamente en la evidencia: el valor se fija por decisión funcional y no por una fuente dinámica. La evidencia aporta ejemplos de CONSTANTE BAIX y CONSTANTE MOLT ALT, pero no un inventario completo de todas las reglas constantes."
+      },
+      "usage_boundary": "Solo usar los elementos aprobados y sus source bindings; abstenerse fuera de esta evidencia.",
+      "reasoning_advisory": {
+        "level": "llm_reasoning_active",
+        "model_used": "configured-llm",
+        "configured_provider": "openai",
+        "configured_model": "gpt-5.6-luna",
+        "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+      },
+      "llm_used": true,
+      "package_path": "data\\runtime\\fabric-gold-sic-risk-pilot\\release-2026-08-11t07-54-06-00-00-afcfe679c7b9\\argos-2026-08-11t08-02-47-00-00-84b2a1ffb184"
+    }
+  },
+  {
+    "case_id": "abstention-01",
+    "question": "¿Qué planeta es más grande?",
+    "expected_status": "abstained",
+    "expected_item_name": "",
+    "actual_status": "answered",
+    "retrieved_item_names": [],
+    "passed": false,
+    "failure_reason": "El estado de respuesta no coincide con lo esperado.",
+    "investigation": {
+      "manifest": {
+        "format": "argos-investigation-v0.2",
+        "investigation_id": "argos-2026-08-11T08-03-44-00-00-de3a621488e0",
+        "created_at": "2026-08-11T08:04:39+00:00",
+        "release_id": "release-2026-08-11T07-54-06-00-00-afcfe679c7b9",
+        "status": "answered",
+        "mode": "llm-context-pack"
+      },
+      "request": {
+        "question": "¿Qué planeta es más grande?"
+      },
+      "retrieval": [],
+      "answer": "No se puede determinar con la evidencia disponible.",
+      "interpretation": "La evidencia corresponde a un dominio de riesgo SIC y no contiene datos astronómicos ni una comparación entre planetas.",
+      "suggested_questions": [],
+      "visualization": null,
+      "live_query": null,
+      "llm_plan": {
+        "query_name": null,
+        "parameters": {},
+        "needs_stronger_model": false,
+        "reasoning_note": "La pregunta sobre qué planeta es más grande no pertenece al dominio gold-sic-risk y ninguna consulta permitida del catálogo proporciona datos astronómicos."
+      },
+      "llm_response": {
+        "answer": "No se puede determinar con la evidencia disponible.",
+        "interpretation": "La evidencia corresponde a un dominio de riesgo SIC y no contiene datos astronómicos ni una comparación entre planetas.",
+        "suggested_questions": [],
+        "visualization": null,
+        "needs_stronger_model": false,
+        "reasoning_note": "La pregunta está fuera del alcance de la evidencia proporcionada; responder que Júpiter es el planeta más grande requeriría conocimiento externo no incluido."
+      },
+      "usage_boundary": "Solo usar los elementos aprobados y sus source bindings; abstenerse fuera de esta evidencia.",
+      "reasoning_advisory": {
+        "level": "llm_reasoning_active",
+        "model_used": "configured-llm",
+        "configured_provider": "openai",
+        "configured_model": "gpt-5.6-luna",
+        "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+      },
+      "llm_used": true,
+      "package_path": "data\\runtime\\fabric-gold-sic-risk-pilot\\release-2026-08-11t07-54-06-00-00-afcfe679c7b9\\argos-2026-08-11t08-03-44-00-00-de3a621488e0"
+    }
+  }
+]

@@ -1,0 +1,1 @@
+Si hay pesos positivos, el resultado se calcula como una media ponderada: se multiplica el nivel numérico de cada regla por su peso, se suman esos productos y se divide entre la suma de los pesos. Fórmula: SUM(nivel_num × peso_regla) / SUM(peso_regla).

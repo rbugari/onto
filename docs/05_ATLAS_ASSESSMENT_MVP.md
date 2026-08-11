@@ -50,7 +50,7 @@ El scanner admite una configuracion local `ONTO_LLM_*` o una referencia explicit
 
 ## Limites actuales
 
-- El adaptador tecnico disponible es `model.bim`: al importarlo, ONTO guarda una copia local y su hash como evidencia. PBIP, TMDL, API Fabric y Databricks vienen despues.
+- Los adaptadores técnicos disponibles son `model.bim`, que ONTO conserva con hash como evidencia, y el descubrimiento de metadata Fabric de solo lectura. PBIP, TMDL, API Fabric ampliada y Databricks vienen después.
 - El scanner ya fragmenta documentos y conserva `source_chunk_id` y fragmento de evidencia. Las citas por pagina/seccion dependen del parser de cada formato y se incorporaran despues.
 - Los gaps se basan en reglas iniciales y no reemplazan una revision funcional.
 - Un modelo importado antes de la captura de evidencia puede usarse como inventario, pero Atlas lo marcara como gap hasta reimportar su archivo tecnico original.

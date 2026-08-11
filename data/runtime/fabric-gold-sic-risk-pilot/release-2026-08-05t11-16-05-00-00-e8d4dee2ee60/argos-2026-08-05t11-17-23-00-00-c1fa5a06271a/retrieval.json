@@ -1,0 +1,52 @@
+[
+  {
+    "item_id": "candidate-technical-asset-1198",
+    "item_type": "technical_asset",
+    "name": "gold_sic.dim_regla.tipo_valor_default",
+    "definition": "Activo técnico Fabric column: gold_sic.dim_regla.tipo_valor_default",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.dim_regla.tipo_valor_default"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-1305",
+    "item_type": "technical_asset",
+    "name": "gold_sic.fact_probabilidad_bloque.promedio_valor",
+    "definition": "Activo técnico Fabric column: gold_sic.fact_probabilidad_bloque.promedio_valor",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.fact_probabilidad_bloque.promedio_valor"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0400",
+    "item_type": "technical_asset",
+    "name": "gold_sic.dim_regla",
+    "definition": "Activo técnico Fabric table: gold_sic.dim_regla",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.dim_regla"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0802",
+    "item_type": "technical_asset",
+    "name": "gold_infra.dim_regla.tipo_valor_default",
+    "definition": "Activo técnico Fabric column: gold_infra.dim_regla.tipo_valor_default",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_infra.dim_regla.tipo_valor_default"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0909",
+    "item_type": "technical_asset",
+    "name": "gold_infra.fact_probabilidad_bloque.promedio_valor",
+    "definition": "Activo técnico Fabric column: gold_infra.fact_probabilidad_bloque.promedio_valor",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_infra.fact_probabilidad_bloque.promedio_valor"
+    }
+  }
+]

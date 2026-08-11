@@ -1,0 +1,8 @@
+{
+  "format": "argos-investigation-v0.1",
+  "investigation_id": "argos-2026-08-05T11-15-30-00-00-ddb3302cf4e6",
+  "created_at": "2026-08-05T11:15:30+00:00",
+  "release_id": "release-2026-08-05T11-15-30-00-00-6cab4ccf982d",
+  "status": "abstained",
+  "mode": "deterministic-context-pack"
+}

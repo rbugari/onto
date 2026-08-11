@@ -1,0 +1,8 @@
+{
+  "format": "argos-investigation-v0.2",
+  "investigation_id": "argos-2026-08-11T08-13-11-00-00-df2c63d87c0f",
+  "created_at": "2026-08-11T08:14:08+00:00",
+  "release_id": "release-2026-08-11T07-54-06-00-00-afcfe679c7b9",
+  "status": "answered",
+  "mode": "llm-context-pack"
+}

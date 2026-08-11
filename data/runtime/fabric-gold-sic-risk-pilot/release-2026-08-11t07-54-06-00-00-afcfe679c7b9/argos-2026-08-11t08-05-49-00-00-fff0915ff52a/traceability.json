@@ -1,0 +1,29 @@
+{
+  "reasoning_advisory": {
+    "level": "llm_reasoning_active",
+    "model_used": "configured-llm",
+    "configured_provider": "openai",
+    "configured_model": "gpt-5.6-luna",
+    "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+  },
+  "live_query": null,
+  "llm_used": true,
+  "llm_plan": {
+    "query_name": null,
+    "parameters": {},
+    "needs_stronger_model": false,
+    "reasoning_note": "La pregunta solicita el significado de un concepto. El contexto aprobado define “Tipo” como “Significado”, pero el catálogo solo permite consultas de riesgos y no consultas de metadatos o definiciones; por tanto, no corresponde ejecutar ninguna consulta."
+  },
+  "llm_response": {
+    "answer": "“Tipo” significa “Significado”.",
+    "interpretation": "La evidencia disponible define el concepto de forma directa, aunque no aporta más detalle sobre su uso específico.",
+    "suggested_questions": [
+      "¿Qué valores puede tener Tipo?",
+      "¿Cómo se utiliza Tipo en el resultado del riesgo?",
+      "¿Cuál es la diferencia entre Tipo, REAL, DEFAULT y CONSTANTE?"
+    ],
+    "visualization": null,
+    "needs_stronger_model": false,
+    "reasoning_note": "La definición está explícitamente disponible en la evidencia: Tipo = Significado. No se requiere consulta adicional."
+  }
+}

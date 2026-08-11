@@ -1,0 +1,43 @@
+{
+  "reasoning_advisory": {
+    "level": "llm_reasoning_active",
+    "model_used": "configured-llm",
+    "configured_provider": "openai",
+    "configured_model": "gpt-5.6-luna",
+    "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+  },
+  "live_query": {
+    "status": "connected_read_only_query",
+    "query_name": "risk_rule_sic",
+    "parameters": [
+      1003,
+      12
+    ],
+    "operation": "SELECT",
+    "server": "f44sq3l2irfe5itcs65ld2hme4-y3b4rqduvonepfrtu4k3htpra4.datawarehouse.fabric.microsoft.com",
+    "database": "RAN_DE_DW_200_SILVER",
+    "rows": []
+  },
+  "llm_used": true,
+  "llm_plan": {
+    "query_name": "risk_rule_sic",
+    "parameters": {
+      "id_risc": 1003,
+      "sic": 12
+    },
+    "needs_stronger_model": false,
+    "reasoning_note": "La pregunta solicita el riesgo más reciente de una regla específica (1003) en un SIC específico (12), y el catálogo ofrece exactamente la consulta risk_rule_sic con ambos parámetros enteros."
+  },
+  "llm_response": {
+    "answer": "No hay un resultado disponible para la regla 1003 en el SIC12: la consulta devolvió cero filas. Por tanto, no puede determinarse el nivel de riesgo aplicado a ese SIC con la evidencia disponible.",
+    "interpretation": "La regla 1003 corresponde a la exposición por parches antiguos y utiliza el porcentaje de equipos con más de 60 días sin actualizar. Su escala es: menos del 30% = BAIX, 30%-79% = MIG, 80%-89% = ALT y 90% o más = MOLT ALT. Si falta el dato, se documenta un valor por defecto BAIX. Sin embargo, no se dispone del valor ni del tipo de resultado para el SIC12, por lo que no debe inferirse el riesgo.",
+    "suggested_questions": [
+      "¿Puedes facilitar el porcentaje de equipos del SIC12 con más de 60 días sin actualizar?",
+      "¿Quieres revisar por qué no existe una fila de resultado para la regla 1003 y el SIC12?",
+      "¿Quieres comparar la regla 1003 con las reglas 1001, 1002 y 1004 del SIC12?"
+    ],
+    "visualization": null,
+    "needs_stronger_model": false,
+    "reasoning_note": "La consulta específica para la regla 1003 y el SIC12 devolvió cero filas; la documentación sí aporta la definición y los umbrales de la regla, pero no un resultado calculado para ese SIC."
+  }
+}

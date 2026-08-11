@@ -1,0 +1,25 @@
+{
+  "reasoning_advisory": {
+    "level": "llm_reasoning_active",
+    "model_used": "configured-llm",
+    "configured_provider": "openai",
+    "configured_model": "gpt-5.6-luna",
+    "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+  },
+  "live_query": null,
+  "llm_used": true,
+  "llm_plan": {
+    "query_name": null,
+    "parameters": {},
+    "needs_stronger_model": false,
+    "reasoning_note": "La pregunta sobre el tamaño de los planetas está fuera del dominio aprobado de riesgo SIC y no corresponde a ninguna consulta permitida del catálogo."
+  },
+  "llm_response": {
+    "answer": "No puedo determinarlo con la evidencia disponible.",
+    "interpretation": "La evidencia corresponde a un modelo de riesgo SIC y no contiene información sobre planetas ni sus tamaños.",
+    "suggested_questions": [],
+    "visualization": null,
+    "needs_stronger_model": false,
+    "reasoning_note": "La pregunta está fuera del dominio de la evidencia proporcionada; responder requeriría información externa."
+  }
+}

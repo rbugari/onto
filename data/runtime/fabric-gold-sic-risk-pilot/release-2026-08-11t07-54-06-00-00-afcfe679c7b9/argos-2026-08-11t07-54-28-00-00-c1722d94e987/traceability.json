@@ -1,0 +1,29 @@
+{
+  "reasoning_advisory": {
+    "level": "llm_reasoning_active",
+    "model_used": "configured-llm",
+    "configured_provider": "openai",
+    "configured_model": "gpt-5.6-luna",
+    "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+  },
+  "live_query": null,
+  "llm_used": true,
+  "llm_plan": {
+    "query_name": null,
+    "parameters": {},
+    "needs_stronger_model": false,
+    "reasoning_note": "La pregunta solicita una definición conceptual. El contexto aprobado define “Tipo” como “Significado”, pero el catálogo solo permite consultas de riesgos y no ofrece una consulta de metadatos o definiciones."
+  },
+  "llm_response": {
+    "answer": "Tipo significa “Significado”.",
+    "interpretation": "La evidencia disponible define “Tipo” de forma directa como “Significado”. No se aporta más detalle sobre su uso o valores posibles.",
+    "suggested_questions": [
+      "¿Qué valores puede tener Tipo?",
+      "¿Dónde se utiliza el campo Tipo?",
+      "¿Cuál es la diferencia entre Tipo y nivel?"
+    ],
+    "visualization": null,
+    "needs_stronger_model": false,
+    "reasoning_note": "La definición está explícitamente documentada con confianza 0.8; no se requiere consulta adicional."
+  }
+}

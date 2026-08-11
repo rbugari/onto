@@ -1,0 +1,1 @@
+DEFAULT significa que falta un dato usable y, en lugar de detener el cálculo, se aplica el valor funcional configurado para esa regla. Es distinto de REAL, que indica que el resultado se obtuvo de un dato usable, y de CONSTANTE, que indica que el valor fue fijado por una decisión funcional.

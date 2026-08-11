@@ -1,0 +1,24 @@
+1
+00:00:00,000 --> 00:00:07,000
+Inicio: seleccionamos el proyecto y vemos el estado de las tres etapas del piloto.
+
+2
+00:00:07,000 --> 00:00:14,000
+Atlas inventaria Fabric y la documentacion, mide la preparacion y deja visibles los gaps.
+
+3
+00:00:14,000 --> 00:00:21,000
+Nexo transforma la evidencia en candidatos trazables y permite registrar decisiones humanas.
+
+4
+00:00:21,000 --> 00:00:28,000
+Argos trabaja exclusivamente sobre la release local aprobada y su paquete de contexto.
+
+5
+00:00:28,000 --> 00:00:35,000
+Una pregunta dentro de la evidencia recibe una respuesta con fuentes y estado answered.
+
+6
+00:00:35,000 --> 00:00:42,000
+Una pregunta fuera del dominio no se inventa: Argos se abstiene y deja trazabilidad.
+

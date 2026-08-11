@@ -1,0 +1,80 @@
+{
+  "summary": {
+    "technical_sources": 1,
+    "documents": 6,
+    "extracted_documents": 6,
+    "duplicate_document_ids": 0
+  },
+  "sources": [
+    {
+      "source_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "source_reference": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6:document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "filename": "document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "document_type": "business_context",
+      "content_type": "application/octet-stream",
+      "extraction_status": "extracted",
+      "extracted_chars": 54146,
+      "content_sha256": "66beb3255c3b02b4fb24159db1a1ef95127502cca65b7407ea967f299b1c2e3b"
+    },
+    {
+      "source_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_reference": "document-2026-08-05T11-05-41-00-00-ad65288dc47d:document-2026-08-03T08-05-39-00-00-cbac64e005ab_CATALOGO_FUNCIONAL_REGLAS_RIESGO_VIGENTE.md",
+      "filename": "document-2026-08-03T08-05-39-00-00-cbac64e005ab_CATALOGO_FUNCIONAL_REGLAS_RIESGO_VIGENTE.md",
+      "document_type": "business_context",
+      "content_type": "application/octet-stream",
+      "extraction_status": "extracted",
+      "extracted_chars": 25850,
+      "content_sha256": "a5e301f1b08d7a2bd8582c7e57a13beffe67911da88fa0fe8540ca6127825445"
+    },
+    {
+      "source_id": "document-2026-08-05T11-05-41-00-00-c6421d60c70e",
+      "source_reference": "document-2026-08-05T11-05-41-00-00-c6421d60c70e:document-2026-08-03T08-06-00-00-00-1df488be8fd1_CONTRATO_BI_GOLD_SIC_V2.md",
+      "filename": "document-2026-08-03T08-06-00-00-00-1df488be8fd1_CONTRATO_BI_GOLD_SIC_V2.md",
+      "document_type": "business_context",
+      "content_type": "application/octet-stream",
+      "extraction_status": "extracted",
+      "extracted_chars": 8152,
+      "content_sha256": "6b7a0e1c82e954c27df98546e58de285986d01079b8458efb5ff1b9bec9f0049"
+    },
+    {
+      "source_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3",
+      "source_reference": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3:document-2026-08-05T08-46-05-00-00-6eb55a01322f_document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "filename": "document-2026-08-05T08-46-05-00-00-6eb55a01322f_document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "document_type": "business_context",
+      "content_type": "application/octet-stream",
+      "extraction_status": "extracted",
+      "extracted_chars": 54146,
+      "content_sha256": "66beb3255c3b02b4fb24159db1a1ef95127502cca65b7407ea967f299b1c2e3b"
+    },
+    {
+      "source_id": "document-2026-08-05T11-05-41-00-00-5e11485b0f46",
+      "source_reference": "document-2026-08-05T11-05-41-00-00-5e11485b0f46:document-2026-08-05T08-46-05-00-00-708d5db06b9a_document-2026-08-03T08-06-00-00-00-1df488be8fd1_CONTRATO_BI_GOLD_SIC_V2.md",
+      "filename": "document-2026-08-05T08-46-05-00-00-708d5db06b9a_document-2026-08-03T08-06-00-00-00-1df488be8fd1_CONTRATO_BI_GOLD_SIC_V2.md",
+      "document_type": "business_context",
+      "content_type": "application/octet-stream",
+      "extraction_status": "extracted",
+      "extracted_chars": 8152,
+      "content_sha256": "6b7a0e1c82e954c27df98546e58de285986d01079b8458efb5ff1b9bec9f0049"
+    },
+    {
+      "source_id": "document-2026-08-05T11-05-41-00-00-a75ae829d0ef",
+      "source_reference": "document-2026-08-05T11-05-41-00-00-a75ae829d0ef:document-2026-08-05T08-46-05-00-00-f9cb47e46894_document-2026-08-03T08-05-39-00-00-cbac64e005ab_CATALOGO_FUNCIONAL_REGLAS_RIESGO_VIGENTE.md",
+      "filename": "document-2026-08-05T08-46-05-00-00-f9cb47e46894_document-2026-08-03T08-05-39-00-00-cbac64e005ab_CATALOGO_FUNCIONAL_REGLAS_RIESGO_VIGENTE.md",
+      "document_type": "business_context",
+      "content_type": "application/octet-stream",
+      "extraction_status": "extracted",
+      "extracted_chars": 25850,
+      "content_sha256": "a5e301f1b08d7a2bd8582c7e57a13beffe67911da88fa0fe8540ca6127825445"
+    }
+  ],
+  "technical_sources": [
+    {
+      "source_id": "technical-model",
+      "source_format": "fabric-information-schema",
+      "filename": "metadata_inventory.json",
+      "stored_path": "C:\\Users\\rfbugari\\OneDrive - Sopra Steria\\onto\\data\\fabric\\fabric-gold-sic-risk-pilot\\discoveries\\fabric-discovery-2026-08-05t11-04-03-00-00-b4f41ec04741\\metadata_inventory.json",
+      "content_sha256": "06b01246c728177517a29c83edd47d7eb12e00780fb801a50a39aab57cb0e249",
+      "integrity_status": "recorded"
+    }
+  ]
+}

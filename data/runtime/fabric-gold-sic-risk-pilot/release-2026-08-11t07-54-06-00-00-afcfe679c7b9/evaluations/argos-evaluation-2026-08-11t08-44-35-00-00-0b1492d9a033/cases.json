@@ -1,0 +1,765 @@
+[
+  {
+    "case_id": "business-risk-rule-sic-01",
+    "question": "¿Cuál es el riesgo de la regla 1003 en el SIC12?",
+    "expected_status": "answered",
+    "expected_item_name": "",
+    "actual_status": "answered",
+    "retrieved_item_names": [
+      "Regla 1003 — 100: exposicion por parches antiguos; pct_patch_gt_60; <30 BAIX, 30-79 MIG, 80-89 ALT, >=90 MOLT ALT; si fa",
+      "Regla 2010 — 200: riesgo por cuentas genericas; generic_accounts; 0 BAIX, 1-199 MIG, 200-700 ALT, >700 MOLT ALT; 0 cuent",
+      "Regla 2012 — 200: parches antiguos para compromiso de credenciales; pct_patch_gt_60; misma escala que 1003; 0% DEFAULT B",
+      "Regla 2008 — 200: vulnerabilidades criticas para informacion; Critical abiertas; misma escala que 1003; REAL si se calcu",
+      "Regla 3003 — 300: vulnerabilidades criticas de plataforma; Critical abiertas; misma escala que 1003; REAL si se calcula"
+    ],
+    "passed": true,
+    "failure_reason": "",
+    "investigation": {
+      "manifest": {
+        "format": "argos-investigation-v0.2",
+        "investigation_id": "argos-2026-08-11T08-44-35-00-00-5d06c6ad6017",
+        "created_at": "2026-08-11T08:45:02+00:00",
+        "release_id": "release-2026-08-11T07-54-06-00-00-afcfe679c7b9",
+        "status": "answered",
+        "mode": "llm-context-pack-plus-fabric-read-only"
+      },
+      "request": {
+        "question": "¿Cuál es el riesgo de la regla 1003 en el SIC12?"
+      },
+      "retrieval": [
+        {
+          "item_id": "candidate-business_rule-0187",
+          "item_type": "business_rule",
+          "name": "Regla 1003 — 100: exposicion por parches antiguos; pct_patch_gt_60; <30 BAIX, 30-79 MIG, 80-89 ALT, >=90 MOLT ALT; si fa",
+          "definition": "Regla 1003 — 100: exposicion por parches antiguos; pct_patch_gt_60; <30 BAIX, 30-79 MIG, 80-89 ALT, >=90 MOLT ALT; si falta dato, 0% DEFAULT BAIX",
+          "source_binding": {
+            "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+            "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+          }
+        },
+        {
+          "item_id": "candidate-business_rule-0198",
+          "item_type": "business_rule",
+          "name": "Regla 2010 — 200: riesgo por cuentas genericas; generic_accounts; 0 BAIX, 1-199 MIG, 200-700 ALT, >700 MOLT ALT; 0 cuent",
+          "definition": "Regla 2010 — 200: riesgo por cuentas genericas; generic_accounts; 0 BAIX, 1-199 MIG, 200-700 ALT, >700 MOLT ALT; 0 cuentas DEFAULT BAIX si falta",
+          "source_binding": {
+            "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+            "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+          }
+        },
+        {
+          "item_id": "candidate-business_rule-0200",
+          "item_type": "business_rule",
+          "name": "Regla 2012 — 200: parches antiguos para compromiso de credenciales; pct_patch_gt_60; misma escala que 1003; 0% DEFAULT B",
+          "definition": "Regla 2012 — 200: parches antiguos para compromiso de credenciales; pct_patch_gt_60; misma escala que 1003; 0% DEFAULT BAIX si falta",
+          "source_binding": {
+            "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+            "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+          }
+        },
+        {
+          "item_id": "candidate-business_rule-0237",
+          "item_type": "business_rule",
+          "name": "Regla 2008 — 200: vulnerabilidades criticas para informacion; Critical abiertas; misma escala que 1003; REAL si se calcu",
+          "definition": "Regla 2008 — 200: vulnerabilidades criticas para informacion; Critical abiertas; misma escala que 1003; REAL si se calcula",
+          "source_binding": {
+            "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+            "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+          }
+        },
+        {
+          "item_id": "candidate-business_rule-0243",
+          "item_type": "business_rule",
+          "name": "Regla 3003 — 300: vulnerabilidades criticas de plataforma; Critical abiertas; misma escala que 1003; REAL si se calcula",
+          "definition": "Regla 3003 — 300: vulnerabilidades criticas de plataforma; Critical abiertas; misma escala que 1003; REAL si se calcula",
+          "source_binding": {
+            "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+            "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+          }
+        }
+      ],
+      "answer": "No hay un resultado disponible para la regla 1003 en el SIC12: la consulta devolvió cero filas. Por tanto, no puede determinarse el nivel de riesgo aplicado a ese SIC con la evidencia disponible.",
+      "interpretation": "La regla 1003 corresponde a la exposición por parches antiguos y utiliza el porcentaje de equipos con más de 60 días sin actualizar. Su escala es: menos del 30% = BAIX, 30%-79% = MIG, 80%-89% = ALT y 90% o más = MOLT ALT. Si falta el dato, se documenta un valor por defecto BAIX. Sin embargo, no se dispone del valor ni del tipo de resultado para el SIC12, por lo que no debe inferirse el riesgo.",
+      "suggested_questions": [
+        "¿Puedes facilitar el porcentaje de equipos del SIC12 con más de 60 días sin actualizar?",
+        "¿Quieres revisar por qué no existe una fila de resultado para la regla 1003 y el SIC12?",
+        "¿Quieres comparar la regla 1003 con las reglas 1001, 1002 y 1004 del SIC12?"
+      ],
+      "visualization": null,
+      "live_query": {
+        "status": "connected_read_only_query",
+        "query_name": "risk_rule_sic",
+        "parameters": [
+          1003,
+          12
+        ],
+        "operation": "SELECT",
+        "server": "f44sq3l2irfe5itcs65ld2hme4-y3b4rqduvonepfrtu4k3htpra4.datawarehouse.fabric.microsoft.com",
+        "database": "RAN_DE_DW_200_SILVER",
+        "rows": []
+      },
+      "llm_plan": {
+        "query_name": "risk_rule_sic",
+        "parameters": {
+          "id_risc": 1003,
+          "sic": 12
+        },
+        "needs_stronger_model": false,
+        "reasoning_note": "La pregunta solicita el riesgo más reciente de una regla específica (1003) en un SIC específico (12), y el catálogo ofrece exactamente la consulta risk_rule_sic con ambos parámetros enteros."
+      },
+      "llm_response": {
+        "answer": "No hay un resultado disponible para la regla 1003 en el SIC12: la consulta devolvió cero filas. Por tanto, no puede determinarse el nivel de riesgo aplicado a ese SIC con la evidencia disponible.",
+        "interpretation": "La regla 1003 corresponde a la exposición por parches antiguos y utiliza el porcentaje de equipos con más de 60 días sin actualizar. Su escala es: menos del 30% = BAIX, 30%-79% = MIG, 80%-89% = ALT y 90% o más = MOLT ALT. Si falta el dato, se documenta un valor por defecto BAIX. Sin embargo, no se dispone del valor ni del tipo de resultado para el SIC12, por lo que no debe inferirse el riesgo.",
+        "suggested_questions": [
+          "¿Puedes facilitar el porcentaje de equipos del SIC12 con más de 60 días sin actualizar?",
+          "¿Quieres revisar por qué no existe una fila de resultado para la regla 1003 y el SIC12?",
+          "¿Quieres comparar la regla 1003 con las reglas 1001, 1002 y 1004 del SIC12?"
+        ],
+        "visualization": null,
+        "needs_stronger_model": false,
+        "reasoning_note": "La consulta específica para la regla 1003 y el SIC12 devolvió cero filas; la documentación sí aporta la definición y los umbrales de la regla, pero no un resultado calculado para ese SIC."
+      },
+      "usage_boundary": "Solo usar los elementos aprobados y sus source bindings; abstenerse fuera de esta evidencia.",
+      "reasoning_advisory": {
+        "level": "llm_reasoning_active",
+        "model_used": "configured-llm",
+        "configured_provider": "openai",
+        "configured_model": "gpt-5.6-luna",
+        "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+      },
+      "llm_used": true,
+      "package_path": "data\\runtime\\fabric-gold-sic-risk-pilot\\release-2026-08-11t07-54-06-00-00-afcfe679c7b9\\argos-2026-08-11t08-44-35-00-00-5d06c6ad6017"
+    }
+  },
+  {
+    "case_id": "answer-01",
+    "question": "¿Qué es INFRA?",
+    "expected_status": "answered",
+    "expected_item_name": "INFRA",
+    "actual_status": "answered",
+    "retrieved_item_names": [
+      "INFRA",
+      "metodo de probabilidad",
+      "metodo de impacto",
+      "Por tanto, para explicar una regla INFRA se debe leer la regla SIC equivalente de este catalogo y confirmar que el activ",
+      "silver.dim_infra_cidat"
+    ],
+    "passed": true,
+    "failure_reason": "",
+    "investigation": {
+      "manifest": {
+        "format": "argos-investigation-v0.2",
+        "investigation_id": "argos-2026-08-11T08-45-02-00-00-ed840ecffba2",
+        "created_at": "2026-08-11T08:45:37+00:00",
+        "release_id": "release-2026-08-11T07-54-06-00-00-afcfe679c7b9",
+        "status": "answered",
+        "mode": "llm-context-pack"
+      },
+      "request": {
+        "question": "¿Qué es INFRA?"
+      },
+      "retrieval": [
+        {
+          "item_id": "candidate-concept-0006",
+          "item_type": "concept",
+          "name": "INFRA",
+          "definition": "riesgo de infraestructura con scope funcional propio publicado en silver.dim_infra_cidat y metodo de calculo alineado con SIC.",
+          "source_binding": {
+            "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+            "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-001"
+          }
+        },
+        {
+          "item_id": "candidate-concept-0073",
+          "item_type": "concept",
+          "name": "metodo de probabilidad",
+          "definition": "reglas SIC aplicadas al activo/scope INFRA cuando existe fuente equivalente;",
+          "source_binding": {
+            "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+            "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-005"
+          }
+        },
+        {
+          "item_id": "candidate-concept-0074",
+          "item_type": "concept",
+          "name": "metodo de impacto",
+          "definition": "lectura tipo SIC sobre atributos INFRA/CIDAT disponibles;",
+          "source_binding": {
+            "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+            "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-005"
+          }
+        },
+        {
+          "item_id": "candidate-business_rule-0284",
+          "item_type": "business_rule",
+          "name": "Por tanto, para explicar una regla INFRA se debe leer la regla SIC equivalente de este catalogo y confirmar que el activ",
+          "definition": "Por tanto, para explicar una regla INFRA se debe leer la regla SIC equivalente de este catalogo y confirmar que el activo INFRA tiene dato Silver usable. Si falta dato, aplica el mismo principio de defaults controlados del metodo SIC, no un default optimista LLDT.",
+          "source_binding": {
+            "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+            "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-005"
+          }
+        },
+        {
+          "item_id": "candidate-technical-asset-0422",
+          "item_type": "technical_asset",
+          "name": "silver.dim_infra_cidat",
+          "definition": "Activo técnico Fabric table: silver.dim_infra_cidat",
+          "source_binding": {
+            "source_document_id": "fabric-information-schema",
+            "source_chunk_id": "fabric:silver.dim_infra_cidat"
+          }
+        }
+      ],
+      "answer": "INFRA es el riesgo de infraestructura. Tiene un alcance funcional propio, se publica en silver.dim_infra_cidat y utiliza un método de cálculo alineado con SIC.",
+      "interpretation": "La evidencia define INFRA como un ámbito específico de evaluación de riesgo de infraestructura, distinto de una simple etiqueta. Para explicar sus resultados, se debe revisar la regla SIC equivalente y confirmar que el activo INFRA dispone de datos utilizables; si faltan datos, se aplican valores por defecto controlados.",
+      "suggested_questions": [
+        "¿Qué reglas componen el riesgo INFRA?",
+        "¿Cómo se calcula la probabilidad de INFRA?",
+        "¿Cómo se calcula el impacto de INFRA?",
+        "¿Qué datos se utilizan para evaluar INFRA?",
+        "¿Qué departamentos o activos tienen mayor riesgo INFRA?"
+      ],
+      "visualization": null,
+      "live_query": null,
+      "llm_plan": {
+        "query_name": null,
+        "parameters": {},
+        "needs_stronger_model": false,
+        "reasoning_note": "La pregunta es conceptual y el contexto aprobado ya define INFRA: riesgo de infraestructura con scope funcional propio, publicado en silver.dim_infra_cidat y con un método de cálculo alineado con SIC. Ninguna consulta permitida del catálogo aporta una definición conceptual adicional."
+      },
+      "llm_response": {
+        "answer": "INFRA es el riesgo de infraestructura. Tiene un alcance funcional propio, se publica en silver.dim_infra_cidat y utiliza un método de cálculo alineado con SIC.",
+        "interpretation": "La evidencia define INFRA como un ámbito específico de evaluación de riesgo de infraestructura, distinto de una simple etiqueta. Para explicar sus resultados, se debe revisar la regla SIC equivalente y confirmar que el activo INFRA dispone de datos utilizables; si faltan datos, se aplican valores por defecto controlados.",
+        "suggested_questions": [
+          "¿Qué reglas componen el riesgo INFRA?",
+          "¿Cómo se calcula la probabilidad de INFRA?",
+          "¿Cómo se calcula el impacto de INFRA?",
+          "¿Qué datos se utilizan para evaluar INFRA?",
+          "¿Qué departamentos o activos tienen mayor riesgo INFRA?"
+        ],
+        "visualization": null,
+        "needs_stronger_model": false,
+        "reasoning_note": "La evidencia documental proporciona una definición directa de INFRA y describe su alcance y método de cálculo. No se dispone de resultados concretos ni de una consulta de datos para ampliar la respuesta."
+      },
+      "usage_boundary": "Solo usar los elementos aprobados y sus source bindings; abstenerse fuera de esta evidencia.",
+      "reasoning_advisory": {
+        "level": "llm_reasoning_active",
+        "model_used": "configured-llm",
+        "configured_provider": "openai",
+        "configured_model": "gpt-5.6-luna",
+        "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+      },
+      "llm_used": true,
+      "package_path": "data\\runtime\\fabric-gold-sic-risk-pilot\\release-2026-08-11t07-54-06-00-00-afcfe679c7b9\\argos-2026-08-11t08-45-02-00-00-ed840ecffba2"
+    }
+  },
+  {
+    "case_id": "answer-02",
+    "question": "¿Qué es si hay pesos positivos?",
+    "expected_status": "answered",
+    "expected_item_name": "si hay pesos positivos",
+    "actual_status": "answered",
+    "retrieved_item_names": [
+      "si hay pesos positivos",
+      "si no hay pesos positivos",
+      "si hay pesos positivos -> candidate-technical-asset-0426",
+      "si no hay pesos positivos -> candidate-technical-asset-0426"
+    ],
+    "passed": true,
+    "failure_reason": "",
+    "investigation": {
+      "manifest": {
+        "format": "argos-investigation-v0.2",
+        "investigation_id": "argos-2026-08-11T08-45-37-00-00-0ccfa86e7385",
+        "created_at": "2026-08-11T08:46:33+00:00",
+        "release_id": "release-2026-08-11T07-54-06-00-00-afcfe679c7b9",
+        "status": "answered",
+        "mode": "llm-context-pack"
+      },
+      "request": {
+        "question": "¿Qué es si hay pesos positivos?"
+      },
+      "retrieval": [
+        {
+          "item_id": "candidate-concept-0065",
+          "item_type": "concept",
+          "name": "si hay pesos positivos",
+          "definition": "SUM(nivel_num * peso_regla) / SUM(peso_regla);",
+          "source_binding": {
+            "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+            "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+          }
+        },
+        {
+          "item_id": "candidate-concept-0066",
+          "item_type": "concept",
+          "name": "si no hay pesos positivos",
+          "definition": "promedio simple de niveles;",
+          "source_binding": {
+            "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+            "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+          }
+        },
+        {
+          "item_id": "model-source-binding-d261ccaba4b8",
+          "item_type": "source_binding",
+          "name": "si hay pesos positivos -> candidate-technical-asset-0426",
+          "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+          "source_binding": [
+            "candidate-concept-0065",
+            "candidate-technical-asset-0426"
+          ]
+        },
+        {
+          "item_id": "model-source-binding-4737cd5a1042",
+          "item_type": "source_binding",
+          "name": "si no hay pesos positivos -> candidate-technical-asset-0426",
+          "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+          "source_binding": [
+            "candidate-concept-0066",
+            "candidate-technical-asset-0426"
+          ]
+        }
+      ],
+      "answer": "Si hay pesos positivos, el resultado se calcula como una media ponderada: se multiplica el nivel numérico de cada regla por su peso, se suman esos productos y se divide entre la suma de los pesos. Fórmula: SUM(nivel_num × peso_regla) / SUM(peso_regla).",
+      "interpretation": "Las reglas con mayor peso influyen más en el resultado final. La evidencia no aporta valores concretos de niveles ni pesos para calcular un resultado específico.",
+      "suggested_questions": [
+        "¿Qué ocurre si no hay pesos positivos?",
+        "¿Cómo se interpreta el nivel numérico resultante?",
+        "¿Qué reglas tienen mayor peso en el cálculo?"
+      ],
+      "visualization": null,
+      "live_query": null,
+      "llm_plan": {
+        "query_name": null,
+        "parameters": {},
+        "needs_stronger_model": false,
+        "reasoning_note": "La pregunta solicita el significado de un concepto ya definido en el contexto aprobado: si hay pesos positivos, el cálculo es SUM(nivel_num * peso_regla) / SUM(peso_regla). No requiere consultar datos."
+      },
+      "llm_response": {
+        "answer": "Si hay pesos positivos, el resultado se calcula como una media ponderada: se multiplica el nivel numérico de cada regla por su peso, se suman esos productos y se divide entre la suma de los pesos. Fórmula: SUM(nivel_num × peso_regla) / SUM(peso_regla).",
+        "interpretation": "Las reglas con mayor peso influyen más en el resultado final. La evidencia no aporta valores concretos de niveles ni pesos para calcular un resultado específico.",
+        "suggested_questions": [
+          "¿Qué ocurre si no hay pesos positivos?",
+          "¿Cómo se interpreta el nivel numérico resultante?",
+          "¿Qué reglas tienen mayor peso en el cálculo?"
+        ],
+        "visualization": null,
+        "needs_stronger_model": false,
+        "reasoning_note": "La definición está explícitamente disponible en la evidencia y no requiere consultar datos."
+      },
+      "usage_boundary": "Solo usar los elementos aprobados y sus source bindings; abstenerse fuera de esta evidencia.",
+      "reasoning_advisory": {
+        "level": "llm_reasoning_active",
+        "model_used": "configured-llm",
+        "configured_provider": "openai",
+        "configured_model": "gpt-5.6-luna",
+        "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+      },
+      "llm_used": true,
+      "package_path": "data\\runtime\\fabric-gold-sic-risk-pilot\\release-2026-08-11t07-54-06-00-00-afcfe679c7b9\\argos-2026-08-11t08-45-37-00-00-0ccfa86e7385"
+    }
+  },
+  {
+    "case_id": "answer-03",
+    "question": "¿Qué es si no hay pesos positivos?",
+    "expected_status": "answered",
+    "expected_item_name": "si no hay pesos positivos",
+    "actual_status": "answered",
+    "retrieved_item_names": [
+      "si hay pesos positivos",
+      "si no hay pesos positivos",
+      "si hay pesos positivos -> candidate-technical-asset-0426",
+      "si no hay pesos positivos -> candidate-technical-asset-0426"
+    ],
+    "passed": true,
+    "failure_reason": "",
+    "investigation": {
+      "manifest": {
+        "format": "argos-investigation-v0.2",
+        "investigation_id": "argos-2026-08-11T08-46-33-00-00-7eeca3155649",
+        "created_at": "2026-08-11T08:47:29+00:00",
+        "release_id": "release-2026-08-11T07-54-06-00-00-afcfe679c7b9",
+        "status": "answered",
+        "mode": "llm-context-pack"
+      },
+      "request": {
+        "question": "¿Qué es si no hay pesos positivos?"
+      },
+      "retrieval": [
+        {
+          "item_id": "candidate-concept-0065",
+          "item_type": "concept",
+          "name": "si hay pesos positivos",
+          "definition": "SUM(nivel_num * peso_regla) / SUM(peso_regla);",
+          "source_binding": {
+            "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+            "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+          }
+        },
+        {
+          "item_id": "candidate-concept-0066",
+          "item_type": "concept",
+          "name": "si no hay pesos positivos",
+          "definition": "promedio simple de niveles;",
+          "source_binding": {
+            "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+            "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+          }
+        },
+        {
+          "item_id": "model-source-binding-d261ccaba4b8",
+          "item_type": "source_binding",
+          "name": "si hay pesos positivos -> candidate-technical-asset-0426",
+          "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+          "source_binding": [
+            "candidate-concept-0065",
+            "candidate-technical-asset-0426"
+          ]
+        },
+        {
+          "item_id": "model-source-binding-4737cd5a1042",
+          "item_type": "source_binding",
+          "name": "si no hay pesos positivos -> candidate-technical-asset-0426",
+          "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+          "source_binding": [
+            "candidate-concept-0066",
+            "candidate-technical-asset-0426"
+          ]
+        }
+      ],
+      "answer": "Si no hay pesos positivos, el nivel se calcula mediante el promedio simple de los niveles disponibles.",
+      "interpretation": "No se aplica una media ponderada; todos los niveles participan con el mismo peso. La evidencia no especifica qué ocurre si tampoco existen niveles disponibles.",
+      "suggested_questions": [
+        "¿Qué niveles se incluyen en el promedio simple?",
+        "¿Qué resultado se devuelve si no hay niveles disponibles?",
+        "¿Cómo se traduce el promedio numérico a BAIX, MIG, ALT o MOLT ALT?"
+      ],
+      "visualization": null,
+      "live_query": null,
+      "llm_plan": {
+        "query_name": null,
+        "parameters": {},
+        "needs_stronger_model": false,
+        "reasoning_note": "La pregunta es conceptual y está respondida directamente por el contexto aprobado: si no hay pesos positivos, se aplica el promedio simple de niveles. No es necesario ejecutar una consulta del catálogo."
+      },
+      "llm_response": {
+        "answer": "Si no hay pesos positivos, el nivel se calcula mediante el promedio simple de los niveles disponibles.",
+        "interpretation": "No se aplica una media ponderada; todos los niveles participan con el mismo peso. La evidencia no especifica qué ocurre si tampoco existen niveles disponibles.",
+        "suggested_questions": [
+          "¿Qué niveles se incluyen en el promedio simple?",
+          "¿Qué resultado se devuelve si no hay niveles disponibles?",
+          "¿Cómo se traduce el promedio numérico a BAIX, MIG, ALT o MOLT ALT?"
+        ],
+        "visualization": null,
+        "needs_stronger_model": false,
+        "reasoning_note": "La definición disponible indica explícitamente: «si no hay pesos positivos: promedio simple de niveles»."
+      },
+      "usage_boundary": "Solo usar los elementos aprobados y sus source bindings; abstenerse fuera de esta evidencia.",
+      "reasoning_advisory": {
+        "level": "llm_reasoning_active",
+        "model_used": "configured-llm",
+        "configured_provider": "openai",
+        "configured_model": "gpt-5.6-luna",
+        "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+      },
+      "llm_used": true,
+      "package_path": "data\\runtime\\fabric-gold-sic-risk-pilot\\release-2026-08-11t07-54-06-00-00-afcfe679c7b9\\argos-2026-08-11t08-46-33-00-00-7eeca3155649"
+    }
+  },
+  {
+    "case_id": "answer-04",
+    "question": "¿Qué es Unidad de calculo?",
+    "expected_status": "answered",
+    "expected_item_name": "Unidad de calculo",
+    "actual_status": "answered",
+    "retrieved_item_names": [
+      "Unidad de calculo",
+      "Unidad de calculo vigente",
+      "Unidad de calculo -> candidate-technical-asset-0426",
+      "Unidad de calculo vigente -> candidate-technical-asset-0433",
+      "INFRA"
+    ],
+    "passed": true,
+    "failure_reason": "",
+    "investigation": {
+      "manifest": {
+        "format": "argos-investigation-v0.2",
+        "investigation_id": "argos-2026-08-11T08-47-29-00-00-155e0068af23",
+        "created_at": "2026-08-11T08:48:26+00:00",
+        "release_id": "release-2026-08-11T07-54-06-00-00-afcfe679c7b9",
+        "status": "answered",
+        "mode": "llm-context-pack"
+      },
+      "request": {
+        "question": "¿Qué es Unidad de calculo?"
+      },
+      "retrieval": [
+        {
+          "item_id": "candidate-concept-0067",
+          "item_type": "concept",
+          "name": "Unidad de calculo",
+          "definition": "departamento o ambito funcional de puestos.",
+          "source_binding": {
+            "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+            "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+          }
+        },
+        {
+          "item_id": "candidate-concept-0071",
+          "item_type": "concept",
+          "name": "Unidad de calculo vigente",
+          "definition": "departamento de referencia (codigo_departamento_ref) con SIC canonico auxiliar.",
+          "source_binding": {
+            "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+            "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+          }
+        },
+        {
+          "item_id": "model-source-binding-3da3bca81bab",
+          "item_type": "source_binding",
+          "name": "Unidad de calculo -> candidate-technical-asset-0426",
+          "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+          "source_binding": [
+            "candidate-concept-0067",
+            "candidate-technical-asset-0426"
+          ]
+        },
+        {
+          "item_id": "model-source-binding-beaa1d250efa",
+          "item_type": "source_binding",
+          "name": "Unidad de calculo vigente -> candidate-technical-asset-0433",
+          "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+          "source_binding": [
+            "candidate-concept-0071",
+            "candidate-technical-asset-0433"
+          ]
+        },
+        {
+          "item_id": "candidate-concept-0006",
+          "item_type": "concept",
+          "name": "INFRA",
+          "definition": "riesgo de infraestructura con scope funcional propio publicado en silver.dim_infra_cidat y metodo de calculo alineado con SIC.",
+          "source_binding": {
+            "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+            "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-001"
+          }
+        }
+      ],
+      "answer": "La Unidad de cálculo es el departamento o ámbito funcional de puestos sobre el que se realiza el cálculo del riesgo.",
+      "interpretation": "En el modelo vigente, la unidad de cálculo se identifica normalmente con un departamento de referencia (codigo_departamento_ref).",
+      "suggested_questions": [
+        "¿Cómo se identifica la Unidad de cálculo en los datos?",
+        "¿Qué reglas se aplican a cada Unidad de cálculo?",
+        "¿Cómo se agrega el resultado de una Unidad de cálculo?"
+      ],
+      "visualization": null,
+      "live_query": null,
+      "llm_plan": {
+        "query_name": null,
+        "parameters": {},
+        "needs_stronger_model": false,
+        "reasoning_note": "La definición está disponible directamente en el contexto aprobado: Unidad de cálculo es el departamento o ámbito funcional de puestos. No es necesario ejecutar una consulta del catálogo."
+      },
+      "llm_response": {
+        "answer": "La Unidad de cálculo es el departamento o ámbito funcional de puestos sobre el que se realiza el cálculo del riesgo.",
+        "interpretation": "En el modelo vigente, la unidad de cálculo se identifica normalmente con un departamento de referencia (codigo_departamento_ref).",
+        "suggested_questions": [
+          "¿Cómo se identifica la Unidad de cálculo en los datos?",
+          "¿Qué reglas se aplican a cada Unidad de cálculo?",
+          "¿Cómo se agrega el resultado de una Unidad de cálculo?"
+        ],
+        "visualization": null,
+        "needs_stronger_model": false,
+        "reasoning_note": "La definición está disponible directamente en la evidencia aprobada."
+      },
+      "usage_boundary": "Solo usar los elementos aprobados y sus source bindings; abstenerse fuera de esta evidencia.",
+      "reasoning_advisory": {
+        "level": "llm_reasoning_active",
+        "model_used": "configured-llm",
+        "configured_provider": "openai",
+        "configured_model": "gpt-5.6-luna",
+        "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+      },
+      "llm_used": true,
+      "package_path": "data\\runtime\\fabric-gold-sic-risk-pilot\\release-2026-08-11t07-54-06-00-00-afcfe679c7b9\\argos-2026-08-11t08-47-29-00-00-155e0068af23"
+    }
+  },
+  {
+    "case_id": "answer-05",
+    "question": "¿Qué es Unidad de calculo vigente?",
+    "expected_status": "answered",
+    "expected_item_name": "Unidad de calculo vigente",
+    "actual_status": "answered",
+    "retrieved_item_names": [
+      "Unidad de calculo vigente",
+      "Unidad de calculo vigente -> candidate-technical-asset-0433",
+      "Unidad de calculo",
+      "Unidad de calculo -> candidate-technical-asset-0426",
+      "INFRA"
+    ],
+    "passed": true,
+    "failure_reason": "",
+    "investigation": {
+      "manifest": {
+        "format": "argos-investigation-v0.2",
+        "investigation_id": "argos-2026-08-11T08-48-26-00-00-104cfd5310be",
+        "created_at": "2026-08-11T08:49:22+00:00",
+        "release_id": "release-2026-08-11T07-54-06-00-00-afcfe679c7b9",
+        "status": "answered",
+        "mode": "llm-context-pack"
+      },
+      "request": {
+        "question": "¿Qué es Unidad de calculo vigente?"
+      },
+      "retrieval": [
+        {
+          "item_id": "candidate-concept-0071",
+          "item_type": "concept",
+          "name": "Unidad de calculo vigente",
+          "definition": "departamento de referencia (codigo_departamento_ref) con SIC canonico auxiliar.",
+          "source_binding": {
+            "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+            "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+          }
+        },
+        {
+          "item_id": "model-source-binding-beaa1d250efa",
+          "item_type": "source_binding",
+          "name": "Unidad de calculo vigente -> candidate-technical-asset-0433",
+          "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+          "source_binding": [
+            "candidate-concept-0071",
+            "candidate-technical-asset-0433"
+          ]
+        },
+        {
+          "item_id": "candidate-concept-0067",
+          "item_type": "concept",
+          "name": "Unidad de calculo",
+          "definition": "departamento o ambito funcional de puestos.",
+          "source_binding": {
+            "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+            "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+          }
+        },
+        {
+          "item_id": "model-source-binding-3da3bca81bab",
+          "item_type": "source_binding",
+          "name": "Unidad de calculo -> candidate-technical-asset-0426",
+          "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+          "source_binding": [
+            "candidate-concept-0067",
+            "candidate-technical-asset-0426"
+          ]
+        },
+        {
+          "item_id": "candidate-concept-0006",
+          "item_type": "concept",
+          "name": "INFRA",
+          "definition": "riesgo de infraestructura con scope funcional propio publicado en silver.dim_infra_cidat y metodo de calculo alineado con SIC.",
+          "source_binding": {
+            "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+            "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-001"
+          }
+        }
+      ],
+      "answer": "“Unidad de cálculo vigente” es el departamento de referencia identificado por `codigo_departamento_ref`, junto con un SIC canónico auxiliar. Es la unidad funcional sobre la que se aplican o interpretan los cálculos de riesgo vigentes.",
+      "interpretation": "La evidencia distingue entre la unidad de cálculo general —un departamento o ámbito funcional de puestos— y la unidad vigente, que concreta ese ámbito mediante el departamento de referencia y su SIC canónico auxiliar. No se aporta información adicional sobre cómo se selecciona dicho departamento ni sobre sus valores concretos.",
+      "suggested_questions": [
+        "¿Qué valor de codigo_departamento_ref corresponde a cada unidad de cálculo vigente?",
+        "¿Cómo se determina el SIC canónico auxiliar de un departamento?",
+        "¿Qué reglas de probabilidad e impacto utilizan la unidad de cálculo vigente?"
+      ],
+      "visualization": null,
+      "live_query": null,
+      "llm_plan": {
+        "query_name": null,
+        "parameters": {},
+        "needs_stronger_model": false,
+        "reasoning_note": "La pregunta es definicional y el contexto aprobado ya indica que 'Unidad de calculo vigente' es el departamento de referencia (codigo_departamento_ref) con SIC canonico auxiliar. Ninguna consulta permitida del catálogo aporta una definición adicional."
+      },
+      "llm_response": {
+        "answer": "“Unidad de cálculo vigente” es el departamento de referencia identificado por `codigo_departamento_ref`, junto con un SIC canónico auxiliar. Es la unidad funcional sobre la que se aplican o interpretan los cálculos de riesgo vigentes.",
+        "interpretation": "La evidencia distingue entre la unidad de cálculo general —un departamento o ámbito funcional de puestos— y la unidad vigente, que concreta ese ámbito mediante el departamento de referencia y su SIC canónico auxiliar. No se aporta información adicional sobre cómo se selecciona dicho departamento ni sobre sus valores concretos.",
+        "suggested_questions": [
+          "¿Qué valor de codigo_departamento_ref corresponde a cada unidad de cálculo vigente?",
+          "¿Cómo se determina el SIC canónico auxiliar de un departamento?",
+          "¿Qué reglas de probabilidad e impacto utilizan la unidad de cálculo vigente?"
+        ],
+        "visualization": null,
+        "needs_stronger_model": false,
+        "reasoning_note": "La definición aparece explícitamente en la evidencia documental con confianza media y binding técnico asociado; no se requiere consulta adicional."
+      },
+      "usage_boundary": "Solo usar los elementos aprobados y sus source bindings; abstenerse fuera de esta evidencia.",
+      "reasoning_advisory": {
+        "level": "llm_reasoning_active",
+        "model_used": "configured-llm",
+        "configured_provider": "openai",
+        "configured_model": "gpt-5.6-luna",
+        "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+      },
+      "llm_used": true,
+      "package_path": "data\\runtime\\fabric-gold-sic-risk-pilot\\release-2026-08-11t07-54-06-00-00-afcfe679c7b9\\argos-2026-08-11t08-48-26-00-00-104cfd5310be"
+    }
+  },
+  {
+    "case_id": "abstention-01",
+    "question": "¿Qué planeta es más grande?",
+    "expected_status": "abstained",
+    "expected_item_name": "",
+    "actual_status": "abstained",
+    "retrieved_item_names": [],
+    "passed": true,
+    "failure_reason": "",
+    "investigation": {
+      "manifest": {
+        "format": "argos-investigation-v0.2",
+        "investigation_id": "argos-2026-08-11T08-49-22-00-00-7f90405ea277",
+        "created_at": "2026-08-11T08:50:18+00:00",
+        "release_id": "release-2026-08-11T07-54-06-00-00-afcfe679c7b9",
+        "status": "abstained",
+        "mode": "llm-context-pack"
+      },
+      "request": {
+        "question": "¿Qué planeta es más grande?"
+      },
+      "retrieval": [],
+      "answer": "Me abstengo: la release no contiene evidencia aprobada suficiente para responder esta pregunta.",
+      "interpretation": "La evidencia entregada corresponde a un dominio de riesgos SIC y no contiene información sobre planetas ni sus tamaños.",
+      "suggested_questions": [
+        "¿Quieres comparar planetas del sistema solar por diámetro?",
+        "¿Quieres saber cuál es el planeta más grande del sistema solar?"
+      ],
+      "visualization": null,
+      "live_query": null,
+      "llm_plan": {
+        "query_name": null,
+        "parameters": {},
+        "needs_stronger_model": false,
+        "reasoning_note": "La pregunta compara el tamaño de planetas y no está relacionada con el dominio aprobado de riesgos SIC ni con ninguna consulta permitida del catálogo."
+      },
+      "llm_response": {
+        "answer": "Me abstengo: la release no contiene evidencia aprobada suficiente para responder esta pregunta.",
+        "interpretation": "La evidencia entregada corresponde a un dominio de riesgos SIC y no contiene información sobre planetas ni sus tamaños.",
+        "suggested_questions": [
+          "¿Quieres comparar planetas del sistema solar por diámetro?",
+          "¿Quieres saber cuál es el planeta más grande del sistema solar?"
+        ],
+        "visualization": null,
+        "needs_stronger_model": false,
+        "reasoning_note": "La pregunta está fuera del dominio de la evidencia disponible; no debe inferirse una respuesta externa."
+      },
+      "usage_boundary": "Solo usar los elementos aprobados y sus source bindings; abstenerse fuera de esta evidencia.",
+      "reasoning_advisory": {
+        "level": "llm_reasoning_active",
+        "model_used": "configured-llm",
+        "configured_provider": "openai",
+        "configured_model": "gpt-5.6-luna",
+        "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+      },
+      "llm_used": true,
+      "package_path": "data\\runtime\\fabric-gold-sic-risk-pilot\\release-2026-08-11t07-54-06-00-00-afcfe679c7b9\\argos-2026-08-11t08-49-22-00-00-7f90405ea277"
+    }
+  }
+]

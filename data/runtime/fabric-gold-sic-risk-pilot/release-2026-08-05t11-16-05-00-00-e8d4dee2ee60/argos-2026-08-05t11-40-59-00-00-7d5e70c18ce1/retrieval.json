@@ -1,0 +1,52 @@
+[
+  {
+    "item_id": "candidate-technical-asset-0362",
+    "item_type": "technical_asset",
+    "name": "gold_cultura.fact_riesgo",
+    "definition": "Activo técnico Fabric table: gold_cultura.fact_riesgo",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_cultura.fact_riesgo"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0370",
+    "item_type": "technical_asset",
+    "name": "gold_governanca.fact_riesgo",
+    "definition": "Activo técnico Fabric table: gold_governanca.fact_riesgo",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_governanca.fact_riesgo"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0383",
+    "item_type": "technical_asset",
+    "name": "gold_infra.fact_riesgo",
+    "definition": "Activo técnico Fabric table: gold_infra.fact_riesgo",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_infra.fact_riesgo"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0386",
+    "item_type": "technical_asset",
+    "name": "gold_infra.vw_riesgo_resumen",
+    "definition": "Activo técnico Fabric table: gold_infra.vw_riesgo_resumen",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_infra.vw_riesgo_resumen"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0395",
+    "item_type": "technical_asset",
+    "name": "gold_lldt.fact_riesgo",
+    "definition": "Activo técnico Fabric table: gold_lldt.fact_riesgo",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_lldt.fact_riesgo"
+    }
+  }
+]

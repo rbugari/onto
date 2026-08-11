@@ -1,0 +1,1 @@
+DEFAULT significa que falta un dato usable para resolver una regla y, en lugar de dejar el cálculo incompleto, se aplica el valor funcional configurado para ese caso. Es un resultado controlado por ausencia de información, no una medición obtenida de una fuente dinámica.

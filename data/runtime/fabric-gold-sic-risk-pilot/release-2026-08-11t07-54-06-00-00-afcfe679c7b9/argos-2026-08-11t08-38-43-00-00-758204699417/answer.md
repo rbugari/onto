@@ -1,0 +1,1 @@
+Si hay pesos positivos, el resultado se calcula como una media ponderada: SUM(nivel_num × peso_regla) / SUM(peso_regla).

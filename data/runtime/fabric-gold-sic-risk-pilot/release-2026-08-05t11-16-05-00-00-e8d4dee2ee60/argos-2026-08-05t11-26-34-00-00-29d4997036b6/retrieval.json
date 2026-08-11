@@ -1,0 +1,52 @@
+[
+  {
+    "item_id": "candidate-technical-asset-0426",
+    "item_type": "technical_asset",
+    "name": "silver.dim_modelo_riesgo_regla",
+    "definition": "Activo técnico Fabric table: silver.dim_modelo_riesgo_regla",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:silver.dim_modelo_riesgo_regla"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0427",
+    "item_type": "technical_asset",
+    "name": "silver.dim_modelo_riesgo_regla_admin",
+    "definition": "Activo técnico Fabric table: silver.dim_modelo_riesgo_regla_admin",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:silver.dim_modelo_riesgo_regla_admin"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-1670",
+    "item_type": "technical_asset",
+    "name": "silver.dim_modelo_riesgo_regla.dominio_modelo",
+    "definition": "Activo técnico Fabric column: silver.dim_modelo_riesgo_regla.dominio_modelo",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:silver.dim_modelo_riesgo_regla.dominio_modelo"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-1671",
+    "item_type": "technical_asset",
+    "name": "silver.dim_modelo_riesgo_regla.factor_modelo",
+    "definition": "Activo técnico Fabric column: silver.dim_modelo_riesgo_regla.factor_modelo",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:silver.dim_modelo_riesgo_regla.factor_modelo"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-1672",
+    "item_type": "technical_asset",
+    "name": "silver.dim_modelo_riesgo_regla.codigo_regla",
+    "definition": "Activo técnico Fabric column: silver.dim_modelo_riesgo_regla.codigo_regla",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:silver.dim_modelo_riesgo_regla.codigo_regla"
+    }
+  }
+]

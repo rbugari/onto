@@ -1,0 +1,98 @@
+[
+  {
+    "case_id": "manual-001",
+    "question": "cual es el valor de la regla 1003 en el sic 12 ?",
+    "expected_status": "answered",
+    "expected_item_name": "",
+    "actual_status": "answered",
+    "retrieved_item_names": [
+      "gold_sic.dim_regla.tipo_valor_default",
+      "gold_sic.dim_regla",
+      "gold_infra.dim_regla.tipo_valor_default",
+      "gold_sic.dim_regla.dominio_modelo",
+      "gold_sic.dim_regla.codigo_regla"
+    ],
+    "passed": true,
+    "failure_reason": "",
+    "investigation": {
+      "manifest": {
+        "format": "argos-investigation-v0.1",
+        "investigation_id": "argos-2026-08-05T11-33-58-00-00-d9960a712e61",
+        "created_at": "2026-08-05T11:33:58+00:00",
+        "release_id": "release-2026-08-05T11-16-05-00-00-e8d4dee2ee60",
+        "status": "answered",
+        "mode": "deterministic-context-pack-plus-fabric-read-only"
+      },
+      "request": {
+        "question": "cual es el valor de la regla 1003 en el sic 12 ?"
+      },
+      "retrieval": [
+        {
+          "item_id": "candidate-technical-asset-1198",
+          "item_type": "technical_asset",
+          "name": "gold_sic.dim_regla.tipo_valor_default",
+          "definition": "Activo técnico Fabric column: gold_sic.dim_regla.tipo_valor_default",
+          "source_binding": {
+            "source_document_id": "fabric-information-schema",
+            "source_chunk_id": "fabric:gold_sic.dim_regla.tipo_valor_default"
+          }
+        },
+        {
+          "item_id": "candidate-technical-asset-0400",
+          "item_type": "technical_asset",
+          "name": "gold_sic.dim_regla",
+          "definition": "Activo técnico Fabric table: gold_sic.dim_regla",
+          "source_binding": {
+            "source_document_id": "fabric-information-schema",
+            "source_chunk_id": "fabric:gold_sic.dim_regla"
+          }
+        },
+        {
+          "item_id": "candidate-technical-asset-0802",
+          "item_type": "technical_asset",
+          "name": "gold_infra.dim_regla.tipo_valor_default",
+          "definition": "Activo técnico Fabric column: gold_infra.dim_regla.tipo_valor_default",
+          "source_binding": {
+            "source_document_id": "fabric-information-schema",
+            "source_chunk_id": "fabric:gold_infra.dim_regla.tipo_valor_default"
+          }
+        },
+        {
+          "item_id": "candidate-technical-asset-1181",
+          "item_type": "technical_asset",
+          "name": "gold_sic.dim_regla.dominio_modelo",
+          "definition": "Activo técnico Fabric column: gold_sic.dim_regla.dominio_modelo",
+          "source_binding": {
+            "source_document_id": "fabric-information-schema",
+            "source_chunk_id": "fabric:gold_sic.dim_regla.dominio_modelo"
+          }
+        },
+        {
+          "item_id": "candidate-technical-asset-1182",
+          "item_type": "technical_asset",
+          "name": "gold_sic.dim_regla.codigo_regla",
+          "definition": "Activo técnico Fabric column: gold_sic.dim_regla.codigo_regla",
+          "source_binding": {
+            "source_document_id": "fabric-information-schema",
+            "source_chunk_id": "fabric:gold_sic.dim_regla.codigo_regla"
+          }
+        }
+      ],
+      "answer": "Consulta real Fabric: no hay resultado para esa regla y SIC.",
+      "usage_boundary": "Solo usar los elementos aprobados y sus source bindings; abstenerse fuera de esta evidencia.",
+      "live_query": {
+        "status": "connected_read_only_query",
+        "query_name": "risk_rule_sic",
+        "parameters": [
+          1003,
+          12
+        ],
+        "operation": "SELECT",
+        "server": "f44sq3l2irfe5itcs65ld2hme4-y3b4rqduvonepfrtu4k3htpra4.datawarehouse.fabric.microsoft.com",
+        "database": "RAN_DE_DW_200_SILVER",
+        "rows": []
+      },
+      "package_path": "C:\\Users\\rfbugari\\OneDrive - Sopra Steria\\onto\\data\\runtime\\fabric-gold-sic-risk-pilot\\release-2026-08-05t11-16-05-00-00-e8d4dee2ee60\\argos-2026-08-05t11-33-58-00-00-d9960a712e61"
+    }
+  }
+]

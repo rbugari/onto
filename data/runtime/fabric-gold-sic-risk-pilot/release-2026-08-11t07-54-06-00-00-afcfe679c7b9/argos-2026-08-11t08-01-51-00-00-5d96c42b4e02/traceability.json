@@ -1,0 +1,30 @@
+{
+  "reasoning_advisory": {
+    "level": "llm_reasoning_active",
+    "model_used": "configured-llm",
+    "configured_provider": "openai",
+    "configured_model": "gpt-5.6-luna",
+    "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+  },
+  "live_query": null,
+  "llm_used": true,
+  "llm_plan": {
+    "query_name": null,
+    "parameters": {},
+    "needs_stronger_model": false,
+    "reasoning_note": "La pregunta es conceptual y el contexto aprobado define DEFAULT: falta dato usable y se aplica el valor funcional configurado para no romper el cálculo. No es necesario ejecutar una consulta del catálogo."
+  },
+  "llm_response": {
+    "answer": "DEFAULT significa que falta un dato usable para resolver una regla y, en lugar de dejar el cálculo incompleto, se aplica el valor funcional configurado para ese caso. Es un resultado controlado por ausencia de información, no una medición obtenida de una fuente dinámica.",
+    "interpretation": "Debe distinguirse de REAL, que indica que la regla se resolvió con datos utilizables de una fuente, y de CONSTANTE, que indica que el valor fue fijado por una decisión funcional. El valor concreto de DEFAULT depende de la regla: por ejemplo, algunas reglas aplican nivel 2, otras BAIX o MIG. La evidencia no define un único valor universal para todos los casos.",
+    "suggested_questions": [
+      "¿Qué valor DEFAULT aplica a una regla concreta?",
+      "¿Cómo se distingue DEFAULT de REAL y CONSTANTE?",
+      "¿Qué reglas del modelo utilizan DEFAULT?",
+      "¿Qué impacto tiene DEFAULT en el cálculo final del riesgo?"
+    ],
+    "visualization": null,
+    "needs_stronger_model": false,
+    "reasoning_note": "La evidencia define DEFAULT de forma explícita como falta de dato usable con aplicación de un valor funcional configurado; también muestra que el valor concreto varía según la regla."
+  }
+}

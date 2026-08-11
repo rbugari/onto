@@ -1,0 +1,42 @@
+[
+  {
+    "item_id": "candidate-concept-0065",
+    "item_type": "concept",
+    "name": "si hay pesos positivos",
+    "definition": "SUM(nivel_num * peso_regla) / SUM(peso_regla);",
+    "source_binding": {
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+    }
+  },
+  {
+    "item_id": "candidate-concept-0066",
+    "item_type": "concept",
+    "name": "si no hay pesos positivos",
+    "definition": "promedio simple de niveles;",
+    "source_binding": {
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+    }
+  },
+  {
+    "item_id": "model-source-binding-d261ccaba4b8",
+    "item_type": "source_binding",
+    "name": "si hay pesos positivos -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "source_binding": [
+      "candidate-concept-0065",
+      "candidate-technical-asset-0426"
+    ]
+  },
+  {
+    "item_id": "model-source-binding-4737cd5a1042",
+    "item_type": "source_binding",
+    "name": "si no hay pesos positivos -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "source_binding": [
+      "candidate-concept-0066",
+      "candidate-technical-asset-0426"
+    ]
+  }
+]

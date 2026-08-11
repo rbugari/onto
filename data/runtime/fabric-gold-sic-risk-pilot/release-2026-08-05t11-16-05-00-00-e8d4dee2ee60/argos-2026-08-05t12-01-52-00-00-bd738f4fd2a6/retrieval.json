@@ -1,0 +1,52 @@
+[
+  {
+    "item_id": "candidate-technical-asset-0400",
+    "item_type": "technical_asset",
+    "name": "gold_sic.dim_regla",
+    "definition": "Activo técnico Fabric table: gold_sic.dim_regla",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.dim_regla"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0410",
+    "item_type": "technical_asset",
+    "name": "gold_sic.fact_riesgo",
+    "definition": "Activo técnico Fabric table: gold_sic.fact_riesgo",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.fact_riesgo"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0413",
+    "item_type": "technical_asset",
+    "name": "gold_sic.vw_riesgo_resumen",
+    "definition": "Activo técnico Fabric table: gold_sic.vw_riesgo_resumen",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.vw_riesgo_resumen"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0426",
+    "item_type": "technical_asset",
+    "name": "silver.dim_modelo_riesgo_regla",
+    "definition": "Activo técnico Fabric table: silver.dim_modelo_riesgo_regla",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:silver.dim_modelo_riesgo_regla"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0427",
+    "item_type": "technical_asset",
+    "name": "silver.dim_modelo_riesgo_regla_admin",
+    "definition": "Activo técnico Fabric table: silver.dim_modelo_riesgo_regla_admin",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:silver.dim_modelo_riesgo_regla_admin"
+    }
+  }
+]

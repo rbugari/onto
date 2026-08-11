@@ -1,0 +1,28 @@
+{
+  "reasoning_advisory": {
+    "level": "llm_reasoning_active",
+    "model_used": "configured-llm",
+    "configured_provider": "openai",
+    "configured_model": "gpt-5.6-luna",
+    "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+  },
+  "live_query": null,
+  "llm_used": true,
+  "llm_plan": {
+    "query_name": null,
+    "parameters": {},
+    "needs_stronger_model": false,
+    "reasoning_note": "La pregunta compara el tamaño de planetas y no está relacionada con el dominio aprobado de riesgos SIC ni con ninguna consulta permitida del catálogo."
+  },
+  "llm_response": {
+    "answer": "Me abstengo: la release no contiene evidencia aprobada suficiente para responder esta pregunta.",
+    "interpretation": "La evidencia entregada corresponde a un dominio de riesgos SIC y no contiene información sobre planetas ni sus tamaños.",
+    "suggested_questions": [
+      "¿Quieres comparar planetas del sistema solar por diámetro?",
+      "¿Quieres saber cuál es el planeta más grande del sistema solar?"
+    ],
+    "visualization": null,
+    "needs_stronger_model": false,
+    "reasoning_note": "La pregunta está fuera del dominio de la evidencia disponible; no debe inferirse una respuesta externa."
+  }
+}

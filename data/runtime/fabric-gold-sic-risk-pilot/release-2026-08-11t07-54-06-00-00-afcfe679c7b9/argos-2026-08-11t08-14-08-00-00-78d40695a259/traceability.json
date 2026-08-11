@@ -1,0 +1,29 @@
+{
+  "reasoning_advisory": {
+    "level": "llm_reasoning_active",
+    "model_used": "configured-llm",
+    "configured_provider": "openai",
+    "configured_model": "gpt-5.6-luna",
+    "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+  },
+  "live_query": null,
+  "llm_used": true,
+  "llm_plan": {
+    "query_name": null,
+    "parameters": {},
+    "needs_stronger_model": false,
+    "reasoning_note": "La definición de CONSTANTE está explícitamente disponible en el contexto aprobado: el valor queda fijado por decisión funcional y no por una fuente dinámica. Ninguna consulta permitida del catálogo es necesaria para responder una pregunta conceptual."
+  },
+  "llm_response": {
+    "answer": "CONSTANTE es un tipo de resultado cuyo valor queda fijado por una decisión funcional, no por una fuente dinámica. Por ejemplo, la regla de MFA VPN para administradores se considera cubierta al 100% y se clasifica como BAIX de forma constante.",
+    "interpretation": "A diferencia de REAL, que usa datos disponibles, y DEFAULT, que se aplica cuando falta un dato usable, CONSTANTE representa un valor definido previamente por negocio. En la evidencia también aparece para MFA de aplicaciones de usuarios, con 0% de MFA y nivel MOLT ALT.",
+    "suggested_questions": [
+      "¿Qué reglas están marcadas como CONSTANTE?",
+      "¿Cuál es la diferencia entre CONSTANTE, REAL y DEFAULT?",
+      "¿Qué impacto tiene un resultado CONSTANTE en el riesgo final?"
+    ],
+    "visualization": null,
+    "needs_stronger_model": false,
+    "reasoning_note": "La definición está explícita en la evidencia: el valor queda fijado por decisión funcional y no por una fuente dinámica."
+  }
+}

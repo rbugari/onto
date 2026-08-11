@@ -1,0 +1,2378 @@
+[
+  {
+    "element_id": "model-source-binding-b0189aba2af4",
+    "element_type": "source_binding",
+    "name": "INFRA -> candidate-technical-asset-0422",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-concept-0006",
+      "candidate-technical-asset-0422"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:09+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-47-00-00-be7864f76062",
+      "element_id": "model-source-binding-b0189aba2af4",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:47+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-7e2835812c15",
+    "element_type": "source_binding",
+    "name": "Tipo -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-concept-0061",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:09+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-47-00-00-328f1f26310c",
+      "element_id": "model-source-binding-7e2835812c15",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:47+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-f6b857347d36",
+    "element_type": "source_binding",
+    "name": "REAL -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-concept-0062",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:10+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-48-00-00-afeeca878fe6",
+      "element_id": "model-source-binding-f6b857347d36",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:48+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-0f0307fc3319",
+    "element_type": "source_binding",
+    "name": "DEFAULT -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-concept-0063",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:10+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-48-00-00-128fc1e8e928",
+      "element_id": "model-source-binding-0f0307fc3319",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:48+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-a89f83a54a22",
+    "element_type": "source_binding",
+    "name": "CONSTANTE -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-concept-0064",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:10+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-48-00-00-a864828c38ea",
+      "element_id": "model-source-binding-a89f83a54a22",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:48+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-d261ccaba4b8",
+    "element_type": "source_binding",
+    "name": "si hay pesos positivos -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-concept-0065",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:10+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-48-00-00-7e502e1b93cb",
+      "element_id": "model-source-binding-d261ccaba4b8",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:48+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-4737cd5a1042",
+    "element_type": "source_binding",
+    "name": "si no hay pesos positivos -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-concept-0066",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:10+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-48-00-00-721132d4c22f",
+      "element_id": "model-source-binding-4737cd5a1042",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:48+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-3da3bca81bab",
+    "element_type": "source_binding",
+    "name": "Unidad de calculo -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-concept-0067",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:10+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-48-00-00-19f22111e79a",
+      "element_id": "model-source-binding-3da3bca81bab",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:48+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-beaa1d250efa",
+    "element_type": "source_binding",
+    "name": "Unidad de calculo vigente -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-concept-0071",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:10+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-48-00-00-658780f8110f",
+      "element_id": "model-source-binding-beaa1d250efa",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:48+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-b054671869a8",
+    "element_type": "source_binding",
+    "name": "metodo de probabilidad -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-concept-0073",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:10+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-48-00-00-293a739d69b0",
+      "element_id": "model-source-binding-b054671869a8",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:48+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-2dc4dbacc61a",
+    "element_type": "source_binding",
+    "name": "metodo de impacto -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-concept-0074",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:10+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-49-00-00-f2b64087ffd1",
+      "element_id": "model-source-binding-2dc4dbacc61a",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:49+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-276fe54b10a8",
+    "element_type": "source_binding",
+    "name": "Navegacion SIC -> candidate-technical-asset-0402",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-concept-0079",
+      "candidate-technical-asset-0402"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:10+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-49-00-00-2f2c03f84228",
+      "element_id": "model-source-binding-276fe54b10a8",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:49+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-2c49d42604e5",
+    "element_type": "source_binding",
+    "name": "silver.dim_lldt_cidat aporta la valoracion propia del departamento y codi_dialeg indica el SIC por defecto que debe emul -> candidate-technical-asset-0425",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0085",
+      "candidate-technical-asset-0425"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:11+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-49-00-00-c47f7cd1bef4",
+      "element_id": "model-source-binding-2c49d42604e5",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:49+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-ce6b3f6b8c72",
+    "element_type": "source_binding",
+    "name": "Regla 1002 — Estado del perimetro base: base_attributes_noncompleted de silver.fact_perimetro con status = Alta; toma la -> candidate-technical-asset-0438",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0128",
+      "candidate-technical-asset-0438"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:11+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-49-00-00-d0acabc07f61",
+      "element_id": "model-source-binding-ce6b3f6b8c72",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:49+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-7da57d4bfdb8",
+    "element_type": "source_binding",
+    "name": "Regla 4001 — Certificaciones / auditorias: silver.fact_certificacion_sic por SIC; Silver interpreta CAU_DIALOG_CODE_CERT -> candidate-technical-asset-0429",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0156",
+      "candidate-technical-asset-0429"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:11+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-49-00-00-c5fb37cc4cab",
+      "element_id": "model-source-binding-7da57d4bfdb8",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:49+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-32ee17e538f0",
+    "element_type": "source_binding",
+    "name": "Regla 4002 — Politica de ciberseguridad: silver.fact_gobernanza_departamento por departamento; lee el control departamen -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0157",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:11+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-49-00-00-66802130801f",
+      "element_id": "model-source-binding-32ee17e538f0",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:49+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-bb1181d58ba2",
+    "element_type": "source_binding",
+    "name": "Regla 4003 — Marco normativo actualizado: silver.fact_gobernanza_departamento por departamento; misma logica directa si/ -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0158",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:11+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-49-00-00-9413ec14c037",
+      "element_id": "model-source-binding-bb1181d58ba2",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:49+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-5cbde60f6b11",
+    "element_type": "source_binding",
+    "name": "Regla 4004 — Roles definidos: silver.fact_gobernanza_departamento por departamento; misma logica directa si/no por depar -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0159",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:11+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-50-00-00-8e1cff9dba20",
+      "element_id": "model-source-binding-5cbde60f6b11",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:50+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-9d2582e802c7",
+    "element_type": "source_binding",
+    "name": "Regla 4005 — DPD: silver.fact_gobernanza_departamento por departamento; misma logica directa si/no por departamento; BAI -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0160",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:11+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-50-00-00-d641f4bd2241",
+      "element_id": "model-source-binding-9d2582e802c7",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:50+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-7a9a810e3f98",
+    "element_type": "source_binding",
+    "name": "Regla 4006 — Comite de seguridad: silver.fact_gobernanza_departamento por departamento; misma logica directa si/no por d -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0161",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:11+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-50-00-00-37f0d1c1af8d",
+      "element_id": "model-source-binding-7a9a810e3f98",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:50+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-06a4c94ee61d",
+    "element_type": "source_binding",
+    "name": "El modelo vigente permite explicar el resultado a negocio de forma consistente en los 5 ejes, pero la lectura correcta d -> candidate-technical-asset-0410",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0183",
+      "candidate-technical-asset-0410"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:11+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-50-00-00-0233afdbae0d",
+      "element_id": "model-source-binding-06a4c94ee61d",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:50+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-6068d0800f23",
+    "element_type": "source_binding",
+    "name": "No usar PROXY ni PENDIENTE como tipos vigentes de resultado Gold. Pueden aparecer en documentos historicos, pero la lect -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0184",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:12+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-50-00-00-9493333faf80",
+      "element_id": "model-source-binding-6068d0800f23",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:50+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-3034e2eb32c6",
+    "element_type": "source_binding",
+    "name": "Regla 1002 — 100: indisponibilidad por falta de EDR; pct_edr; misma escala de cobertura que 1001; si falta dato, 100% DE -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0186",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:12+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-51-00-00-5f0ccdd17dfb",
+      "element_id": "model-source-binding-3034e2eb32c6",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:51+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-4261dd7161b5",
+    "element_type": "source_binding",
+    "name": "Regla 1003 — 100: exposicion por parches antiguos; pct_patch_gt_60; <30 BAIX, 30-79 MIG, 80-89 ALT, >=90 MOLT ALT; si fa -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0187",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:12+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-51-00-00-0aa391af80d0",
+      "element_id": "model-source-binding-4261dd7161b5",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:51+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-19e287e2d90d",
+    "element_type": "source_binding",
+    "name": "Regla 1004 — 100: alertas criticas o altas no resueltas; tickets/alertas departamentales; 0 BAIX, 1-5 ALT, >5 MOLT ALT;  -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0188",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:12+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-51-00-00-3cd4ad770ba4",
+      "element_id": "model-source-binding-19e287e2d90d",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:51+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-9ee2c82f3760",
+    "element_type": "source_binding",
+    "name": "Regla 2001 — 200: proteccion de credenciales via EDR; pct_edr; misma escala de cobertura EDR que 1002; 100% DEFAULT BAIX -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0189",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:12+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-51-00-00-3542d5512071",
+      "element_id": "model-source-binding-9ee2c82f3760",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:51+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-d584bd0b08ca",
+    "element_type": "source_binding",
+    "name": "Regla 2002 — 200: MFA VPN administradores; decision funcional; valor fijo 100% MFA; CONSTANTE BAIX -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0190",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:12+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-51-00-00-d6bb525d793c",
+      "element_id": "model-source-binding-d584bd0b08ca",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:51+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-61f4825be6e7",
+    "element_type": "source_binding",
+    "name": "Regla 2003 — 200: MFA VPN usuarios; silver.vw_src_prob_puestos_mfa_vpn.pct_mfa_vpn; >=90 BAIX, 60-89 MIG, 30-59 ALT, <30 -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0191",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:12+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-52-00-00-d520839d3987",
+      "element_id": "model-source-binding-61f4825be6e7",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:52+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-139a42b9cd95",
+    "element_type": "source_binding",
+    "name": "Regla 2004 — 200: MFA O365 usuarios; silver.vw_src_prob_puestos_mfa_o365.pct_mfa_o365; misma escala que 2003; 100% DEFAU -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0192",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:12+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-52-00-00-2138601b6da5",
+      "element_id": "model-source-binding-139a42b9cd95",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:52+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-9f4220bb8d63",
+    "element_type": "source_binding",
+    "name": "Regla 2005 — 200: MFA en cuentas genericas; decision funcional; se considera 0% MFA para cuentas genericas; CONSTANTE MO -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0193",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:13+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-52-00-00-31b9c30a3cac",
+      "element_id": "model-source-binding-9f4220bb8d63",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:52+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-3ab767888142",
+    "element_type": "source_binding",
+    "name": "Regla 2007 — 200: TPM; pct_tpm; >=95 BAIX, <95 MOLT ALT; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0195",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:13+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-52-00-00-3da41d76161c",
+      "element_id": "model-source-binding-3ab767888142",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:52+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-fc1a2e0595df",
+    "element_type": "source_binding",
+    "name": "Regla 2008 — 200: EDR para plataforma/correo; pct_edr; misma escala que 1002; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0196",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:13+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-52-00-00-7d798ca06673",
+      "element_id": "model-source-binding-fc1a2e0595df",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:52+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-f2ec6c6ba446",
+    "element_type": "source_binding",
+    "name": "Regla 2009 — 200: MFA O365 para plataforma/correo; pct_mfa_o365; misma escala que 2003; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0197",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:13+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-52-00-00-63e5c3691718",
+      "element_id": "model-source-binding-f2ec6c6ba446",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:52+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-b48320d22610",
+    "element_type": "source_binding",
+    "name": "Regla 2010 — 200: riesgo por cuentas genericas; generic_accounts; 0 BAIX, 1-199 MIG, 200-700 ALT, >700 MOLT ALT; 0 cuent -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0198",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:13+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-52-00-00-79849b5f6c0f",
+      "element_id": "model-source-binding-b48320d22610",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:52+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-4e06faa1d060",
+    "element_type": "source_binding",
+    "name": "Regla 2012 — 200: parches antiguos para compromiso de credenciales; pct_patch_gt_60; misma escala que 1003; 0% DEFAULT B -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0200",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:13+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-53-00-00-8aa712e32e50",
+      "element_id": "model-source-binding-4e06faa1d060",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:53+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-5f0e67cda225",
+    "element_type": "source_binding",
+    "name": "Regla 2013 — 200: cifrado de disco; pct_encrypted; >=95 BAIX, 50-94 ALT, <50 MOLT ALT; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0201",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:13+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-53-00-00-84515fec198e",
+      "element_id": "model-source-binding-5f0e67cda225",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:53+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-6028d44eea16",
+    "element_type": "source_binding",
+    "name": "Regla 3001 — 300: antivirus para compromiso del equipo; pct_antivirus; misma escala que 1001; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0202",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:13+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-53-00-00-a2ef6fdfbb0e",
+      "element_id": "model-source-binding-6028d44eea16",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:53+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-47897b12b27e",
+    "element_type": "source_binding",
+    "name": "Regla 3002 — 300: EDR para compromiso del equipo; pct_edr; misma escala que 1002; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0203",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:13+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-53-00-00-a7fa7619aa5a",
+      "element_id": "model-source-binding-47897b12b27e",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:53+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-bd1aa0aafc34",
+    "element_type": "source_binding",
+    "name": "Regla 401 — 400: proteccion de datos y ENS; silver.dim_lldt_cidat C/I/D/A/T; maximo CIDAT del departamento; REAL si hay  -> candidate-technical-asset-0425",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0222",
+      "candidate-technical-asset-0425"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:14+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-53-00-00-be36a004801b",
+      "element_id": "model-source-binding-bd1aa0aafc34",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:53+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-1233ff5ca729",
+    "element_type": "source_binding",
+    "name": "Regla 1001 — 100: EDR por SIC; bridge host -> app -> SIC + EDR current; >=95 BAIX, 91-94 MIG, 86-90 ALT, <86 MOLT ALT; n -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0224",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:14+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-53-00-00-420a89aa2f03",
+      "element_id": "model-source-binding-1233ff5ca729",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:53+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-f3b4ee5d8439",
+    "element_type": "source_binding",
+    "name": "Regla 1004 — 100: alertas criticas no resueltas; tickets/alertas asociados por departamento/SIC; 0 BAIX, 1-5 ALT, >5 MOL -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0227",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:14+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-54-00-00-88b98c13d87f",
+      "element_id": "model-source-binding-f3b4ee5d8439",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:54+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-6631c3bd319b",
+    "element_type": "source_binding",
+    "name": "Regla 1005 — 100: exposicion a amenaza CPD; exposicion CPD ya traducida; BAIX/MIG/ALT/MOLT ALT se toma directo como nive -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0228",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:14+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-54-00-00-436ed19840d5",
+      "element_id": "model-source-binding-6631c3bd319b",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:54+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-07127d6cb456",
+    "element_type": "source_binding",
+    "name": "Regla 1006 — 100: publicacion a internet; is_t11 desde inventario SIC; interno BAIX; publico/T11 ALT; sin dato MIG; nive -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0229",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:14+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-54-00-00-a91429f82ab7",
+      "element_id": "model-source-binding-07127d6cb456",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:54+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-e2edf20f61b2",
+    "element_type": "source_binding",
+    "name": "Regla 2001 — 200: EDR para credenciales; misma cobertura EDR que 1001; misma escala que 1001; nivel 2 DEFAULT si falta -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0230",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:14+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-54-00-00-3dc7aefaf4f9",
+      "element_id": "model-source-binding-e2edf20f61b2",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:54+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-9b569fc3ddea",
+    "element_type": "source_binding",
+    "name": "Regla 2002 — 200: MFA VPN administradores; decision funcional; 100% cubierto; CONSTANTE BAIX -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0231",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:14+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-54-00-00-9f8b5a23277f",
+      "element_id": "model-source-binding-9b569fc3ddea",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:54+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-4f157ad78df9",
+    "element_type": "source_binding",
+    "name": "Regla 2003 — 200: MFA cloud administradores; decision funcional; 100% cubierto; CONSTANTE BAIX -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0232",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:14+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-54-00-00-730c9b472e81",
+      "element_id": "model-source-binding-4f157ad78df9",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:54+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-bb97e74ff9b1",
+    "element_type": "source_binding",
+    "name": "Regla 2004 — 200: MFA aplicaciones administradores; decision funcional; 100% cubierto; CONSTANTE BAIX -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0233",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:14+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-55-00-00-4252ba28c873",
+      "element_id": "model-source-binding-bb97e74ff9b1",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:55+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-e1600335eeb1",
+    "element_type": "source_binding",
+    "name": "Regla 2005 — 200: MFA aplicaciones usuarios; decision funcional; se asume sin MFA a nivel aplicacion/SIC; CONSTANTE MOLT -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0234",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:14+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-55-00-00-4c906b77e791",
+      "element_id": "model-source-binding-e1600335eeb1",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:55+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-1ce8fd2ff5e7",
+    "element_type": "source_binding",
+    "name": "Regla 2006 — 200: exposicion CPD para informacion; exposicion CPD del SIC; nivel directo BAIX/MIG/ALT/MOLT ALT; nivel 2  -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0235",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:15+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-55-00-00-f8775293ad9a",
+      "element_id": "model-source-binding-1ce8fd2ff5e7",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:55+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-6a43e90b031a",
+    "element_type": "source_binding",
+    "name": "Regla 2007 — 200: integracion GICAR; has_gicar; con GICAR BAIX; sin GICAR ALT; DEFAULT si origen vacio -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0236",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:15+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-55-00-00-7c38c4cea2f3",
+      "element_id": "model-source-binding-6a43e90b031a",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:55+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-4da6c2928827",
+    "element_type": "source_binding",
+    "name": "Regla 2008 — 200: vulnerabilidades criticas para informacion; Critical abiertas; misma escala que 1003; REAL si se calcu -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0237",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:15+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-55-00-00-06626106502b",
+      "element_id": "model-source-binding-4da6c2928827",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:55+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-f59dc6683333",
+    "element_type": "source_binding",
+    "name": "Regla 2009 — 200: exposicion CPD tecnica; exposicion CPD; misma lectura que 1005; REAL / DEFAULT / CONSTANTE segun dispo -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0238",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:15+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-55-00-00-1fb0827d3dcf",
+      "element_id": "model-source-binding-f59dc6683333",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:55+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-ee362e5670f0",
+    "element_type": "source_binding",
+    "name": "Regla 2010 — 200: perimetro base para exfiltracion; base_attributes_noncompleted, status = Alta, ultima foto; misma esca -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0239",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:15+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-56-00-00-17d4531768ab",
+      "element_id": "model-source-binding-ee362e5670f0",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:56+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-bc3d1ae12866",
+    "element_type": "source_binding",
+    "name": "Regla 2011 — 200: publicacion a internet para informacion; is_t11; interno BAIX; publico ALT; sin dato MIG; nivel 2 DEFA -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0240",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:15+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-56-00-00-81f5ef833275",
+      "element_id": "model-source-binding-bc3d1ae12866",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:56+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-9bbda0439c4d",
+    "element_type": "source_binding",
+    "name": "Regla 3001 — 300: EDR para malware/ransomware; cobertura EDR del SIC; misma escala que 1001; nivel 2 DEFAULT si falta -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0241",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:15+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-56-00-00-eb95e4a2d55f",
+      "element_id": "model-source-binding-9bbda0439c4d",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:56+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-81d7569d36a2",
+    "element_type": "source_binding",
+    "name": "Regla 3002 — 300: perimetro tecnico base; base_attributes_noncompleted, status = Alta, ultima foto; misma escala que 100 -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0242",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:15+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-56-00-00-442f639f8f8e",
+      "element_id": "model-source-binding-81d7569d36a2",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:56+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-29bee843b606",
+    "element_type": "source_binding",
+    "name": "Regla 3003 — 300: vulnerabilidades criticas de plataforma; Critical abiertas; misma escala que 1003; REAL si se calcula -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0243",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:15+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-56-00-00-bb84420c768d",
+      "element_id": "model-source-binding-29bee843b606",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:56+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-82bcb82fad16",
+    "element_type": "source_binding",
+    "name": "Regla 3004 — 300: alertas criticas no resueltas; tickets/alertas asociados; misma escala que 1004; nivel 2 DEFAULT si fa -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0244",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:15+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-57-00-00-548b5be6e098",
+      "element_id": "model-source-binding-82bcb82fad16",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:57+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-57130b2e75c4",
+    "element_type": "source_binding",
+    "name": "Regla 3005 — 300: exposicion CPD de plataforma; exposicion CPD; nivel directo BAIX/MIG/ALT/MOLT ALT; nivel 2 DEFAULT o n -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0245",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:16+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-57-00-00-f8b8cd4e38a4",
+      "element_id": "model-source-binding-57130b2e75c4",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:57+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-e209ceb50904",
+    "element_type": "source_binding",
+    "name": "Regla 3006 — 300: publicacion a internet de plataforma; is_t11; interno BAIX; publico ALT; sin dato MIG; nivel 2 DEFAULT -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0246",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:16+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-57-00-00-cfa5aef4d037",
+      "element_id": "model-source-binding-e209ceb50904",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:57+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-06670b6d8398",
+    "element_type": "source_binding",
+    "name": "Regla 3008 — 300: vulnerabilidades criticas complementarias; Critical abiertas; misma escala que 3003; REAL si se calcul -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0248",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:16+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-57-00-00-d555000a2f1d",
+      "element_id": "model-source-binding-06670b6d8398",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:57+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-40d02a66b4d9",
+    "element_type": "source_binding",
+    "name": "Regla 3009 — 300: exposicion CPD complementaria; exposicion CPD; misma lectura que 3005; REAL / DEFAULT / CONSTANTE segu -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0249",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:16+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-57-00-00-bf164a64b408",
+      "element_id": "model-source-binding-40d02a66b4d9",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:57+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-2a93840a4da6",
+    "element_type": "source_binding",
+    "name": "Regla 3010 — 300: perimetro tecnico complementario; base_attributes_noncompleted, status = Alta, ultima foto; misma esca -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0250",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:16+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-57-00-00-5e7ad7b6a82f",
+      "element_id": "model-source-binding-2a93840a4da6",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:57+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-2298880e43e4",
+    "element_type": "source_binding",
+    "name": "Regla 3011 — 300: obsolescencia SO complementaria; mismo contrato de hosts, CPD current y catálogo lifecycle de 3007; mi -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0251",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:16+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-58-00-00-c3bb33ac2fe9",
+      "element_id": "model-source-binding-2298880e43e4",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:58+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-1cca99a30c72",
+    "element_type": "source_binding",
+    "name": "Regla 3012 — 300: publicacion a internet complementaria; is_t11; interno BAIX; publico ALT; sin dato MIG; nivel 2 DEFAUL -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0252",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:16+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-58-00-00-8c83f7984d6e",
+      "element_id": "model-source-binding-1cca99a30c72",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:58+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-bdb456a2e2bb",
+    "element_type": "source_binding",
+    "name": "Regla 4006 — 400: comite de seguridad; silver.fact_gobernanza_departamento; misma logica si/no; REAL o DEFAULT MIG -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0258",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:16+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-58-00-00-1a167cf46527",
+      "element_id": "model-source-binding-bdb456a2e2bb",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:58+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-75be61aece3a",
+    "element_type": "source_binding",
+    "name": "Regla 101 — 100: tolerancia de indisponibilidad; rto del SIC; 0h BAIX; 1/8/24h MIG; 48/72h o 1-3 dias ALT; sin dato MOLT -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0259",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:16+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-58-00-00-347d1ce17c2b",
+      "element_id": "model-source-binding-75be61aece3a",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:58+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-37c3d5eb0f5d",
+    "element_type": "source_binding",
+    "name": "Regla 102 — 100: ambito y criticidad; criticidad + usuarios + T11; criticidad alta y volumetria/publico elevan impacto;  -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0260",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:16+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-58-00-00-8bce448545c8",
+      "element_id": "model-source-binding-37c3d5eb0f5d",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:58+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-377a5107afe2",
+    "element_type": "source_binding",
+    "name": "Regla 103 — 100: criticidad del sistema; criticidad_negocio; 0-1 MOLT ALT, 2-3 ALT, 4 MIG, resto BAIX; default si falta -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0261",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:17+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-58-00-00-9a36a2b2b386",
+      "element_id": "model-source-binding-377a5107afe2",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:58+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-a22a1b2984d1",
+    "element_type": "source_binding",
+    "name": "Regla 104 — 100: usuarios afectados; usuarios + T11; publico ALT; <500 BAIX; >=500 MIG; sin dato MIG; MIG si falta -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0262",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:17+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-59-00-00-0bdbf0a616be",
+      "element_id": "model-source-binding-a22a1b2984d1",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:59+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-83458df60d4b",
+    "element_type": "source_binding",
+    "name": "Regla 105 — 100: impacto legal por criticidad; criticidad; misma escala que 103; default si falta -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0263",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:17+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-59-00-00-1effd0b318b3",
+      "element_id": "model-source-binding-83458df60d4b",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:59+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-0dd5a91a7aa5",
+    "element_type": "source_binding",
+    "name": "Regla 201 — 200: volumetria de usuarios afectados; num_usuarios_max; <=500 BAIX, 501-3000 MIG, 3001-9000 ALT, >9000 MOLT -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0264",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:17+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-59-00-00-e476ab095698",
+      "element_id": "model-source-binding-0dd5a91a7aa5",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:59+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-f2cd4601b265",
+    "element_type": "source_binding",
+    "name": "Regla 202 — 200: ambito de usuarios; T11/publico; interno BAIX; publico ALT; sin dato MIG; MIG si falta -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0265",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:17+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-59-00-00-461480d53915",
+      "element_id": "model-source-binding-f2cd4601b265",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:59+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-eed7c9bc75c2",
+    "element_type": "source_binding",
+    "name": "Regla 203 — 200: criticidad del sistema; criticidad; misma escala que 103; default si falta -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0266",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:17+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-53-59-00-00-7e118fc4025b",
+      "element_id": "model-source-binding-eed7c9bc75c2",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:53:59+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-c81b4f976c27",
+    "element_type": "source_binding",
+    "name": "Regla 204 — 200: clasificacion de informacion; key_seguretat; nivel 1-4 directo; si falta maximo riesgo; MOLT ALT si fal -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0267",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:17+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-00-00-00-734d7d299950",
+      "element_id": "model-source-binding-c81b4f976c27",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:00+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-0ddb4600a192",
+    "element_type": "source_binding",
+    "name": "Regla 301 — 300: usuarios y criticidad de plataforma; usuarios + criticidad; >9000 o criticidad 0-1 MOLT ALT; >3000 o cr -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0268",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:17+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-00-00-00-d0a297b9c4b5",
+      "element_id": "model-source-binding-0ddb4600a192",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:00+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-508bdaf8e8ca",
+    "element_type": "source_binding",
+    "name": "Regla 401 — 400: proteccion de datos y ENS; maximo C/I/D/A/T; maximo CIDAT como nivel final; MIG si falta CIDAT -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0269",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:17+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-00-00-00-74c3ffb208ed",
+      "element_id": "model-source-binding-508bdaf8e8ca",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:00+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-163a555a542f",
+    "element_type": "source_binding",
+    "name": "Regla 402 — 400: ambito y criticidad; criticidad + usuarios + T11; misma matriz que 102; default si falta -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0270",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:18+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-00-00-00-3362c0ec7554",
+      "element_id": "model-source-binding-163a555a542f",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:00+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-4de2cb623112",
+    "element_type": "source_binding",
+    "name": "Regla 2011 — 200: formacion para plataforma/correo; misma fuente que 2006; misma escala, fuentes y contrato que 2006; mi -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0272",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:18+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-00-00-00-257fcb13aaea",
+      "element_id": "model-source-binding-4de2cb623112",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:00+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-cf1fca30a294",
+    "element_type": "source_binding",
+    "name": "Regla 4001 — 400: formacion para cumplimiento; misma fuente que 2006; misma escala, fuentes y contrato que 2006; mismo c -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0273",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:18+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-00-00-00-6b7df4ea9eb3",
+      "element_id": "model-source-binding-cf1fca30a294",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:00+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-ce56608b5f2d",
+    "element_type": "source_binding",
+    "name": "Regla 201 — 200: volumetria de usuarios afectados; SIC canonico auxiliar por departamento; misma escala de impacto SIC 2 -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0274",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:18+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-01-00-00-b6d16a7d84a5",
+      "element_id": "model-source-binding-ce56608b5f2d",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:01+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-15365673010d",
+    "element_type": "source_binding",
+    "name": "Regla 204 — 200: clasificacion de informacion; key_seguretat del SIC/departamento de referencia; nivel directo; si falta -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0275",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:18+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-01-00-00-f282a3131014",
+      "element_id": "model-source-binding-15365673010d",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:01+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-b68bef92b586",
+    "element_type": "source_binding",
+    "name": "Regla 401 — 400: proteccion de datos y ENS; maximo CIDAT del SIC/departamento; maximo C/I/D/A/T; default MIG si falta -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0276",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:18+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-01-00-00-da68c3e50271",
+      "element_id": "model-source-binding-b68bef92b586",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:01+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-3d77981c187d",
+    "element_type": "source_binding",
+    "name": "Regla 402 — 400: ambito y criticidad; criticidad + usuarios + T11 del SIC canonico; misma matriz que SIC 102/402; defaul -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0277",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:18+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-01-00-00-962bda2a4cd7",
+      "element_id": "model-source-binding-3d77981c187d",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:01+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-90fa34e02b4e",
+    "element_type": "source_binding",
+    "name": "Regla 4003 — 400: politica de ciberseguridad; silver.fact_gobernanza_departamento, origen 4002 SIC remapeado a 4003; Si  -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0279",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:18+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-01-00-00-003e1648608e",
+      "element_id": "model-source-binding-90fa34e02b4e",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:01+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-c9246fddda2d",
+    "element_type": "source_binding",
+    "name": "Regla 4004 — 400: marco normativo actualizado; silver.fact_gobernanza_departamento, origen 4003 remapeado; misma logica  -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0280",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:18+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-02-00-00-36d6c71f3da5",
+      "element_id": "model-source-binding-c9246fddda2d",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:02+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-d954b6141fbd",
+    "element_type": "source_binding",
+    "name": "Regla 4005 — 400: roles definidos; silver.fact_gobernanza_departamento, origen 4004 remapeado; misma logica si/no; REAL  -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0281",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:19+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-02-00-00-144b8c9dde8d",
+      "element_id": "model-source-binding-d954b6141fbd",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:02+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-8c7f3e546dde",
+    "element_type": "source_binding",
+    "name": "Regla 4006 — 400: DPD; silver.fact_gobernanza_departamento, origen 4005 remapeado; misma logica si/no; REAL o DEFAULT MI -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0282",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:19+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-02-00-00-4f5182cb36c5",
+      "element_id": "model-source-binding-8c7f3e546dde",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:02+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-194a0e9e5aa2",
+    "element_type": "source_binding",
+    "name": "Regla 4007 — 400: comite de seguridad; silver.fact_gobernanza_departamento, origen 4006 remapeado; misma logica si/no; R -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0283",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:19+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-02-00-00-eddfafa57379",
+      "element_id": "model-source-binding-194a0e9e5aa2",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:02+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-58a4a69cc482",
+    "element_type": "source_binding",
+    "name": "Por tanto, para explicar una regla INFRA se debe leer la regla SIC equivalente de este catalogo y confirmar que el activ -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-business_rule-0284",
+      "candidate-technical-asset-0433"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:19+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-02-00-00-3384d96539db",
+      "element_id": "model-source-binding-58a4a69cc482",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:02+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-4395b87e3fe5",
+    "element_type": "source_binding",
+    "name": "Regla 1002 — Estado del perimetro base: base_attributes_noncompleted de silver.fact_perimetro con status = Alta; toma la -> candidate-technical-asset-0438",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-kpi-0314",
+      "candidate-technical-asset-0438"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:19+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-03-00-00-1ca7b7197a04",
+      "element_id": "model-source-binding-4395b87e3fe5",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:03+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-8fd99a161b23",
+    "element_type": "source_binding",
+    "name": "Regla 1002 — 100: indisponibilidad por falta de EDR; pct_edr; misma escala de cobertura que 1001; si falta dato, 100% DE -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-kpi-0326",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:19+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-03-00-00-894ac2a708d5",
+      "element_id": "model-source-binding-8fd99a161b23",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:03+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-d8fe69e1dcc2",
+    "element_type": "source_binding",
+    "name": "Regla 1003 — 100: exposicion por parches antiguos; pct_patch_gt_60; <30 BAIX, 30-79 MIG, 80-89 ALT, >=90 MOLT ALT; si fa -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-kpi-0327",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:19+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-03-00-00-bb1cb440e92f",
+      "element_id": "model-source-binding-d8fe69e1dcc2",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:03+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-64ed42b1bf3b",
+    "element_type": "source_binding",
+    "name": "Regla 2001 — 200: proteccion de credenciales via EDR; pct_edr; misma escala de cobertura EDR que 1002; 100% DEFAULT BAIX -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-kpi-0328",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:19+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-03-00-00-68332d6d7d01",
+      "element_id": "model-source-binding-64ed42b1bf3b",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:03+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-8b4f6ae845e9",
+    "element_type": "source_binding",
+    "name": "Regla 2002 — 200: MFA VPN administradores; decision funcional; valor fijo 100% MFA; CONSTANTE BAIX -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-kpi-0329",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:19+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-03-00-00-391a511ed0ed",
+      "element_id": "model-source-binding-8b4f6ae845e9",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:03+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-1bc379439e4f",
+    "element_type": "source_binding",
+    "name": "Regla 2003 — 200: MFA VPN usuarios; silver.vw_src_prob_puestos_mfa_vpn.pct_mfa_vpn; >=90 BAIX, 60-89 MIG, 30-59 ALT, <30 -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-kpi-0330",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:20+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-03-00-00-754ad2c911a4",
+      "element_id": "model-source-binding-1bc379439e4f",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:03+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-1995838ecaa4",
+    "element_type": "source_binding",
+    "name": "Regla 2004 — 200: MFA O365 usuarios; silver.vw_src_prob_puestos_mfa_o365.pct_mfa_o365; misma escala que 2003; 100% DEFAU -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-kpi-0331",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:20+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-04-00-00-230fcd67f031",
+      "element_id": "model-source-binding-1995838ecaa4",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:04+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-9b25ae82843c",
+    "element_type": "source_binding",
+    "name": "Regla 2005 — 200: MFA en cuentas genericas; decision funcional; se considera 0% MFA para cuentas genericas; CONSTANTE MO -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-kpi-0332",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:20+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-04-00-00-b6d2131403fc",
+      "element_id": "model-source-binding-9b25ae82843c",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:04+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-23f825f6dacb",
+    "element_type": "source_binding",
+    "name": "Regla 2007 — 200: TPM; pct_tpm; >=95 BAIX, <95 MOLT ALT; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-kpi-0334",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:20+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-04-00-00-28508559b56e",
+      "element_id": "model-source-binding-23f825f6dacb",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:04+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-abed24ec6a14",
+    "element_type": "source_binding",
+    "name": "Regla 2008 — 200: EDR para plataforma/correo; pct_edr; misma escala que 1002; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-kpi-0335",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:20+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-04-00-00-e2b68bf95b57",
+      "element_id": "model-source-binding-abed24ec6a14",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:04+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-18d2d4f65dbb",
+    "element_type": "source_binding",
+    "name": "Regla 2009 — 200: MFA O365 para plataforma/correo; pct_mfa_o365; misma escala que 2003; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-kpi-0336",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:20+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-04-00-00-4bdbd628314c",
+      "element_id": "model-source-binding-18d2d4f65dbb",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:04+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-0e4c75f4add1",
+    "element_type": "source_binding",
+    "name": "Regla 2012 — 200: parches antiguos para compromiso de credenciales; pct_patch_gt_60; misma escala que 1003; 0% DEFAULT B -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-kpi-0337",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:21+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-05-00-00-da7925f60fc8",
+      "element_id": "model-source-binding-0e4c75f4add1",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:05+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-c5c6540f1961",
+    "element_type": "source_binding",
+    "name": "Regla 2013 — 200: cifrado de disco; pct_encrypted; >=95 BAIX, 50-94 ALT, <50 MOLT ALT; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-kpi-0338",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:21+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-05-00-00-f737ed496624",
+      "element_id": "model-source-binding-c5c6540f1961",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:05+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-97ee96f3778b",
+    "element_type": "source_binding",
+    "name": "Regla 3001 — 300: antivirus para compromiso del equipo; pct_antivirus; misma escala que 1001; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-kpi-0339",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:21+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-05-00-00-970ecfb7d2cb",
+      "element_id": "model-source-binding-97ee96f3778b",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:05+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-f52731efe924",
+    "element_type": "source_binding",
+    "name": "Regla 3002 — 300: EDR para compromiso del equipo; pct_edr; misma escala que 1002; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-kpi-0340",
+      "candidate-technical-asset-0426"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:21+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-05-00-00-78a210465fa3",
+      "element_id": "model-source-binding-f52731efe924",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:05+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-e8a5c2a4b802",
+    "element_type": "source_binding",
+    "name": "Regla 2002 — 200: MFA VPN administradores; decision funcional; 100% cubierto; CONSTANTE BAIX -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-kpi-0345",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:21+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-05-00-00-088c6dda9603",
+      "element_id": "model-source-binding-e8a5c2a4b802",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:05+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-4d0b6e7610be",
+    "element_type": "source_binding",
+    "name": "Regla 2003 — 200: MFA cloud administradores; decision funcional; 100% cubierto; CONSTANTE BAIX -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-kpi-0346",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:21+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-05-00-00-eb104893ba1c",
+      "element_id": "model-source-binding-4d0b6e7610be",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:05+00:00"
+    }
+  },
+  {
+    "element_id": "model-source-binding-37b4967b6855",
+    "element_type": "source_binding",
+    "name": "Regla 2004 — 200: MFA aplicaciones administradores; decision funcional; 100% cubierto; CONSTANTE BAIX -> candidate-technical-asset-0407",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "owner": "",
+    "linked_candidate_ids": [
+      "candidate-kpi-0347",
+      "candidate-technical-asset-0407"
+    ],
+    "status": "approved",
+    "created_at": "2026-08-11T07:47:21+00:00",
+    "decision": {
+      "decision_id": "model-decision-2026-08-11T07-54-06-00-00-cac8ca382de1",
+      "element_id": "model-source-binding-37b4967b6855",
+      "status": "approved",
+      "reviewer": "ONTO Analyst",
+      "reviewer_role": "Technical Steward",
+      "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+      "decided_at": "2026-08-11T07:54:06+00:00"
+    }
+  }
+]

@@ -1,11 +1,11 @@
 # Diagnostico y transformacion de ONTO
 
-Fecha: 2026-08-01  
-Estado: decision de producto para la siguiente etapa
+Fecha: 2026-08-11  
+Estado: diagnóstico de evolución del MVP local
 
 ## 1. Punto de partida
 
-ONTO es hoy un MVP local de Streamlit. Permite crear proyectos, mantener conceptos y relaciones, importar `model.bim`, cargar documentos, extraer texto, ejecutar un scanner LLM/heuristico y exportar JSON o Markdown. El ejemplo `risk1` prueba que puede manejar un modelo tabular real de tamano relevante.
+ONTO es un MVP local de Streamlit. Permite crear proyectos, mantener conceptos y relaciones, importar `model.bim`, cargar documentos, extraer texto, ejecutar un scanner LLM/heuristico y exportar JSON o Markdown. El piloto `fabric-gold-sic-risk-pilot` demuestra el flujo con metadata Fabric, evidencia documental, revisión, release local y evaluación del Runtime.
 
 La implementacion actual tiene valor como prueba de ingesta y exploracion, pero no representa todavia una Ontology Factory. Mezcla en una misma aplicacion el modelado manual, el scanner documental y una persistencia local orientada a proyecto, sin contratos de ejecucion, revision ni publicacion.
 
@@ -14,10 +14,10 @@ La implementacion actual tiene valor como prueba de ingesta y exploracion, pero 
 | Activo actual | Valor que se conserva | Transformacion necesaria |
 | --- | --- | --- |
 | Importador `model.bim` | Primer adaptador de metadata semantica Power BI | Convertirlo en un adaptador Tool 01 con contrato normalizado, trazabilidad y cobertura ampliada. |
-| Scanner de documentos | Base para extraer terminos, definiciones, reglas y ambiguedades | Introducir chunking, evidencia por fragmento, deduplicacion, matching y revision humana. |
-| Conceptos y relaciones | Prototipo visual del grafo ontologico | Sustituir el modelo plano por entidades versionadas, propiedades, reglas, fuentes y decisiones de revision. |
-| Exportaciones JSON/Markdown | Primer mecanismo de portabilidad | Evolucionar hacia paquetes versionados, context packs y adapters de publicacion. |
-| Snapshots | Intencion de versionado | Reemplazar por releases inmutables, IDs no colisionables y metadatos de ejecucion. |
+| Scanner de documentos | Extrae terminos, definiciones, reglas y KPIs con chunks y evidencia | Ampliar citas por pagina/seccion, deduplicacion y controles de calidad. |
+| Conceptos y relaciones | Base del modelo canónico curable | Profundizar la generación asistida y la revisión de impacto, sin aprobar inferencias automáticamente. |
+| Exportaciones JSON/Markdown | Portabilidad inicial del workbench | Mantener paquetes versionados, context packs y mappings locales; falta publicación externa controlada. |
+| Snapshots | Historial de trabajo local | Convivir con releases inmutables y fortalecer la estrategia de control de versiones. |
 
 ## 3. Brechas que deben resolverse primero
 
@@ -26,16 +26,16 @@ La implementacion actual tiene valor como prueba de ingesta y exploracion, pero 
 - No hay repositorio Git inicializado en ONTO ni estrategia de releases.
 - Los IDs de documentos y snapshots se basan en segundos; pueden colisionar y ya existe una colision de documentos en el caso local.
 - La aplicacion, el dominio y la persistencia estan pensados para un proyecto local, no para cliente, dominio, data product y ejecucion (`run_id`).
-- La validacion es estructural; no existe validacion de evidencia, calidad semantica, ownership ni aprobacion.
-- Las pruebas actuales son puntuales y no cubren contratos futuros, integridad de persistencia ni conectores.
+- La validacion estructural ya se complementa con evidencia, ownership, revisión y releases locales; falta validación semántica de negocio más profunda.
+- Las pruebas cubren el flujo local principal, pero falta ampliar contratos de conectores, permisos y regresiones de persistencia.
 
 ### Brechas de producto
 
 - Tool 01 no cubre aun PBIP/TMDL, roles, jerarquias, anotaciones, dependencias DAX, lineage ni fuentes distintas de `model.bim`.
-- Tool 02 no realiza chunking ni guarda evidencia de pagina/seccion/fragmento; tampoco produce una cola de revision ni salidas de consumo formal.
-- No existen Tool 03/04 para generacion y validacion de ontologia candidata.
-- No existe motor de scoring, backlog de gaps, context pack generico ni Runtime investigador.
-- No existe contrato de importacion/publicacion con Fabric, Databricks u otros sistemas.
+- Tool 02 ya fragmenta documentos y conserva evidencia por chunk; faltan citas consistentes por pagina/seccion y deduplicación avanzada.
+- Nexo ya genera y valida candidatos, conserva decisiones y emite releases locales; falta generación asistida de estructuras canónicas y revisión de impacto.
+- Atlas ya produce scoring basal y backlog de gaps; Argos consume context packs, se abstiene fuera de alcance y evalúa resultados; faltan permisos y mayor cobertura funcional.
+- Fabric cuenta con descubrimiento de metadata, bindings y consultas read-only nombradas; Fabric y Databricks solo disponen de mappings locales, sin publicación externa.
 
 ## 4. Arquitectura objetivo
 

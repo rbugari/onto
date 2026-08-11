@@ -1,0 +1,29 @@
+{
+  "reasoning_advisory": {
+    "level": "llm_reasoning_active",
+    "model_used": "configured-llm",
+    "configured_provider": "openai",
+    "configured_model": "gpt-5.6-luna",
+    "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+  },
+  "live_query": null,
+  "llm_used": true,
+  "llm_plan": {
+    "query_name": null,
+    "parameters": {},
+    "needs_stronger_model": false,
+    "reasoning_note": "REAL es un tipo de resultado documentado: la regla se resolvió con dato usable de Silver o de una fuente manual cargada. La pregunta es definicional y no requiere ejecutar ninguna consulta del catálogo."
+  },
+  "llm_response": {
+    "answer": "REAL indica que una regla se resolvió utilizando un dato usable procedente de Silver o de una fuente manual cargada. No significa que el valor sea constante ni que se haya aplicado un valor por defecto.",
+    "interpretation": "Es el tipo de resultado que acredita que el cálculo se basó en información disponible y utilizable. Se diferencia de DEFAULT, que se aplica cuando falta un dato usable, y de CONSTANTE, cuyo valor queda fijado por decisión funcional.",
+    "suggested_questions": [
+      "¿Cuál es la diferencia entre REAL, DEFAULT y CONSTANTE?",
+      "¿Qué reglas del modelo tienen resultado REAL?",
+      "¿Cómo identificar si un resultado REAL proviene de Silver o de una fuente manual?"
+    ],
+    "visualization": null,
+    "needs_stronger_model": false,
+    "reasoning_note": "La evidencia define explícitamente REAL como un resultado resuelto con dato usable de Silver o de una fuente manual cargada. La pregunta es definicional y no requiere consultar datos."
+  }
+}

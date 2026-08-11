@@ -1,0 +1,1 @@
+Me abstengo: Fabric no contiene un resultado para la regla y SIC solicitados.

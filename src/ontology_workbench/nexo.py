@@ -17,13 +17,23 @@ def build_registry_draft(
     business_context: dict[str, object],
     semantic_inventory: dict[str, object],
     draft_id: str,
+    source_authority: str = "technical",
 ) -> dict[str, object]:
     """Materialize reviewable registry candidates from an Atlas assessment package."""
+    authority = source_authority.strip().lower()
+    if authority not in {"technical", "documentation", "hybrid"}:
+        raise ValueError("source_authority debe ser technical, documentation o hybrid")
     candidates: list[dict[str, object]] = []
     _add_context_candidates(candidates, business_context.get("definitions", []), "concept")
     _add_context_candidates(candidates, business_context.get("business_rules", []), "business_rule")
     _add_context_candidates(candidates, business_context.get("kpis", []), "kpi")
-    _add_technical_candidates(candidates, semantic_inventory.get("objects", []))
+    technical_candidates = _technical_candidates(semantic_inventory.get("objects", []), len(candidates))
+    authority_review = _build_authority_review(candidates, technical_candidates, authority)
+    for candidate in candidates:
+        match = authority_review["matches_by_candidate"].get(candidate["candidate_id"])
+        if match is not None:
+            candidate["technical_match"] = match
+    candidates.extend(technical_candidates)
     counts = Counter(str(candidate["candidate_type"]) for candidate in candidates)
     manifest = {
         "format": NEXO_DRAFT_FORMAT_VERSION,
@@ -36,6 +46,11 @@ def build_registry_draft(
             "run_id": assessment_manifest["run_id"],
             "created_at": assessment_manifest["created_at"],
             "scope": assessment_manifest["scope"],
+        },
+        "source_authority": authority,
+        "authority_review": {
+            "matches": authority_review["matches"],
+            "gaps": authority_review["gaps"],
         },
         "candidate_summary": {
             "total": len(candidates),
@@ -149,6 +164,8 @@ def build_ontology_release(
         )
 
     source_assessment = dict(dict(draft["manifest"])["source_assessment"])
+    source_authority = str(dict(draft["manifest"]).get("source_authority", "technical"))
+    authority_review = dict(dict(draft["manifest"]).get("authority_review", {}))
     canonical_concepts = [
         _canonical_candidate(candidate)
         for candidate in approved
@@ -199,6 +216,17 @@ def build_ontology_release(
         }
         for element in approved_model_elements
     ]
+    source_bindings.extend(
+        {
+            "candidate_id": candidate["candidate_id"],
+            "technical_asset_ids": list(candidate["technical_match"].get("technical_asset_ids", [])),
+            "status": candidate["technical_match"].get("status", "unmatched"),
+            "confidence": candidate["technical_match"].get("confidence", 0.0),
+            "reason": candidate["technical_match"].get("reason", ""),
+        }
+        for candidate in approved
+        if candidate.get("technical_match") is not None
+    )
     evidence_index = {
         "items": [
             {"candidate_id": candidate["candidate_id"], **dict(candidate["evidence"])}
@@ -217,6 +245,8 @@ def build_ontology_release(
         "release_id": release_id,
         "project_id": dict(draft["manifest"])["project_id"],
         "scope": source_assessment["scope"],
+        "source_authority": source_authority,
+        "authority_review": authority_review,
         "concepts": canonical_ontology["concepts"],
         "business_rules": canonical_ontology["business_rules"],
         "kpis": canonical_ontology["kpis"],
@@ -244,6 +274,8 @@ def build_ontology_release(
             "created_at": utc_now_iso(),
             "released_by": released_by,
             "release_note": release_note,
+            "source_authority": source_authority,
+            "authority_review": authority_review,
             "source_assessment": source_assessment,
             "approved_candidates": len(approved),
             "rejected_candidates": len(candidates) - len(approved),
@@ -293,9 +325,10 @@ def _add_context_candidates(
         )
 
 
-def _add_technical_candidates(candidates: list[dict[str, object]], objects: object) -> None:
+def _technical_candidates(objects: object, offset: int = 0) -> list[dict[str, object]]:
+    candidates: list[dict[str, object]] = []
     if not isinstance(objects, list):
-        return
+        return candidates
     for item in objects:
         if not isinstance(item, dict):
             continue
@@ -308,7 +341,7 @@ def _add_technical_candidates(candidates: list[dict[str, object]], objects: obje
             continue
         candidates.append(
             {
-                "candidate_id": f"candidate-technical-asset-{len(candidates) + 1:04d}",
+                "candidate_id": f"candidate-technical-asset-{offset + len(candidates) + 1:04d}",
                 "candidate_type": "technical_asset",
                 "name": name,
                 "definition": f"Activo técnico Fabric {metadata.get('fabric.objectType')}: {source_ref}",
@@ -325,6 +358,80 @@ def _add_technical_candidates(candidates: list[dict[str, object]], objects: obje
                 "decision": None,
             }
         )
+    return candidates
+
+
+def _build_authority_review(
+    documented_candidates: list[dict[str, object]],
+    technical_candidates: list[dict[str, object]],
+    authority: str,
+) -> dict[str, object]:
+    matches: list[dict[str, object]] = []
+    gaps: list[dict[str, str]] = []
+    matches_by_candidate: dict[str, dict[str, object]] = {}
+    for candidate in documented_candidates:
+        matched_assets = [
+            asset for asset in technical_candidates if _candidate_matches_asset(candidate, asset)
+        ]
+        asset_ids = [str(asset["candidate_id"]) for asset in matched_assets]
+        confidence = 1.0 if len(matched_assets) == 1 else 0.5 if len(matched_assets) > 1 else 0.0
+        status = "matched" if len(matched_assets) == 1 else "ambiguous" if matched_assets else "unmatched"
+        reason = (
+            "El nombre o identificador técnico aparece en la evidencia documental."
+            if len(matched_assets) == 1
+            else "La evidencia coincide con varios activos técnicos y requiere selección humana."
+            if matched_assets
+            else "No se encontró un activo técnico con coincidencia determinista en la evidencia documental."
+        )
+        match = {
+            "candidate_id": candidate["candidate_id"],
+            "candidate_type": candidate["candidate_type"],
+            "source_document_id": candidate["evidence"]["source_document_id"],
+            "source_chunk_id": candidate["evidence"]["source_chunk_id"],
+            "technical_asset_ids": asset_ids,
+            "status": status,
+            "confidence": confidence,
+            "reason": reason,
+        }
+        matches.append(match)
+        matches_by_candidate[str(candidate["candidate_id"])] = match
+        if authority == "documentation" and len(matched_assets) != 1:
+            gaps.append(
+                {
+                    "gap_id": f"technical-binding-review-{candidate['candidate_id']}",
+                    "candidate_id": str(candidate["candidate_id"]),
+                    "severity": "medium",
+                    "message": (
+                        f"El candidato documental '{candidate['name']}' no tiene un único binding técnico determinista."
+                    ),
+                    "recommendation": (
+                        "Seleccionar un activo Fabric manualmente o justificar la exclusión del candidato."
+                    ),
+                }
+            )
+    return {"matches": matches, "gaps": gaps, "matches_by_candidate": matches_by_candidate}
+
+
+def _candidate_matches_asset(candidate: dict[str, object], asset: dict[str, object]) -> bool:
+    evidence = dict(candidate.get("evidence", {}))
+    haystack = " ".join(
+        str(value)
+        for value in (candidate.get("name", ""), candidate.get("definition", ""), evidence.get("source_excerpt", ""))
+    ).lower()
+    identifiers = {
+        str(asset.get("name", "")).lower(),
+        str(asset.get("evidence", {}).get("source_excerpt", "")).lower(),
+    }
+    metadata = dict(asset.get("technical_metadata", {}))
+    schema = str(metadata.get("fabric.schema", "")).strip().lower()
+    table = str(metadata.get("fabric.table", "")).strip().lower()
+    column = str(metadata.get("fabric.column", "")).strip().lower()
+    if schema and table:
+        identifiers.add(f"{schema}.{table}{f'.{column}' if column else ''}")
+    for identifier in identifiers:
+        if identifier and len(identifier) > 2 and identifier in haystack:
+            return True
+    return False
 
 
 def _short_name(text: str) -> str:

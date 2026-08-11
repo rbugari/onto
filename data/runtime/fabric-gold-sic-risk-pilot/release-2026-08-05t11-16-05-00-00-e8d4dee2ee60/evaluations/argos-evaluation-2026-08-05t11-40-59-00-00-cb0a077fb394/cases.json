@@ -1,0 +1,109 @@
+[
+  {
+    "case_id": "manual-001",
+    "question": "cual es el valor del riesgo 1 en el 12 ?",
+    "expected_status": "answered",
+    "expected_item_name": "",
+    "actual_status": "answered",
+    "retrieved_item_names": [
+      "gold_cultura.fact_riesgo",
+      "gold_governanca.fact_riesgo",
+      "gold_infra.fact_riesgo",
+      "gold_infra.vw_riesgo_resumen",
+      "gold_lldt.fact_riesgo"
+    ],
+    "passed": true,
+    "failure_reason": "",
+    "investigation": {
+      "manifest": {
+        "format": "argos-investigation-v0.1",
+        "investigation_id": "argos-2026-08-05T11-40-59-00-00-7d5e70c18ce1",
+        "created_at": "2026-08-05T11:40:59+00:00",
+        "release_id": "release-2026-08-05T11-16-05-00-00-e8d4dee2ee60",
+        "status": "answered",
+        "mode": "deterministic-context-pack-plus-fabric-read-only"
+      },
+      "request": {
+        "question": "cual es el valor del riesgo 1 en el 12 ?"
+      },
+      "retrieval": [
+        {
+          "item_id": "candidate-technical-asset-0362",
+          "item_type": "technical_asset",
+          "name": "gold_cultura.fact_riesgo",
+          "definition": "Activo técnico Fabric table: gold_cultura.fact_riesgo",
+          "source_binding": {
+            "source_document_id": "fabric-information-schema",
+            "source_chunk_id": "fabric:gold_cultura.fact_riesgo"
+          }
+        },
+        {
+          "item_id": "candidate-technical-asset-0370",
+          "item_type": "technical_asset",
+          "name": "gold_governanca.fact_riesgo",
+          "definition": "Activo técnico Fabric table: gold_governanca.fact_riesgo",
+          "source_binding": {
+            "source_document_id": "fabric-information-schema",
+            "source_chunk_id": "fabric:gold_governanca.fact_riesgo"
+          }
+        },
+        {
+          "item_id": "candidate-technical-asset-0383",
+          "item_type": "technical_asset",
+          "name": "gold_infra.fact_riesgo",
+          "definition": "Activo técnico Fabric table: gold_infra.fact_riesgo",
+          "source_binding": {
+            "source_document_id": "fabric-information-schema",
+            "source_chunk_id": "fabric:gold_infra.fact_riesgo"
+          }
+        },
+        {
+          "item_id": "candidate-technical-asset-0386",
+          "item_type": "technical_asset",
+          "name": "gold_infra.vw_riesgo_resumen",
+          "definition": "Activo técnico Fabric table: gold_infra.vw_riesgo_resumen",
+          "source_binding": {
+            "source_document_id": "fabric-information-schema",
+            "source_chunk_id": "fabric:gold_infra.vw_riesgo_resumen"
+          }
+        },
+        {
+          "item_id": "candidate-technical-asset-0395",
+          "item_type": "technical_asset",
+          "name": "gold_lldt.fact_riesgo",
+          "definition": "Activo técnico Fabric table: gold_lldt.fact_riesgo",
+          "source_binding": {
+            "source_document_id": "fabric-information-schema",
+            "source_chunk_id": "fabric:gold_lldt.fact_riesgo"
+          }
+        }
+      ],
+      "answer": "Consulta real Fabric: para la regla 1 en el SIC 12, el riesgo es ALT (3); probabilidad MIG, impacto ALT, metodo MATRIZ_4X4(probabilidad_final_num, impacto_final_num) y fecha 2026-07-24T11:21:48.170000.",
+      "usage_boundary": "Solo usar los elementos aprobados y sus source bindings; abstenerse fuera de esta evidencia.",
+      "live_query": {
+        "status": "connected_read_only_query",
+        "query_name": "risk_rule_sic",
+        "parameters": [
+          1,
+          12
+        ],
+        "operation": "SELECT",
+        "server": "f44sq3l2irfe5itcs65ld2hme4-y3b4rqduvonepfrtu4k3htpra4.datawarehouse.fabric.microsoft.com",
+        "database": "RAN_DE_DW_200_SILVER",
+        "rows": [
+          {
+            "sic": 12,
+            "id_risc": 1,
+            "riesgo_final_texto": "ALT",
+            "riesgo_final_num": 3,
+            "probabilidad_final_texto": "MIG",
+            "impacto_final_texto": "ALT",
+            "metodo_calculo": "MATRIZ_4X4(probabilidad_final_num, impacto_final_num)",
+            "fecha_calculo": "2026-07-24T11:21:48.170000"
+          }
+        ]
+      },
+      "package_path": "C:\\Users\\rfbugari\\OneDrive - Sopra Steria\\onto\\data\\runtime\\fabric-gold-sic-risk-pilot\\release-2026-08-05t11-16-05-00-00-e8d4dee2ee60\\argos-2026-08-05t11-40-59-00-00-7d5e70c18ce1"
+    }
+  }
+]

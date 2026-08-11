@@ -1,0 +1,1 @@
+Consulta real Fabric: no hay resultado para esa regla y SIC.

@@ -1,0 +1,32 @@
+{
+  "reasoning_advisory": {
+    "level": "standard_reasoning_sufficient",
+    "model_used": "deterministic-runtime",
+    "configured_provider": "openai",
+    "configured_model": "gpt-5.6-luna",
+    "message": "La pregunta se resolvio con la operacion risk_rule_sic; no fue necesario usar un LLM."
+  },
+  "live_query": {
+    "status": "connected_read_only_query",
+    "query_name": "risk_rule_sic",
+    "parameters": [
+      1,
+      12
+    ],
+    "operation": "SELECT",
+    "server": "f44sq3l2irfe5itcs65ld2hme4-y3b4rqduvonepfrtu4k3htpra4.datawarehouse.fabric.microsoft.com",
+    "database": "RAN_DE_DW_200_SILVER",
+    "rows": [
+      {
+        "sic": 12,
+        "id_risc": 1,
+        "riesgo_final_texto": "ALT",
+        "riesgo_final_num": 3,
+        "probabilidad_final_texto": "MIG",
+        "impacto_final_texto": "ALT",
+        "metodo_calculo": "MATRIZ_4X4(probabilidad_final_num, impacto_final_num)",
+        "fecha_calculo": "2026-07-24T11:21:48.170000"
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "reasoning_advisory": {
+    "level": "llm_reasoning_active",
+    "model_used": "configured-llm",
+    "configured_provider": "openai",
+    "configured_model": "gpt-5.6-luna",
+    "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+  },
+  "live_query": null,
+  "llm_used": true,
+  "llm_plan": {
+    "query_name": null,
+    "parameters": {},
+    "needs_stronger_model": false,
+    "reasoning_note": "La pregunta sobre qué planeta es más grande no pertenece al dominio gold-sic-risk y ninguna consulta permitida del catálogo proporciona datos astronómicos."
+  },
+  "llm_response": {
+    "answer": "No se puede determinar con la evidencia disponible.",
+    "interpretation": "La evidencia corresponde a un dominio de riesgo SIC y no contiene datos astronómicos ni una comparación entre planetas.",
+    "suggested_questions": [],
+    "visualization": null,
+    "needs_stronger_model": false,
+    "reasoning_note": "La pregunta está fuera del alcance de la evidencia proporcionada; responder que Júpiter es el planeta más grande requeriría conocimiento externo no incluido."
+  }
+}

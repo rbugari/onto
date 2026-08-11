@@ -1,0 +1,22 @@
+[
+  {
+    "item_id": "candidate-technical-asset-0882",
+    "item_type": "technical_asset",
+    "name": "gold_infra.fact_impacto_sig.riesgos",
+    "definition": "Activo técnico Fabric column: gold_infra.fact_impacto_sig.riesgos",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_infra.fact_impacto_sig.riesgos"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-1278",
+    "item_type": "technical_asset",
+    "name": "gold_sic.fact_impacto_sig.riesgos",
+    "definition": "Activo técnico Fabric column: gold_sic.fact_impacto_sig.riesgos",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.fact_impacto_sig.riesgos"
+    }
+  }
+]

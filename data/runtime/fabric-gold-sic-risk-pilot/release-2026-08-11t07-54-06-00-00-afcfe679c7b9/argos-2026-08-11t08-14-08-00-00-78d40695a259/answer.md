@@ -1,0 +1,1 @@
+CONSTANTE es un tipo de resultado cuyo valor queda fijado por una decisión funcional, no por una fuente dinámica. Por ejemplo, la regla de MFA VPN para administradores se considera cubierta al 100% y se clasifica como BAIX de forma constante.

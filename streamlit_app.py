@@ -23,9 +23,9 @@ service = WorkbenchService(store)
 
 PRODUCT_AREAS = {
     "Inicio": "Inicio",
-    "Atlas": "Atlas · Assessment",
-    "Nexo": "Nexo · Registry",
-    "Argos": "Argos · Investigador",
+    "Atlas": "Atlas · Preparación analítica",
+    "Nexo": "Nexo · Gobierno y publicación",
+    "Argos": "Argos · Análisis de negocio",
     "Workbench": "Workbench",
 }
 
@@ -60,22 +60,22 @@ def render_factory_home(project) -> None:
         (
             "Atlas",
             "Atlas · Ontology Readiness Assessment",
-            "Inventaría activos técnicos y funcionales, extrae contexto, calcula readiness y expone gaps.",
-            "Producto 1 · Assessment",
+            "Lo usan analistas de negocio y sistemas para preparar evidencia, contexto y gaps.",
+            "Producto 1 · Preparación para analistas",
             "Abrir Atlas",
         ),
         (
             "Nexo",
             "Nexo · Registry & Validation",
-            "Transforma hallazgos en candidatos trazables, decisiones humanas y releases locales.",
-            "Producto 2 · Registry",
+            "Lo usan analistas para gobernar hallazgos, validar decisiones y publicar releases.",
+            "Producto 2 · Gobierno para analistas",
             "Abrir Nexo",
         ),
         (
             "Argos",
-            "Argos · Investigador",
-            "Consulta exclusivamente el context pack de una release y se abstiene fuera de su evidencia.",
-            "Producto 3 · Runtime",
+            "Argos · Análisis de negocio",
+            "Lo usa el negocio para obtener respuestas y números accionables sobre problemas reales.",
+            "Producto 3 · Superficie de negocio",
             "Abrir Argos",
         ),
     ]
@@ -102,6 +102,21 @@ def render_factory_home(project) -> None:
         metrics[0].metric("Assessments", len(assessments))
         metrics[1].metric("Drafts Nexo", len(drafts))
         metrics[2].metric("Releases", len(releases))
+        completed_steps = sum(bool(items) for items in (assessments, drafts, releases))
+        st.subheader("Progreso del piloto")
+        st.progress(completed_steps / 3, text=f"{completed_steps} de 3 etapas completadas")
+        progress_columns = st.columns(3)
+        progress_columns[0].write(f"{'OK' if assessments else 'Pendiente'} · Atlas\nAssessment revisado")
+        progress_columns[1].write(f"{'OK' if drafts else 'Pendiente'} · Nexo\nDraft validado")
+        progress_columns[2].write(f"{'OK' if releases else 'Pendiente'} · Argos\nContexto disponible")
+        if releases:
+            st.success("El piloto esta listo para ejecutar consultas controladas en Argos.")
+        elif drafts:
+            st.warning("Siguiente paso: revisar los candidatos pendientes y emitir una release Nexo.")
+        elif assessments:
+            st.warning("Siguiente paso: crear un draft Nexo a partir del assessment Atlas.")
+        else:
+            st.info("Siguiente paso: conectar una fuente, inventariar sus activos y generar un assessment Atlas.")
 
 
 def render_create_project() -> None:
@@ -355,9 +370,20 @@ def render_nexo_registry(project_id: str, project) -> None:
                 f"{item} Â· {dict(assessment_options[item].get('scope', {})).get('domain_id', 'sin-dominio')}"
             ),
         )
+        source_authority = st.selectbox(
+            "Autoridad de fuente",
+            options=["technical", "documentation", "hybrid"],
+            format_func=lambda item: {
+                "technical": "Technical-first: Fabric define el universo técnico",
+                "documentation": "Documentation-first: la documentación define el alcance",
+                "hybrid": "Hybrid: combina documentación y metadata técnica",
+            }[item],
+        )
         if st.form_submit_button("Crear draft Nexo"):
             try:
-                draft = service.create_nexo_draft(project_id, assessment_run_id)
+                draft = service.create_nexo_draft(
+                    project_id, assessment_run_id, source_authority=source_authority
+                )
             except (ValueError, FileNotFoundError) as exc:
                 st.error(str(exc))
             else:
@@ -401,6 +427,20 @@ def render_nexo_registry(project_id: str, project) -> None:
         model_metrics[1].metric("Pendientes", model_summary["pending_review"])
         model_metrics[2].metric("Aprobados", model_summary["approved"])
         model_metrics[3].metric("Rechazados", model_summary["rejected"])
+        if st.button(
+            "Proponer source bindings unicos",
+            key=f"nexo-propose-bindings-{selected_draft_id}",
+        ):
+            try:
+                proposal_result = service.propose_nexo_source_bindings(project_id, selected_draft_id)
+            except (ValueError, FileNotFoundError) as exc:
+                st.error(str(exc))
+            else:
+                st.success(
+                    f"Propuestas creadas: {proposal_result['created']}. "
+                    f"Matches ambiguos omitidos: {proposal_result['skipped_ambiguous']}."
+                )
+                st.rerun()
         candidate_options_for_model = {
             str(candidate["candidate_id"]): candidate for candidate in candidates
         }
@@ -543,10 +583,22 @@ def render_nexo_registry(project_id: str, project) -> None:
         with st.expander("Revision masiva de candidatos", expanded=False):
             bulk_options = {str(candidate["candidate_id"]): candidate for candidate in visible_candidates}
             with st.form(f"nexo-bulk-review-{selected_draft_id}-{status_filter}"):
+                select_all_pending = st.checkbox(
+                    "Seleccionar todos los candidatos pendientes visibles",
+                    help="Incluye de una vez todos los candidatos pendientes del filtro actual.",
+                )
+                pending_bulk_ids = [
+                    candidate_id
+                    for candidate_id, candidate in bulk_options.items()
+                    if candidate["status"] == "pending_review"
+                ]
+                if select_all_pending:
+                    st.caption(f"Se aplicara la decision a {len(pending_bulk_ids)} candidatos pendientes.")
                 selected_bulk_ids = st.multiselect(
                     "Candidatos seleccionados",
                     options=list(bulk_options.keys()),
                     format_func=lambda item: f"{bulk_options[item]['candidate_type']} · {bulk_options[item]['name']}",
+                    disabled=select_all_pending,
                 )
                 bulk_columns = st.columns(3)
                 bulk_status = bulk_columns[0].selectbox("Decision masiva", ["approved", "rejected"])
@@ -556,7 +608,8 @@ def render_nexo_registry(project_id: str, project) -> None:
                 if st.form_submit_button("Aplicar decision a seleccion"):
                     try:
                         result = service.bulk_update_nexo_candidates(
-                            project_id, selected_draft_id, selected_bulk_ids,
+                            project_id, selected_draft_id,
+                            pending_bulk_ids if select_all_pending else selected_bulk_ids,
                             bulk_status, bulk_reviewer, bulk_role, bulk_note,
                         )
                     except (ValueError, FileNotFoundError) as exc:
@@ -770,48 +823,91 @@ def render_nexo_registry(project_id: str, project) -> None:
                     st.success(f"Release creada localmente: {release['package_path']}")
 
 
-def render_argos_runtime(project_id: str) -> None:
-    st.subheader("Argos · Investigador de releases")
-    st.caption("Consulta solo el agent_context_pack de una release local y se abstiene fuera de su evidencia.")
+def render_argos_runtime(project_id: str, project) -> None:
+    st.subheader("Investigación de riesgos")
+    st.caption(
+        "Explora los riesgos del negocio con preguntas en lenguaje natural. "
+        "Argos reúne datos, contexto y explicaciones en una misma conversación."
+    )
+    llm_settings = load_llm_settings()
+    if llm_settings.enabled:
+        st.success(f"OpenAI activo · {llm_settings.model}")
+    else:
+        st.warning(
+            "OpenAI no está activo en esta ejecución. Argos está usando el modo de respaldo; "
+            "las respuestas serán limitadas."
+        )
     releases = service.list_nexo_releases(project_id)
     if not releases:
-        st.info("No hay releases Nexo disponibles para investigar.")
+        st.info("La investigación todavía no está disponible: falta preparar el contexto del negocio.")
         return
-    options = {str(release["release_id"]): release for release in releases}
-    with st.form(f"argos-{project_id}"):
-        release_id = st.selectbox("Release", list(options.keys()))
-        question = st.text_area("Pregunta", placeholder="¿Qué define ...?")
-        if st.form_submit_button("Investigar"):
+    release_id = str(releases[0]["release_id"])
+    conversation_key = f"argos-conversation-{project_id}"
+    conversation = st.session_state.setdefault(conversation_key, [])
+    starter_questions = [
+        "¿Cuál es el riesgo de la regla 1 en el SIC 12?",
+        "¿Cuántos riesgos hay y cómo se distribuyen por nivel?",
+        "¿Qué riesgos deberían priorizarse y por qué?",
+    ]
+    st.markdown(f"### {project.name}")
+    st.caption("Contexto de investigación activo. Escribe una pregunta o elige un punto de partida.")
+    starter_columns = st.columns(3)
+    for index, starter_question in enumerate(starter_questions):
+        if starter_columns[index].button(
+            starter_question,
+            key=f"argos-starter-{project_id}-{index}",
+            use_container_width=True,
+        ):
+            _run_argos_question(project_id, release_id, starter_question, conversation_key)
+            st.rerun()
+    with st.form(f"argos-chat-{project_id}", clear_on_submit=True):
+        question = st.text_area(
+            "Tu pregunta",
+            placeholder="Ejemplo: ¿Por qué subió el riesgo y qué debería revisar primero?",
+            height=90,
+        )
+        if st.form_submit_button("Consultar", use_container_width=True) and question.strip():
             try:
                 result = service.investigate_release(project_id, release_id, question)
             except (ValueError, FileNotFoundError) as exc:
                 st.error(str(exc))
             else:
-                st.session_state[f"argos-result-{project_id}"] = result
-    result = st.session_state.get(f"argos-result-{project_id}")
-    if result:
-        st.info(str(result["answer"]))
-        st.caption(f"Estado: {result['manifest']['status']} · Paquete: {result['package_path']}")
-        live_query = result.get("live_query")
-        if live_query:
-            st.success(
-                f"Fabric live · {live_query.get('query_name', 'consulta')} · "
-                f"{live_query.get('operation', 'SELECT')} · "
-                f"{len(live_query.get('rows', []))} resultado(s)"
-            )
-            if live_query.get("rows"):
-                st.dataframe(live_query["rows"], width="stretch", hide_index=True)
-        if result["retrieval"]:
-            st.dataframe(result["retrieval"], width="stretch", hide_index=True)
+                conversation.append({"question": question.strip(), "result": result})
+                st.rerun()
+    if conversation:
+        st.divider()
+        for exchange in reversed(conversation):
+            result = exchange["result"]
+            with st.container(border=True):
+                st.caption("Tu pregunta")
+                st.markdown(f"**{exchange['question']}**")
+                st.success(str(result["answer"]) if result["manifest"]["status"] == "answered" else str(result["answer"]))
+                interpretation = result.get("interpretation")
+                if interpretation:
+                    st.write(interpretation)
+                _render_argos_result_views(result)
+                suggested_questions = result.get("suggested_questions", [])
+                if suggested_questions:
+                    st.markdown("**Puedes seguir por aquí**")
+                    for suggestion_index, suggested_question in enumerate(suggested_questions):
+                        if st.button(
+                            suggested_question,
+                            key=f"argos-follow-up-{project_id}-{manifest_id(result)}-{suggestion_index}",
+                            use_container_width=True,
+                        ):
+                            _run_argos_question(
+                                project_id, release_id, suggested_question, conversation_key
+                            )
+                            st.rerun()
+                with st.expander("Detalles para analistas", expanded=False):
+                    _render_argos_traceability(result)
 
     with st.expander("Batería de evaluación de Argos", expanded=False):
         st.caption(
             "Define qué debe responder Argos y de qué debe abstenerse. Cada ejecución valida "
             "el estado esperado y, si corresponde, el elemento de evidencia recuperado."
         )
-        evaluation_release_id = st.selectbox(
-            "Release a evaluar", list(options.keys()), key=f"argos-evaluation-release-{project_id}"
-        )
+        evaluation_release_id = release_id
         cases_key = f"argos-evaluation-cases-{project_id}"
         if st.button("Preparar batería base", key=f"argos-evaluation-suggest-{project_id}"):
             try:
@@ -837,6 +933,16 @@ def render_argos_runtime(project_id: str) -> None:
                 if not raw_line.strip():
                     continue
                 values = [value.strip() for value in raw_line.split("|", maxsplit=2)]
+                if len(values) == 1 and values[0]:
+                    cases.append(
+                        {
+                            "case_id": f"manual-{line_number:03d}",
+                            "question": values[0],
+                            "expected_status": "answered",
+                            "expected_item_name": "",
+                        }
+                    )
+                    continue
                 if len(values) < 2:
                     invalid_lines.append(str(line_number))
                     continue
@@ -871,6 +977,8 @@ def render_argos_runtime(project_id: str) -> None:
                         "pregunta": case["question"],
                         "esperado": case["expected_status"],
                         "obtenido": case["actual_status"],
+                        "respuesta": case.get("investigation", {}).get("answer", ""),
+                        "consulta": case.get("investigation", {}).get("live_query", {}).get("query_name", ""),
                         "evidencia": ", ".join(case["retrieved_item_names"]),
                         "correcto": case["passed"],
                         "motivo": case["failure_reason"],
@@ -880,6 +988,90 @@ def render_argos_runtime(project_id: str) -> None:
                 width="stretch",
                 hide_index=True,
             )
+            for case in evaluation["cases"]:
+                investigation = case.get("investigation", {})
+                live_query = investigation.get("live_query", {})
+                with st.expander(f"Resultado: {case['question']}", expanded=True):
+                    st.write(investigation.get("answer", "Sin respuesta"))
+                    if live_query:
+                        st.caption(
+                            f"Consulta Fabric: {live_query.get('query_name', 'consulta')} · "
+                            f"{live_query.get('operation', 'SELECT')} · "
+                            f"{len(live_query.get('rows', []))} fila(s)"
+                        )
+                        if live_query.get("rows"):
+                            st.dataframe(live_query["rows"], width="stretch", hide_index=True)
+
+
+def _run_argos_question(
+    project_id: str, release_id: str, question: str, conversation_key: str
+) -> None:
+    try:
+        result = service.investigate_release(project_id, release_id, question)
+    except (ValueError, FileNotFoundError) as exc:
+        st.error(str(exc))
+        return
+    st.session_state.setdefault(conversation_key, []).append(
+        {"question": question, "result": result}
+    )
+
+
+def _render_argos_result_views(result: dict[str, object]) -> None:
+    live_query = result.get("live_query")
+    rows = [row for row in live_query.get("rows", []) if isinstance(row, dict)] if isinstance(live_query, dict) else []
+    if rows:
+        st.markdown("**Datos encontrados**")
+        st.dataframe(rows, width="stretch", hide_index=True)
+    if isinstance(live_query, dict) and live_query.get("query_name") == "risk_levels" and rows:
+        chart_data = {
+            str(row.get("riesgo_final_texto", "Sin nivel")): int(row.get("total_rows", 0))
+            for row in rows
+        }
+        if chart_data:
+            st.markdown("**Distribución de riesgos**")
+            st.bar_chart(chart_data, height=220)
+    visualization = result.get("visualization")
+    if rows and isinstance(live_query, dict) and live_query.get("query_name") == "risk_rule_sic":
+        row = rows[0]
+        st.markdown("**Cómo se forma el resultado**")
+        flow = st.columns(3)
+        flow[0].metric("Probabilidad", str(row.get("probabilidad_final_texto", "Sin dato")))
+        flow[1].metric("Impacto", str(row.get("impacto_final_texto", "Sin dato")))
+        flow[2].metric("Riesgo final", str(row.get("riesgo_final_texto", "Sin dato")))
+        st.caption(f"El resultado se obtiene aplicando el método {row.get('metodo_calculo', 'informado por la fuente')}.")
+    elif isinstance(visualization, dict):
+        st.markdown("**Explicación visual**")
+        st.info("No hay datos suficientes para construir un gráfico de negocio con este resultado.")
+
+
+def manifest_id(result: dict[str, object]) -> str:
+    return str(dict(result.get("manifest", {})).get("investigation_id", "result"))
+
+
+def _render_argos_traceability(result: dict[str, object]) -> None:
+    manifest = dict(result.get("manifest", {}))
+    st.caption(
+        f"Estado: {manifest.get('status', 'desconocido')} · "
+        f"Ejecución registrada en: {result.get('package_path', 'sin ruta')}"
+    )
+    reasoning_advisory = result.get("reasoning_advisory")
+    if isinstance(reasoning_advisory, dict):
+        st.caption(str(reasoning_advisory.get("message", "")))
+        st.caption(
+            f"Motor: {reasoning_advisory.get('model_used', 'sin informar')} · "
+            f"Configuración: {reasoning_advisory.get('configured_provider', 'sin informar')} / "
+            f"{reasoning_advisory.get('configured_model', 'sin informar')}"
+        )
+    live_query = result.get("live_query")
+    if isinstance(live_query, dict):
+        st.caption(
+            f"Fuente: {live_query.get('query_name', 'consulta')} · "
+            f"{live_query.get('operation', 'SELECT')} · "
+            f"{len(live_query.get('rows', []))} resultado(s)"
+        )
+    retrieval = result.get("retrieval", [])
+    if retrieval:
+        st.dataframe(retrieval, width="stretch", hide_index=True)
 
 
 def render_export_actions(project_id: str) -> None:
@@ -1335,8 +1527,9 @@ def main() -> None:
         render_factory_home(project)
         return
 
-    st.title(PRODUCT_AREAS[selected_area])
-    st.caption(f"Proyecto activo: {project.name} · Actualizado: {project.updated_at}")
+    st.title("Investigación de riesgos" if selected_area == "Argos" else PRODUCT_AREAS[selected_area])
+    if selected_area != "Argos":
+        st.caption(f"Proyecto activo: {project.name} · Actualizado: {project.updated_at}")
     if selected_area == "Atlas":
         render_project_overview(project.id, project)
         render_atlas_assessment(project.id, project)
@@ -1345,7 +1538,7 @@ def main() -> None:
     elif selected_area == "Nexo":
         render_nexo_registry(project.id, project)
     elif selected_area == "Argos":
-        render_argos_runtime(project.id)
+        render_argos_runtime(project.id, project)
     else:
         render_project_overview(project.id, project)
         render_project_editor(project)

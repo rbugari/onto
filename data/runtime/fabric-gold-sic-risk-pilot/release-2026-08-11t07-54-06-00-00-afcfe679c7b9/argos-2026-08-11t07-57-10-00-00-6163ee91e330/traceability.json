@@ -1,0 +1,29 @@
+{
+  "reasoning_advisory": {
+    "level": "llm_reasoning_active",
+    "model_used": "configured-llm",
+    "configured_provider": "openai",
+    "configured_model": "gpt-5.6-luna",
+    "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+  },
+  "live_query": null,
+  "llm_used": true,
+  "llm_plan": {
+    "query_name": null,
+    "parameters": {},
+    "needs_stronger_model": false,
+    "reasoning_note": "La definición de CONSTANTE está explícitamente disponible en el contexto aprobado: el valor queda fijado por decisión funcional y no por una fuente dinámica. Ninguna consulta permitida del catálogo es necesaria para responder."
+  },
+  "llm_response": {
+    "answer": "CONSTANTE significa que el valor de una regla queda fijado por una decisión funcional y no se obtiene de una fuente dinámica. Por ejemplo, la regla 2002 establece un 100% de cobertura MFA para administradores y se clasifica como BAIX; la regla 2005 fija 0% de MFA para cuentas genéricas y se clasifica como MOLT ALT.",
+    "interpretation": "Es un tipo de resultado distinto de REAL y DEFAULT: REAL usa un dato disponible, DEFAULT aplica un valor configurado cuando falta un dato usable y CONSTANTE aplica siempre el valor definido funcionalmente.",
+    "suggested_questions": [
+      "¿Qué reglas del modelo están marcadas como CONSTANTE?",
+      "¿Cuál es la diferencia entre CONSTANTE y DEFAULT?",
+      "¿Qué impacto tiene una regla CONSTANTE en el riesgo final?"
+    ],
+    "visualization": null,
+    "needs_stronger_model": false,
+    "reasoning_note": "La evidencia define explícitamente CONSTANTE como un valor fijado por decisión funcional y aporta ejemplos concretos para las reglas 2002 y 2005."
+  }
+}

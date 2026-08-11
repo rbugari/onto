@@ -1,0 +1,1 @@
+La Unidad de cálculo es el departamento o ámbito funcional de puestos sobre el que se realiza el cálculo del riesgo.

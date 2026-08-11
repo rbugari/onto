@@ -1,0 +1,29 @@
+{
+  "reasoning_advisory": {
+    "level": "llm_reasoning_active",
+    "model_used": "configured-llm",
+    "configured_provider": "openai",
+    "configured_model": "gpt-5.6-luna",
+    "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+  },
+  "live_query": null,
+  "llm_used": true,
+  "llm_plan": {
+    "query_name": null,
+    "parameters": {},
+    "needs_stronger_model": false,
+    "reasoning_note": "La definición está disponible directamente en el contexto aprobado: Unidad de cálculo es el departamento o ámbito funcional de puestos. No es necesario ejecutar una consulta del catálogo."
+  },
+  "llm_response": {
+    "answer": "La Unidad de cálculo es el departamento o ámbito funcional de puestos sobre el que se realiza el cálculo del riesgo.",
+    "interpretation": "En el modelo vigente, la unidad de cálculo se identifica normalmente con un departamento de referencia (codigo_departamento_ref).",
+    "suggested_questions": [
+      "¿Cómo se identifica la Unidad de cálculo en los datos?",
+      "¿Qué reglas se aplican a cada Unidad de cálculo?",
+      "¿Cómo se agrega el resultado de una Unidad de cálculo?"
+    ],
+    "visualization": null,
+    "needs_stronger_model": false,
+    "reasoning_note": "La definición está disponible directamente en la evidencia aprobada."
+  }
+}

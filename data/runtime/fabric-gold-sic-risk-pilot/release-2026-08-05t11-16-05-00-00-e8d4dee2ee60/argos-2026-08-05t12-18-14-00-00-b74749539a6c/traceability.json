@@ -1,0 +1,35 @@
+{
+  "reasoning_advisory": {
+    "level": "standard_reasoning_sufficient",
+    "model_used": "deterministic-runtime",
+    "configured_provider": "disabled",
+    "configured_model": "gpt-5.6-luna",
+    "message": "La pregunta se resolvio con la operacion risk_levels; no fue necesario usar un LLM."
+  },
+  "live_query": {
+    "status": "connected_read_only_query",
+    "query_name": "risk_levels",
+    "parameters": [],
+    "operation": "SELECT",
+    "server": "f44sq3l2irfe5itcs65ld2hme4-y3b4rqduvonepfrtu4k3htpra4.datawarehouse.fabric.microsoft.com",
+    "database": "RAN_DE_DW_200_SILVER",
+    "rows": [
+      {
+        "riesgo_final_texto": "ALT",
+        "total_rows": 879
+      },
+      {
+        "riesgo_final_texto": "MIG",
+        "total_rows": 551
+      },
+      {
+        "riesgo_final_texto": "MOLT ALT",
+        "total_rows": 83
+      },
+      {
+        "riesgo_final_texto": "BAIX",
+        "total_rows": 79
+      }
+    ]
+  }
+}

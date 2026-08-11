@@ -1,0 +1,1 @@
+CONSTANTE significa que el valor de una regla queda fijado por una decisión funcional y no se obtiene de una fuente dinámica. Por ejemplo, la regla 2002 establece un 100% de cobertura MFA para administradores y se clasifica como BAIX; la regla 2005 fija 0% de MFA para cuentas genéricas y se clasifica como MOLT ALT.

@@ -4,6 +4,7 @@ import sys
 import unittest
 import json
 import os
+from types import SimpleNamespace
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest.mock import patch
@@ -18,8 +19,14 @@ from ontology_workbench.service import WorkbenchService
 from ontology_workbench.storage import ProjectStore
 from ontology_workbench.context_scanner import CONTEXT_CHUNK_SIZE, build_document_chunks, load_llm_settings
 from ontology_workbench.nexo_diff import compare_nexo_artifacts
+from ontology_workbench.nexo import build_registry_draft
 from ontology_workbench.fabric_adapter import execute_fabric_read_only_query, load_fabric_settings
-from ontology_workbench.runtime import investigate_context_pack, select_fabric_query
+from ontology_workbench.runtime import (
+    fabric_query_parameters,
+    investigate_context_pack_with_llm,
+    investigate_context_pack,
+    select_fabric_query,
+)
 
 
 class WorkbenchServiceTests(unittest.TestCase):
@@ -38,6 +45,53 @@ class WorkbenchServiceTests(unittest.TestCase):
         loaded = self.service.get_project(project.id)
         self.assertEqual(loaded.name, "Customer Master")
         self.assertEqual(loaded.description, "")
+
+    def test_investigate_release_accepts_normalized_release_path_id(self) -> None:
+        project = self.service.create_project("Runtime release")
+        release_id = "release-2026-08-11T07-54-06-00-00-test"
+        release = {
+            "manifest": {"project_id": project.id, "release_id": release_id, "created_at": "2026-08-11T07:54:06+00:00"},
+            "canonical_ontology": {},
+            "review_decisions": [],
+            "evidence_index": {},
+            "source_bindings": [],
+            "agent_context_pack": {
+                "entities": [],
+                "rules": [],
+                "kpis": [],
+                "bindings": [],
+                "query_contract": {
+                    "allowed_operations": ["SELECT"],
+                    "disallowed_operations": ["INSERT", "UPDATE", "DELETE", "DDL"],
+                    "requires_approved_data_binding": True,
+                },
+            },
+            "interoperability_mappings": {},
+        }
+        self.store.save_nexo_release(project.id, release)
+
+        with patch(
+            "ontology_workbench.service.load_llm_settings",
+            return_value=SimpleNamespace(enabled=False, provider="", model=""),
+        ), patch(
+            "ontology_workbench.service.investigate_context_pack"
+        ) as investigate, patch.object(self.store, "save_runtime_investigation", return_value=Path("runtime-test")):
+            investigate.return_value = {
+                "manifest": {
+                    "status": "answered",
+                    "release_id": release_id,
+                    "investigation_id": "investigation-test",
+                },
+                "answer": "ok",
+            }
+            result = self.service.investigate_release(
+                project.id,
+                release_id.lower(),
+                "What is the status?",
+            )
+
+        investigate.assert_called_once()
+        self.assertEqual(result["answer"], "ok")
 
     def test_fabric_adapter_uses_external_shared_configuration_without_copying_it(self) -> None:
         shared_env = Path(self.temp_dir.name) / "shared-fabric.env"
@@ -77,6 +131,10 @@ class WorkbenchServiceTests(unittest.TestCase):
         execute_query.assert_called_once_with("risk_summary")
         self.assertEqual(result["operation"], "SELECT")
 
+    def test_fabric_rule_query_requires_two_integer_parameters(self) -> None:
+        with self.assertRaisesRegex(ValueError, "requiere id_risc y sic enteros"):
+            execute_fabric_read_only_query("risk_rule_sic", ("1003", 12))
+
     def test_fabric_metadata_becomes_atlas_technical_evidence_without_business_rows(self) -> None:
         project = self.service.create_project("Fabric Atlas")
         discovery = {
@@ -108,6 +166,83 @@ class WorkbenchServiceTests(unittest.TestCase):
             len([item for item in draft["candidates"] if item["candidate_type"] == "technical_asset"]),
             3,
         )
+
+        documentation_draft = self.service.create_nexo_draft(
+            project.id, str(assessment["manifest"]["run_id"]), source_authority="documentation"
+        )
+        self.assertEqual(documentation_draft["manifest"]["source_authority"], "documentation")
+        self.assertGreater(
+            len([item for item in documentation_draft["candidates"] if item["candidate_type"] == "technical_asset"]),
+            0,
+        )
+
+    def test_nexo_rejects_unknown_source_authority(self) -> None:
+        project = self.service.create_project("Authority")
+        assessment = self.service.create_atlas_assessment(project.id, "Client", "Domain", "Product")
+
+        with self.assertRaisesRegex(ValueError, "source_authority"):
+            self.service.create_nexo_draft(
+                project.id, str(assessment["manifest"]["run_id"]), source_authority="unknown"
+            )
+
+    def test_documentation_first_matches_assets_and_records_unbound_gaps(self) -> None:
+        project = self.service.create_project("Documentation bindings")
+        draft = build_registry_draft(
+            project,
+            {
+                "run_id": "atlas-test",
+                "created_at": "2026-08-11T00:00:00+00:00",
+                "scope": {"project_id": project.id},
+            },
+            {
+                "definitions": [
+                    {
+                        "term": "Riesgo consolidado",
+                        "definition": "Se publica en gold_sic.fact_riesgo.",
+                        "source_document_id": "doc-1",
+                        "source_chunk_id": "doc-1-chunk-1",
+                        "source_excerpt": "gold_sic.fact_riesgo",
+                    },
+                    {
+                        "term": "Concepto sin binding",
+                        "definition": "El esquema gold_sic no identifica un activo concreto.",
+                        "source_document_id": "doc-1",
+                        "source_chunk_id": "doc-1-chunk-2",
+                        "source_excerpt": "El esquema gold_sic no identifica un activo concreto.",
+                    },
+                ]
+            },
+            {
+                "objects": [
+                    {
+                        "name": "fact_riesgo",
+                        "source_ref": "gold_sic.fact_riesgo",
+                        "metadata": {
+                            "fabric.objectType": "table",
+                            "fabric.schema": "gold_sic",
+                            "fabric.table": "fact_riesgo",
+                        },
+                    }
+                ]
+            },
+            "draft-test",
+            source_authority="documentation",
+        )
+
+        matches = draft["manifest"]["authority_review"]["matches"]
+        gaps = draft["manifest"]["authority_review"]["gaps"]
+        matched = next(item for item in matches if item["candidate_type"] == "concept" and item["status"] == "matched")
+        self.assertEqual(matched["technical_asset_ids"], ["candidate-technical-asset-0003"])
+        self.assertEqual(len(gaps), 1)
+        unbound = next(item for item in draft["candidates"] if item["name"] == "Concepto sin binding")
+        self.assertEqual(unbound["technical_match"]["status"], "unmatched")
+
+        draft_path = self.store.save_nexo_draft(draft)
+        result = self.service.propose_nexo_source_bindings(project.id, "draft-test")
+        self.assertEqual(result["created"], 1)
+        stored = self.service.get_nexo_draft(project.id, "draft-test")
+        self.assertEqual(stored["model_elements"][0]["element_type"], "source_binding")
+        self.assertEqual(stored["model_elements"][0]["status"], "pending_review")
 
     def test_add_concept_assigns_incremental_unique_ids(self) -> None:
         project = self.service.create_project("Semantic Model")
@@ -436,37 +571,47 @@ class WorkbenchServiceTests(unittest.TestCase):
         context_pack = json.loads(context_pack_path.read_text(encoding="utf-8"))
         context_pack["data_bindings"] = [{"name": "gold_sic.fact_riesgo -> gold_sic.fact_riesgo"}]
         context_pack_path.write_text(json.dumps(context_pack), encoding="utf-8")
-        with patch("ontology_workbench.service.execute_fabric_read_only_query") as execute_query:
-            execute_query.return_value = {
-                "status": "connected_read_only_query",
-                "query_name": "risk_summary",
-                "operation": "SELECT",
-                "rows": [{"total_rows": 3, "distinct_sic": 2, "latest_calculation": "2026-08-05"}],
-            }
-            live_answer = self.service.investigate_release(
-                project.id, str(release["manifest"]["release_id"]), "Cuantos riesgos hay?"
-            )
-            abstention = self.service.investigate_release(
-                project.id, str(release["manifest"]["release_id"]), "Que planeta es mas grande?"
-            )
+        with patch.dict(os.environ, {"ONTO_LLM_PROVIDER": "disabled"}, clear=False):
+            with patch("ontology_workbench.service.execute_fabric_read_only_query") as execute_query:
+                execute_query.return_value = {
+                    "status": "connected_read_only_query",
+                    "query_name": "risk_summary",
+                    "operation": "SELECT",
+                    "rows": [{"total_rows": 3, "distinct_sic": 2, "latest_calculation": "2026-08-05"}],
+                }
+                live_answer = self.service.investigate_release(
+                    project.id, str(release["manifest"]["release_id"]), "Cuantos riesgos hay?"
+                )
+                abstention = self.service.investigate_release(
+                    project.id, str(release["manifest"]["release_id"]), "Que planeta es mas grande?"
+                )
         execute_query.assert_called_once_with("risk_summary")
         self.assertEqual(live_answer["manifest"]["mode"], "deterministic-context-pack-plus-fabric-read-only")
         self.assertIn("3 registros de riesgo", live_answer["answer"])
+        self.assertEqual(
+            live_answer["reasoning_advisory"]["level"],
+            "standard_reasoning_sufficient",
+        )
+        self.assertTrue(
+            Path(live_answer["package_path"], "traceability.json").exists()
+        )
         context_pack["data_bindings"] = []
         context_pack_path.write_text(json.dumps(context_pack), encoding="utf-8")
-        blocked = self.service.investigate_release(
-            project.id, str(release["manifest"]["release_id"]), "Cuantos riesgos hay?"
-        )
+        with patch.dict(os.environ, {"ONTO_LLM_PROVIDER": "disabled"}, clear=False):
+            blocked = self.service.investigate_release(
+                project.id, str(release["manifest"]["release_id"]), "Cuantos riesgos hay?"
+            )
         self.assertNotIn("live_query", blocked)
         self.assertEqual(blocked["manifest"]["mode"], "deterministic-context-pack")
         self.assertEqual(live_answer["manifest"]["status"], "answered")
         self.assertEqual(abstention["manifest"]["status"], "abstained")
-        evaluation_cases = self.service.suggest_argos_evaluation_cases(
-            project.id, str(release["manifest"]["release_id"])
-        )
-        evaluation = self.service.evaluate_argos_release(
-            project.id, str(release["manifest"]["release_id"]), evaluation_cases
-        )
+        with patch.dict(os.environ, {"ONTO_LLM_PROVIDER": "disabled"}, clear=False):
+            evaluation_cases = self.service.suggest_argos_evaluation_cases(
+                project.id, str(release["manifest"]["release_id"])
+            )
+            evaluation = self.service.evaluate_argos_release(
+                project.id, str(release["manifest"]["release_id"]), evaluation_cases
+            )
         self.assertEqual(evaluation["summary"]["failed"], 0)
         self.assertTrue(Path(str(evaluation["package_path"])).exists())
         context_pack = release["agent_context_pack"]
@@ -496,11 +641,99 @@ class WorkbenchServiceTests(unittest.TestCase):
 
         self.assertEqual(investigation["manifest"]["status"], "abstained")
 
+    def test_argos_llm_preserves_retrieval_and_abstains_without_context_evidence(self) -> None:
+        context_pack = {
+            "release_id": "release-llm-test",
+            "query_contract": {
+                "allowed_operations": ["SELECT"],
+                "requires_approved_data_binding": True,
+                "disallowed_operations": ["INSERT", "UPDATE", "DELETE", "DDL"],
+            },
+            "usage_boundary": "Solo usar la evidencia aprobada.",
+            "concepts": [{"id": "concept-1", "name": "Riesgo", "definition": "Nivel calculado."}],
+        }
+        settings = SimpleNamespace(enabled=True, provider="test", model="test")
+        plans = [
+            {"query_name": None, "parameters": {}, "needs_stronger_model": False, "reasoning_note": ""},
+            {"answer": "Riesgo es un nivel calculado.", "interpretation": "", "suggested_questions": [], "visualization": None, "needs_stronger_model": False, "reasoning_note": ""},
+        ]
+        with patch("ontology_workbench.runtime.call_llm_json", side_effect=plans):
+            answered = investigate_context_pack_with_llm(
+                context_pack, "Que es Riesgo?", "investigation-1", settings, {}, lambda name, parameters: {},
+            )
+        self.assertEqual(answered["manifest"]["status"], "answered")
+        self.assertEqual([item["name"] for item in answered["retrieval"]], ["Riesgo"])
+
+        with patch(
+            "ontology_workbench.runtime.call_llm_json",
+            side_effect=[
+                {"query_name": None, "parameters": {}, "needs_stronger_model": False, "reasoning_note": ""},
+                {"answer": "El planeta Júpiter es el más grande.", "interpretation": "", "suggested_questions": [], "visualization": None, "needs_stronger_model": False, "reasoning_note": ""},
+            ],
+        ):
+            abstained = investigate_context_pack_with_llm(
+                context_pack, "Que planeta es mas grande?", "investigation-2", settings, {}, lambda name, parameters: {},
+            )
+        self.assertEqual(abstained["manifest"]["status"], "abstained")
+        self.assertIn("Me abstengo", abstained["answer"])
+
     def test_argos_routes_only_unambiguous_fabric_data_questions(self) -> None:
         self.assertEqual(select_fabric_query("Cuantos riesgos hay?"), "risk_summary")
+        self.assertEqual(select_fabric_query("Dame los riesgos del SIC 12"), "risk_sic")
         self.assertEqual(select_fabric_query("Cuales son los niveles de riesgo?"), "risk_levels")
         self.assertEqual(select_fabric_query("Cuantos valores REAL y DEFAULT hay?"), "impact_statuses")
+        question = "Cual es el riesgo de la regla 1003 en el SIC12?"
+        self.assertEqual(select_fabric_query(question), "risk_rule_sic")
+        self.assertEqual(fabric_query_parameters(question), (1003, 12))
+        self.assertEqual(
+            select_fabric_query("Cual es el valor de la regla 1003 en el SIC 12?"),
+            "risk_rule_sic",
+        )
+        self.assertEqual(
+            fabric_query_parameters("Cual es el valor del riesgo 1 en el 12?"),
+            (1, 12),
+        )
         self.assertEqual(select_fabric_query("Como se calcula el riesgo?"), None)
+
+    def test_argos_returns_interpretation_and_mermaid_for_risk_question(self) -> None:
+        project = self.service.create_project("Argos Mermaid")
+        self.service.upload_context_document(
+            project.id, "risk.md", b"Riesgo: nivel calculado.", "functional_docs", "text/markdown"
+        )
+        with patch.dict(os.environ, {"ONTO_LLM_PROVIDER": "disabled"}, clear=False):
+            self.service.scan_business_context(project.id)
+        assessment = self.service.create_atlas_assessment(project.id, "Client", "Domain", "Product")
+        draft = self.service.create_nexo_draft(project.id, str(assessment["manifest"]["run_id"]))
+        self.service.bulk_update_nexo_candidates(
+            project.id, str(draft["manifest"]["draft_id"]),
+            [item["candidate_id"] for item in draft["candidates"]],
+            "approved", "Reviewer", "Owner", "Test",
+        )
+        release = self.service.publish_nexo_release(
+            project.id, str(draft["manifest"]["draft_id"]), "Owner", "Test"
+        )
+        context_pack_path = Path(str(release["package_path"])) / "agent_context_pack.json"
+        context_pack = json.loads(context_pack_path.read_text(encoding="utf-8"))
+        context_pack["data_bindings"] = [{"name": "gold_sic.fact_riesgo"}]
+        context_pack_path.write_text(json.dumps(context_pack), encoding="utf-8")
+        with patch.dict(os.environ, {"ONTO_LLM_PROVIDER": "disabled"}, clear=False):
+            with patch("ontology_workbench.service.execute_fabric_read_only_query") as execute_query:
+                execute_query.return_value = {
+                    "status": "connected_read_only_query", "query_name": "risk_rule_sic",
+                    "operation": "SELECT", "rows": [{
+                        "id_risc": 1, "sic": 12, "riesgo_final_texto": "ALT",
+                        "probabilidad_final_texto": "MIG", "impacto_final_texto": "ALT",
+                        "metodo_calculo": "MATRIZ_4X4",
+                    }],
+                }
+                result = self.service.investigate_release(
+                    project.id, str(release["manifest"]["release_id"]),
+                    "Mostrame un diagrama Mermaid de por que el riesgo de la regla 1 en el SIC 12 es alto",
+                )
+        self.assertIn("MATRIZ_4X4", result["interpretation"])
+        self.assertEqual(result["visualization"]["type"], "mermaid")
+        self.assertIn("Riesgo final: ALT", result["visualization"]["code"])
+        self.assertEqual(result["reasoning_advisory"]["model_used"], "deterministic-runtime")
 
     def test_nexo_release_includes_reviewed_canonical_model_elements(self) -> None:
         project = self.service.create_project("Canonical model")

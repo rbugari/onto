@@ -1,0 +1,1 @@
+CONSTANTE es un tipo de resultado cuyo valor queda fijado por una decisión funcional, no por una fuente dinámica. Por ejemplo, la regla 2002 establece un 100% de cobertura MFA para administradores y la clasifica siempre como BAIX; la regla 2005 fija 0% de MFA para cuentas genéricas y la clasifica como MOLT ALT.

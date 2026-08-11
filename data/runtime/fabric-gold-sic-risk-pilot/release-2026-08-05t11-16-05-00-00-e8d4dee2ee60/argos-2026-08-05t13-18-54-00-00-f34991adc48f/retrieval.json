@@ -1,0 +1,52 @@
+[
+  {
+    "item_id": "candidate-technical-asset-0354",
+    "item_type": "technical_asset",
+    "name": "bronze.tmp_sic_cidat_excel",
+    "definition": "Activo técnico Fabric table: bronze.tmp_sic_cidat_excel",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:bronze.tmp_sic_cidat_excel"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0398",
+    "item_type": "technical_asset",
+    "name": "gold_sic.bridge_risc_amenaca_filter",
+    "definition": "Activo técnico Fabric table: gold_sic.bridge_risc_amenaca_filter",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.bridge_risc_amenaca_filter"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0399",
+    "item_type": "technical_asset",
+    "name": "gold_sic.dim_amenaca_filter",
+    "definition": "Activo técnico Fabric table: gold_sic.dim_amenaca_filter",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.dim_amenaca_filter"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0400",
+    "item_type": "technical_asset",
+    "name": "gold_sic.dim_regla",
+    "definition": "Activo técnico Fabric table: gold_sic.dim_regla",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.dim_regla"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0401",
+    "item_type": "technical_asset",
+    "name": "gold_sic.dim_risc_filter",
+    "definition": "Activo técnico Fabric table: gold_sic.dim_risc_filter",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.dim_risc_filter"
+    }
+  }
+]

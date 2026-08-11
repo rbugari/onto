@@ -1,16 +1,24 @@
 from __future__ import annotations
 
+from collections.abc import Callable
+
 from ontology_workbench.models import utc_now_iso
 from ontology_workbench.runtime import investigate_context_pack
 
 
 def suggest_evaluation_cases(context_pack: dict[str, object]) -> list[dict[str, str]]:
     """Create a small, editable baseline that exercises both answer and abstention paths."""
+    generic_names = {"tipo", "real", "default", "constante", "valor", "estado"}
     available_items = [
         item
         for key in ("concepts", "business_rules", "kpis", "properties", "relationships", "synonyms", "constraints")
         for item in context_pack.get(key, [])
-        if isinstance(item, dict) and str(item.get("name", "")).strip()
+        if (
+            isinstance(item, dict)
+            and str(item.get("name", "")).strip()
+            and str(item.get("name", "")).strip().casefold() not in generic_names
+            and len(str(item.get("name", "")).strip()) >= 5
+        )
     ]
     cases = [
         {
@@ -29,11 +37,30 @@ def suggest_evaluation_cases(context_pack: dict[str, object]) -> list[dict[str, 
             "expected_item_name": "",
         }
     )
+    has_risk_table = any(
+        "gold_sic.fact_riesgo" in str(item.get("name", ""))
+        for key in ("technical_assets", "data_bindings")
+        for item in context_pack.get(key, [])
+        if isinstance(item, dict)
+    )
+    if has_risk_table:
+        cases.insert(
+            0,
+            {
+                "case_id": "business-risk-rule-sic-01",
+                "question": "¿Cuál es el riesgo de la regla 1003 en el SIC12?",
+                "expected_status": "answered",
+                "expected_item_name": "",
+            },
+        )
     return cases
 
 
 def evaluate_context_pack(
-    context_pack: dict[str, object], cases: list[dict[str, object]], evaluation_id: str
+    context_pack: dict[str, object],
+    cases: list[dict[str, object]],
+    evaluation_id: str,
+    investigator: Callable[[str, str], dict[str, object]] | None = None,
 ) -> dict[str, object]:
     results: list[dict[str, object]] = []
     for index, case in enumerate(cases, start=1):
@@ -42,8 +69,10 @@ def evaluate_context_pack(
         expected_item_name = str(case.get("expected_item_name", "")).strip()
         if not question or expected_status not in {"answered", "abstained"}:
             raise ValueError("Cada caso requiere una pregunta y expected_status answered o abstained")
-        investigation = investigate_context_pack(
-            context_pack, question, f"{evaluation_id}-case-{index:03d}"
+        investigation = (
+            investigator(question, f"{evaluation_id}-case-{index:03d}")
+            if investigator
+            else investigate_context_pack(context_pack, question, f"{evaluation_id}-case-{index:03d}")
         )
         retrieved_names = [str(item["name"]) for item in investigation["retrieval"]]
         status_match = investigation["manifest"]["status"] == expected_status

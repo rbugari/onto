@@ -12,6 +12,7 @@ from ontology_workbench.context_scanner import (
     build_business_context_inventory,
     build_document_chunks,
     extract_text_from_bytes,
+    load_llm_settings,
 )
 from ontology_workbench.exporters import export_project_json, export_project_markdown
 from ontology_workbench.models import (
@@ -32,7 +33,13 @@ from ontology_workbench.fabric_adapter import (
     execute_fabric_read_only_query,
     fabric_connection_check,
 )
-from ontology_workbench.runtime import investigate_context_pack, select_fabric_query
+from ontology_workbench.runtime import (
+    fabric_query_parameters,
+    investigate_context_pack,
+    investigate_context_pack_with_llm,
+    sic_query_parameter,
+    select_fabric_query,
+)
 from ontology_workbench.runtime_evaluation import evaluate_context_pack, suggest_evaluation_cases
 from ontology_workbench.storage import ProjectStore
 
@@ -543,7 +550,11 @@ class WorkbenchService:
         package["package_path"] = str(package_path)
         return package
 
-    def execute_fabric_validation_query(self, query_name: str) -> dict[str, object]:
+    def execute_fabric_validation_query(
+        self, query_name: str, parameters: tuple[object, ...] = ()
+    ) -> dict[str, object]:
+        if parameters:
+            return execute_fabric_read_only_query(query_name, parameters)
         return execute_fabric_read_only_query(query_name)
 
     def list_atlas_assessments(self, project_id: str) -> list[dict[str, object]]:
@@ -565,7 +576,12 @@ class WorkbenchService:
             project_id, run_id, status, reviewer, reviewer_role, note
         )
 
-    def create_nexo_draft(self, project_id: str, assessment_run_id: str) -> dict[str, object]:
+    def create_nexo_draft(
+        self,
+        project_id: str,
+        assessment_run_id: str,
+        source_authority: str = "technical",
+    ) -> dict[str, object]:
         project = self.store.load_project(project_id)
         assessment = next(
             (
@@ -590,7 +606,12 @@ class WorkbenchService:
             raise ValueError("El contexto de negocio del assessment fue invalidado y debe regenerarse")
         draft_id = f"nexo-{utc_now_iso().replace(':', '-').replace('+', '-')}-{uuid.uuid4().hex[:12]}"
         draft = build_registry_draft(
-            project, assessment, business_context, semantic_inventory, draft_id
+            project,
+            assessment,
+            business_context,
+            semantic_inventory,
+            draft_id,
+            source_authority=source_authority,
         )
         draft_path = self.store.save_nexo_draft(draft)
         draft["draft_path"] = str(draft_path)
@@ -649,6 +670,43 @@ class WorkbenchService:
             element_id, element_type, name, definition, owner, linked_candidate_ids
         )
         return self.store.add_nexo_model_element(project_id, draft_id, element)
+
+    def propose_nexo_source_bindings(
+        self, project_id: str, draft_id: str
+    ) -> dict[str, int]:
+        """Create pending source-binding proposals for unique deterministic matches."""
+        draft = self.store.load_nexo_draft(project_id, draft_id)
+        existing = {
+            tuple(str(item) for item in element.get("linked_candidate_ids", []))
+            for element in draft.get("model_elements", [])
+            if element.get("element_type") == "source_binding"
+        }
+        created = 0
+        skipped_ambiguous = 0
+        for candidate in draft["candidates"]:
+            match = candidate.get("technical_match")
+            if not isinstance(match, dict) or match.get("status") != "matched":
+                if isinstance(match, dict) and match.get("status") == "ambiguous":
+                    skipped_ambiguous += 1
+                continue
+            asset_ids = [str(item) for item in match.get("technical_asset_ids", [])]
+            if len(asset_ids) != 1:
+                continue
+            links = (str(candidate["candidate_id"]), asset_ids[0])
+            if links in existing:
+                continue
+            element = build_model_element(
+                f"model-source-binding-{uuid.uuid4().hex[:12]}",
+                "source_binding",
+                f"{candidate['name']} -> {asset_ids[0]}",
+                "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+                "",
+                list(links),
+            )
+            self.store.add_nexo_model_element(project_id, draft_id, element)
+            existing.add(links)
+            created += 1
+        return {"created": created, "skipped_ambiguous": skipped_ambiguous}
 
     def update_nexo_model_element(
         self,
@@ -856,21 +914,78 @@ class WorkbenchService:
     def investigate_release(self, project_id: str, release_id: str, question: str) -> dict[str, object]:
         if not question.strip():
             raise ValueError("Question is required")
-        release = next((item for item in self.store.list_nexo_releases(project_id) if item.get("release_id") == release_id), None)
-        if release is None:
-            raise FileNotFoundError(f"Nexo release not found: {release_id}")
+        release = self.store.load_nexo_release(project_id, release_id)
         context_pack = json.loads((Path(str(release["package_path"])) / "agent_context_pack.json").read_text(encoding="utf-8"))
         investigation_id = f"argos-{utc_now_iso().replace(':', '-').replace('+', '-')}-{uuid.uuid4().hex[:12]}"
+        settings = load_llm_settings()
+        if settings.enabled:
+            investigation = investigate_context_pack_with_llm(
+                context_pack,
+                question.strip(),
+                investigation_id,
+                settings,
+                _argos_query_catalog(context_pack),
+                lambda query_name, parameters: self._execute_llm_selected_query(
+                    context_pack, query_name, parameters
+                ),
+            )
+            investigation["reasoning_advisory"] = _llm_reasoning_advisory(settings)
+            investigation["llm_used"] = True
+            investigation["package_path"] = str(self.store.save_runtime_investigation(project_id, investigation))
+            return investigation
+
         investigation = investigate_context_pack(context_pack, question.strip(), investigation_id)
         query_name = select_fabric_query(question)
+        investigation["reasoning_advisory"] = _reasoning_advisory(question, query_name)
         if query_name and _has_fabric_query_binding(context_pack, query_name):
-            query_result = self.execute_fabric_validation_query(query_name)
+            parameters = fabric_query_parameters(question) or ()
+            if query_name == "risk_sic":
+                sic = sic_query_parameter(question)
+                parameters = (sic,) if sic is not None else ()
+            query_result = self.execute_fabric_validation_query(query_name, parameters)
             investigation["live_query"] = query_result
             investigation["manifest"]["mode"] = "deterministic-context-pack-plus-fabric-read-only"
-            investigation["answer"] = _format_fabric_query_answer(query_name, query_result)
-            investigation["manifest"]["status"] = "answered"
+            if query_name == "risk_rule_sic" and not query_result.get("rows"):
+                investigation["answer"] = (
+                    "Me abstengo: Fabric no contiene un resultado para la regla y SIC solicitados."
+                )
+                investigation["manifest"]["status"] = "abstained"
+            else:
+                investigation["answer"] = _format_fabric_query_answer(query_name, query_result)
+                investigation["interpretation"] = _format_fabric_query_interpretation(
+                    query_name, query_result
+                )
+                if _requests_visualization(question):
+                    investigation["visualization"] = _build_fabric_visualization(query_name, query_result)
+                investigation["manifest"]["status"] = "answered"
+                investigation["suggested_questions"] = _suggest_follow_up_questions(
+                    query_name, query_result
+                )
         investigation["package_path"] = str(self.store.save_runtime_investigation(project_id, investigation))
         return investigation
+
+    def _execute_llm_selected_query(
+        self, context_pack: dict[str, object], query_name: str, parameters: object
+    ) -> dict[str, object]:
+        if not _has_fabric_query_binding(context_pack, query_name):
+            return {"status": "not_executed", "query_name": query_name, "rows": []}
+        if query_name == "risk_rule_sic":
+            if not isinstance(parameters, dict):
+                return {"status": "invalid_parameters", "query_name": query_name, "rows": []}
+            try:
+                normalized = (int(parameters["id_risc"]), int(parameters["sic"]))
+            except (KeyError, TypeError, ValueError):
+                return {"status": "invalid_parameters", "query_name": query_name, "rows": []}
+            return self.execute_fabric_validation_query(query_name, normalized)
+        if query_name == "risk_sic":
+            if not isinstance(parameters, dict):
+                return {"status": "invalid_parameters", "query_name": query_name, "rows": []}
+            try:
+                normalized = (int(parameters["sic"]),)
+            except (KeyError, TypeError, ValueError):
+                return {"status": "invalid_parameters", "query_name": query_name, "rows": []}
+            return self.execute_fabric_validation_query(query_name, normalized)
+        return self.execute_fabric_validation_query(query_name)
 
     def suggest_argos_evaluation_cases(
         self, project_id: str, release_id: str
@@ -885,7 +1000,14 @@ class WorkbenchService:
             raise ValueError("Agregue al menos un caso de evaluación")
         context_pack = self._load_release_context_pack(project_id, release_id)
         evaluation_id = f"argos-evaluation-{utc_now_iso().replace(':', '-').replace('+', '-')}-{uuid.uuid4().hex[:12]}"
-        evaluation = evaluate_context_pack(context_pack, cases, evaluation_id)
+        evaluation = evaluate_context_pack(
+            context_pack,
+            cases,
+            evaluation_id,
+            investigator=lambda question, investigation_id: self.investigate_release(
+                project_id, release_id, question
+            ),
+        )
         evaluation["package_path"] = str(self.store.save_runtime_evaluation(project_id, evaluation))
         return evaluation
 
@@ -937,6 +1059,27 @@ def _format_fabric_query_answer(query_name: str, query_result: dict[str, object]
             f"{row.get('proxies', 0)} proxies, {row.get('pendientes', 0)} pendientes y "
             f"{row.get('no_disponibles', 0)} no disponibles."
         )
+    if query_name == "risk_rule_sic":
+        if not rows:
+            return "Consulta real Fabric: no hay resultado para esa regla y SIC."
+        row = rows[0]
+        return (
+            f"Consulta real Fabric: para la regla {row.get('id_risc')} en el SIC {row.get('sic')}, "
+            f"el riesgo final es {row.get('riesgo_final_texto', 'sin nivel')} "
+            f"({row.get('riesgo_final_num', 'sin valor')}). Se obtiene combinando "
+            f"una probabilidad {row.get('probabilidad_final_texto', 'sin nivel')} "
+            f"con un impacto {row.get('impacto_final_texto', 'sin nivel')}; "
+            f"la matriz/metodo {row.get('metodo_calculo', 'sin informar')} produce ese nivel. "
+            f"El calculo corresponde a {row.get('fecha_calculo', 'sin fecha')}."
+        )
+    if query_name == "risk_sic":
+        if not rows:
+            return "Consulta real Fabric: no hay riesgos registrados para ese SIC."
+        details = "; ".join(
+            f"regla {row.get('id_risc', 'sin regla')}: {row.get('riesgo_final_texto', 'sin nivel')}"
+            for row in rows
+        )
+        return f"Consulta real Fabric: se encontraron {len(rows)} riesgos para el SIC {rows[0].get('sic', 'sin SIC')}. {details}."
     if query_name in {"risk_levels", "impact_statuses"}:
         if query_name == "impact_statuses":
             details = "; ".join(
@@ -956,8 +1099,167 @@ def _has_fabric_query_binding(context_pack: dict[str, object], query_name: str) 
     required_table = FABRIC_QUERY_BINDING_TABLES.get(query_name)
     if not required_table:
         return False
-    return any(
+    has_explicit_binding = any(
         required_table in str(binding.get("name", ""))
         for binding in context_pack.get("data_bindings", [])
         if isinstance(binding, dict)
     )
+    if has_explicit_binding:
+        return True
+    # Imported Fabric assets are approved technical bindings in the pilot release.
+    return any(
+        required_table in str(asset.get("name", ""))
+        for asset in context_pack.get("technical_assets", [])
+        if isinstance(asset, dict)
+    )
+
+
+def _suggest_follow_up_questions(
+    query_name: str, query_result: dict[str, object]
+) -> list[str]:
+    rows = [row for row in query_result.get("rows", []) if isinstance(row, dict)]
+    if query_name != "risk_rule_sic" or not rows:
+        return []
+    row = rows[0]
+    rule_id = row.get("id_risc", "")
+    sic = row.get("sic", "")
+    return [
+        f"¿Qué probabilidad obtuvo la regla {rule_id} en el SIC {sic} y con qué evidencia?",
+        f"¿Qué impacto obtuvo la regla {rule_id} en el SIC {sic} y con qué evidencia?",
+        f"¿Cómo transforma la matriz 4x4 esos valores en el riesgo final de la regla {rule_id}?",
+        f"¿Cuándo se calculó el riesgo de la regla {rule_id} en el SIC {sic} y qué método se utilizó?",
+        f"¿Qué debería cambiar para reducir el riesgo de la regla {rule_id} en el SIC {sic}?",
+    ]
+
+
+def _reasoning_advisory(question: str, query_name: str | None) -> dict[str, str]:
+    reasoning_terms = {
+        "porque",
+        "porqué",
+        "por qué",
+        "explica",
+        "explicame",
+        "justifica",
+        "mejorar",
+        "mejoraría",
+        "causa",
+        "causal",
+    }
+    normalized = question.casefold()
+    requires_reasoning = any(term in normalized for term in reasoning_terms)
+    settings = load_llm_settings()
+    provider = settings.provider or "disabled"
+    model = settings.model or "sin modelo configurado"
+    if requires_reasoning:
+        return {
+            "level": "higher_reasoning_recommended",
+            "model_used": "deterministic-runtime",
+            "configured_provider": provider,
+            "configured_model": model,
+            "message": (
+                "La respuesta factual se obtuvo con reglas y una consulta read-only. "
+                "La pregunta pide causalidad o recomendacion; para responderla con rigor "
+                "se necesita un LLM con mayor capacidad de razonamiento y evidencia adicional."
+            ),
+        }
+    return {
+        "level": "standard_reasoning_sufficient",
+        "model_used": "deterministic-runtime",
+        "configured_provider": provider,
+        "configured_model": model,
+        "message": (
+            f"La pregunta se resolvio con la operacion {query_name or 'context-pack'}; "
+            "no fue necesario usar un LLM."
+        ),
+    }
+
+
+def _llm_reasoning_advisory(settings) -> dict[str, str]:
+    return {
+        "level": "llm_reasoning_active",
+        "model_used": "configured-llm",
+        "configured_provider": settings.provider,
+        "configured_model": settings.model,
+        "message": (
+            "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla "
+            "y redactar la respuesta sobre el contexto aprobado."
+        ),
+    }
+
+
+def _argos_query_catalog(context_pack: dict[str, object]) -> dict[str, dict[str, object]]:
+    available = {
+        "risk_summary": {
+            "purpose": "contar registros de riesgo y SIC distintos",
+            "parameters": {},
+        },
+        "risk_levels": {
+            "purpose": "distribuir los riesgos por nivel final",
+            "parameters": {},
+        },
+        "impact_summary": {
+            "purpose": "resumir valores de impacto reales, proxies y pendientes",
+            "parameters": {},
+        },
+        "impact_statuses": {
+            "purpose": "comparar estados REAL y DEFAULT de impactos",
+            "parameters": {},
+        },
+        "risk_rule_sic": {
+            "purpose": "consultar el riesgo más reciente de una regla en un SIC",
+            "parameters": {"id_risc": "entero", "sic": "entero"},
+        },
+        "risk_sic": {
+            "purpose": "listar los riesgos de un SIC",
+            "parameters": {"sic": "entero"},
+        },
+    }
+    return {
+        name: details
+        for name, details in available.items()
+        if _has_fabric_query_binding(context_pack, name)
+    }
+
+
+def _requests_visualization(question: str) -> bool:
+    normalized = question.casefold()
+    return any(term in normalized for term in ("mermaid", "diagrama", "grafico", "gráfico"))
+
+
+def _format_fabric_query_interpretation(
+    query_name: str, query_result: dict[str, object]
+) -> str:
+    rows = [row for row in query_result.get("rows", []) if isinstance(row, dict)]
+    if query_name == "risk_rule_sic" and rows:
+        row = rows[0]
+        return (
+            f"El nivel final {row.get('riesgo_final_texto', 'sin nivel')} se explica por la combinación "
+            f"de probabilidad {row.get('probabilidad_final_texto', 'sin nivel')} e impacto "
+            f"{row.get('impacto_final_texto', 'sin nivel')}, según el método "
+            f"{row.get('metodo_calculo', 'sin informar')}. "
+            "Esto es una interpretación de los campos devueltos, no una inferencia causal adicional."
+        )
+    return "La interpretación resume los valores devueltos por la consulta read-only; no agrega causalidad fuera de la evidencia."
+
+
+def _build_fabric_visualization(
+    query_name: str, query_result: dict[str, object]
+) -> dict[str, str]:
+    rows = [row for row in query_result.get("rows", []) if isinstance(row, dict)]
+    if query_name == "risk_rule_sic" and rows:
+        row = rows[0]
+        return {
+            "type": "mermaid",
+            "status": "generated_from_fabric_row",
+            "code": (
+                "graph LR\n"
+                f"    P[Probabilidad: {row.get('probabilidad_final_texto', 'sin dato')}] --> M[Método: {row.get('metodo_calculo', 'sin dato')}]\n"
+                f"    I[Impacto: {row.get('impacto_final_texto', 'sin dato')}] --> M\n"
+                f"    M --> R[Riesgo final: {row.get('riesgo_final_texto', 'sin dato')}]"
+            ),
+        }
+    return {
+        "type": "mermaid",
+        "status": "insufficient_evidence",
+        "code": "graph TD\n    A[La consulta no devolvio una estructura causal graficable]",
+    }

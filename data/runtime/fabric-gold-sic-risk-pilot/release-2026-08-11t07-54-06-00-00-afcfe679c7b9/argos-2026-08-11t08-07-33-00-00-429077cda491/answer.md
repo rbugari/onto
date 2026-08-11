@@ -1,0 +1,1 @@
+DEFAULT significa que falta un dato usable y, en lugar de dejar el cálculo incompleto, se aplica el valor funcional configurado para que el cálculo continúe. No representa un dato real obtenido de una fuente; indica una resolución por defecto.

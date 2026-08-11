@@ -1,0 +1,30 @@
+{
+  "reasoning_advisory": {
+    "level": "llm_reasoning_active",
+    "model_used": "configured-llm",
+    "configured_provider": "openai",
+    "configured_model": "gpt-5.6-luna",
+    "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+  },
+  "live_query": null,
+  "llm_used": true,
+  "llm_plan": {
+    "query_name": null,
+    "parameters": {},
+    "needs_stronger_model": false,
+    "reasoning_note": "La pregunta es conceptual y el contexto aprobado define INFRA como un riesgo de infraestructura con scope funcional propio, publicado en silver.dim_infra_cidat, cuyo método de cálculo está alineado con SIC. Ninguna consulta permitida del catálogo es necesaria ni adecuada para responder una definición."
+  },
+  "llm_response": {
+    "answer": "INFRA es el riesgo de infraestructura. Tiene un alcance funcional propio, se publica en silver.dim_infra_cidat y utiliza un método de cálculo alineado con SIC.",
+    "interpretation": "La evidencia disponible define INFRA como un ámbito específico de evaluación de riesgo de infraestructura, separado funcionalmente de SIC aunque reutiliza una metodología equivalente. No se detallan aquí todos sus activos, reglas o resultados concretos.",
+    "suggested_questions": [
+      "¿Qué reglas componen el riesgo INFRA?",
+      "¿Cómo se calcula la probabilidad y el impacto de INFRA?",
+      "¿Qué diferencias hay entre INFRA y SIC?",
+      "¿Qué datos se utilizan para evaluar INFRA?"
+    ],
+    "visualization": null,
+    "needs_stronger_model": false,
+    "reasoning_note": "La definición está explícitamente documentada con confianza moderada. La evidencia confirma el alcance funcional, la fuente publicada y la alineación metodológica con SIC, pero no aporta más detalle conceptual."
+  }
+}

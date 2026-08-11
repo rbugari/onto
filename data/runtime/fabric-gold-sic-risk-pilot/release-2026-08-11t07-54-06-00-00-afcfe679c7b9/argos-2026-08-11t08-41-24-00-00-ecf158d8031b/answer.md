@@ -1,0 +1,1 @@
+“Unidad de cálculo vigente” es el departamento de referencia identificado por `codigo_departamento_ref`, junto con un SIC canónico auxiliar. Es la unidad funcional sobre la que se aplican o interpretan los cálculos vigentes del modelo.

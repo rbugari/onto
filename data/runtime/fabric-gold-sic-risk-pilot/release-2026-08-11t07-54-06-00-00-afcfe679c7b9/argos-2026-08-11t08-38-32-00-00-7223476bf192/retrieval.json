@@ -1,0 +1,52 @@
+[
+  {
+    "item_id": "candidate-concept-0006",
+    "item_type": "concept",
+    "name": "INFRA",
+    "definition": "riesgo de infraestructura con scope funcional propio publicado en silver.dim_infra_cidat y metodo de calculo alineado con SIC.",
+    "source_binding": {
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-001"
+    }
+  },
+  {
+    "item_id": "candidate-concept-0073",
+    "item_type": "concept",
+    "name": "metodo de probabilidad",
+    "definition": "reglas SIC aplicadas al activo/scope INFRA cuando existe fuente equivalente;",
+    "source_binding": {
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-005"
+    }
+  },
+  {
+    "item_id": "candidate-concept-0074",
+    "item_type": "concept",
+    "name": "metodo de impacto",
+    "definition": "lectura tipo SIC sobre atributos INFRA/CIDAT disponibles;",
+    "source_binding": {
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-005"
+    }
+  },
+  {
+    "item_id": "candidate-business_rule-0284",
+    "item_type": "business_rule",
+    "name": "Por tanto, para explicar una regla INFRA se debe leer la regla SIC equivalente de este catalogo y confirmar que el activ",
+    "definition": "Por tanto, para explicar una regla INFRA se debe leer la regla SIC equivalente de este catalogo y confirmar que el activo INFRA tiene dato Silver usable. Si falta dato, aplica el mismo principio de defaults controlados del metodo SIC, no un default optimista LLDT.",
+    "source_binding": {
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-005"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0422",
+    "item_type": "technical_asset",
+    "name": "silver.dim_infra_cidat",
+    "definition": "Activo técnico Fabric table: silver.dim_infra_cidat",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:silver.dim_infra_cidat"
+    }
+  }
+]

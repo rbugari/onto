@@ -1,0 +1,10 @@
+{
+  "reasoning_advisory": {
+    "level": "higher_reasoning_recommended",
+    "model_used": "deterministic-runtime",
+    "configured_provider": "disabled",
+    "configured_model": "gpt-5.6-luna",
+    "message": "La respuesta factual se obtuvo con reglas y una consulta read-only. La pregunta pide causalidad o recomendacion; para responderla con rigor se necesita un LLM con mayor capacidad de razonamiento y evidencia adicional."
+  },
+  "live_query": {}
+}

@@ -1,0 +1,31 @@
+{
+  "reasoning_advisory": {
+    "level": "llm_reasoning_active",
+    "model_used": "configured-llm",
+    "configured_provider": "openai",
+    "configured_model": "gpt-5.6-luna",
+    "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+  },
+  "live_query": null,
+  "llm_used": true,
+  "llm_plan": {
+    "query_name": null,
+    "parameters": {},
+    "needs_stronger_model": false,
+    "reasoning_note": "La pregunta es conceptual y el contexto aprobado define INFRA como un riesgo de infraestructura con scope funcional propio, publicado en silver.dim_infra_cidat, cuyo método de cálculo está alineado con SIC. Ninguna consulta permitida del catálogo es necesaria ni adecuada para responder qué es."
+  },
+  "llm_response": {
+    "answer": "INFRA es el riesgo de infraestructura. Tiene un alcance funcional propio, se publica en `silver.dim_infra_cidat` y utiliza un método de cálculo alineado con SIC.",
+    "interpretation": "La evidencia define INFRA como un eje de riesgo específico, separado pero metodológicamente relacionado con SIC. Para explicar una regla INFRA concreta, debe revisarse la regla SIC equivalente y comprobar que el activo INFRA dispone de un dato utilizable; si falta, se aplican valores por defecto controlados.",
+    "suggested_questions": [
+      "¿Qué reglas componen INFRA?",
+      "¿Cómo se calcula la probabilidad de INFRA?",
+      "¿Cómo se calcula el impacto de INFRA?",
+      "¿Qué datos se utilizan para evaluar INFRA?",
+      "¿Cuál es el resultado actual de INFRA por departamento?"
+    ],
+    "visualization": null,
+    "needs_stronger_model": false,
+    "reasoning_note": "La evidencia documental define directamente INFRA y no requiere una consulta de datos para responder la pregunta conceptual."
+  }
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "item_id": "candidate-technical-asset-0532",
+    "item_type": "technical_asset",
+    "name": "gold_cultura.dim_regla.tiene_default_configurado",
+    "definition": "Activo técnico Fabric column: gold_cultura.dim_regla.tiene_default_configurado",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_cultura.dim_regla.tiene_default_configurado"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0534",
+    "item_type": "technical_asset",
+    "name": "gold_cultura.dim_regla.default_nivel_num",
+    "definition": "Activo técnico Fabric column: gold_cultura.dim_regla.default_nivel_num",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_cultura.dim_regla.default_nivel_num"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0535",
+    "item_type": "technical_asset",
+    "name": "gold_cultura.dim_regla.default_nivel_texto",
+    "definition": "Activo técnico Fabric column: gold_cultura.dim_regla.default_nivel_texto",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_cultura.dim_regla.default_nivel_texto"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0572",
+    "item_type": "technical_asset",
+    "name": "gold_cultura.fact_impacto.usa_default",
+    "definition": "Activo técnico Fabric column: gold_cultura.fact_impacto.usa_default",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_cultura.fact_impacto.usa_default"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0605",
+    "item_type": "technical_asset",
+    "name": "gold_cultura.fact_probabilidad.usa_default",
+    "definition": "Activo técnico Fabric column: gold_cultura.fact_probabilidad.usa_default",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_cultura.fact_probabilidad.usa_default"
+    }
+  }
+]

@@ -17,7 +17,7 @@ from ontology_workbench.models import utc_now_iso
 
 
 def main() -> None:
-    project_id = sys.argv[1] if len(sys.argv) > 1 else "risk1"
+    project_id = sys.argv[1] if len(sys.argv) > 1 else "fabric-gold-sic-risk-pilot"
     status_path = ROOT_DIR / "data" / "context" / project_id / "working" / "llm_scan_status.json"
     status_path.parent.mkdir(parents=True, exist_ok=True)
     status_path.write_text(

@@ -1,0 +1,974 @@
+[
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-47-00-00-be7864f76062",
+    "element_id": "model-source-binding-b0189aba2af4",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:47+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-47-00-00-328f1f26310c",
+    "element_id": "model-source-binding-7e2835812c15",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:47+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-48-00-00-afeeca878fe6",
+    "element_id": "model-source-binding-f6b857347d36",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:48+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-48-00-00-128fc1e8e928",
+    "element_id": "model-source-binding-0f0307fc3319",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:48+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-48-00-00-a864828c38ea",
+    "element_id": "model-source-binding-a89f83a54a22",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:48+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-48-00-00-7e502e1b93cb",
+    "element_id": "model-source-binding-d261ccaba4b8",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:48+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-48-00-00-721132d4c22f",
+    "element_id": "model-source-binding-4737cd5a1042",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:48+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-48-00-00-19f22111e79a",
+    "element_id": "model-source-binding-3da3bca81bab",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:48+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-48-00-00-658780f8110f",
+    "element_id": "model-source-binding-beaa1d250efa",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:48+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-48-00-00-293a739d69b0",
+    "element_id": "model-source-binding-b054671869a8",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:48+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-49-00-00-f2b64087ffd1",
+    "element_id": "model-source-binding-2dc4dbacc61a",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:49+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-49-00-00-2f2c03f84228",
+    "element_id": "model-source-binding-276fe54b10a8",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:49+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-49-00-00-c47f7cd1bef4",
+    "element_id": "model-source-binding-2c49d42604e5",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:49+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-49-00-00-d0acabc07f61",
+    "element_id": "model-source-binding-ce6b3f6b8c72",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:49+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-49-00-00-c5fb37cc4cab",
+    "element_id": "model-source-binding-7da57d4bfdb8",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:49+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-49-00-00-66802130801f",
+    "element_id": "model-source-binding-32ee17e538f0",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:49+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-49-00-00-9413ec14c037",
+    "element_id": "model-source-binding-bb1181d58ba2",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:49+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-50-00-00-8e1cff9dba20",
+    "element_id": "model-source-binding-5cbde60f6b11",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:50+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-50-00-00-d641f4bd2241",
+    "element_id": "model-source-binding-9d2582e802c7",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:50+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-50-00-00-37f0d1c1af8d",
+    "element_id": "model-source-binding-7a9a810e3f98",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:50+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-50-00-00-0233afdbae0d",
+    "element_id": "model-source-binding-06a4c94ee61d",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:50+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-50-00-00-9493333faf80",
+    "element_id": "model-source-binding-6068d0800f23",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:50+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-51-00-00-5f0ccdd17dfb",
+    "element_id": "model-source-binding-3034e2eb32c6",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:51+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-51-00-00-0aa391af80d0",
+    "element_id": "model-source-binding-4261dd7161b5",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:51+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-51-00-00-3cd4ad770ba4",
+    "element_id": "model-source-binding-19e287e2d90d",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:51+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-51-00-00-3542d5512071",
+    "element_id": "model-source-binding-9ee2c82f3760",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:51+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-51-00-00-d6bb525d793c",
+    "element_id": "model-source-binding-d584bd0b08ca",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:51+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-52-00-00-d520839d3987",
+    "element_id": "model-source-binding-61f4825be6e7",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:52+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-52-00-00-2138601b6da5",
+    "element_id": "model-source-binding-139a42b9cd95",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:52+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-52-00-00-31b9c30a3cac",
+    "element_id": "model-source-binding-9f4220bb8d63",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:52+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-52-00-00-3da41d76161c",
+    "element_id": "model-source-binding-3ab767888142",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:52+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-52-00-00-7d798ca06673",
+    "element_id": "model-source-binding-fc1a2e0595df",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:52+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-52-00-00-63e5c3691718",
+    "element_id": "model-source-binding-f2ec6c6ba446",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:52+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-52-00-00-79849b5f6c0f",
+    "element_id": "model-source-binding-b48320d22610",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:52+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-53-00-00-8aa712e32e50",
+    "element_id": "model-source-binding-4e06faa1d060",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:53+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-53-00-00-84515fec198e",
+    "element_id": "model-source-binding-5f0e67cda225",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:53+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-53-00-00-a2ef6fdfbb0e",
+    "element_id": "model-source-binding-6028d44eea16",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:53+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-53-00-00-a7fa7619aa5a",
+    "element_id": "model-source-binding-47897b12b27e",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:53+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-53-00-00-be36a004801b",
+    "element_id": "model-source-binding-bd1aa0aafc34",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:53+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-53-00-00-420a89aa2f03",
+    "element_id": "model-source-binding-1233ff5ca729",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:53+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-54-00-00-88b98c13d87f",
+    "element_id": "model-source-binding-f3b4ee5d8439",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:54+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-54-00-00-436ed19840d5",
+    "element_id": "model-source-binding-6631c3bd319b",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:54+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-54-00-00-a91429f82ab7",
+    "element_id": "model-source-binding-07127d6cb456",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:54+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-54-00-00-3dc7aefaf4f9",
+    "element_id": "model-source-binding-e2edf20f61b2",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:54+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-54-00-00-9f8b5a23277f",
+    "element_id": "model-source-binding-9b569fc3ddea",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:54+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-54-00-00-730c9b472e81",
+    "element_id": "model-source-binding-4f157ad78df9",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:54+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-55-00-00-4252ba28c873",
+    "element_id": "model-source-binding-bb97e74ff9b1",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:55+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-55-00-00-4c906b77e791",
+    "element_id": "model-source-binding-e1600335eeb1",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:55+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-55-00-00-f8775293ad9a",
+    "element_id": "model-source-binding-1ce8fd2ff5e7",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:55+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-55-00-00-7c38c4cea2f3",
+    "element_id": "model-source-binding-6a43e90b031a",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:55+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-55-00-00-06626106502b",
+    "element_id": "model-source-binding-4da6c2928827",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:55+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-55-00-00-1fb0827d3dcf",
+    "element_id": "model-source-binding-f59dc6683333",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:55+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-56-00-00-17d4531768ab",
+    "element_id": "model-source-binding-ee362e5670f0",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:56+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-56-00-00-81f5ef833275",
+    "element_id": "model-source-binding-bc3d1ae12866",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:56+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-56-00-00-eb95e4a2d55f",
+    "element_id": "model-source-binding-9bbda0439c4d",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:56+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-56-00-00-442f639f8f8e",
+    "element_id": "model-source-binding-81d7569d36a2",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:56+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-56-00-00-bb84420c768d",
+    "element_id": "model-source-binding-29bee843b606",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:56+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-57-00-00-548b5be6e098",
+    "element_id": "model-source-binding-82bcb82fad16",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:57+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-57-00-00-f8b8cd4e38a4",
+    "element_id": "model-source-binding-57130b2e75c4",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:57+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-57-00-00-cfa5aef4d037",
+    "element_id": "model-source-binding-e209ceb50904",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:57+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-57-00-00-d555000a2f1d",
+    "element_id": "model-source-binding-06670b6d8398",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:57+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-57-00-00-bf164a64b408",
+    "element_id": "model-source-binding-40d02a66b4d9",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:57+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-57-00-00-5e7ad7b6a82f",
+    "element_id": "model-source-binding-2a93840a4da6",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:57+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-58-00-00-c3bb33ac2fe9",
+    "element_id": "model-source-binding-2298880e43e4",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:58+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-58-00-00-8c83f7984d6e",
+    "element_id": "model-source-binding-1cca99a30c72",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:58+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-58-00-00-1a167cf46527",
+    "element_id": "model-source-binding-bdb456a2e2bb",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:58+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-58-00-00-347d1ce17c2b",
+    "element_id": "model-source-binding-75be61aece3a",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:58+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-58-00-00-8bce448545c8",
+    "element_id": "model-source-binding-37c3d5eb0f5d",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:58+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-58-00-00-9a36a2b2b386",
+    "element_id": "model-source-binding-377a5107afe2",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:58+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-59-00-00-0bdbf0a616be",
+    "element_id": "model-source-binding-a22a1b2984d1",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:59+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-59-00-00-1effd0b318b3",
+    "element_id": "model-source-binding-83458df60d4b",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:59+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-59-00-00-e476ab095698",
+    "element_id": "model-source-binding-0dd5a91a7aa5",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:59+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-59-00-00-461480d53915",
+    "element_id": "model-source-binding-f2cd4601b265",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:59+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-53-59-00-00-7e118fc4025b",
+    "element_id": "model-source-binding-eed7c9bc75c2",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:53:59+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-00-00-00-734d7d299950",
+    "element_id": "model-source-binding-c81b4f976c27",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:00+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-00-00-00-d0a297b9c4b5",
+    "element_id": "model-source-binding-0ddb4600a192",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:00+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-00-00-00-74c3ffb208ed",
+    "element_id": "model-source-binding-508bdaf8e8ca",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:00+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-00-00-00-3362c0ec7554",
+    "element_id": "model-source-binding-163a555a542f",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:00+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-00-00-00-257fcb13aaea",
+    "element_id": "model-source-binding-4de2cb623112",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:00+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-00-00-00-6b7df4ea9eb3",
+    "element_id": "model-source-binding-cf1fca30a294",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:00+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-01-00-00-b6d16a7d84a5",
+    "element_id": "model-source-binding-ce56608b5f2d",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:01+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-01-00-00-f282a3131014",
+    "element_id": "model-source-binding-15365673010d",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:01+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-01-00-00-da68c3e50271",
+    "element_id": "model-source-binding-b68bef92b586",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:01+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-01-00-00-962bda2a4cd7",
+    "element_id": "model-source-binding-3d77981c187d",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:01+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-01-00-00-003e1648608e",
+    "element_id": "model-source-binding-90fa34e02b4e",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:01+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-02-00-00-36d6c71f3da5",
+    "element_id": "model-source-binding-c9246fddda2d",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:02+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-02-00-00-144b8c9dde8d",
+    "element_id": "model-source-binding-d954b6141fbd",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:02+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-02-00-00-4f5182cb36c5",
+    "element_id": "model-source-binding-8c7f3e546dde",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:02+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-02-00-00-eddfafa57379",
+    "element_id": "model-source-binding-194a0e9e5aa2",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:02+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-02-00-00-3384d96539db",
+    "element_id": "model-source-binding-58a4a69cc482",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:02+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-03-00-00-1ca7b7197a04",
+    "element_id": "model-source-binding-4395b87e3fe5",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:03+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-03-00-00-894ac2a708d5",
+    "element_id": "model-source-binding-8fd99a161b23",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:03+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-03-00-00-bb1cb440e92f",
+    "element_id": "model-source-binding-d8fe69e1dcc2",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:03+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-03-00-00-68332d6d7d01",
+    "element_id": "model-source-binding-64ed42b1bf3b",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:03+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-03-00-00-391a511ed0ed",
+    "element_id": "model-source-binding-8b4f6ae845e9",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:03+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-03-00-00-754ad2c911a4",
+    "element_id": "model-source-binding-1bc379439e4f",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:03+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-04-00-00-230fcd67f031",
+    "element_id": "model-source-binding-1995838ecaa4",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:04+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-04-00-00-b6d2131403fc",
+    "element_id": "model-source-binding-9b25ae82843c",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:04+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-04-00-00-28508559b56e",
+    "element_id": "model-source-binding-23f825f6dacb",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:04+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-04-00-00-e2b68bf95b57",
+    "element_id": "model-source-binding-abed24ec6a14",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:04+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-04-00-00-4bdbd628314c",
+    "element_id": "model-source-binding-18d2d4f65dbb",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:04+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-05-00-00-da7925f60fc8",
+    "element_id": "model-source-binding-0e4c75f4add1",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:05+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-05-00-00-f737ed496624",
+    "element_id": "model-source-binding-c5c6540f1961",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:05+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-05-00-00-970ecfb7d2cb",
+    "element_id": "model-source-binding-97ee96f3778b",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:05+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-05-00-00-78a210465fa3",
+    "element_id": "model-source-binding-f52731efe924",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:05+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-05-00-00-088c6dda9603",
+    "element_id": "model-source-binding-e8a5c2a4b802",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:05+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-05-00-00-eb104893ba1c",
+    "element_id": "model-source-binding-4d0b6e7610be",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:05+00:00"
+  },
+  {
+    "decision_id": "model-decision-2026-08-11T07-54-06-00-00-cac8ca382de1",
+    "element_id": "model-source-binding-37b4967b6855",
+    "status": "approved",
+    "reviewer": "ONTO Analyst",
+    "reviewer_role": "Technical Steward",
+    "note": "Analyst approval: unique deterministic documentation-to-Fabric binding.",
+    "decided_at": "2026-08-11T07:54:06+00:00"
+  }
+]

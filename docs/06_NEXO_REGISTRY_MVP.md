@@ -13,6 +13,12 @@ Su funcion es separar claramente tres cosas:
 2. lo que una persona decide aceptar o rechazar;
 3. la release local inmutable que puede ser consumida por el futuro Runtime.
 
+El piloto guiado incorpora ademas una decision automatica determinista para el
+flujo operativo: aprueba candidatos con evidencia disponible, origen identificado
+y confianza suficiente, y rechaza explicitamente el resto con una decision trazable.
+Esta automatizacion no cambia el contrato de Nexo: la regla es del runner y toda
+decision conserva revisor, rol, nota y fecha.
+
 ## Primer corte implementado
 
 Un draft se crea desde un `run_id` de Atlas y queda bajo:
@@ -90,15 +96,40 @@ El `agent_context_pack.json` resultante contiene exclusivamente elementos aproba
 
 Nexo puede comparar el draft activo con una release base, o dos releases entre sí. El comparador identifica elementos agregados, eliminados o modificados por `tipo + nombre normalizado`; destaca cambios de definición, estado, responsable y vínculos. Cada resultado se conserva localmente bajo `data/registry/<project>/comparisons/` y es estrictamente de revisión: no modifica decisiones ni publica nada.
 
-## Situacion de risk1
+## Situacion del piloto Fabric
 
-El primer draft heuristico contiene 148 candidatos: 104 conceptos, 37 reglas y 7 KPIs. Se preserva como historial. El draft vigente generado desde el scanner GPT-5.6 contiene 119 candidatos: 35 conceptos, 51 reglas y 33 KPIs; los 119 tienen `source_chunk_id` y evidencia trazable. Todos estan en `pending_review`; no se registro ninguna decision ficticia ni se emitio una release. GPT-5.6 propuso siete grupos de consolidacion que cubren 15 candidatos sin solapamiento; siguen tambien en `pending_review`.
+El piloto `fabric-gold-sic-risk-pilot` conserva drafts, decisiones, releases y comparaciones locales bajo `data/registry/`. La release `documentation-first` aprobada alimenta la batería de evaluación de Argos descrita en el documento del Runtime. Los artefactos se mantienen como evidencia operativa del piloto y no sustituyen la revisión humana requerida para nuevos drafts o cambios de negocio.
 
 ## Límites actuales
 
 - Las propiedades, relaciones, sinónimos y restricciones son curadas manualmente; aún no hay generación asistida de estas estructuras.
-- No existen adapters de publicacion o mapping hacia Fabric/Databricks.
+- Existen paquetes de mapping locales para Fabric y Databricks, pero no adapters de publicación externa.
 - Una release se guarda en carpetas locales; aún no hay control de acceso, firma ni versionado Git.
+
+## Autoridad documental implementada
+
+El MVP ya permite seleccionar la autoridad `technical`, `documentation` o `hybrid` al crear un draft. En modo `documentation-first`, la documentación define el universo funcional y los activos técnicos de Fabric se conservan como referencias revisables para poder validarlos, pero no se incorporan automáticamente como conceptos de negocio; el modo elegido queda registrado en los manifiestos. ONTO ejecuta además un matching determinista conservador por identificador técnico completo y conserva, por candidato, estado, confianza, motivo, documento/chunk y activos técnicos vinculados. Los matches únicos pueden convertirse en propuestas `source_binding` pendientes; los matches ambiguos o ausentes generan gaps para revisión humana. El matching nunca aprueba ni publica un binding por sí mismo.
+
+El MVP opera principalmente en modo `technical-first`, y ya permite crear drafts
+con la siguiente configuración de autoridad de fuente:
+
+```text
+source_authority = technical | documentation | hybrid
+```
+
+En `documentation-first`:
+
+- la documentación define el alcance y el modelo funcional que se desea utilizar;
+- los conceptos, reglas y KPIs documentados son la fuente principal de candidatos;
+- Fabric se consulta para validar y crear bindings, no para ampliar automáticamente el modelo;
+- un concepto documentado sin correspondencia técnica queda visible como gap;
+- un objeto técnico no mencionado en la documentación queda fuera de la release, sin tratarlo como error;
+- la release solo incorpora elementos documentados y bindings técnicos validados.
+
+El matching debe ser explícito y trazable por candidato: documento/chunk de origen,
+activo técnico vinculado, estado del vínculo, confianza y motivo de aceptación o
+rechazo. El modo `hybrid` queda reservado para una decisión posterior sobre cómo
+resolver conflictos entre documentación y metadata técnica.
 
 ## Criterio de done de este corte
 

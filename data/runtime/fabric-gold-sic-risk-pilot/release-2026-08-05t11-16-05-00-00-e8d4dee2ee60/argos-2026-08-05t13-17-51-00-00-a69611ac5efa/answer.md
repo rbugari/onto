@@ -1,0 +1,1 @@
+Segun la release consultada: gold_infra.fact_impacto_sig.riesgos: Activo técnico Fabric column: gold_infra.fact_impacto_sig.riesgos; gold_sic.fact_impacto_sig.riesgos: Activo técnico Fabric column: gold_sic.fact_impacto_sig.riesgos

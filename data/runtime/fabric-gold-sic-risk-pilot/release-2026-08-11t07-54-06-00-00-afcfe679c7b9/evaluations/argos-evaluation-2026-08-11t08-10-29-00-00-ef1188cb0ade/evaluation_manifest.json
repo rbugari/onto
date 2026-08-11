@@ -1,0 +1,7 @@
+{
+  "format": "argos-evaluation-v0.1",
+  "evaluation_id": "argos-evaluation-2026-08-11T08-10-29-00-00-ef1188cb0ade",
+  "created_at": "2026-08-11T08:16:00+00:00",
+  "release_id": "release-2026-08-11T07-54-06-00-00-afcfe679c7b9",
+  "mode": "deterministic-context-pack"
+}

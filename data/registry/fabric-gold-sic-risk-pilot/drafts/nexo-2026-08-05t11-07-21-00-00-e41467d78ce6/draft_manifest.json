@@ -1,0 +1,35 @@
+{
+  "format": "nexo-registry-draft-v0.2",
+  "product": "Nexo",
+  "draft_id": "nexo-2026-08-05T11-07-21-00-00-e41467d78ce6",
+  "created_at": "2026-08-05T11:07:21+00:00",
+  "project_id": "fabric-gold-sic-risk-pilot",
+  "project_name": "Fabric Gold SIC Risk Pilot",
+  "source_assessment": {
+    "run_id": "atlas-2026-08-05T11-07-14-00-00-5b3b647e7fd3",
+    "created_at": "2026-08-05T11:07:14+00:00",
+    "scope": {
+      "project_id": "fabric-gold-sic-risk-pilot",
+      "client_id": "fabric",
+      "domain_id": "gold-sic-risk",
+      "data_product_id": "risk"
+    }
+  },
+  "candidate_summary": {
+    "total": 2439,
+    "pending_review": 2439,
+    "approved": 0,
+    "rejected": 0,
+    "concept": 83,
+    "business_rule": 207,
+    "kpi": 59,
+    "technical_asset": 2090
+  },
+  "model_element_summary": {
+    "total": 0,
+    "pending_review": 0,
+    "approved": 0,
+    "rejected": 0
+  },
+  "warning": "Un draft Nexo contiene candidatos y elementos de modelo pendientes. No es una ontologia aprobada ni un paquete publicable."
+}

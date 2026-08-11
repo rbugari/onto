@@ -1,0 +1,29 @@
+{
+  "reasoning_advisory": {
+    "level": "llm_reasoning_active",
+    "model_used": "configured-llm",
+    "configured_provider": "openai",
+    "configured_model": "gpt-5.6-luna",
+    "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+  },
+  "live_query": null,
+  "llm_used": true,
+  "llm_plan": {
+    "query_name": null,
+    "parameters": {},
+    "needs_stronger_model": false,
+    "reasoning_note": "La pregunta es definicional y el contexto aprobado ya indica que 'Unidad de calculo vigente' es el departamento de referencia (codigo_departamento_ref) con SIC canonico auxiliar. Ninguna consulta permitida del catálogo aporta una definición adicional."
+  },
+  "llm_response": {
+    "answer": "“Unidad de cálculo vigente” es el departamento de referencia identificado por `codigo_departamento_ref`, junto con un SIC canónico auxiliar. Es la unidad funcional sobre la que se aplican o interpretan los cálculos de riesgo vigentes.",
+    "interpretation": "La evidencia distingue entre la unidad de cálculo general —un departamento o ámbito funcional de puestos— y la unidad vigente, que concreta ese ámbito mediante el departamento de referencia y su SIC canónico auxiliar. No se aporta información adicional sobre cómo se selecciona dicho departamento ni sobre sus valores concretos.",
+    "suggested_questions": [
+      "¿Qué valor de codigo_departamento_ref corresponde a cada unidad de cálculo vigente?",
+      "¿Cómo se determina el SIC canónico auxiliar de un departamento?",
+      "¿Qué reglas de probabilidad e impacto utilizan la unidad de cálculo vigente?"
+    ],
+    "visualization": null,
+    "needs_stronger_model": false,
+    "reasoning_note": "La definición aparece explícitamente en la evidencia documental con confianza media y binding técnico asociado; no se requiere consulta adicional."
+  }
+}

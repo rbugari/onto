@@ -1,0 +1,2437 @@
+{
+  "format": "nexo-canonical-ontology-v0.2",
+  "project_id": "fabric-gold-sic-risk-pilot",
+  "entities": [
+    {
+      "id": "candidate-concept-0006",
+      "name": "INFRA",
+      "definition": "riesgo de infraestructura con scope funcional propio publicado en silver.dim_infra_cidat y metodo de calculo alineado con SIC.",
+      "confidence": 0.55,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0061",
+      "name": "Tipo",
+      "definition": "Significado",
+      "confidence": 0.8,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0062",
+      "name": "REAL",
+      "definition": "la regla se resolvio con dato usable de Silver o de una fuente manual cargada",
+      "confidence": 0.8,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0063",
+      "name": "DEFAULT",
+      "definition": "falta dato usable y se aplica el default funcional configurado para no romper el calculo",
+      "confidence": 0.8,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0064",
+      "name": "CONSTANTE",
+      "definition": "el valor queda fijado por decision funcional, no por fuente dinamica",
+      "confidence": 0.8,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0065",
+      "name": "si hay pesos positivos",
+      "definition": "SUM(nivel_num * peso_regla) / SUM(peso_regla);",
+      "confidence": 0.55,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0066",
+      "name": "si no hay pesos positivos",
+      "definition": "promedio simple de niveles;",
+      "confidence": 0.55,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0067",
+      "name": "Unidad de calculo",
+      "definition": "departamento o ambito funcional de puestos.",
+      "confidence": 0.55,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0071",
+      "name": "Unidad de calculo vigente",
+      "definition": "departamento de referencia (codigo_departamento_ref) con SIC canonico auxiliar.",
+      "confidence": 0.55,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-concept-0073",
+      "name": "metodo de probabilidad",
+      "definition": "reglas SIC aplicadas al activo/scope INFRA cuando existe fuente equivalente;",
+      "confidence": 0.55,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-concept-0074",
+      "name": "metodo de impacto",
+      "definition": "lectura tipo SIC sobre atributos INFRA/CIDAT disponibles;",
+      "confidence": 0.55,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-concept-0079",
+      "name": "Navegacion SIC",
+      "definition": "ese mismo cruce operativo de CPD deja de quedar solo como dato de calculo y pasa a exponerse en gold_sic.dim_sig para segmentacion analitica en BI.",
+      "confidence": 0.55,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-c6421d60c70e",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-c6421d60c70e-chunk-001"
+      }
+    }
+  ],
+  "concepts": [
+    {
+      "id": "candidate-concept-0006",
+      "name": "INFRA",
+      "definition": "riesgo de infraestructura con scope funcional propio publicado en silver.dim_infra_cidat y metodo de calculo alineado con SIC.",
+      "confidence": 0.55,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0061",
+      "name": "Tipo",
+      "definition": "Significado",
+      "confidence": 0.8,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0062",
+      "name": "REAL",
+      "definition": "la regla se resolvio con dato usable de Silver o de una fuente manual cargada",
+      "confidence": 0.8,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0063",
+      "name": "DEFAULT",
+      "definition": "falta dato usable y se aplica el default funcional configurado para no romper el calculo",
+      "confidence": 0.8,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0064",
+      "name": "CONSTANTE",
+      "definition": "el valor queda fijado por decision funcional, no por fuente dinamica",
+      "confidence": 0.8,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0065",
+      "name": "si hay pesos positivos",
+      "definition": "SUM(nivel_num * peso_regla) / SUM(peso_regla);",
+      "confidence": 0.55,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0066",
+      "name": "si no hay pesos positivos",
+      "definition": "promedio simple de niveles;",
+      "confidence": 0.55,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0067",
+      "name": "Unidad de calculo",
+      "definition": "departamento o ambito funcional de puestos.",
+      "confidence": 0.55,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-concept-0071",
+      "name": "Unidad de calculo vigente",
+      "definition": "departamento de referencia (codigo_departamento_ref) con SIC canonico auxiliar.",
+      "confidence": 0.55,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-concept-0073",
+      "name": "metodo de probabilidad",
+      "definition": "reglas SIC aplicadas al activo/scope INFRA cuando existe fuente equivalente;",
+      "confidence": 0.55,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-concept-0074",
+      "name": "metodo de impacto",
+      "definition": "lectura tipo SIC sobre atributos INFRA/CIDAT disponibles;",
+      "confidence": 0.55,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-concept-0079",
+      "name": "Navegacion SIC",
+      "definition": "ese mismo cruce operativo de CPD deja de quedar solo como dato de calculo y pasa a exponerse en gold_sic.dim_sig para segmentacion analitica en BI.",
+      "confidence": 0.55,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-c6421d60c70e",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-c6421d60c70e-chunk-001"
+      }
+    }
+  ],
+  "business_rules": [
+    {
+      "id": "candidate-business_rule-0085",
+      "name": "silver.dim_lldt_cidat aporta la valoracion propia del departamento y codi_dialeg indica el SIC por defecto que debe emul",
+      "definition": "silver.dim_lldt_cidat aporta la valoracion propia del departamento y codi_dialeg indica el SIC por defecto que debe emularse cuando una regla de impacto necesita datos SIC.",
+      "confidence": 0.5,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0128",
+      "name": "Regla 1002 — Estado del perimetro base: base_attributes_noncompleted de silver.fact_perimetro con status = Alta; toma la",
+      "definition": "Regla 1002 — Estado del perimetro base: base_attributes_noncompleted de silver.fact_perimetro con status = Alta; toma la foto mas reciente del perimetro usable y calcula % despliegue base = 1 - (base_attributes_noncompleted / 6); 100% = BAIX; 85%-99% = MIG; 1%-84% = ALT; 0% = MOLT ALT; REAL; DEFAULT nivel 2 si falta perimetro usable",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0156",
+      "name": "Regla 4001 — Certificaciones / auditorias: silver.fact_certificacion_sic por SIC; Silver interpreta CAU_DIALOG_CODE_CERT",
+      "definition": "Regla 4001 — Certificaciones / auditorias: silver.fact_certificacion_sic por SIC; Silver interpreta CAU_DIALOG_CODE_CERTIFICATIONS.FK_ID_DIALOG_CODE como lista operativa de SICs y la expande por ;: certificacion activa vigente = BAIX REAL, solo certificacion caducada/no vigente = MOLT ALT REAL, sin SIC certificado usable = MIG DEFAULT; BAIX / MIG / MOLT ALT; REAL si existe certificacion materializada; DEFAULT si no",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-006"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0157",
+      "name": "Regla 4002 — Politica de ciberseguridad: silver.fact_gobernanza_departamento por departamento; lee el control departamen",
+      "definition": "Regla 4002 — Politica de ciberseguridad: silver.fact_gobernanza_departamento por departamento; lee el control departamental silverizado desde XLS_Gobernanza: Si = BAIX, No = MOLT ALT, sin dato usable = MIG; BAIX / MIG / MOLT ALT; REAL si hay dato; DEFAULT si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-006"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0158",
+      "name": "Regla 4003 — Marco normativo actualizado: silver.fact_gobernanza_departamento por departamento; misma logica directa si/",
+      "definition": "Regla 4003 — Marco normativo actualizado: silver.fact_gobernanza_departamento por departamento; misma logica directa si/no por departamento; BAIX / MIG / MOLT ALT; REAL si hay dato; DEFAULT si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-006"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0159",
+      "name": "Regla 4004 — Roles definidos: silver.fact_gobernanza_departamento por departamento; misma logica directa si/no por depar",
+      "definition": "Regla 4004 — Roles definidos: silver.fact_gobernanza_departamento por departamento; misma logica directa si/no por departamento; BAIX / MIG / MOLT ALT; REAL si hay dato; DEFAULT si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-006"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0160",
+      "name": "Regla 4005 — DPD: silver.fact_gobernanza_departamento por departamento; misma logica directa si/no por departamento; BAI",
+      "definition": "Regla 4005 — DPD: silver.fact_gobernanza_departamento por departamento; misma logica directa si/no por departamento; BAIX / MIG / MOLT ALT; REAL si hay dato; DEFAULT si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-006"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0161",
+      "name": "Regla 4006 — Comite de seguridad: silver.fact_gobernanza_departamento por departamento; misma logica directa si/no por d",
+      "definition": "Regla 4006 — Comite de seguridad: silver.fact_gobernanza_departamento por departamento; misma logica directa si/no por departamento; BAIX / MIG / MOLT ALT; REAL si hay dato; DEFAULT si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-006"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0183",
+      "name": "El modelo vigente permite explicar el resultado a negocio de forma consistente en los 5 ejes, pero la lectura correcta d",
+      "definition": "El modelo vigente permite explicar el resultado a negocio de forma consistente en los 5 ejes, pero la lectura correcta debe distinguir tres cosas:",
+      "confidence": 0.5,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-010"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0184",
+      "name": "No usar PROXY ni PENDIENTE como tipos vigentes de resultado Gold. Pueden aparecer en documentos historicos, pero la lect",
+      "definition": "No usar PROXY ni PENDIENTE como tipos vigentes de resultado Gold. Pueden aparecer en documentos historicos, pero la lectura actual de Dev y Prod debe cerrarse sobre REAL, DEFAULT, CONSTANTE y, para impacto LLDT, LLDT_SIC_EMULADO.",
+      "confidence": 0.5,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0186",
+      "name": "Regla 1002 — 100: indisponibilidad por falta de EDR; pct_edr; misma escala de cobertura que 1001; si falta dato, 100% DE",
+      "definition": "Regla 1002 — 100: indisponibilidad por falta de EDR; pct_edr; misma escala de cobertura que 1001; si falta dato, 100% DEFAULT BAIX",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0187",
+      "name": "Regla 1003 — 100: exposicion por parches antiguos; pct_patch_gt_60; <30 BAIX, 30-79 MIG, 80-89 ALT, >=90 MOLT ALT; si fa",
+      "definition": "Regla 1003 — 100: exposicion por parches antiguos; pct_patch_gt_60; <30 BAIX, 30-79 MIG, 80-89 ALT, >=90 MOLT ALT; si falta dato, 0% DEFAULT BAIX",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0188",
+      "name": "Regla 1004 — 100: alertas criticas o altas no resueltas; tickets/alertas departamentales; 0 BAIX, 1-5 ALT, >5 MOLT ALT; ",
+      "definition": "Regla 1004 — 100: alertas criticas o altas no resueltas; tickets/alertas departamentales; 0 BAIX, 1-5 ALT, >5 MOLT ALT; si falta fila, 0 DEFAULT BAIX",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0189",
+      "name": "Regla 2001 — 200: proteccion de credenciales via EDR; pct_edr; misma escala de cobertura EDR que 1002; 100% DEFAULT BAIX",
+      "definition": "Regla 2001 — 200: proteccion de credenciales via EDR; pct_edr; misma escala de cobertura EDR que 1002; 100% DEFAULT BAIX si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0190",
+      "name": "Regla 2002 — 200: MFA VPN administradores; decision funcional; valor fijo 100% MFA; CONSTANTE BAIX",
+      "definition": "Regla 2002 — 200: MFA VPN administradores; decision funcional; valor fijo 100% MFA; CONSTANTE BAIX",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0191",
+      "name": "Regla 2003 — 200: MFA VPN usuarios; silver.vw_src_prob_puestos_mfa_vpn.pct_mfa_vpn; >=90 BAIX, 60-89 MIG, 30-59 ALT, <30",
+      "definition": "Regla 2003 — 200: MFA VPN usuarios; silver.vw_src_prob_puestos_mfa_vpn.pct_mfa_vpn; >=90 BAIX, 60-89 MIG, 30-59 ALT, <30 MOLT ALT; 100% DEFAULT BAIX si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0192",
+      "name": "Regla 2004 — 200: MFA O365 usuarios; silver.vw_src_prob_puestos_mfa_o365.pct_mfa_o365; misma escala que 2003; 100% DEFAU",
+      "definition": "Regla 2004 — 200: MFA O365 usuarios; silver.vw_src_prob_puestos_mfa_o365.pct_mfa_o365; misma escala que 2003; 100% DEFAULT BAIX si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0193",
+      "name": "Regla 2005 — 200: MFA en cuentas genericas; decision funcional; se considera 0% MFA para cuentas genericas; CONSTANTE MO",
+      "definition": "Regla 2005 — 200: MFA en cuentas genericas; decision funcional; se considera 0% MFA para cuentas genericas; CONSTANTE MOLT ALT",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0195",
+      "name": "Regla 2007 — 200: TPM; pct_tpm; >=95 BAIX, <95 MOLT ALT; 100% DEFAULT BAIX si falta",
+      "definition": "Regla 2007 — 200: TPM; pct_tpm; >=95 BAIX, <95 MOLT ALT; 100% DEFAULT BAIX si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0196",
+      "name": "Regla 2008 — 200: EDR para plataforma/correo; pct_edr; misma escala que 1002; 100% DEFAULT BAIX si falta",
+      "definition": "Regla 2008 — 200: EDR para plataforma/correo; pct_edr; misma escala que 1002; 100% DEFAULT BAIX si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0197",
+      "name": "Regla 2009 — 200: MFA O365 para plataforma/correo; pct_mfa_o365; misma escala que 2003; 100% DEFAULT BAIX si falta",
+      "definition": "Regla 2009 — 200: MFA O365 para plataforma/correo; pct_mfa_o365; misma escala que 2003; 100% DEFAULT BAIX si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0198",
+      "name": "Regla 2010 — 200: riesgo por cuentas genericas; generic_accounts; 0 BAIX, 1-199 MIG, 200-700 ALT, >700 MOLT ALT; 0 cuent",
+      "definition": "Regla 2010 — 200: riesgo por cuentas genericas; generic_accounts; 0 BAIX, 1-199 MIG, 200-700 ALT, >700 MOLT ALT; 0 cuentas DEFAULT BAIX si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0200",
+      "name": "Regla 2012 — 200: parches antiguos para compromiso de credenciales; pct_patch_gt_60; misma escala que 1003; 0% DEFAULT B",
+      "definition": "Regla 2012 — 200: parches antiguos para compromiso de credenciales; pct_patch_gt_60; misma escala que 1003; 0% DEFAULT BAIX si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0201",
+      "name": "Regla 2013 — 200: cifrado de disco; pct_encrypted; >=95 BAIX, 50-94 ALT, <50 MOLT ALT; 100% DEFAULT BAIX si falta",
+      "definition": "Regla 2013 — 200: cifrado de disco; pct_encrypted; >=95 BAIX, 50-94 ALT, <50 MOLT ALT; 100% DEFAULT BAIX si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0202",
+      "name": "Regla 3001 — 300: antivirus para compromiso del equipo; pct_antivirus; misma escala que 1001; 100% DEFAULT BAIX si falta",
+      "definition": "Regla 3001 — 300: antivirus para compromiso del equipo; pct_antivirus; misma escala que 1001; 100% DEFAULT BAIX si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0203",
+      "name": "Regla 3002 — 300: EDR para compromiso del equipo; pct_edr; misma escala que 1002; 100% DEFAULT BAIX si falta",
+      "definition": "Regla 3002 — 300: EDR para compromiso del equipo; pct_edr; misma escala que 1002; 100% DEFAULT BAIX si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0222",
+      "name": "Regla 401 — 400: proteccion de datos y ENS; silver.dim_lldt_cidat C/I/D/A/T; maximo CIDAT del departamento; REAL si hay ",
+      "definition": "Regla 401 — 400: proteccion de datos y ENS; silver.dim_lldt_cidat C/I/D/A/T; maximo CIDAT del departamento; REAL si hay CIDAT; DEFAULT MIG si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-002"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0224",
+      "name": "Regla 1001 — 100: EDR por SIC; bridge host -> app -> SIC + EDR current; >=95 BAIX, 91-94 MIG, 86-90 ALT, <86 MOLT ALT; n",
+      "definition": "Regla 1001 — 100: EDR por SIC; bridge host -> app -> SIC + EDR current; >=95 BAIX, 91-94 MIG, 86-90 ALT, <86 MOLT ALT; nivel 2 DEFAULT si no hay mapping usable",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0227",
+      "name": "Regla 1004 — 100: alertas criticas no resueltas; tickets/alertas asociados por departamento/SIC; 0 BAIX, 1-5 ALT, >5 MOL",
+      "definition": "Regla 1004 — 100: alertas criticas no resueltas; tickets/alertas asociados por departamento/SIC; 0 BAIX, 1-5 ALT, >5 MOLT ALT; nivel 2 DEFAULT si falta fila usable",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0228",
+      "name": "Regla 1005 — 100: exposicion a amenaza CPD; exposicion CPD ya traducida; BAIX/MIG/ALT/MOLT ALT se toma directo como nive",
+      "definition": "Regla 1005 — 100: exposicion a amenaza CPD; exposicion CPD ya traducida; BAIX/MIG/ALT/MOLT ALT se toma directo como nivel; nivel 2 DEFAULT si falta resolucion; nivel 3 CONSTANTE si existe regla sin valor concreto",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0229",
+      "name": "Regla 1006 — 100: publicacion a internet; is_t11 desde inventario SIC; interno BAIX; publico/T11 ALT; sin dato MIG; nive",
+      "definition": "Regla 1006 — 100: publicacion a internet; is_t11 desde inventario SIC; interno BAIX; publico/T11 ALT; sin dato MIG; nivel 2 DEFAULT si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0230",
+      "name": "Regla 2001 — 200: EDR para credenciales; misma cobertura EDR que 1001; misma escala que 1001; nivel 2 DEFAULT si falta",
+      "definition": "Regla 2001 — 200: EDR para credenciales; misma cobertura EDR que 1001; misma escala que 1001; nivel 2 DEFAULT si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0231",
+      "name": "Regla 2002 — 200: MFA VPN administradores; decision funcional; 100% cubierto; CONSTANTE BAIX",
+      "definition": "Regla 2002 — 200: MFA VPN administradores; decision funcional; 100% cubierto; CONSTANTE BAIX",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0232",
+      "name": "Regla 2003 — 200: MFA cloud administradores; decision funcional; 100% cubierto; CONSTANTE BAIX",
+      "definition": "Regla 2003 — 200: MFA cloud administradores; decision funcional; 100% cubierto; CONSTANTE BAIX",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0233",
+      "name": "Regla 2004 — 200: MFA aplicaciones administradores; decision funcional; 100% cubierto; CONSTANTE BAIX",
+      "definition": "Regla 2004 — 200: MFA aplicaciones administradores; decision funcional; 100% cubierto; CONSTANTE BAIX",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0234",
+      "name": "Regla 2005 — 200: MFA aplicaciones usuarios; decision funcional; se asume sin MFA a nivel aplicacion/SIC; CONSTANTE MOLT",
+      "definition": "Regla 2005 — 200: MFA aplicaciones usuarios; decision funcional; se asume sin MFA a nivel aplicacion/SIC; CONSTANTE MOLT ALT",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0235",
+      "name": "Regla 2006 — 200: exposicion CPD para informacion; exposicion CPD del SIC; nivel directo BAIX/MIG/ALT/MOLT ALT; nivel 2 ",
+      "definition": "Regla 2006 — 200: exposicion CPD para informacion; exposicion CPD del SIC; nivel directo BAIX/MIG/ALT/MOLT ALT; nivel 2 DEFAULT o nivel 3 CONSTANTE segun disponibilidad",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0236",
+      "name": "Regla 2007 — 200: integracion GICAR; has_gicar; con GICAR BAIX; sin GICAR ALT; DEFAULT si origen vacio",
+      "definition": "Regla 2007 — 200: integracion GICAR; has_gicar; con GICAR BAIX; sin GICAR ALT; DEFAULT si origen vacio",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0237",
+      "name": "Regla 2008 — 200: vulnerabilidades criticas para informacion; Critical abiertas; misma escala que 1003; REAL si se calcu",
+      "definition": "Regla 2008 — 200: vulnerabilidades criticas para informacion; Critical abiertas; misma escala que 1003; REAL si se calcula",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0238",
+      "name": "Regla 2009 — 200: exposicion CPD tecnica; exposicion CPD; misma lectura que 1005; REAL / DEFAULT / CONSTANTE segun dispo",
+      "definition": "Regla 2009 — 200: exposicion CPD tecnica; exposicion CPD; misma lectura que 1005; REAL / DEFAULT / CONSTANTE segun disponibilidad",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0239",
+      "name": "Regla 2010 — 200: perimetro base para exfiltracion; base_attributes_noncompleted, status = Alta, ultima foto; misma esca",
+      "definition": "Regla 2010 — 200: perimetro base para exfiltracion; base_attributes_noncompleted, status = Alta, ultima foto; misma escala que 1002; nivel 2 DEFAULT si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0240",
+      "name": "Regla 2011 — 200: publicacion a internet para informacion; is_t11; interno BAIX; publico ALT; sin dato MIG; nivel 2 DEFA",
+      "definition": "Regla 2011 — 200: publicacion a internet para informacion; is_t11; interno BAIX; publico ALT; sin dato MIG; nivel 2 DEFAULT si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0241",
+      "name": "Regla 3001 — 300: EDR para malware/ransomware; cobertura EDR del SIC; misma escala que 1001; nivel 2 DEFAULT si falta",
+      "definition": "Regla 3001 — 300: EDR para malware/ransomware; cobertura EDR del SIC; misma escala que 1001; nivel 2 DEFAULT si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0242",
+      "name": "Regla 3002 — 300: perimetro tecnico base; base_attributes_noncompleted, status = Alta, ultima foto; misma escala que 100",
+      "definition": "Regla 3002 — 300: perimetro tecnico base; base_attributes_noncompleted, status = Alta, ultima foto; misma escala que 1002; nivel 2 DEFAULT si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0243",
+      "name": "Regla 3003 — 300: vulnerabilidades criticas de plataforma; Critical abiertas; misma escala que 1003; REAL si se calcula",
+      "definition": "Regla 3003 — 300: vulnerabilidades criticas de plataforma; Critical abiertas; misma escala que 1003; REAL si se calcula",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0244",
+      "name": "Regla 3004 — 300: alertas criticas no resueltas; tickets/alertas asociados; misma escala que 1004; nivel 2 DEFAULT si fa",
+      "definition": "Regla 3004 — 300: alertas criticas no resueltas; tickets/alertas asociados; misma escala que 1004; nivel 2 DEFAULT si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0245",
+      "name": "Regla 3005 — 300: exposicion CPD de plataforma; exposicion CPD; nivel directo BAIX/MIG/ALT/MOLT ALT; nivel 2 DEFAULT o n",
+      "definition": "Regla 3005 — 300: exposicion CPD de plataforma; exposicion CPD; nivel directo BAIX/MIG/ALT/MOLT ALT; nivel 2 DEFAULT o nivel 3 CONSTANTE segun disponibilidad",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0246",
+      "name": "Regla 3006 — 300: publicacion a internet de plataforma; is_t11; interno BAIX; publico ALT; sin dato MIG; nivel 2 DEFAULT",
+      "definition": "Regla 3006 — 300: publicacion a internet de plataforma; is_t11; interno BAIX; publico ALT; sin dato MIG; nivel 2 DEFAULT si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0248",
+      "name": "Regla 3008 — 300: vulnerabilidades criticas complementarias; Critical abiertas; misma escala que 3003; REAL si se calcul",
+      "definition": "Regla 3008 — 300: vulnerabilidades criticas complementarias; Critical abiertas; misma escala que 3003; REAL si se calcula",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0249",
+      "name": "Regla 3009 — 300: exposicion CPD complementaria; exposicion CPD; misma lectura que 3005; REAL / DEFAULT / CONSTANTE segu",
+      "definition": "Regla 3009 — 300: exposicion CPD complementaria; exposicion CPD; misma lectura que 3005; REAL / DEFAULT / CONSTANTE segun disponibilidad",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0250",
+      "name": "Regla 3010 — 300: perimetro tecnico complementario; base_attributes_noncompleted, status = Alta, ultima foto; misma esca",
+      "definition": "Regla 3010 — 300: perimetro tecnico complementario; base_attributes_noncompleted, status = Alta, ultima foto; misma escala que 1002; nivel 2 DEFAULT si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0251",
+      "name": "Regla 3011 — 300: obsolescencia SO complementaria; mismo contrato de hosts, CPD current y catálogo lifecycle de 3007; mi",
+      "definition": "Regla 3011 — 300: obsolescencia SO complementaria; mismo contrato de hosts, CPD current y catálogo lifecycle de 3007; misma escala que 3007; ALT DEFAULT si no hay parque usable",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0252",
+      "name": "Regla 3012 — 300: publicacion a internet complementaria; is_t11; interno BAIX; publico ALT; sin dato MIG; nivel 2 DEFAUL",
+      "definition": "Regla 3012 — 300: publicacion a internet complementaria; is_t11; interno BAIX; publico ALT; sin dato MIG; nivel 2 DEFAULT si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0258",
+      "name": "Regla 4006 — 400: comite de seguridad; silver.fact_gobernanza_departamento; misma logica si/no; REAL o DEFAULT MIG",
+      "definition": "Regla 4006 — 400: comite de seguridad; silver.fact_gobernanza_departamento; misma logica si/no; REAL o DEFAULT MIG",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0259",
+      "name": "Regla 101 — 100: tolerancia de indisponibilidad; rto del SIC; 0h BAIX; 1/8/24h MIG; 48/72h o 1-3 dias ALT; sin dato MOLT",
+      "definition": "Regla 101 — 100: tolerancia de indisponibilidad; rto del SIC; 0h BAIX; 1/8/24h MIG; 48/72h o 1-3 dias ALT; sin dato MOLT ALT; MOLT ALT si falta RTO",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0260",
+      "name": "Regla 102 — 100: ambito y criticidad; criticidad + usuarios + T11; criticidad alta y volumetria/publico elevan impacto; ",
+      "definition": "Regla 102 — 100: ambito y criticidad; criticidad + usuarios + T11; criticidad alta y volumetria/publico elevan impacto; default si falta SIC usable",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0261",
+      "name": "Regla 103 — 100: criticidad del sistema; criticidad_negocio; 0-1 MOLT ALT, 2-3 ALT, 4 MIG, resto BAIX; default si falta",
+      "definition": "Regla 103 — 100: criticidad del sistema; criticidad_negocio; 0-1 MOLT ALT, 2-3 ALT, 4 MIG, resto BAIX; default si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0262",
+      "name": "Regla 104 — 100: usuarios afectados; usuarios + T11; publico ALT; <500 BAIX; >=500 MIG; sin dato MIG; MIG si falta",
+      "definition": "Regla 104 — 100: usuarios afectados; usuarios + T11; publico ALT; <500 BAIX; >=500 MIG; sin dato MIG; MIG si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0263",
+      "name": "Regla 105 — 100: impacto legal por criticidad; criticidad; misma escala que 103; default si falta",
+      "definition": "Regla 105 — 100: impacto legal por criticidad; criticidad; misma escala que 103; default si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0264",
+      "name": "Regla 201 — 200: volumetria de usuarios afectados; num_usuarios_max; <=500 BAIX, 501-3000 MIG, 3001-9000 ALT, >9000 MOLT",
+      "definition": "Regla 201 — 200: volumetria de usuarios afectados; num_usuarios_max; <=500 BAIX, 501-3000 MIG, 3001-9000 ALT, >9000 MOLT ALT; default si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0265",
+      "name": "Regla 202 — 200: ambito de usuarios; T11/publico; interno BAIX; publico ALT; sin dato MIG; MIG si falta",
+      "definition": "Regla 202 — 200: ambito de usuarios; T11/publico; interno BAIX; publico ALT; sin dato MIG; MIG si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0266",
+      "name": "Regla 203 — 200: criticidad del sistema; criticidad; misma escala que 103; default si falta",
+      "definition": "Regla 203 — 200: criticidad del sistema; criticidad; misma escala que 103; default si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0267",
+      "name": "Regla 204 — 200: clasificacion de informacion; key_seguretat; nivel 1-4 directo; si falta maximo riesgo; MOLT ALT si fal",
+      "definition": "Regla 204 — 200: clasificacion de informacion; key_seguretat; nivel 1-4 directo; si falta maximo riesgo; MOLT ALT si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0268",
+      "name": "Regla 301 — 300: usuarios y criticidad de plataforma; usuarios + criticidad; >9000 o criticidad 0-1 MOLT ALT; >3000 o cr",
+      "definition": "Regla 301 — 300: usuarios y criticidad de plataforma; usuarios + criticidad; >9000 o criticidad 0-1 MOLT ALT; >3000 o criticidad 2-3 ALT; >500 o criticidad 4 MIG; resto BAIX; default si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0269",
+      "name": "Regla 401 — 400: proteccion de datos y ENS; maximo C/I/D/A/T; maximo CIDAT como nivel final; MIG si falta CIDAT",
+      "definition": "Regla 401 — 400: proteccion de datos y ENS; maximo C/I/D/A/T; maximo CIDAT como nivel final; MIG si falta CIDAT",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0270",
+      "name": "Regla 402 — 400: ambito y criticidad; criticidad + usuarios + T11; misma matriz que 102; default si falta",
+      "definition": "Regla 402 — 400: ambito y criticidad; criticidad + usuarios + T11; misma matriz que 102; default si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0272",
+      "name": "Regla 2011 — 200: formacion para plataforma/correo; misma fuente que 2006; misma escala, fuentes y contrato que 2006; mi",
+      "definition": "Regla 2011 — 200: formacion para plataforma/correo; misma fuente que 2006; misma escala, fuentes y contrato que 2006; mismo criterio que 2006",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0273",
+      "name": "Regla 4001 — 400: formacion para cumplimiento; misma fuente que 2006; misma escala, fuentes y contrato que 2006; mismo c",
+      "definition": "Regla 4001 — 400: formacion para cumplimiento; misma fuente que 2006; misma escala, fuentes y contrato que 2006; mismo criterio que 2006",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0274",
+      "name": "Regla 201 — 200: volumetria de usuarios afectados; SIC canonico auxiliar por departamento; misma escala de impacto SIC 2",
+      "definition": "Regla 201 — 200: volumetria de usuarios afectados; SIC canonico auxiliar por departamento; misma escala de impacto SIC 201; default si falta SIC usable",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0275",
+      "name": "Regla 204 — 200: clasificacion de informacion; key_seguretat del SIC/departamento de referencia; nivel directo; si falta",
+      "definition": "Regla 204 — 200: clasificacion de informacion; key_seguretat del SIC/departamento de referencia; nivel directo; si falta sube a maximo riesgo; default segun regla admin",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0276",
+      "name": "Regla 401 — 400: proteccion de datos y ENS; maximo CIDAT del SIC/departamento; maximo C/I/D/A/T; default MIG si falta",
+      "definition": "Regla 401 — 400: proteccion de datos y ENS; maximo CIDAT del SIC/departamento; maximo C/I/D/A/T; default MIG si falta",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0277",
+      "name": "Regla 402 — 400: ambito y criticidad; criticidad + usuarios + T11 del SIC canonico; misma matriz que SIC 102/402; defaul",
+      "definition": "Regla 402 — 400: ambito y criticidad; criticidad + usuarios + T11 del SIC canonico; misma matriz que SIC 102/402; default si falta SIC usable",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0279",
+      "name": "Regla 4003 — 400: politica de ciberseguridad; silver.fact_gobernanza_departamento, origen 4002 SIC remapeado a 4003; Si ",
+      "definition": "Regla 4003 — 400: politica de ciberseguridad; silver.fact_gobernanza_departamento, origen 4002 SIC remapeado a 4003; Si BAIX, No MOLT ALT, sin dato MIG; REAL o DEFAULT MIG",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0280",
+      "name": "Regla 4004 — 400: marco normativo actualizado; silver.fact_gobernanza_departamento, origen 4003 remapeado; misma logica ",
+      "definition": "Regla 4004 — 400: marco normativo actualizado; silver.fact_gobernanza_departamento, origen 4003 remapeado; misma logica si/no; REAL o DEFAULT MIG",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0281",
+      "name": "Regla 4005 — 400: roles definidos; silver.fact_gobernanza_departamento, origen 4004 remapeado; misma logica si/no; REAL ",
+      "definition": "Regla 4005 — 400: roles definidos; silver.fact_gobernanza_departamento, origen 4004 remapeado; misma logica si/no; REAL o DEFAULT MIG",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0282",
+      "name": "Regla 4006 — 400: DPD; silver.fact_gobernanza_departamento, origen 4005 remapeado; misma logica si/no; REAL o DEFAULT MI",
+      "definition": "Regla 4006 — 400: DPD; silver.fact_gobernanza_departamento, origen 4005 remapeado; misma logica si/no; REAL o DEFAULT MIG",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0283",
+      "name": "Regla 4007 — 400: comite de seguridad; silver.fact_gobernanza_departamento, origen 4006 remapeado; misma logica si/no; R",
+      "definition": "Regla 4007 — 400: comite de seguridad; silver.fact_gobernanza_departamento, origen 4006 remapeado; misma logica si/no; REAL o DEFAULT MIG",
+      "confidence": 0.75,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-business_rule-0284",
+      "name": "Por tanto, para explicar una regla INFRA se debe leer la regla SIC equivalente de este catalogo y confirmar que el activ",
+      "definition": "Por tanto, para explicar una regla INFRA se debe leer la regla SIC equivalente de este catalogo y confirmar que el activo INFRA tiene dato Silver usable. Si falta dato, aplica el mismo principio de defaults controlados del metodo SIC, no un default optimista LLDT.",
+      "confidence": 0.5,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-005"
+      }
+    }
+  ],
+  "kpis": [
+    {
+      "id": "candidate-kpi-0314",
+      "name": "Regla 1002 — Estado del perimetro base: base_attributes_noncompleted de silver.fact_perimetro con status = Alta; toma la",
+      "definition": "Regla 1002 — Estado del perimetro base: base_attributes_noncompleted de silver.fact_perimetro con status = Alta; toma la foto mas reciente del perimetro usable y calcula % despliegue base = 1 - (base_attributes_noncompleted / 6); 100% = BAIX; 85%-99% = MIG; 1%-84% = ALT; 0% = MOLT ALT; REAL; DEFAULT nivel 2 si falta perimetro usable",
+      "confidence": 0.7,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-005"
+      }
+    },
+    {
+      "id": "candidate-kpi-0326",
+      "name": "Regla 1002 — 100: indisponibilidad por falta de EDR; pct_edr; misma escala de cobertura que 1001; si falta dato, 100% DE",
+      "definition": "Regla 1002 — 100: indisponibilidad por falta de EDR; pct_edr; misma escala de cobertura que 1001; si falta dato, 100% DEFAULT BAIX",
+      "confidence": 0.7,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0327",
+      "name": "Regla 1003 — 100: exposicion por parches antiguos; pct_patch_gt_60; <30 BAIX, 30-79 MIG, 80-89 ALT, >=90 MOLT ALT; si fa",
+      "definition": "Regla 1003 — 100: exposicion por parches antiguos; pct_patch_gt_60; <30 BAIX, 30-79 MIG, 80-89 ALT, >=90 MOLT ALT; si falta dato, 0% DEFAULT BAIX",
+      "confidence": 0.7,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0328",
+      "name": "Regla 2001 — 200: proteccion de credenciales via EDR; pct_edr; misma escala de cobertura EDR que 1002; 100% DEFAULT BAIX",
+      "definition": "Regla 2001 — 200: proteccion de credenciales via EDR; pct_edr; misma escala de cobertura EDR que 1002; 100% DEFAULT BAIX si falta",
+      "confidence": 0.7,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0329",
+      "name": "Regla 2002 — 200: MFA VPN administradores; decision funcional; valor fijo 100% MFA; CONSTANTE BAIX",
+      "definition": "Regla 2002 — 200: MFA VPN administradores; decision funcional; valor fijo 100% MFA; CONSTANTE BAIX",
+      "confidence": 0.7,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0330",
+      "name": "Regla 2003 — 200: MFA VPN usuarios; silver.vw_src_prob_puestos_mfa_vpn.pct_mfa_vpn; >=90 BAIX, 60-89 MIG, 30-59 ALT, <30",
+      "definition": "Regla 2003 — 200: MFA VPN usuarios; silver.vw_src_prob_puestos_mfa_vpn.pct_mfa_vpn; >=90 BAIX, 60-89 MIG, 30-59 ALT, <30 MOLT ALT; 100% DEFAULT BAIX si falta",
+      "confidence": 0.7,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0331",
+      "name": "Regla 2004 — 200: MFA O365 usuarios; silver.vw_src_prob_puestos_mfa_o365.pct_mfa_o365; misma escala que 2003; 100% DEFAU",
+      "definition": "Regla 2004 — 200: MFA O365 usuarios; silver.vw_src_prob_puestos_mfa_o365.pct_mfa_o365; misma escala que 2003; 100% DEFAULT BAIX si falta",
+      "confidence": 0.7,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0332",
+      "name": "Regla 2005 — 200: MFA en cuentas genericas; decision funcional; se considera 0% MFA para cuentas genericas; CONSTANTE MO",
+      "definition": "Regla 2005 — 200: MFA en cuentas genericas; decision funcional; se considera 0% MFA para cuentas genericas; CONSTANTE MOLT ALT",
+      "confidence": 0.7,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0334",
+      "name": "Regla 2007 — 200: TPM; pct_tpm; >=95 BAIX, <95 MOLT ALT; 100% DEFAULT BAIX si falta",
+      "definition": "Regla 2007 — 200: TPM; pct_tpm; >=95 BAIX, <95 MOLT ALT; 100% DEFAULT BAIX si falta",
+      "confidence": 0.7,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0335",
+      "name": "Regla 2008 — 200: EDR para plataforma/correo; pct_edr; misma escala que 1002; 100% DEFAULT BAIX si falta",
+      "definition": "Regla 2008 — 200: EDR para plataforma/correo; pct_edr; misma escala que 1002; 100% DEFAULT BAIX si falta",
+      "confidence": 0.7,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0336",
+      "name": "Regla 2009 — 200: MFA O365 para plataforma/correo; pct_mfa_o365; misma escala que 2003; 100% DEFAULT BAIX si falta",
+      "definition": "Regla 2009 — 200: MFA O365 para plataforma/correo; pct_mfa_o365; misma escala que 2003; 100% DEFAULT BAIX si falta",
+      "confidence": 0.7,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0337",
+      "name": "Regla 2012 — 200: parches antiguos para compromiso de credenciales; pct_patch_gt_60; misma escala que 1003; 0% DEFAULT B",
+      "definition": "Regla 2012 — 200: parches antiguos para compromiso de credenciales; pct_patch_gt_60; misma escala que 1003; 0% DEFAULT BAIX si falta",
+      "confidence": 0.7,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0338",
+      "name": "Regla 2013 — 200: cifrado de disco; pct_encrypted; >=95 BAIX, 50-94 ALT, <50 MOLT ALT; 100% DEFAULT BAIX si falta",
+      "definition": "Regla 2013 — 200: cifrado de disco; pct_encrypted; >=95 BAIX, 50-94 ALT, <50 MOLT ALT; 100% DEFAULT BAIX si falta",
+      "confidence": 0.7,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0339",
+      "name": "Regla 3001 — 300: antivirus para compromiso del equipo; pct_antivirus; misma escala que 1001; 100% DEFAULT BAIX si falta",
+      "definition": "Regla 3001 — 300: antivirus para compromiso del equipo; pct_antivirus; misma escala que 1001; 100% DEFAULT BAIX si falta",
+      "confidence": 0.7,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0340",
+      "name": "Regla 3002 — 300: EDR para compromiso del equipo; pct_edr; misma escala que 1002; 100% DEFAULT BAIX si falta",
+      "definition": "Regla 3002 — 300: EDR para compromiso del equipo; pct_edr; misma escala que 1002; 100% DEFAULT BAIX si falta",
+      "confidence": 0.7,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+      }
+    },
+    {
+      "id": "candidate-kpi-0345",
+      "name": "Regla 2002 — 200: MFA VPN administradores; decision funcional; 100% cubierto; CONSTANTE BAIX",
+      "definition": "Regla 2002 — 200: MFA VPN administradores; decision funcional; 100% cubierto; CONSTANTE BAIX",
+      "confidence": 0.7,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-kpi-0346",
+      "name": "Regla 2003 — 200: MFA cloud administradores; decision funcional; 100% cubierto; CONSTANTE BAIX",
+      "definition": "Regla 2003 — 200: MFA cloud administradores; decision funcional; 100% cubierto; CONSTANTE BAIX",
+      "confidence": 0.7,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    },
+    {
+      "id": "candidate-kpi-0347",
+      "name": "Regla 2004 — 200: MFA aplicaciones administradores; decision funcional; 100% cubierto; CONSTANTE BAIX",
+      "definition": "Regla 2004 — 200: MFA aplicaciones administradores; decision funcional; 100% cubierto; CONSTANTE BAIX",
+      "confidence": 0.7,
+      "source_binding": {
+        "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+        "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+      }
+    }
+  ],
+  "technical_assets": [
+    {
+      "id": "candidate-technical-asset-0402",
+      "name": "gold_sic.dim_sig",
+      "definition": "Activo técnico Fabric table: gold_sic.dim_sig",
+      "confidence": 1.0,
+      "source_binding": {
+        "source_document_id": "fabric-information-schema",
+        "source_chunk_id": "fabric:gold_sic.dim_sig"
+      },
+      "technical_metadata": {
+        "fabric.objectType": "table",
+        "fabric.schema": "gold_sic",
+        "fabric.table": "dim_sig"
+      }
+    },
+    {
+      "id": "candidate-technical-asset-0407",
+      "name": "gold_sic.fact_probabilidad",
+      "definition": "Activo técnico Fabric table: gold_sic.fact_probabilidad",
+      "confidence": 1.0,
+      "source_binding": {
+        "source_document_id": "fabric-information-schema",
+        "source_chunk_id": "fabric:gold_sic.fact_probabilidad"
+      },
+      "technical_metadata": {
+        "fabric.objectType": "table",
+        "fabric.schema": "gold_sic",
+        "fabric.table": "fact_probabilidad"
+      }
+    },
+    {
+      "id": "candidate-technical-asset-0410",
+      "name": "gold_sic.fact_riesgo",
+      "definition": "Activo técnico Fabric table: gold_sic.fact_riesgo",
+      "confidence": 1.0,
+      "source_binding": {
+        "source_document_id": "fabric-information-schema",
+        "source_chunk_id": "fabric:gold_sic.fact_riesgo"
+      },
+      "technical_metadata": {
+        "fabric.objectType": "table",
+        "fabric.schema": "gold_sic",
+        "fabric.table": "fact_riesgo"
+      }
+    },
+    {
+      "id": "candidate-technical-asset-0422",
+      "name": "silver.dim_infra_cidat",
+      "definition": "Activo técnico Fabric table: silver.dim_infra_cidat",
+      "confidence": 1.0,
+      "source_binding": {
+        "source_document_id": "fabric-information-schema",
+        "source_chunk_id": "fabric:silver.dim_infra_cidat"
+      },
+      "technical_metadata": {
+        "fabric.objectType": "table",
+        "fabric.schema": "silver",
+        "fabric.table": "dim_infra_cidat"
+      }
+    },
+    {
+      "id": "candidate-technical-asset-0425",
+      "name": "silver.dim_lldt_cidat",
+      "definition": "Activo técnico Fabric table: silver.dim_lldt_cidat",
+      "confidence": 1.0,
+      "source_binding": {
+        "source_document_id": "fabric-information-schema",
+        "source_chunk_id": "fabric:silver.dim_lldt_cidat"
+      },
+      "technical_metadata": {
+        "fabric.objectType": "table",
+        "fabric.schema": "silver",
+        "fabric.table": "dim_lldt_cidat"
+      }
+    },
+    {
+      "id": "candidate-technical-asset-0426",
+      "name": "silver.dim_modelo_riesgo_regla",
+      "definition": "Activo técnico Fabric table: silver.dim_modelo_riesgo_regla",
+      "confidence": 1.0,
+      "source_binding": {
+        "source_document_id": "fabric-information-schema",
+        "source_chunk_id": "fabric:silver.dim_modelo_riesgo_regla"
+      },
+      "technical_metadata": {
+        "fabric.objectType": "table",
+        "fabric.schema": "silver",
+        "fabric.table": "dim_modelo_riesgo_regla"
+      }
+    },
+    {
+      "id": "candidate-technical-asset-0429",
+      "name": "silver.fact_certificacion_sic",
+      "definition": "Activo técnico Fabric table: silver.fact_certificacion_sic",
+      "confidence": 1.0,
+      "source_binding": {
+        "source_document_id": "fabric-information-schema",
+        "source_chunk_id": "fabric:silver.fact_certificacion_sic"
+      },
+      "technical_metadata": {
+        "fabric.objectType": "table",
+        "fabric.schema": "silver",
+        "fabric.table": "fact_certificacion_sic"
+      }
+    },
+    {
+      "id": "candidate-technical-asset-0433",
+      "name": "silver.fact_gobernanza_departamento",
+      "definition": "Activo técnico Fabric table: silver.fact_gobernanza_departamento",
+      "confidence": 1.0,
+      "source_binding": {
+        "source_document_id": "fabric-information-schema",
+        "source_chunk_id": "fabric:silver.fact_gobernanza_departamento"
+      },
+      "technical_metadata": {
+        "fabric.objectType": "table",
+        "fabric.schema": "silver",
+        "fabric.table": "fact_gobernanza_departamento"
+      }
+    },
+    {
+      "id": "candidate-technical-asset-0438",
+      "name": "silver.fact_perimetro",
+      "definition": "Activo técnico Fabric table: silver.fact_perimetro",
+      "confidence": 1.0,
+      "source_binding": {
+        "source_document_id": "fabric-information-schema",
+        "source_chunk_id": "fabric:silver.fact_perimetro"
+      },
+      "technical_metadata": {
+        "fabric.objectType": "table",
+        "fabric.schema": "silver",
+        "fabric.table": "fact_perimetro"
+      }
+    }
+  ],
+  "properties": [],
+  "relationships": [],
+  "synonyms": [],
+  "constraints": [],
+  "data_bindings": [
+    {
+      "id": "model-source-binding-b0189aba2af4",
+      "name": "INFRA -> candidate-technical-asset-0422",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-concept-0006",
+        "candidate-technical-asset-0422"
+      ]
+    },
+    {
+      "id": "model-source-binding-7e2835812c15",
+      "name": "Tipo -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-concept-0061",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-f6b857347d36",
+      "name": "REAL -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-concept-0062",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-0f0307fc3319",
+      "name": "DEFAULT -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-concept-0063",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-a89f83a54a22",
+      "name": "CONSTANTE -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-concept-0064",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-d261ccaba4b8",
+      "name": "si hay pesos positivos -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-concept-0065",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-4737cd5a1042",
+      "name": "si no hay pesos positivos -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-concept-0066",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-3da3bca81bab",
+      "name": "Unidad de calculo -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-concept-0067",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-beaa1d250efa",
+      "name": "Unidad de calculo vigente -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-concept-0071",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-b054671869a8",
+      "name": "metodo de probabilidad -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-concept-0073",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-2dc4dbacc61a",
+      "name": "metodo de impacto -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-concept-0074",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-276fe54b10a8",
+      "name": "Navegacion SIC -> candidate-technical-asset-0402",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-concept-0079",
+        "candidate-technical-asset-0402"
+      ]
+    },
+    {
+      "id": "model-source-binding-2c49d42604e5",
+      "name": "silver.dim_lldt_cidat aporta la valoracion propia del departamento y codi_dialeg indica el SIC por defecto que debe emul -> candidate-technical-asset-0425",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0085",
+        "candidate-technical-asset-0425"
+      ]
+    },
+    {
+      "id": "model-source-binding-ce6b3f6b8c72",
+      "name": "Regla 1002 — Estado del perimetro base: base_attributes_noncompleted de silver.fact_perimetro con status = Alta; toma la -> candidate-technical-asset-0438",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0128",
+        "candidate-technical-asset-0438"
+      ]
+    },
+    {
+      "id": "model-source-binding-7da57d4bfdb8",
+      "name": "Regla 4001 — Certificaciones / auditorias: silver.fact_certificacion_sic por SIC; Silver interpreta CAU_DIALOG_CODE_CERT -> candidate-technical-asset-0429",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0156",
+        "candidate-technical-asset-0429"
+      ]
+    },
+    {
+      "id": "model-source-binding-32ee17e538f0",
+      "name": "Regla 4002 — Politica de ciberseguridad: silver.fact_gobernanza_departamento por departamento; lee el control departamen -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0157",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-bb1181d58ba2",
+      "name": "Regla 4003 — Marco normativo actualizado: silver.fact_gobernanza_departamento por departamento; misma logica directa si/ -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0158",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-5cbde60f6b11",
+      "name": "Regla 4004 — Roles definidos: silver.fact_gobernanza_departamento por departamento; misma logica directa si/no por depar -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0159",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-9d2582e802c7",
+      "name": "Regla 4005 — DPD: silver.fact_gobernanza_departamento por departamento; misma logica directa si/no por departamento; BAI -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0160",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-7a9a810e3f98",
+      "name": "Regla 4006 — Comite de seguridad: silver.fact_gobernanza_departamento por departamento; misma logica directa si/no por d -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0161",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-06a4c94ee61d",
+      "name": "El modelo vigente permite explicar el resultado a negocio de forma consistente en los 5 ejes, pero la lectura correcta d -> candidate-technical-asset-0410",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0183",
+        "candidate-technical-asset-0410"
+      ]
+    },
+    {
+      "id": "model-source-binding-6068d0800f23",
+      "name": "No usar PROXY ni PENDIENTE como tipos vigentes de resultado Gold. Pueden aparecer en documentos historicos, pero la lect -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0184",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-3034e2eb32c6",
+      "name": "Regla 1002 — 100: indisponibilidad por falta de EDR; pct_edr; misma escala de cobertura que 1001; si falta dato, 100% DE -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0186",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-4261dd7161b5",
+      "name": "Regla 1003 — 100: exposicion por parches antiguos; pct_patch_gt_60; <30 BAIX, 30-79 MIG, 80-89 ALT, >=90 MOLT ALT; si fa -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0187",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-19e287e2d90d",
+      "name": "Regla 1004 — 100: alertas criticas o altas no resueltas; tickets/alertas departamentales; 0 BAIX, 1-5 ALT, >5 MOLT ALT;  -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0188",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-9ee2c82f3760",
+      "name": "Regla 2001 — 200: proteccion de credenciales via EDR; pct_edr; misma escala de cobertura EDR que 1002; 100% DEFAULT BAIX -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0189",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-d584bd0b08ca",
+      "name": "Regla 2002 — 200: MFA VPN administradores; decision funcional; valor fijo 100% MFA; CONSTANTE BAIX -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0190",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-61f4825be6e7",
+      "name": "Regla 2003 — 200: MFA VPN usuarios; silver.vw_src_prob_puestos_mfa_vpn.pct_mfa_vpn; >=90 BAIX, 60-89 MIG, 30-59 ALT, <30 -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0191",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-139a42b9cd95",
+      "name": "Regla 2004 — 200: MFA O365 usuarios; silver.vw_src_prob_puestos_mfa_o365.pct_mfa_o365; misma escala que 2003; 100% DEFAU -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0192",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-9f4220bb8d63",
+      "name": "Regla 2005 — 200: MFA en cuentas genericas; decision funcional; se considera 0% MFA para cuentas genericas; CONSTANTE MO -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0193",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-3ab767888142",
+      "name": "Regla 2007 — 200: TPM; pct_tpm; >=95 BAIX, <95 MOLT ALT; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0195",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-fc1a2e0595df",
+      "name": "Regla 2008 — 200: EDR para plataforma/correo; pct_edr; misma escala que 1002; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0196",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-f2ec6c6ba446",
+      "name": "Regla 2009 — 200: MFA O365 para plataforma/correo; pct_mfa_o365; misma escala que 2003; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0197",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-b48320d22610",
+      "name": "Regla 2010 — 200: riesgo por cuentas genericas; generic_accounts; 0 BAIX, 1-199 MIG, 200-700 ALT, >700 MOLT ALT; 0 cuent -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0198",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-4e06faa1d060",
+      "name": "Regla 2012 — 200: parches antiguos para compromiso de credenciales; pct_patch_gt_60; misma escala que 1003; 0% DEFAULT B -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0200",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-5f0e67cda225",
+      "name": "Regla 2013 — 200: cifrado de disco; pct_encrypted; >=95 BAIX, 50-94 ALT, <50 MOLT ALT; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0201",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-6028d44eea16",
+      "name": "Regla 3001 — 300: antivirus para compromiso del equipo; pct_antivirus; misma escala que 1001; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0202",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-47897b12b27e",
+      "name": "Regla 3002 — 300: EDR para compromiso del equipo; pct_edr; misma escala que 1002; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0203",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-bd1aa0aafc34",
+      "name": "Regla 401 — 400: proteccion de datos y ENS; silver.dim_lldt_cidat C/I/D/A/T; maximo CIDAT del departamento; REAL si hay  -> candidate-technical-asset-0425",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0222",
+        "candidate-technical-asset-0425"
+      ]
+    },
+    {
+      "id": "model-source-binding-1233ff5ca729",
+      "name": "Regla 1001 — 100: EDR por SIC; bridge host -> app -> SIC + EDR current; >=95 BAIX, 91-94 MIG, 86-90 ALT, <86 MOLT ALT; n -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0224",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-f3b4ee5d8439",
+      "name": "Regla 1004 — 100: alertas criticas no resueltas; tickets/alertas asociados por departamento/SIC; 0 BAIX, 1-5 ALT, >5 MOL -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0227",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-6631c3bd319b",
+      "name": "Regla 1005 — 100: exposicion a amenaza CPD; exposicion CPD ya traducida; BAIX/MIG/ALT/MOLT ALT se toma directo como nive -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0228",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-07127d6cb456",
+      "name": "Regla 1006 — 100: publicacion a internet; is_t11 desde inventario SIC; interno BAIX; publico/T11 ALT; sin dato MIG; nive -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0229",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-e2edf20f61b2",
+      "name": "Regla 2001 — 200: EDR para credenciales; misma cobertura EDR que 1001; misma escala que 1001; nivel 2 DEFAULT si falta -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0230",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-9b569fc3ddea",
+      "name": "Regla 2002 — 200: MFA VPN administradores; decision funcional; 100% cubierto; CONSTANTE BAIX -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0231",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-4f157ad78df9",
+      "name": "Regla 2003 — 200: MFA cloud administradores; decision funcional; 100% cubierto; CONSTANTE BAIX -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0232",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-bb97e74ff9b1",
+      "name": "Regla 2004 — 200: MFA aplicaciones administradores; decision funcional; 100% cubierto; CONSTANTE BAIX -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0233",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-e1600335eeb1",
+      "name": "Regla 2005 — 200: MFA aplicaciones usuarios; decision funcional; se asume sin MFA a nivel aplicacion/SIC; CONSTANTE MOLT -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0234",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-1ce8fd2ff5e7",
+      "name": "Regla 2006 — 200: exposicion CPD para informacion; exposicion CPD del SIC; nivel directo BAIX/MIG/ALT/MOLT ALT; nivel 2  -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0235",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-6a43e90b031a",
+      "name": "Regla 2007 — 200: integracion GICAR; has_gicar; con GICAR BAIX; sin GICAR ALT; DEFAULT si origen vacio -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0236",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-4da6c2928827",
+      "name": "Regla 2008 — 200: vulnerabilidades criticas para informacion; Critical abiertas; misma escala que 1003; REAL si se calcu -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0237",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-f59dc6683333",
+      "name": "Regla 2009 — 200: exposicion CPD tecnica; exposicion CPD; misma lectura que 1005; REAL / DEFAULT / CONSTANTE segun dispo -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0238",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-ee362e5670f0",
+      "name": "Regla 2010 — 200: perimetro base para exfiltracion; base_attributes_noncompleted, status = Alta, ultima foto; misma esca -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0239",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-bc3d1ae12866",
+      "name": "Regla 2011 — 200: publicacion a internet para informacion; is_t11; interno BAIX; publico ALT; sin dato MIG; nivel 2 DEFA -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0240",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-9bbda0439c4d",
+      "name": "Regla 3001 — 300: EDR para malware/ransomware; cobertura EDR del SIC; misma escala que 1001; nivel 2 DEFAULT si falta -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0241",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-81d7569d36a2",
+      "name": "Regla 3002 — 300: perimetro tecnico base; base_attributes_noncompleted, status = Alta, ultima foto; misma escala que 100 -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0242",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-29bee843b606",
+      "name": "Regla 3003 — 300: vulnerabilidades criticas de plataforma; Critical abiertas; misma escala que 1003; REAL si se calcula -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0243",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-82bcb82fad16",
+      "name": "Regla 3004 — 300: alertas criticas no resueltas; tickets/alertas asociados; misma escala que 1004; nivel 2 DEFAULT si fa -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0244",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-57130b2e75c4",
+      "name": "Regla 3005 — 300: exposicion CPD de plataforma; exposicion CPD; nivel directo BAIX/MIG/ALT/MOLT ALT; nivel 2 DEFAULT o n -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0245",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-e209ceb50904",
+      "name": "Regla 3006 — 300: publicacion a internet de plataforma; is_t11; interno BAIX; publico ALT; sin dato MIG; nivel 2 DEFAULT -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0246",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-06670b6d8398",
+      "name": "Regla 3008 — 300: vulnerabilidades criticas complementarias; Critical abiertas; misma escala que 3003; REAL si se calcul -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0248",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-40d02a66b4d9",
+      "name": "Regla 3009 — 300: exposicion CPD complementaria; exposicion CPD; misma lectura que 3005; REAL / DEFAULT / CONSTANTE segu -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0249",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-2a93840a4da6",
+      "name": "Regla 3010 — 300: perimetro tecnico complementario; base_attributes_noncompleted, status = Alta, ultima foto; misma esca -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0250",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-2298880e43e4",
+      "name": "Regla 3011 — 300: obsolescencia SO complementaria; mismo contrato de hosts, CPD current y catálogo lifecycle de 3007; mi -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0251",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-1cca99a30c72",
+      "name": "Regla 3012 — 300: publicacion a internet complementaria; is_t11; interno BAIX; publico ALT; sin dato MIG; nivel 2 DEFAUL -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0252",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-bdb456a2e2bb",
+      "name": "Regla 4006 — 400: comite de seguridad; silver.fact_gobernanza_departamento; misma logica si/no; REAL o DEFAULT MIG -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0258",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-75be61aece3a",
+      "name": "Regla 101 — 100: tolerancia de indisponibilidad; rto del SIC; 0h BAIX; 1/8/24h MIG; 48/72h o 1-3 dias ALT; sin dato MOLT -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0259",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-37c3d5eb0f5d",
+      "name": "Regla 102 — 100: ambito y criticidad; criticidad + usuarios + T11; criticidad alta y volumetria/publico elevan impacto;  -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0260",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-377a5107afe2",
+      "name": "Regla 103 — 100: criticidad del sistema; criticidad_negocio; 0-1 MOLT ALT, 2-3 ALT, 4 MIG, resto BAIX; default si falta -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0261",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-a22a1b2984d1",
+      "name": "Regla 104 — 100: usuarios afectados; usuarios + T11; publico ALT; <500 BAIX; >=500 MIG; sin dato MIG; MIG si falta -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0262",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-83458df60d4b",
+      "name": "Regla 105 — 100: impacto legal por criticidad; criticidad; misma escala que 103; default si falta -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0263",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-0dd5a91a7aa5",
+      "name": "Regla 201 — 200: volumetria de usuarios afectados; num_usuarios_max; <=500 BAIX, 501-3000 MIG, 3001-9000 ALT, >9000 MOLT -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0264",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-f2cd4601b265",
+      "name": "Regla 202 — 200: ambito de usuarios; T11/publico; interno BAIX; publico ALT; sin dato MIG; MIG si falta -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0265",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-eed7c9bc75c2",
+      "name": "Regla 203 — 200: criticidad del sistema; criticidad; misma escala que 103; default si falta -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0266",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-c81b4f976c27",
+      "name": "Regla 204 — 200: clasificacion de informacion; key_seguretat; nivel 1-4 directo; si falta maximo riesgo; MOLT ALT si fal -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0267",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-0ddb4600a192",
+      "name": "Regla 301 — 300: usuarios y criticidad de plataforma; usuarios + criticidad; >9000 o criticidad 0-1 MOLT ALT; >3000 o cr -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0268",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-508bdaf8e8ca",
+      "name": "Regla 401 — 400: proteccion de datos y ENS; maximo C/I/D/A/T; maximo CIDAT como nivel final; MIG si falta CIDAT -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0269",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-163a555a542f",
+      "name": "Regla 402 — 400: ambito y criticidad; criticidad + usuarios + T11; misma matriz que 102; default si falta -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0270",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-4de2cb623112",
+      "name": "Regla 2011 — 200: formacion para plataforma/correo; misma fuente que 2006; misma escala, fuentes y contrato que 2006; mi -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0272",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-cf1fca30a294",
+      "name": "Regla 4001 — 400: formacion para cumplimiento; misma fuente que 2006; misma escala, fuentes y contrato que 2006; mismo c -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0273",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-ce56608b5f2d",
+      "name": "Regla 201 — 200: volumetria de usuarios afectados; SIC canonico auxiliar por departamento; misma escala de impacto SIC 2 -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0274",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-15365673010d",
+      "name": "Regla 204 — 200: clasificacion de informacion; key_seguretat del SIC/departamento de referencia; nivel directo; si falta -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0275",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-b68bef92b586",
+      "name": "Regla 401 — 400: proteccion de datos y ENS; maximo CIDAT del SIC/departamento; maximo C/I/D/A/T; default MIG si falta -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0276",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-3d77981c187d",
+      "name": "Regla 402 — 400: ambito y criticidad; criticidad + usuarios + T11 del SIC canonico; misma matriz que SIC 102/402; defaul -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0277",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-90fa34e02b4e",
+      "name": "Regla 4003 — 400: politica de ciberseguridad; silver.fact_gobernanza_departamento, origen 4002 SIC remapeado a 4003; Si  -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0279",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-c9246fddda2d",
+      "name": "Regla 4004 — 400: marco normativo actualizado; silver.fact_gobernanza_departamento, origen 4003 remapeado; misma logica  -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0280",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-d954b6141fbd",
+      "name": "Regla 4005 — 400: roles definidos; silver.fact_gobernanza_departamento, origen 4004 remapeado; misma logica si/no; REAL  -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0281",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-8c7f3e546dde",
+      "name": "Regla 4006 — 400: DPD; silver.fact_gobernanza_departamento, origen 4005 remapeado; misma logica si/no; REAL o DEFAULT MI -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0282",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-194a0e9e5aa2",
+      "name": "Regla 4007 — 400: comite de seguridad; silver.fact_gobernanza_departamento, origen 4006 remapeado; misma logica si/no; R -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0283",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-58a4a69cc482",
+      "name": "Por tanto, para explicar una regla INFRA se debe leer la regla SIC equivalente de este catalogo y confirmar que el activ -> candidate-technical-asset-0433",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0284",
+        "candidate-technical-asset-0433"
+      ]
+    },
+    {
+      "id": "model-source-binding-4395b87e3fe5",
+      "name": "Regla 1002 — Estado del perimetro base: base_attributes_noncompleted de silver.fact_perimetro con status = Alta; toma la -> candidate-technical-asset-0438",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-kpi-0314",
+        "candidate-technical-asset-0438"
+      ]
+    },
+    {
+      "id": "model-source-binding-8fd99a161b23",
+      "name": "Regla 1002 — 100: indisponibilidad por falta de EDR; pct_edr; misma escala de cobertura que 1001; si falta dato, 100% DE -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-kpi-0326",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-d8fe69e1dcc2",
+      "name": "Regla 1003 — 100: exposicion por parches antiguos; pct_patch_gt_60; <30 BAIX, 30-79 MIG, 80-89 ALT, >=90 MOLT ALT; si fa -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-kpi-0327",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-64ed42b1bf3b",
+      "name": "Regla 2001 — 200: proteccion de credenciales via EDR; pct_edr; misma escala de cobertura EDR que 1002; 100% DEFAULT BAIX -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-kpi-0328",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-8b4f6ae845e9",
+      "name": "Regla 2002 — 200: MFA VPN administradores; decision funcional; valor fijo 100% MFA; CONSTANTE BAIX -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-kpi-0329",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-1bc379439e4f",
+      "name": "Regla 2003 — 200: MFA VPN usuarios; silver.vw_src_prob_puestos_mfa_vpn.pct_mfa_vpn; >=90 BAIX, 60-89 MIG, 30-59 ALT, <30 -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-kpi-0330",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-1995838ecaa4",
+      "name": "Regla 2004 — 200: MFA O365 usuarios; silver.vw_src_prob_puestos_mfa_o365.pct_mfa_o365; misma escala que 2003; 100% DEFAU -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-kpi-0331",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-9b25ae82843c",
+      "name": "Regla 2005 — 200: MFA en cuentas genericas; decision funcional; se considera 0% MFA para cuentas genericas; CONSTANTE MO -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-kpi-0332",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-23f825f6dacb",
+      "name": "Regla 2007 — 200: TPM; pct_tpm; >=95 BAIX, <95 MOLT ALT; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-kpi-0334",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-abed24ec6a14",
+      "name": "Regla 2008 — 200: EDR para plataforma/correo; pct_edr; misma escala que 1002; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-kpi-0335",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-18d2d4f65dbb",
+      "name": "Regla 2009 — 200: MFA O365 para plataforma/correo; pct_mfa_o365; misma escala que 2003; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-kpi-0336",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-0e4c75f4add1",
+      "name": "Regla 2012 — 200: parches antiguos para compromiso de credenciales; pct_patch_gt_60; misma escala que 1003; 0% DEFAULT B -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-kpi-0337",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-c5c6540f1961",
+      "name": "Regla 2013 — 200: cifrado de disco; pct_encrypted; >=95 BAIX, 50-94 ALT, <50 MOLT ALT; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-kpi-0338",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-97ee96f3778b",
+      "name": "Regla 3001 — 300: antivirus para compromiso del equipo; pct_antivirus; misma escala que 1001; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-kpi-0339",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-f52731efe924",
+      "name": "Regla 3002 — 300: EDR para compromiso del equipo; pct_edr; misma escala que 1002; 100% DEFAULT BAIX si falta -> candidate-technical-asset-0426",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-kpi-0340",
+        "candidate-technical-asset-0426"
+      ]
+    },
+    {
+      "id": "model-source-binding-e8a5c2a4b802",
+      "name": "Regla 2002 — 200: MFA VPN administradores; decision funcional; 100% cubierto; CONSTANTE BAIX -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-kpi-0345",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-4d0b6e7610be",
+      "name": "Regla 2003 — 200: MFA cloud administradores; decision funcional; 100% cubierto; CONSTANTE BAIX -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-kpi-0346",
+        "candidate-technical-asset-0407"
+      ]
+    },
+    {
+      "id": "model-source-binding-37b4967b6855",
+      "name": "Regla 2004 — 200: MFA aplicaciones administradores; decision funcional; 100% cubierto; CONSTANTE BAIX -> candidate-technical-asset-0407",
+      "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+      "owner": "",
+      "linked_candidate_ids": [
+        "candidate-kpi-0347",
+        "candidate-technical-asset-0407"
+      ]
+    }
+  ],
+  "ownership": [],
+  "warning": "Las relaciones y restricciones solo aparecen cuando una persona las agrega y aprueba explicitamente."
+}

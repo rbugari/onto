@@ -1,0 +1,52 @@
+[
+  {
+    "item_id": "candidate-business_rule-0187",
+    "item_type": "business_rule",
+    "name": "Regla 1003 — 100: exposicion por parches antiguos; pct_patch_gt_60; <30 BAIX, 30-79 MIG, 80-89 ALT, >=90 MOLT ALT; si fa",
+    "definition": "Regla 1003 — 100: exposicion por parches antiguos; pct_patch_gt_60; <30 BAIX, 30-79 MIG, 80-89 ALT, >=90 MOLT ALT; si falta dato, 0% DEFAULT BAIX",
+    "source_binding": {
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+    }
+  },
+  {
+    "item_id": "candidate-business_rule-0198",
+    "item_type": "business_rule",
+    "name": "Regla 2010 — 200: riesgo por cuentas genericas; generic_accounts; 0 BAIX, 1-199 MIG, 200-700 ALT, >700 MOLT ALT; 0 cuent",
+    "definition": "Regla 2010 — 200: riesgo por cuentas genericas; generic_accounts; 0 BAIX, 1-199 MIG, 200-700 ALT, >700 MOLT ALT; 0 cuentas DEFAULT BAIX si falta",
+    "source_binding": {
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+    }
+  },
+  {
+    "item_id": "candidate-business_rule-0200",
+    "item_type": "business_rule",
+    "name": "Regla 2012 — 200: parches antiguos para compromiso de credenciales; pct_patch_gt_60; misma escala que 1003; 0% DEFAULT B",
+    "definition": "Regla 2012 — 200: parches antiguos para compromiso de credenciales; pct_patch_gt_60; misma escala que 1003; 0% DEFAULT BAIX si falta",
+    "source_binding": {
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+    }
+  },
+  {
+    "item_id": "candidate-business_rule-0237",
+    "item_type": "business_rule",
+    "name": "Regla 2008 — 200: vulnerabilidades criticas para informacion; Critical abiertas; misma escala que 1003; REAL si se calcu",
+    "definition": "Regla 2008 — 200: vulnerabilidades criticas para informacion; Critical abiertas; misma escala que 1003; REAL si se calcula",
+    "source_binding": {
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+    }
+  },
+  {
+    "item_id": "candidate-business_rule-0243",
+    "item_type": "business_rule",
+    "name": "Regla 3003 — 300: vulnerabilidades criticas de plataforma; Critical abiertas; misma escala que 1003; REAL si se calcula",
+    "definition": "Regla 3003 — 300: vulnerabilidades criticas de plataforma; Critical abiertas; misma escala que 1003; REAL si se calcula",
+    "source_binding": {
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003"
+    }
+  }
+]

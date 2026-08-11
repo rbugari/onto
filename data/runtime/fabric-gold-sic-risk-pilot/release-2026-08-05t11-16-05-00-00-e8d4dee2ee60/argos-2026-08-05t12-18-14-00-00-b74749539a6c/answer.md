@@ -1,0 +1,1 @@
+Consulta real Fabric: ALT: 879; MIG: 551; MOLT ALT: 83; BAIX: 79.

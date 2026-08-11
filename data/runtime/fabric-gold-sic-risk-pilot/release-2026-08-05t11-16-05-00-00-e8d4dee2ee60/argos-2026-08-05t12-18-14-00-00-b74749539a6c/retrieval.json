@@ -1,0 +1,52 @@
+[
+  {
+    "item_id": "candidate-technical-asset-0534",
+    "item_type": "technical_asset",
+    "name": "gold_cultura.dim_regla.default_nivel_num",
+    "definition": "Activo técnico Fabric column: gold_cultura.dim_regla.default_nivel_num",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_cultura.dim_regla.default_nivel_num"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0535",
+    "item_type": "technical_asset",
+    "name": "gold_cultura.dim_regla.default_nivel_texto",
+    "definition": "Activo técnico Fabric column: gold_cultura.dim_regla.default_nivel_texto",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_cultura.dim_regla.default_nivel_texto"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0551",
+    "item_type": "technical_asset",
+    "name": "gold_cultura.dim_sig_scope.cidat_max_nivel",
+    "definition": "Activo técnico Fabric column: gold_cultura.dim_sig_scope.cidat_max_nivel",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_cultura.dim_sig_scope.cidat_max_nivel"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0569",
+    "item_type": "technical_asset",
+    "name": "gold_cultura.fact_impacto.nivel_num",
+    "definition": "Activo técnico Fabric column: gold_cultura.fact_impacto.nivel_num",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_cultura.fact_impacto.nivel_num"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0570",
+    "item_type": "technical_asset",
+    "name": "gold_cultura.fact_impacto.nivel_texto",
+    "definition": "Activo técnico Fabric column: gold_cultura.fact_impacto.nivel_texto",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_cultura.fact_impacto.nivel_texto"
+    }
+  }
+]

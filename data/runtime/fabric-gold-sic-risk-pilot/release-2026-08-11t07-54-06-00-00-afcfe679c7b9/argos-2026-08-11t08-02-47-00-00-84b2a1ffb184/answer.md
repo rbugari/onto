@@ -1,0 +1,1 @@
+CONSTANTE significa que el valor queda fijado por una decisión funcional y no se obtiene de una fuente dinámica. Por ejemplo, algunas reglas de MFA se consideran cubiertas al 100% y se clasifican siempre como BAIX; otras decisiones funcionales pueden fijar 0% y MOLT ALT.

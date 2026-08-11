@@ -378,6 +378,16 @@ def _call_llm(messages: list[dict[str, str]], settings: LlmSettings) -> str:
     raise ValueError(f"Proveedor LLM no soportado: {settings.provider}")
 
 
+def call_llm_json(messages: list[dict[str, str]], settings: LlmSettings) -> dict[str, object]:
+    """Call the configured provider and parse the structured response used by Argos."""
+    if not settings.enabled:
+        raise ValueError("El proveedor LLM no está habilitado")
+    parsed = json.loads(_call_llm(messages, settings))
+    if not isinstance(parsed, dict):
+        raise ValueError("El LLM no devolvió un objeto JSON")
+    return {str(key): value for key, value in parsed.items()}
+
+
 def _build_inventory_heuristic(
     project: OntologyProject,
     documents: list[DocumentRecord],

@@ -1,0 +1,30 @@
+{
+  "reasoning_advisory": {
+    "level": "llm_reasoning_active",
+    "model_used": "configured-llm",
+    "configured_provider": "openai",
+    "configured_model": "gpt-5.6-luna",
+    "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+  },
+  "live_query": null,
+  "llm_used": true,
+  "llm_plan": {
+    "query_name": null,
+    "parameters": {},
+    "needs_stronger_model": false,
+    "reasoning_note": "La definición aprobada está disponible directamente en el contexto: CONSTANTE significa que el valor queda fijado por decisión funcional y no por una fuente dinámica. Ninguna consulta permitida del catálogo es necesaria para responder."
+  },
+  "llm_response": {
+    "answer": "CONSTANTE significa que el valor queda fijado por una decisión funcional y no se obtiene de una fuente dinámica. Por ejemplo, algunas reglas de MFA se consideran cubiertas al 100% y se clasifican siempre como BAIX; otras decisiones funcionales pueden fijar 0% y MOLT ALT.",
+    "interpretation": "Es un tipo de resultado vigente del modelo, distinto de REAL —calculado con datos utilizables— y DEFAULT —aplicado cuando falta un dato usable—. La evidencia no indica que CONSTANTE implique siempre el mismo nivel: depende de la regla funcional concreta.",
+    "suggested_questions": [
+      "¿Qué reglas están clasificadas como CONSTANTE?",
+      "¿Qué diferencia hay entre CONSTANTE, REAL y DEFAULT?",
+      "¿Qué valor y nivel tiene cada regla CONSTANTE?",
+      "¿Cómo afecta CONSTANTE al cálculo del riesgo final?"
+    ],
+    "visualization": null,
+    "needs_stronger_model": false,
+    "reasoning_note": "La definición está disponible directamente en la evidencia: el valor se fija por decisión funcional y no por una fuente dinámica. La evidencia aporta ejemplos de CONSTANTE BAIX y CONSTANTE MOLT ALT, pero no un inventario completo de todas las reglas constantes."
+  }
+}

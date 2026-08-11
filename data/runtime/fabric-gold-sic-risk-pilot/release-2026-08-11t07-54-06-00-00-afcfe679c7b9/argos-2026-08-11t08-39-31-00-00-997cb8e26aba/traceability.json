@@ -1,0 +1,29 @@
+{
+  "reasoning_advisory": {
+    "level": "llm_reasoning_active",
+    "model_used": "configured-llm",
+    "configured_provider": "openai",
+    "configured_model": "gpt-5.6-luna",
+    "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+  },
+  "live_query": null,
+  "llm_used": true,
+  "llm_plan": {
+    "query_name": null,
+    "parameters": {},
+    "needs_stronger_model": false,
+    "reasoning_note": "La pregunta es conceptual y el contexto aprobado define explícitamente que, si no hay pesos positivos, se aplica el promedio simple de niveles. No es necesario ejecutar una consulta del catálogo."
+  },
+  "llm_response": {
+    "answer": "Si no hay pesos positivos, el nivel se calcula mediante el promedio simple de los niveles disponibles, sin ponderación por regla.",
+    "interpretation": "La evidencia define esta alternativa para el cálculo agregado: cuando no existen pesos positivos, se promedian directamente los niveles de las reglas consideradas.",
+    "suggested_questions": [
+      "¿Cómo se calcula el nivel cuando sí hay pesos positivos?",
+      "¿Qué reglas se incluyen en el promedio simple?",
+      "¿Cómo se traduce el promedio numérico a BAIX, MIG, ALT o MOLT ALT?"
+    ],
+    "visualization": null,
+    "needs_stronger_model": false,
+    "reasoning_note": "La definición aprobada indica explícitamente: «si no hay pesos positivos: promedio simple de niveles»."
+  }
+}

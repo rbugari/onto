@@ -1,0 +1,1 @@
+“Tipo” significa “Significado”. En este contexto, identifica el significado o la naturaleza del valor asociado a una regla o resultado.

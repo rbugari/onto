@@ -1,0 +1,23 @@
+{
+  "format": "atlas-assessment-v0.1",
+  "product": "Atlas",
+  "run_id": "atlas-2026-08-05T11-12-34-00-00-ca1ffe65bb29",
+  "created_at": "2026-08-05T11:12:34+00:00",
+  "scope": {
+    "project_id": "fabric-gold-sic-risk-pilot",
+    "client_id": "fabric",
+    "domain_id": "gold-sic-risk",
+    "data_product_id": "risk"
+  },
+  "artifacts": [
+    "semantic_inventory.json",
+    "business_context_inventory.json",
+    "source_inventory.json",
+    "readiness_score.json",
+    "gap_backlog.json",
+    "evidence_index.json",
+    "assessment_review.json",
+    "execution_summary.md"
+  ],
+  "scoring_profile": "atlas-baseline-v0"
+}

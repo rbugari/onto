@@ -1,0 +1,1 @@
+No hay un resultado disponible para la regla 1003 en el SIC12: la consulta devolvió cero filas. Por tanto, no puede determinarse el nivel de riesgo aplicado a ese SIC con la evidencia disponible.

@@ -1,0 +1,313 @@
+{
+  "summary": {
+    "chunks": 34
+  },
+  "chunks": [
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-001",
+      "document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "filename": "document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 1,
+      "char_start": 0,
+      "char_end": 5918,
+      "excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: explicar a responsables funcionales y duenos del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.  \n\nAlcance: calculo funcional vigente, reglas, defaults, constantes y trazabilidad por regla.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-002",
+      "document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "filename": "document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 2,
+      "char_start": 5418,
+      "char_end": 11407,
+      "excerpt": "e impacto necesita datos SIC.\n\n\n\n---\n\n\n\n## 5. Glosario funcional de metadatos clave\n\n\n\nEste glosario ayuda a leer las reglas sin tener que conocer el detalle SQL.\n\n\n\n| Dato / metadata | Que significa funcionalmente |\n\n|---|---|\n\n| `pct_antivirus` | porcentaje de equipos del ambito con antivirus desplegado y operativo |\n\n| `pct_edr` / `pct_edr_current` | porcentaje de equipos con EDR desplegado y operativo |\n\n| `pct_patch_gt_60` | porcentaje de equipos con mas de 60 dias sin actualizar Windows |\n\n| `alert_ticket_count` | numero de tickets/alertas departamentales cerradas usados como senal opera"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-003",
+      "document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "filename": "document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 3,
+      "char_start": 10907,
+      "char_end": 16706,
+      "excerpt": "cional para `201`, `204`, `401` y `402`, pero lo publica sobre el departamento de referencia usando el SIC canonico como atributo auxiliar;\n\n- los defaults observados en el workbook son `4` para probabilidad y `2` para impacto.\n\n\n\nSalida Gold vigente:\n\n\n\n- `gold_cultura.dim_sig_scope`\n\n- `gold_cultura.dim_regla`\n\n- `gold_cultura.dim_supuesto_modelo`\n\n- `gold_cultura.fact_probabilidad`\n\n- `gold_cultura.fact_probabilidad_bloque`\n\n- `gold_cultura.fact_impacto`\n\n- `gold_cultura.fact_impacto_bloque`\n\n- `gold_cultura.fact_riesgo`\n\n\n\n### GOVERNANCA\n\n\n\nLectura funcional resumida:\n\n\n\n- activa riesgos d"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-004",
+      "document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "filename": "document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 4,
+      "char_start": 16206,
+      "char_end": 22127,
+      "excerpt": "| `REAL` si hay workstations; `DEFAULT` si falta denominador y se asume 100% |\n\n| 2007 | TPM | `% equipos con TPM` | mide cobertura real de TPM en el ambito | >= 95% = BAIX; < 95 = MOLT ALT | `REAL` si hay dato; `DEFAULT` si falta y se asume 100% |\n\n| 2008 | EDR correo / plataforma | `% equipos con EDR` | reutiliza cobertura EDR como senal de proteccion de plataforma de usuario | >= 96% = BAIX; 91-95 = MIG; 86-90 = ALT; < 86 = MOLT ALT | `REAL` si hay dato; `DEFAULT` si falta y se asume 100% |\n\n| 2009 | MFA O365 correo / plataforma | `% MFA O365` | misma semantica de cobertura MFA para correo/"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-005",
+      "document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "filename": "document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 5,
+      "char_start": 21627,
+      "char_end": 27587,
+      "excerpt": "rse como una severidad unica replicada a cuatro bloques;\n\n- cada bloque sale de una mezcla distinta entre la valoracion propia del departamento y el SIC que ese departamento debe emular.\n\n\n\n## 7.3.2. Semantica funcional del catalogo LLDT\n\n\n\nAunque Gold no publica 12 reglas de impacto separadas, el catalogo funcional si define la intencion de cada una:\n\n\n\n| Regla | Significado funcional | Que queria mirar el workbook |\n\n|---|---|---|\n\n| 101 | Tiempo maximo tolerable de indisponibilidad | `RTO` |\n\n| 102 | Ambito de usuarios y criticidad del sistema | criticidad + usuarios expuestos |\n\n| 103 | Cr"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-006",
+      "document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "filename": "document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 6,
+      "char_start": 27087,
+      "char_end": 32972,
+      "excerpt": "isponibilidad del valor |\n\n| 2010 | Estado del perimetro base para exfiltracion / compromiso | `base_attributes_noncompleted` con `status = Alta` | misma logica que 1002 sobre el despliegue del perimetro base | 100% = BAIX; 85%-99% = MIG; 1%-84% = ALT; 0% = MOLT ALT | `REAL`; `DEFAULT` 2 si falta perimetro usable |\n\n| 2011 | Publicacion a internet para compromiso de informacion | `is_t11` | misma semantica que 1006 | interno = BAIX; publico = ALT; sin dato = MIG | `REAL`; `DEFAULT` si falta |\n\n\n\n### Bloque 300. Compromiso del equipo o plataforma\n\n\n\n| Regla | Objetivo funcional | Que mira | Com"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-007",
+      "document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "filename": "document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 7,
+      "char_start": 32472,
+      "char_end": 38451,
+      "excerpt": "lmente, mas conservador que LLDT cuando falta dato.\n\n\n\n---\n\n\n\n## 8.3. Impacto SIC por regla\n\n\n\n### Bloque 100. Indisponibilidad\n\n\n\n| Regla | Objetivo funcional | Como se calcula | Valores / niveles | Tipo y default |\n\n|---|---|---|---|---|\n\n| 101 | Tiempo maximo tolerable de indisponibilidad | lee `rto` del SIC emulado informado en `codi_dialeg` | `0 horas` = BAIX; `1/8/24 horas` = MIG; `1-3 dias / 48 / 72` = ALT; sin dato = MOLT ALT | `REAL` si existe SIC usable con `rto`; `DEFAULT` si falta |\n\n| 102 | Ambito de usuarios y criticidad | combina `criticidad_negocio` y `num_usuarios_max` del SIC"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-008",
+      "document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "filename": "document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 8,
+      "char_start": 37951,
+      "char_end": 43922,
+      "excerpt": "l de una regla no siempre nace de un dato exacto\n\n\n\nHay tres situaciones distintas:\n\n\n\n- medicion real del control;\n\n- default por falta de cobertura;\n\n- constante funcional pactada.\n\n\n\nLa interpretacion de negocio debe mirar siempre tambien el `tipo_valor`, no solo el nivel numerico.\n\n\n\n## 10.3. Criticidad de negocio en SIC tiene una escala propia\n\n\n\nEn la implementacion vigente, `criticidad_negocio` se interpreta asi:\n\n\n\n- valores 0 y 1 implican mayor severidad;\n\n- 2 y 3 severidad intermedia;\n\n- 4 menor severidad relativa.\n\n\n\nNo debe leerse como una escala ascendente simple de 1 a 4.\n\n\n\n## 1"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-009",
+      "document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "filename": "document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 9,
+      "char_start": 43422,
+      "char_end": 49393,
+      "excerpt": "- si no hay pesos positivos, se calcula `AVG(nivel_num)`.\n\n\n\nDespues de ese promedio, el motor redondea el resultado al entero mas cercano y lo vuelve a expresar como `BAIX`, `MIG`, `ALT` o `MOLT ALT`.\n\n\n\n## 11.1. Eje LLDT\n\n\n\nUnidad de lectura: departamento o ambito de puestos.\n\n\n\nOrden recomendado de consulta:\n\n\n\n1. `gold_lldt.fact_riesgo` para ver el resultado final por bloque;\n\n2. `gold_lldt.fact_impacto_bloque` y `gold_lldt.fact_probabilidad_bloque` para entender de donde sale ese riesgo;\n\n3. `gold_lldt.fact_probabilidad` para bajar al detalle de reglas;\n\n4. `gold_lldt.dim_regla` y `gold_l"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-010",
+      "document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "filename": "document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 10,
+      "char_start": 48893,
+      "char_end": 54144,
+      "excerpt": "cto de los cuatro riesgos y deja un nivel final medio de impacto para el SIC |\n\n| `gold_sic.fact_riesgo` | una fila final por bloque y por SIC | es la salida final del modelo SIC: cruza probabilidad final e impacto final del bloque y publica el riesgo resultante |\n\n\n\nLectura funcional minima de una fila SIC:\n\n\n\n- `sic` identifica el sistema o aplicacion;\n\n- `bloque` e `id_risc` indican el riesgo evaluado;\n\n- `probabilidad_final_num` e `impacto_final_num` muestran los niveles finales del bloque;\n\n- `riesgo_final_num` expresa el nivel publicado para ese riesgo;\n\n- `run_id` y `version_modelo` per"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "filename": "document-2026-08-03T08-05-39-00-00-cbac64e005ab_CATALOGO_FUNCIONAL_REGLAS_RIESGO_VIGENTE.md",
+      "chunk_index": 1,
+      "char_start": 0,
+      "char_end": 5909,
+      "excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula "
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-002",
+      "document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "filename": "document-2026-08-03T08-05-39-00-00-cbac64e005ab_CATALOGO_FUNCIONAL_REGLAS_RIESGO_VIGENTE.md",
+      "chunk_index": 2,
+      "char_start": 5409,
+      "char_end": 11293,
+      "excerpt": "12 | 200 | parches antiguos para compromiso de credenciales | `pct_patch_gt_60` | misma escala que 1003 | 0% `DEFAULT` BAIX si falta |\n\n| 2013 | 200 | cifrado de disco | `pct_encrypted` | >=95 BAIX, 50-94 ALT, <50 MOLT ALT | 100% `DEFAULT` BAIX si falta |\n\n| 3001 | 300 | antivirus para compromiso del equipo | `pct_antivirus` | misma escala que 1001 | 100% `DEFAULT` BAIX si falta |\n\n| 3002 | 300 | EDR para compromiso del equipo | `pct_edr` | misma escala que 1002 | 100% `DEFAULT` BAIX si falta |\n\n| 3003 | 300 | parches antiguos para compromiso del equipo | `pct_patch_gt_60` | misma escala que 1"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "filename": "document-2026-08-03T08-05-39-00-00-cbac64e005ab_CATALOGO_FUNCIONAL_REGLAS_RIESGO_VIGENTE.md",
+      "chunk_index": 3,
+      "char_start": 10793,
+      "char_end": 16693,
+      "excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 "
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "filename": "document-2026-08-03T08-05-39-00-00-cbac64e005ab_CATALOGO_FUNCIONAL_REGLAS_RIESGO_VIGENTE.md",
+      "chunk_index": 4,
+      "char_start": 16193,
+      "char_end": 22078,
+      "excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-005",
+      "document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "filename": "document-2026-08-03T08-05-39-00-00-cbac64e005ab_CATALOGO_FUNCIONAL_REGLAS_RIESGO_VIGENTE.md",
+      "chunk_index": 5,
+      "char_start": 21578,
+      "char_end": 25850,
+      "excerpt": "DEFAULT` MIG si no |\n\n| 4003 | 400 | politica de ciberseguridad | `silver.fact_gobernanza_departamento`, origen 4002 SIC remapeado a 4003 | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento`, origen 4003 remapeado | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | roles definidos | `silver.fact_gobernanza_departamento`, origen 4004 remapeado | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | DPD | `silver.fact_gobernanza_departamento`, origen 4005 remapeado | misma logica si"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-c6421d60c70e-chunk-001",
+      "document_id": "document-2026-08-05T11-05-41-00-00-c6421d60c70e",
+      "filename": "document-2026-08-03T08-06-00-00-00-1df488be8fd1_CONTRATO_BI_GOLD_SIC_V2.md",
+      "chunk_index": 1,
+      "char_start": 0,
+      "char_end": 5990,
+      "excerpt": "# Contrato BI v2 - Gold Riesgo SIC\n\n\n\n## Objetivo\n\n\n\nDefinir una interfaz estable para el dominio SIC en un esquema separado llamado gold_sic.\n\n\n\nActualizacion 2026-05-07: el calculo `sql_v1_silver` ya es el unico modo operativo vigente, el ciclo completo LLDT + SIC se reejecuto en SUCCESS y los esquemas legacy `gold` y `gold_pt` ya fueron retirados del DW.\n\n\n\nEn la fase actual del proyecto, el objetivo funcional prioritario de este dominio es dejar implantado y bien explicado el analisis de riesgo para las SIC del Departament d'Economia.\n\n\n\n## Decision de arquitectura\n\n\n\n- El esquema nuevo es"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-c6421d60c70e-chunk-002",
+      "document_id": "document-2026-08-05T11-05-41-00-00-c6421d60c70e",
+      "filename": "document-2026-08-03T08-06-00-00-00-1df488be8fd1_CONTRATO_BI_GOLD_SIC_V2.md",
+      "chunk_index": 2,
+      "char_start": 5490,
+      "char_end": 8152,
+      "excerpt": "si es T11 se considera internet y el resto intranet.\n\n- Impacto SIC: la regla 202 sigue el mismo criterio funcional de exposicion; si es T11 se considera publico y si no, interno.\n\n- Impacto SIC: la regla 203 se alinea funcionalmente con la 105.\n\n- Impacto SIC: la regla 205 deja de formar parte del modelo objetivo y ya fue retirada del motor nativo `sql_v1_silver`.\n\n- Impacto SIC: la regla 401 debe calcular la clasificacion del sistema como el maximo de las dimensiones C, I, D, A y T del SIC.\n\n\n\n## Backlog residual no bloqueante\n\n\n\n- Mantener trazabilidad del cruce SIC -> CPD ya implantado en "
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3-chunk-001",
+      "document_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3",
+      "filename": "document-2026-08-05T08-46-05-00-00-6eb55a01322f_document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 1,
+      "char_start": 0,
+      "char_end": 5918,
+      "excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: explicar a responsables funcionales y duenos del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.  \n\nAlcance: calculo funcional vigente, reglas, defaults, constantes y trazabilidad por regla.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3-chunk-002",
+      "document_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3",
+      "filename": "document-2026-08-05T08-46-05-00-00-6eb55a01322f_document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 2,
+      "char_start": 5418,
+      "char_end": 11407,
+      "excerpt": "e impacto necesita datos SIC.\n\n\n\n---\n\n\n\n## 5. Glosario funcional de metadatos clave\n\n\n\nEste glosario ayuda a leer las reglas sin tener que conocer el detalle SQL.\n\n\n\n| Dato / metadata | Que significa funcionalmente |\n\n|---|---|\n\n| `pct_antivirus` | porcentaje de equipos del ambito con antivirus desplegado y operativo |\n\n| `pct_edr` / `pct_edr_current` | porcentaje de equipos con EDR desplegado y operativo |\n\n| `pct_patch_gt_60` | porcentaje de equipos con mas de 60 dias sin actualizar Windows |\n\n| `alert_ticket_count` | numero de tickets/alertas departamentales cerradas usados como senal opera"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3-chunk-003",
+      "document_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3",
+      "filename": "document-2026-08-05T08-46-05-00-00-6eb55a01322f_document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 3,
+      "char_start": 10907,
+      "char_end": 16706,
+      "excerpt": "cional para `201`, `204`, `401` y `402`, pero lo publica sobre el departamento de referencia usando el SIC canonico como atributo auxiliar;\n\n- los defaults observados en el workbook son `4` para probabilidad y `2` para impacto.\n\n\n\nSalida Gold vigente:\n\n\n\n- `gold_cultura.dim_sig_scope`\n\n- `gold_cultura.dim_regla`\n\n- `gold_cultura.dim_supuesto_modelo`\n\n- `gold_cultura.fact_probabilidad`\n\n- `gold_cultura.fact_probabilidad_bloque`\n\n- `gold_cultura.fact_impacto`\n\n- `gold_cultura.fact_impacto_bloque`\n\n- `gold_cultura.fact_riesgo`\n\n\n\n### GOVERNANCA\n\n\n\nLectura funcional resumida:\n\n\n\n- activa riesgos d"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3-chunk-004",
+      "document_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3",
+      "filename": "document-2026-08-05T08-46-05-00-00-6eb55a01322f_document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 4,
+      "char_start": 16206,
+      "char_end": 22127,
+      "excerpt": "| `REAL` si hay workstations; `DEFAULT` si falta denominador y se asume 100% |\n\n| 2007 | TPM | `% equipos con TPM` | mide cobertura real de TPM en el ambito | >= 95% = BAIX; < 95 = MOLT ALT | `REAL` si hay dato; `DEFAULT` si falta y se asume 100% |\n\n| 2008 | EDR correo / plataforma | `% equipos con EDR` | reutiliza cobertura EDR como senal de proteccion de plataforma de usuario | >= 96% = BAIX; 91-95 = MIG; 86-90 = ALT; < 86 = MOLT ALT | `REAL` si hay dato; `DEFAULT` si falta y se asume 100% |\n\n| 2009 | MFA O365 correo / plataforma | `% MFA O365` | misma semantica de cobertura MFA para correo/"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3-chunk-005",
+      "document_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3",
+      "filename": "document-2026-08-05T08-46-05-00-00-6eb55a01322f_document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 5,
+      "char_start": 21627,
+      "char_end": 27587,
+      "excerpt": "rse como una severidad unica replicada a cuatro bloques;\n\n- cada bloque sale de una mezcla distinta entre la valoracion propia del departamento y el SIC que ese departamento debe emular.\n\n\n\n## 7.3.2. Semantica funcional del catalogo LLDT\n\n\n\nAunque Gold no publica 12 reglas de impacto separadas, el catalogo funcional si define la intencion de cada una:\n\n\n\n| Regla | Significado funcional | Que queria mirar el workbook |\n\n|---|---|---|\n\n| 101 | Tiempo maximo tolerable de indisponibilidad | `RTO` |\n\n| 102 | Ambito de usuarios y criticidad del sistema | criticidad + usuarios expuestos |\n\n| 103 | Cr"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3-chunk-006",
+      "document_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3",
+      "filename": "document-2026-08-05T08-46-05-00-00-6eb55a01322f_document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 6,
+      "char_start": 27087,
+      "char_end": 32972,
+      "excerpt": "isponibilidad del valor |\n\n| 2010 | Estado del perimetro base para exfiltracion / compromiso | `base_attributes_noncompleted` con `status = Alta` | misma logica que 1002 sobre el despliegue del perimetro base | 100% = BAIX; 85%-99% = MIG; 1%-84% = ALT; 0% = MOLT ALT | `REAL`; `DEFAULT` 2 si falta perimetro usable |\n\n| 2011 | Publicacion a internet para compromiso de informacion | `is_t11` | misma semantica que 1006 | interno = BAIX; publico = ALT; sin dato = MIG | `REAL`; `DEFAULT` si falta |\n\n\n\n### Bloque 300. Compromiso del equipo o plataforma\n\n\n\n| Regla | Objetivo funcional | Que mira | Com"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3-chunk-007",
+      "document_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3",
+      "filename": "document-2026-08-05T08-46-05-00-00-6eb55a01322f_document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 7,
+      "char_start": 32472,
+      "char_end": 38451,
+      "excerpt": "lmente, mas conservador que LLDT cuando falta dato.\n\n\n\n---\n\n\n\n## 8.3. Impacto SIC por regla\n\n\n\n### Bloque 100. Indisponibilidad\n\n\n\n| Regla | Objetivo funcional | Como se calcula | Valores / niveles | Tipo y default |\n\n|---|---|---|---|---|\n\n| 101 | Tiempo maximo tolerable de indisponibilidad | lee `rto` del SIC emulado informado en `codi_dialeg` | `0 horas` = BAIX; `1/8/24 horas` = MIG; `1-3 dias / 48 / 72` = ALT; sin dato = MOLT ALT | `REAL` si existe SIC usable con `rto`; `DEFAULT` si falta |\n\n| 102 | Ambito de usuarios y criticidad | combina `criticidad_negocio` y `num_usuarios_max` del SIC"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3-chunk-008",
+      "document_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3",
+      "filename": "document-2026-08-05T08-46-05-00-00-6eb55a01322f_document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 8,
+      "char_start": 37951,
+      "char_end": 43922,
+      "excerpt": "l de una regla no siempre nace de un dato exacto\n\n\n\nHay tres situaciones distintas:\n\n\n\n- medicion real del control;\n\n- default por falta de cobertura;\n\n- constante funcional pactada.\n\n\n\nLa interpretacion de negocio debe mirar siempre tambien el `tipo_valor`, no solo el nivel numerico.\n\n\n\n## 10.3. Criticidad de negocio en SIC tiene una escala propia\n\n\n\nEn la implementacion vigente, `criticidad_negocio` se interpreta asi:\n\n\n\n- valores 0 y 1 implican mayor severidad;\n\n- 2 y 3 severidad intermedia;\n\n- 4 menor severidad relativa.\n\n\n\nNo debe leerse como una escala ascendente simple de 1 a 4.\n\n\n\n## 1"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3-chunk-009",
+      "document_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3",
+      "filename": "document-2026-08-05T08-46-05-00-00-6eb55a01322f_document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 9,
+      "char_start": 43422,
+      "char_end": 49393,
+      "excerpt": "- si no hay pesos positivos, se calcula `AVG(nivel_num)`.\n\n\n\nDespues de ese promedio, el motor redondea el resultado al entero mas cercano y lo vuelve a expresar como `BAIX`, `MIG`, `ALT` o `MOLT ALT`.\n\n\n\n## 11.1. Eje LLDT\n\n\n\nUnidad de lectura: departamento o ambito de puestos.\n\n\n\nOrden recomendado de consulta:\n\n\n\n1. `gold_lldt.fact_riesgo` para ver el resultado final por bloque;\n\n2. `gold_lldt.fact_impacto_bloque` y `gold_lldt.fact_probabilidad_bloque` para entender de donde sale ese riesgo;\n\n3. `gold_lldt.fact_probabilidad` para bajar al detalle de reglas;\n\n4. `gold_lldt.dim_regla` y `gold_l"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3-chunk-010",
+      "document_id": "document-2026-08-05T11-05-41-00-00-967cf5fc16e3",
+      "filename": "document-2026-08-05T08-46-05-00-00-6eb55a01322f_document-2026-08-03T08-05-39-00-00-6faa92438425_GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md",
+      "chunk_index": 10,
+      "char_start": 48893,
+      "char_end": 54144,
+      "excerpt": "cto de los cuatro riesgos y deja un nivel final medio de impacto para el SIC |\n\n| `gold_sic.fact_riesgo` | una fila final por bloque y por SIC | es la salida final del modelo SIC: cruza probabilidad final e impacto final del bloque y publica el riesgo resultante |\n\n\n\nLectura funcional minima de una fila SIC:\n\n\n\n- `sic` identifica el sistema o aplicacion;\n\n- `bloque` e `id_risc` indican el riesgo evaluado;\n\n- `probabilidad_final_num` e `impacto_final_num` muestran los niveles finales del bloque;\n\n- `riesgo_final_num` expresa el nivel publicado para ese riesgo;\n\n- `run_id` y `version_modelo` per"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-5e11485b0f46-chunk-001",
+      "document_id": "document-2026-08-05T11-05-41-00-00-5e11485b0f46",
+      "filename": "document-2026-08-05T08-46-05-00-00-708d5db06b9a_document-2026-08-03T08-06-00-00-00-1df488be8fd1_CONTRATO_BI_GOLD_SIC_V2.md",
+      "chunk_index": 1,
+      "char_start": 0,
+      "char_end": 5990,
+      "excerpt": "# Contrato BI v2 - Gold Riesgo SIC\n\n\n\n## Objetivo\n\n\n\nDefinir una interfaz estable para el dominio SIC en un esquema separado llamado gold_sic.\n\n\n\nActualizacion 2026-05-07: el calculo `sql_v1_silver` ya es el unico modo operativo vigente, el ciclo completo LLDT + SIC se reejecuto en SUCCESS y los esquemas legacy `gold` y `gold_pt` ya fueron retirados del DW.\n\n\n\nEn la fase actual del proyecto, el objetivo funcional prioritario de este dominio es dejar implantado y bien explicado el analisis de riesgo para las SIC del Departament d'Economia.\n\n\n\n## Decision de arquitectura\n\n\n\n- El esquema nuevo es"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-5e11485b0f46-chunk-002",
+      "document_id": "document-2026-08-05T11-05-41-00-00-5e11485b0f46",
+      "filename": "document-2026-08-05T08-46-05-00-00-708d5db06b9a_document-2026-08-03T08-06-00-00-00-1df488be8fd1_CONTRATO_BI_GOLD_SIC_V2.md",
+      "chunk_index": 2,
+      "char_start": 5490,
+      "char_end": 8152,
+      "excerpt": "si es T11 se considera internet y el resto intranet.\n\n- Impacto SIC: la regla 202 sigue el mismo criterio funcional de exposicion; si es T11 se considera publico y si no, interno.\n\n- Impacto SIC: la regla 203 se alinea funcionalmente con la 105.\n\n- Impacto SIC: la regla 205 deja de formar parte del modelo objetivo y ya fue retirada del motor nativo `sql_v1_silver`.\n\n- Impacto SIC: la regla 401 debe calcular la clasificacion del sistema como el maximo de las dimensiones C, I, D, A y T del SIC.\n\n\n\n## Backlog residual no bloqueante\n\n\n\n- Mantener trazabilidad del cruce SIC -> CPD ya implantado en "
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-a75ae829d0ef-chunk-001",
+      "document_id": "document-2026-08-05T11-05-41-00-00-a75ae829d0ef",
+      "filename": "document-2026-08-05T08-46-05-00-00-f9cb47e46894_document-2026-08-03T08-05-39-00-00-cbac64e005ab_CATALOGO_FUNCIONAL_REGLAS_RIESGO_VIGENTE.md",
+      "chunk_index": 1,
+      "char_start": 0,
+      "char_end": 5909,
+      "excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula "
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-a75ae829d0ef-chunk-002",
+      "document_id": "document-2026-08-05T11-05-41-00-00-a75ae829d0ef",
+      "filename": "document-2026-08-05T08-46-05-00-00-f9cb47e46894_document-2026-08-03T08-05-39-00-00-cbac64e005ab_CATALOGO_FUNCIONAL_REGLAS_RIESGO_VIGENTE.md",
+      "chunk_index": 2,
+      "char_start": 5409,
+      "char_end": 11293,
+      "excerpt": "12 | 200 | parches antiguos para compromiso de credenciales | `pct_patch_gt_60` | misma escala que 1003 | 0% `DEFAULT` BAIX si falta |\n\n| 2013 | 200 | cifrado de disco | `pct_encrypted` | >=95 BAIX, 50-94 ALT, <50 MOLT ALT | 100% `DEFAULT` BAIX si falta |\n\n| 3001 | 300 | antivirus para compromiso del equipo | `pct_antivirus` | misma escala que 1001 | 100% `DEFAULT` BAIX si falta |\n\n| 3002 | 300 | EDR para compromiso del equipo | `pct_edr` | misma escala que 1002 | 100% `DEFAULT` BAIX si falta |\n\n| 3003 | 300 | parches antiguos para compromiso del equipo | `pct_patch_gt_60` | misma escala que 1"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-a75ae829d0ef-chunk-003",
+      "document_id": "document-2026-08-05T11-05-41-00-00-a75ae829d0ef",
+      "filename": "document-2026-08-05T08-46-05-00-00-f9cb47e46894_document-2026-08-03T08-05-39-00-00-cbac64e005ab_CATALOGO_FUNCIONAL_REGLAS_RIESGO_VIGENTE.md",
+      "chunk_index": 3,
+      "char_start": 10793,
+      "char_end": 16693,
+      "excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 "
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-a75ae829d0ef-chunk-004",
+      "document_id": "document-2026-08-05T11-05-41-00-00-a75ae829d0ef",
+      "filename": "document-2026-08-05T08-46-05-00-00-f9cb47e46894_document-2026-08-03T08-05-39-00-00-cbac64e005ab_CATALOGO_FUNCIONAL_REGLAS_RIESGO_VIGENTE.md",
+      "chunk_index": 4,
+      "char_start": 16193,
+      "char_end": 22078,
+      "excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R"
+    },
+    {
+      "chunk_id": "document-2026-08-05T11-05-41-00-00-a75ae829d0ef-chunk-005",
+      "document_id": "document-2026-08-05T11-05-41-00-00-a75ae829d0ef",
+      "filename": "document-2026-08-05T08-46-05-00-00-f9cb47e46894_document-2026-08-03T08-05-39-00-00-cbac64e005ab_CATALOGO_FUNCIONAL_REGLAS_RIESGO_VIGENTE.md",
+      "chunk_index": 5,
+      "char_start": 21578,
+      "char_end": 25850,
+      "excerpt": "DEFAULT` MIG si no |\n\n| 4003 | 400 | politica de ciberseguridad | `silver.fact_gobernanza_departamento`, origen 4002 SIC remapeado a 4003 | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento`, origen 4003 remapeado | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | roles definidos | `silver.fact_gobernanza_departamento`, origen 4004 remapeado | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | DPD | `silver.fact_gobernanza_departamento`, origen 4005 remapeado | misma logica si"
+    }
+  ]
+}

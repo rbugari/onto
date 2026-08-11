@@ -1,0 +1,95 @@
+[
+  {
+    "case_id": "manual-001",
+    "question": "cual es el valor del riego 1 en el sic 12? y porque ?",
+    "expected_status": "answered",
+    "expected_item_name": "",
+    "actual_status": "answered",
+    "retrieved_item_names": [
+      "gold_sic.dim_regla.tipo_valor_default",
+      "gold_sic.fact_impacto.valor_fuente",
+      "gold_sic.fact_impacto.tipo_valor",
+      "gold_sic.fact_probabilidad.valor",
+      "gold_sic.fact_probabilidad.tipo_valor"
+    ],
+    "passed": true,
+    "failure_reason": "",
+    "investigation": {
+      "manifest": {
+        "format": "argos-investigation-v0.1",
+        "investigation_id": "argos-2026-08-05T12-03-59-00-00-86234658d3cd",
+        "created_at": "2026-08-05T12:03:59+00:00",
+        "release_id": "release-2026-08-05T11-16-05-00-00-e8d4dee2ee60",
+        "status": "answered",
+        "mode": "deterministic-context-pack"
+      },
+      "request": {
+        "question": "cual es el valor del riego 1 en el sic 12? y porque ?"
+      },
+      "retrieval": [
+        {
+          "item_id": "candidate-technical-asset-1198",
+          "item_type": "technical_asset",
+          "name": "gold_sic.dim_regla.tipo_valor_default",
+          "definition": "Activo técnico Fabric column: gold_sic.dim_regla.tipo_valor_default",
+          "source_binding": {
+            "source_document_id": "fabric-information-schema",
+            "source_chunk_id": "fabric:gold_sic.dim_regla.tipo_valor_default"
+          }
+        },
+        {
+          "item_id": "candidate-technical-asset-1244",
+          "item_type": "technical_asset",
+          "name": "gold_sic.fact_impacto.valor_fuente",
+          "definition": "Activo técnico Fabric column: gold_sic.fact_impacto.valor_fuente",
+          "source_binding": {
+            "source_document_id": "fabric-information-schema",
+            "source_chunk_id": "fabric:gold_sic.fact_impacto.valor_fuente"
+          }
+        },
+        {
+          "item_id": "candidate-technical-asset-1247",
+          "item_type": "technical_asset",
+          "name": "gold_sic.fact_impacto.tipo_valor",
+          "definition": "Activo técnico Fabric column: gold_sic.fact_impacto.tipo_valor",
+          "source_binding": {
+            "source_document_id": "fabric-information-schema",
+            "source_chunk_id": "fabric:gold_sic.fact_impacto.tipo_valor"
+          }
+        },
+        {
+          "item_id": "candidate-technical-asset-1292",
+          "item_type": "technical_asset",
+          "name": "gold_sic.fact_probabilidad.valor",
+          "definition": "Activo técnico Fabric column: gold_sic.fact_probabilidad.valor",
+          "source_binding": {
+            "source_document_id": "fabric-information-schema",
+            "source_chunk_id": "fabric:gold_sic.fact_probabilidad.valor"
+          }
+        },
+        {
+          "item_id": "candidate-technical-asset-1295",
+          "item_type": "technical_asset",
+          "name": "gold_sic.fact_probabilidad.tipo_valor",
+          "definition": "Activo técnico Fabric column: gold_sic.fact_probabilidad.tipo_valor",
+          "source_binding": {
+            "source_document_id": "fabric-information-schema",
+            "source_chunk_id": "fabric:gold_sic.fact_probabilidad.tipo_valor"
+          }
+        }
+      ],
+      "answer": "Segun la release consultada: gold_sic.dim_regla.tipo_valor_default: Activo técnico Fabric column: gold_sic.dim_regla.tipo_valor_default; gold_sic.fact_impacto.valor_fuente: Activo técnico Fabric column: gold_sic.fact_impacto.valor_fuente; gold_sic.fact_impacto.tipo_valor: Activo técnico Fabric column: gold_sic.fact_impacto.tipo_valor; gold_sic.fact_probabilidad.valor: Activo técnico Fabric column: gold_sic.fact_probabilidad.valor; gold_sic.fact_probabilidad.tipo_valor: Activo técnico Fabric column: gold_sic.fact_probabilidad.tipo_valor",
+      "interpretation": "La interpretacion se basa en 5 elemento(s) aprobado(s) de la release. Debe distinguirse entre definiciones documentadas y conclusiones que requieren mas evidencia.",
+      "visualization": null,
+      "usage_boundary": "Solo usar los elementos aprobados y sus source bindings; abstenerse fuera de esta evidencia.",
+      "reasoning_advisory": {
+        "level": "higher_reasoning_recommended",
+        "model_used": "deterministic-runtime",
+        "configured_provider": "disabled",
+        "configured_model": "gpt-5.6-luna",
+        "message": "La respuesta factual se obtuvo con reglas y una consulta read-only. La pregunta pide causalidad o recomendacion; para responderla con rigor se necesita un LLM con mayor capacidad de razonamiento y evidencia adicional."
+      },
+      "package_path": "C:\\Users\\rfbugari\\OneDrive - Sopra Steria\\onto\\data\\runtime\\fabric-gold-sic-risk-pilot\\release-2026-08-05t11-16-05-00-00-e8d4dee2ee60\\argos-2026-08-05t12-03-59-00-00-86234658d3cd"
+    }
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "item_id": "candidate-technical-asset-1197",
+    "item_type": "technical_asset",
+    "name": "gold_sic.dim_regla.regla_molt_alt",
+    "definition": "Activo técnico Fabric column: gold_sic.dim_regla.regla_molt_alt",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.dim_regla.regla_molt_alt"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0801",
+    "item_type": "technical_asset",
+    "name": "gold_infra.dim_regla.regla_molt_alt",
+    "definition": "Activo técnico Fabric column: gold_infra.dim_regla.regla_molt_alt",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_infra.dim_regla.regla_molt_alt"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-1039",
+    "item_type": "technical_asset",
+    "name": "gold_lldt.dim_regla.regla_molt_alt",
+    "definition": "Activo técnico Fabric column: gold_lldt.dim_regla.regla_molt_alt",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_lldt.dim_regla.regla_molt_alt"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-1196",
+    "item_type": "technical_asset",
+    "name": "gold_sic.dim_regla.regla_alt",
+    "definition": "Activo técnico Fabric column: gold_sic.dim_regla.regla_alt",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.dim_regla.regla_alt"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0354",
+    "item_type": "technical_asset",
+    "name": "bronze.tmp_sic_cidat_excel",
+    "definition": "Activo técnico Fabric table: bronze.tmp_sic_cidat_excel",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:bronze.tmp_sic_cidat_excel"
+    }
+  }
+]

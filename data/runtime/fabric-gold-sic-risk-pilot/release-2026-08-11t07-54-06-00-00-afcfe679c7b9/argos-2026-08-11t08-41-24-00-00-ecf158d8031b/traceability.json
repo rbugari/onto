@@ -1,0 +1,29 @@
+{
+  "reasoning_advisory": {
+    "level": "llm_reasoning_active",
+    "model_used": "configured-llm",
+    "configured_provider": "openai",
+    "configured_model": "gpt-5.6-luna",
+    "message": "Argos utilizó el LLM configurado para interpretar la pregunta, decidir cómo investigarla y redactar la respuesta sobre el contexto aprobado."
+  },
+  "live_query": null,
+  "llm_used": true,
+  "llm_plan": {
+    "query_name": null,
+    "parameters": {},
+    "needs_stronger_model": false,
+    "reasoning_note": "La pregunta es definicional y el contexto aprobado ya define “Unidad de calculo vigente” como el departamento de referencia (codigo_departamento_ref) con SIC canonico auxiliar. Ninguna consulta permitida del catálogo es necesaria ni adecuada para responderla."
+  },
+  "llm_response": {
+    "answer": "“Unidad de cálculo vigente” es el departamento de referencia identificado por `codigo_departamento_ref`, junto con un SIC canónico auxiliar. Es la unidad funcional sobre la que se aplican o interpretan los cálculos vigentes del modelo.",
+    "interpretation": "La evidencia la distingue de la “Unidad de cálculo” genérica, definida como un departamento o ámbito funcional de puestos. En el modelo vigente, la referencia concreta es el departamento y el SIC canónico se utiliza como apoyo para determinadas reglas.",
+    "suggested_questions": [
+      "¿Qué diferencia hay entre unidad de cálculo y unidad de cálculo vigente?",
+      "¿Qué reglas utilizan el SIC canónico auxiliar?",
+      "¿Cómo se identifica el departamento mediante codigo_departamento_ref?"
+    ],
+    "visualization": null,
+    "needs_stronger_model": false,
+    "reasoning_note": "La definición está disponible de forma directa en la evidencia documental: departamento de referencia (codigo_departamento_ref) con SIC canónico auxiliar."
+  }
+}

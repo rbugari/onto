@@ -1,0 +1,1 @@
+Tipo significa “Significado”.

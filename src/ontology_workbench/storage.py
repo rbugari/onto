@@ -629,6 +629,13 @@ class ProjectStore:
         self._write_json(run_dir / "investigation_manifest.json", manifest)
         self._write_json(run_dir / "request.json", investigation["request"])
         self._write_json(run_dir / "retrieval.json", investigation["retrieval"])
+        self._write_json(run_dir / "traceability.json", {
+            "reasoning_advisory": investigation.get("reasoning_advisory", {}),
+            "live_query": investigation.get("live_query", {}),
+            "llm_used": investigation.get("llm_used", False),
+            "llm_plan": investigation.get("llm_plan", {}),
+            "llm_response": investigation.get("llm_response", {}),
+        })
         (run_dir / "answer.md").write_text(str(investigation["answer"]), encoding="utf-8")
         return run_dir
 

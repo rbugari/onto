@@ -30,12 +30,26 @@ FABRIC_QUERY_TEMPLATES = {
         "FROM gold_sic.fact_impacto GROUP BY tipo_valor, estado, usa_default "
         "ORDER BY total_rows DESC"
     ),
+    "risk_rule_sic": (
+        "SELECT TOP (1) sic, id_risc, riesgo_final_texto, riesgo_final_num, "
+        "probabilidad_final_texto, impacto_final_texto, metodo_calculo, fecha_calculo "
+        "FROM gold_sic.fact_riesgo WHERE id_risc = ? AND sic = ? "
+        "ORDER BY fecha_calculo DESC"
+    ),
+    "risk_sic": (
+        "SELECT TOP (100) sic, id_risc, riesgo_final_texto, riesgo_final_num, "
+        "probabilidad_final_texto, impacto_final_texto, metodo_calculo, fecha_calculo "
+        "FROM gold_sic.fact_riesgo WHERE sic = ? "
+        "ORDER BY riesgo_final_num DESC, fecha_calculo DESC"
+    ),
 }
 FABRIC_QUERY_BINDING_TABLES = {
     "risk_summary": "gold_sic.fact_riesgo",
     "risk_levels": "gold_sic.fact_riesgo",
     "impact_summary": "gold_sic.fact_impacto_bloque",
     "impact_statuses": "gold_sic.fact_impacto",
+    "risk_rule_sic": "gold_sic.fact_riesgo",
+    "risk_sic": "gold_sic.fact_riesgo",
 }
 
 
@@ -115,16 +129,31 @@ def fabric_connection_check() -> dict[str, str]:
     }
 
 
-def execute_fabric_read_only_query(query_name: str) -> dict[str, object]:
+def execute_fabric_read_only_query(
+    query_name: str, parameters: tuple[object, ...] = ()
+) -> dict[str, object]:
     """Execute one named, aggregate-only query; arbitrary SQL is never accepted."""
     clean_name = query_name.strip().lower()
     query = FABRIC_QUERY_TEMPLATES.get(clean_name)
     if query is None:
         raise ValueError("Consulta Fabric no soportada")
+    if clean_name in {"risk_rule_sic", "risk_sic"}:
+        expected = 2 if clean_name == "risk_rule_sic" else 1
+        if len(parameters) != expected or not all(isinstance(value, int) for value in parameters):
+            raise ValueError(
+                "risk_rule_sic requiere id_risc y sic enteros"
+                if clean_name == "risk_rule_sic"
+                else "risk_sic requiere sic entero"
+            )
+    elif parameters:
+        raise ValueError("La consulta Fabric seleccionada no admite parametros")
     settings = load_fabric_settings()
     with _connection(settings) as connection:
         cursor = connection.cursor()
-        cursor.execute(query)
+        if clean_name in {"risk_rule_sic", "risk_sic"}:
+            cursor.execute(query, *parameters)
+        else:
+            cursor.execute(query)
         columns = [str(item[0]) for item in cursor.description]
         rows = [
             {
@@ -136,6 +165,7 @@ def execute_fabric_read_only_query(query_name: str) -> dict[str, object]:
     return {
         "status": "connected_read_only_query",
         "query_name": clean_name,
+        "parameters": list(parameters),
         "operation": "SELECT",
         "server": settings.server,
         "database": settings.database,

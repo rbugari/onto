@@ -1,0 +1,52 @@
+[
+  {
+    "item_id": "candidate-technical-asset-1198",
+    "item_type": "technical_asset",
+    "name": "gold_sic.dim_regla.tipo_valor_default",
+    "definition": "Activo técnico Fabric column: gold_sic.dim_regla.tipo_valor_default",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.dim_regla.tipo_valor_default"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-1244",
+    "item_type": "technical_asset",
+    "name": "gold_sic.fact_impacto.valor_fuente",
+    "definition": "Activo técnico Fabric column: gold_sic.fact_impacto.valor_fuente",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.fact_impacto.valor_fuente"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-1247",
+    "item_type": "technical_asset",
+    "name": "gold_sic.fact_impacto.tipo_valor",
+    "definition": "Activo técnico Fabric column: gold_sic.fact_impacto.tipo_valor",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.fact_impacto.tipo_valor"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-1292",
+    "item_type": "technical_asset",
+    "name": "gold_sic.fact_probabilidad.valor",
+    "definition": "Activo técnico Fabric column: gold_sic.fact_probabilidad.valor",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.fact_probabilidad.valor"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-1295",
+    "item_type": "technical_asset",
+    "name": "gold_sic.fact_probabilidad.tipo_valor",
+    "definition": "Activo técnico Fabric column: gold_sic.fact_probabilidad.tipo_valor",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.fact_probabilidad.tipo_valor"
+    }
+  }
+]

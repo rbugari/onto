@@ -1,0 +1,13 @@
+file 'C:/Users/rfbugari/OneDrive - Sopra Steria/onto/deliverables/demo_onto_video/prepared/01.png'
+duration 7
+file 'C:/Users/rfbugari/OneDrive - Sopra Steria/onto/deliverables/demo_onto_video/prepared/02.png'
+duration 7
+file 'C:/Users/rfbugari/OneDrive - Sopra Steria/onto/deliverables/demo_onto_video/prepared/03.png'
+duration 7
+file 'C:/Users/rfbugari/OneDrive - Sopra Steria/onto/deliverables/demo_onto_video/prepared/04.png'
+duration 7
+file 'C:/Users/rfbugari/OneDrive - Sopra Steria/onto/deliverables/demo_onto_video/prepared/05.png'
+duration 7
+file 'C:/Users/rfbugari/OneDrive - Sopra Steria/onto/deliverables/demo_onto_video/prepared/06.png'
+duration 7
+file 'C:/Users/rfbugari/OneDrive - Sopra Steria/onto/deliverables/demo_onto_video/prepared/06.png'

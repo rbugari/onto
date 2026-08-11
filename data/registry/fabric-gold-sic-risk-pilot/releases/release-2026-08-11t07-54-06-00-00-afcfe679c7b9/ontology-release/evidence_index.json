@@ -1,0 +1,1687 @@
+{
+  "items": [
+    {
+      "candidate_id": "candidate-concept-0006",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: explicar a responsables funcionales y duenos del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.  \n\nAlcance: calculo funcional vigente, reglas, defaults, constantes y trazabilidad por regla.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-concept-0061",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-concept-0062",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-concept-0063",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-concept-0064",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-concept-0065",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-concept-0066",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-concept-0067",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-concept-0071",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-concept-0073",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-005",
+      "source_excerpt": "DEFAULT` MIG si no |\n\n| 4003 | 400 | politica de ciberseguridad | `silver.fact_gobernanza_departamento`, origen 4002 SIC remapeado a 4003 | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento`, origen 4003 remapeado | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | roles definidos | `silver.fact_gobernanza_departamento`, origen 4004 remapeado | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | DPD | `silver.fact_gobernanza_departamento`, origen 4005 remapeado | misma logica si",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-concept-0074",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-005",
+      "source_excerpt": "DEFAULT` MIG si no |\n\n| 4003 | 400 | politica de ciberseguridad | `silver.fact_gobernanza_departamento`, origen 4002 SIC remapeado a 4003 | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento`, origen 4003 remapeado | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | roles definidos | `silver.fact_gobernanza_departamento`, origen 4004 remapeado | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | DPD | `silver.fact_gobernanza_departamento`, origen 4005 remapeado | misma logica si",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-concept-0079",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-c6421d60c70e",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-c6421d60c70e-chunk-001",
+      "source_excerpt": "# Contrato BI v2 - Gold Riesgo SIC\n\n\n\n## Objetivo\n\n\n\nDefinir una interfaz estable para el dominio SIC en un esquema separado llamado gold_sic.\n\n\n\nActualizacion 2026-05-07: el calculo `sql_v1_silver` ya es el unico modo operativo vigente, el ciclo completo LLDT + SIC se reejecuto en SUCCESS y los esquemas legacy `gold` y `gold_pt` ya fueron retirados del DW.\n\n\n\nEn la fase actual del proyecto, el objetivo funcional prioritario de este dominio es dejar implantado y bien explicado el analisis de riesgo para las SIC del Departament d'Economia.\n\n\n\n## Decision de arquitectura\n\n\n\n- El esquema nuevo es",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0085",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-001",
+      "source_excerpt": "# Guia funcional del calculo Gold de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: explicar a responsables funcionales y duenos del modelo como funciona el calculo de riesgo en Gold para los cinco ejes del modelo, LLDT, SIC, CULTURA, GOVERNANCA e INFRA, sin entrar en detalle de cargas o despliegue tecnico.  \n\nAlcance: calculo funcional vigente, reglas, defaults, constantes y trazabilidad por regla.\n\n\n\n> Estado del documento: guia funcional vigente del calculo Gold.\n\n> Alcance: explica el modelo vigente en `gold_lldt`, `gold_sic`, `gold_cultura`, `gold_governanca` y `",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0128",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-005",
+      "source_excerpt": "rse como una severidad unica replicada a cuatro bloques;\n\n- cada bloque sale de una mezcla distinta entre la valoracion propia del departamento y el SIC que ese departamento debe emular.\n\n\n\n## 7.3.2. Semantica funcional del catalogo LLDT\n\n\n\nAunque Gold no publica 12 reglas de impacto separadas, el catalogo funcional si define la intencion de cada una:\n\n\n\n| Regla | Significado funcional | Que queria mirar el workbook |\n\n|---|---|---|\n\n| 101 | Tiempo maximo tolerable de indisponibilidad | `RTO` |\n\n| 102 | Ambito de usuarios y criticidad del sistema | criticidad + usuarios expuestos |\n\n| 103 | Cr",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0156",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-006",
+      "source_excerpt": "isponibilidad del valor |\n\n| 2010 | Estado del perimetro base para exfiltracion / compromiso | `base_attributes_noncompleted` con `status = Alta` | misma logica que 1002 sobre el despliegue del perimetro base | 100% = BAIX; 85%-99% = MIG; 1%-84% = ALT; 0% = MOLT ALT | `REAL`; `DEFAULT` 2 si falta perimetro usable |\n\n| 2011 | Publicacion a internet para compromiso de informacion | `is_t11` | misma semantica que 1006 | interno = BAIX; publico = ALT; sin dato = MIG | `REAL`; `DEFAULT` si falta |\n\n\n\n### Bloque 300. Compromiso del equipo o plataforma\n\n\n\n| Regla | Objetivo funcional | Que mira | Com",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0157",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-006",
+      "source_excerpt": "isponibilidad del valor |\n\n| 2010 | Estado del perimetro base para exfiltracion / compromiso | `base_attributes_noncompleted` con `status = Alta` | misma logica que 1002 sobre el despliegue del perimetro base | 100% = BAIX; 85%-99% = MIG; 1%-84% = ALT; 0% = MOLT ALT | `REAL`; `DEFAULT` 2 si falta perimetro usable |\n\n| 2011 | Publicacion a internet para compromiso de informacion | `is_t11` | misma semantica que 1006 | interno = BAIX; publico = ALT; sin dato = MIG | `REAL`; `DEFAULT` si falta |\n\n\n\n### Bloque 300. Compromiso del equipo o plataforma\n\n\n\n| Regla | Objetivo funcional | Que mira | Com",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0158",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-006",
+      "source_excerpt": "isponibilidad del valor |\n\n| 2010 | Estado del perimetro base para exfiltracion / compromiso | `base_attributes_noncompleted` con `status = Alta` | misma logica que 1002 sobre el despliegue del perimetro base | 100% = BAIX; 85%-99% = MIG; 1%-84% = ALT; 0% = MOLT ALT | `REAL`; `DEFAULT` 2 si falta perimetro usable |\n\n| 2011 | Publicacion a internet para compromiso de informacion | `is_t11` | misma semantica que 1006 | interno = BAIX; publico = ALT; sin dato = MIG | `REAL`; `DEFAULT` si falta |\n\n\n\n### Bloque 300. Compromiso del equipo o plataforma\n\n\n\n| Regla | Objetivo funcional | Que mira | Com",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0159",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-006",
+      "source_excerpt": "isponibilidad del valor |\n\n| 2010 | Estado del perimetro base para exfiltracion / compromiso | `base_attributes_noncompleted` con `status = Alta` | misma logica que 1002 sobre el despliegue del perimetro base | 100% = BAIX; 85%-99% = MIG; 1%-84% = ALT; 0% = MOLT ALT | `REAL`; `DEFAULT` 2 si falta perimetro usable |\n\n| 2011 | Publicacion a internet para compromiso de informacion | `is_t11` | misma semantica que 1006 | interno = BAIX; publico = ALT; sin dato = MIG | `REAL`; `DEFAULT` si falta |\n\n\n\n### Bloque 300. Compromiso del equipo o plataforma\n\n\n\n| Regla | Objetivo funcional | Que mira | Com",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0160",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-006",
+      "source_excerpt": "isponibilidad del valor |\n\n| 2010 | Estado del perimetro base para exfiltracion / compromiso | `base_attributes_noncompleted` con `status = Alta` | misma logica que 1002 sobre el despliegue del perimetro base | 100% = BAIX; 85%-99% = MIG; 1%-84% = ALT; 0% = MOLT ALT | `REAL`; `DEFAULT` 2 si falta perimetro usable |\n\n| 2011 | Publicacion a internet para compromiso de informacion | `is_t11` | misma semantica que 1006 | interno = BAIX; publico = ALT; sin dato = MIG | `REAL`; `DEFAULT` si falta |\n\n\n\n### Bloque 300. Compromiso del equipo o plataforma\n\n\n\n| Regla | Objetivo funcional | Que mira | Com",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0161",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-006",
+      "source_excerpt": "isponibilidad del valor |\n\n| 2010 | Estado del perimetro base para exfiltracion / compromiso | `base_attributes_noncompleted` con `status = Alta` | misma logica que 1002 sobre el despliegue del perimetro base | 100% = BAIX; 85%-99% = MIG; 1%-84% = ALT; 0% = MOLT ALT | `REAL`; `DEFAULT` 2 si falta perimetro usable |\n\n| 2011 | Publicacion a internet para compromiso de informacion | `is_t11` | misma semantica que 1006 | interno = BAIX; publico = ALT; sin dato = MIG | `REAL`; `DEFAULT` si falta |\n\n\n\n### Bloque 300. Compromiso del equipo o plataforma\n\n\n\n| Regla | Objetivo funcional | Que mira | Com",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0183",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-010",
+      "source_excerpt": "cto de los cuatro riesgos y deja un nivel final medio de impacto para el SIC |\n\n| `gold_sic.fact_riesgo` | una fila final por bloque y por SIC | es la salida final del modelo SIC: cruza probabilidad final e impacto final del bloque y publica el riesgo resultante |\n\n\n\nLectura funcional minima de una fila SIC:\n\n\n\n- `sic` identifica el sistema o aplicacion;\n\n- `bloque` e `id_risc` indican el riesgo evaluado;\n\n- `probabilidad_final_num` e `impacto_final_num` muestran los niveles finales del bloque;\n\n- `riesgo_final_num` expresa el nivel publicado para ese riesgo;\n\n- `run_id` y `version_modelo` per",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0184",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0186",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0187",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0188",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0189",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0190",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0191",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0192",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0193",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0195",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0196",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0197",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0198",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0200",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0201",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0202",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0203",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0222",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-002",
+      "source_excerpt": "12 | 200 | parches antiguos para compromiso de credenciales | `pct_patch_gt_60` | misma escala que 1003 | 0% `DEFAULT` BAIX si falta |\n\n| 2013 | 200 | cifrado de disco | `pct_encrypted` | >=95 BAIX, 50-94 ALT, <50 MOLT ALT | 100% `DEFAULT` BAIX si falta |\n\n| 3001 | 300 | antivirus para compromiso del equipo | `pct_antivirus` | misma escala que 1001 | 100% `DEFAULT` BAIX si falta |\n\n| 3002 | 300 | EDR para compromiso del equipo | `pct_edr` | misma escala que 1002 | 100% `DEFAULT` BAIX si falta |\n\n| 3003 | 300 | parches antiguos para compromiso del equipo | `pct_patch_gt_60` | misma escala que 1",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0224",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0227",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0228",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0229",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0230",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0231",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0232",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0233",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0234",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0235",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0236",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0237",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0238",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0239",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0240",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0241",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0242",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0243",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0244",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0245",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0246",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0248",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0249",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0250",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0251",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0252",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0258",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0259",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0260",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0261",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0262",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0263",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0264",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0265",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0266",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0267",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0268",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0269",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0270",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0272",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0273",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0274",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0275",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0276",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0277",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0279",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0280",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0281",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004",
+      "source_excerpt": "ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |\n\n| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `R",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0282",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-005",
+      "source_excerpt": "DEFAULT` MIG si no |\n\n| 4003 | 400 | politica de ciberseguridad | `silver.fact_gobernanza_departamento`, origen 4002 SIC remapeado a 4003 | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento`, origen 4003 remapeado | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | roles definidos | `silver.fact_gobernanza_departamento`, origen 4004 remapeado | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | DPD | `silver.fact_gobernanza_departamento`, origen 4005 remapeado | misma logica si",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0283",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-005",
+      "source_excerpt": "DEFAULT` MIG si no |\n\n| 4003 | 400 | politica de ciberseguridad | `silver.fact_gobernanza_departamento`, origen 4002 SIC remapeado a 4003 | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento`, origen 4003 remapeado | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | roles definidos | `silver.fact_gobernanza_departamento`, origen 4004 remapeado | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | DPD | `silver.fact_gobernanza_departamento`, origen 4005 remapeado | misma logica si",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-business_rule-0284",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-005",
+      "source_excerpt": "DEFAULT` MIG si no |\n\n| 4003 | 400 | politica de ciberseguridad | `silver.fact_gobernanza_departamento`, origen 4002 SIC remapeado a 4003 | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` o `DEFAULT` MIG |\n\n| 4004 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento`, origen 4003 remapeado | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4005 | 400 | roles definidos | `silver.fact_gobernanza_departamento`, origen 4004 remapeado | misma logica si/no | `REAL` o `DEFAULT` MIG |\n\n| 4006 | 400 | DPD | `silver.fact_gobernanza_departamento`, origen 4005 remapeado | misma logica si",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-kpi-0314",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-005",
+      "source_excerpt": "rse como una severidad unica replicada a cuatro bloques;\n\n- cada bloque sale de una mezcla distinta entre la valoracion propia del departamento y el SIC que ese departamento debe emular.\n\n\n\n## 7.3.2. Semantica funcional del catalogo LLDT\n\n\n\nAunque Gold no publica 12 reglas de impacto separadas, el catalogo funcional si define la intencion de cada una:\n\n\n\n| Regla | Significado funcional | Que queria mirar el workbook |\n\n|---|---|---|\n\n| 101 | Tiempo maximo tolerable de indisponibilidad | `RTO` |\n\n| 102 | Ambito de usuarios y criticidad del sistema | criticidad + usuarios expuestos |\n\n| 103 | Cr",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-kpi-0326",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-kpi-0327",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-kpi-0328",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-kpi-0329",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-kpi-0330",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-kpi-0331",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-kpi-0332",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-kpi-0334",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-kpi-0335",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-kpi-0336",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-kpi-0337",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-kpi-0338",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-kpi-0339",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-kpi-0340",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001",
+      "source_excerpt": "# Catalogo funcional vigente de reglas de riesgo\n\n\n\nUltima actualizacion: 2026-07-26\n\nEstado: vigente  \n\nObjetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  \n\nAlcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.\n\n\n\n---\n\n\n\n## 1. Lectura comun del modelo\n\n\n\nEl modelo calcula ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-kpi-0345",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-kpi-0346",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-kpi-0347",
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-003",
+      "source_excerpt": "IDAT; `DEFAULT` MIG si falta |\n\n| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |\n\n\n\n---\n\n\n\n## 5. SIC - Probabilidad por regla\n\n\n\nUnidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  \n\nUso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.\n\n\n\n| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |\n\n|---|---|---|---|---|---|\n\n| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ",
+      "evidence_status": "traceable"
+    },
+    {
+      "candidate_id": "candidate-technical-asset-0402",
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.dim_sig",
+      "source_excerpt": "gold_sic.dim_sig",
+      "evidence_status": "available"
+    },
+    {
+      "candidate_id": "candidate-technical-asset-0407",
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.fact_probabilidad",
+      "source_excerpt": "gold_sic.fact_probabilidad",
+      "evidence_status": "available"
+    },
+    {
+      "candidate_id": "candidate-technical-asset-0410",
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_sic.fact_riesgo",
+      "source_excerpt": "gold_sic.fact_riesgo",
+      "evidence_status": "available"
+    },
+    {
+      "candidate_id": "candidate-technical-asset-0422",
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:silver.dim_infra_cidat",
+      "source_excerpt": "silver.dim_infra_cidat",
+      "evidence_status": "available"
+    },
+    {
+      "candidate_id": "candidate-technical-asset-0425",
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:silver.dim_lldt_cidat",
+      "source_excerpt": "silver.dim_lldt_cidat",
+      "evidence_status": "available"
+    },
+    {
+      "candidate_id": "candidate-technical-asset-0426",
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:silver.dim_modelo_riesgo_regla",
+      "source_excerpt": "silver.dim_modelo_riesgo_regla",
+      "evidence_status": "available"
+    },
+    {
+      "candidate_id": "candidate-technical-asset-0429",
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:silver.fact_certificacion_sic",
+      "source_excerpt": "silver.fact_certificacion_sic",
+      "evidence_status": "available"
+    },
+    {
+      "candidate_id": "candidate-technical-asset-0433",
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:silver.fact_gobernanza_departamento",
+      "source_excerpt": "silver.fact_gobernanza_departamento",
+      "evidence_status": "available"
+    },
+    {
+      "candidate_id": "candidate-technical-asset-0438",
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:silver.fact_perimetro",
+      "source_excerpt": "silver.fact_perimetro",
+      "evidence_status": "available"
+    },
+    {
+      "model_element_id": "model-source-binding-b0189aba2af4",
+      "linked_candidate_ids": [
+        "candidate-concept-0006",
+        "candidate-technical-asset-0422"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-7e2835812c15",
+      "linked_candidate_ids": [
+        "candidate-concept-0061",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-f6b857347d36",
+      "linked_candidate_ids": [
+        "candidate-concept-0062",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-0f0307fc3319",
+      "linked_candidate_ids": [
+        "candidate-concept-0063",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-a89f83a54a22",
+      "linked_candidate_ids": [
+        "candidate-concept-0064",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-d261ccaba4b8",
+      "linked_candidate_ids": [
+        "candidate-concept-0065",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-4737cd5a1042",
+      "linked_candidate_ids": [
+        "candidate-concept-0066",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-3da3bca81bab",
+      "linked_candidate_ids": [
+        "candidate-concept-0067",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-beaa1d250efa",
+      "linked_candidate_ids": [
+        "candidate-concept-0071",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-b054671869a8",
+      "linked_candidate_ids": [
+        "candidate-concept-0073",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-2dc4dbacc61a",
+      "linked_candidate_ids": [
+        "candidate-concept-0074",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-276fe54b10a8",
+      "linked_candidate_ids": [
+        "candidate-concept-0079",
+        "candidate-technical-asset-0402"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-2c49d42604e5",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0085",
+        "candidate-technical-asset-0425"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-ce6b3f6b8c72",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0128",
+        "candidate-technical-asset-0438"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-7da57d4bfdb8",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0156",
+        "candidate-technical-asset-0429"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-32ee17e538f0",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0157",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-bb1181d58ba2",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0158",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-5cbde60f6b11",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0159",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-9d2582e802c7",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0160",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-7a9a810e3f98",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0161",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-06a4c94ee61d",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0183",
+        "candidate-technical-asset-0410"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-6068d0800f23",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0184",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-3034e2eb32c6",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0186",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-4261dd7161b5",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0187",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-19e287e2d90d",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0188",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-9ee2c82f3760",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0189",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-d584bd0b08ca",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0190",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-61f4825be6e7",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0191",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-139a42b9cd95",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0192",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-9f4220bb8d63",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0193",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-3ab767888142",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0195",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-fc1a2e0595df",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0196",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-f2ec6c6ba446",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0197",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-b48320d22610",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0198",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-4e06faa1d060",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0200",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-5f0e67cda225",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0201",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-6028d44eea16",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0202",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-47897b12b27e",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0203",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-bd1aa0aafc34",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0222",
+        "candidate-technical-asset-0425"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-1233ff5ca729",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0224",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-f3b4ee5d8439",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0227",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-6631c3bd319b",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0228",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-07127d6cb456",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0229",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-e2edf20f61b2",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0230",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-9b569fc3ddea",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0231",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-4f157ad78df9",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0232",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-bb97e74ff9b1",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0233",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-e1600335eeb1",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0234",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-1ce8fd2ff5e7",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0235",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-6a43e90b031a",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0236",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-4da6c2928827",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0237",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-f59dc6683333",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0238",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-ee362e5670f0",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0239",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-bc3d1ae12866",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0240",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-9bbda0439c4d",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0241",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-81d7569d36a2",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0242",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-29bee843b606",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0243",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-82bcb82fad16",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0244",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-57130b2e75c4",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0245",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-e209ceb50904",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0246",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-06670b6d8398",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0248",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-40d02a66b4d9",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0249",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-2a93840a4da6",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0250",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-2298880e43e4",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0251",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-1cca99a30c72",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0252",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-bdb456a2e2bb",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0258",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-75be61aece3a",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0259",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-37c3d5eb0f5d",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0260",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-377a5107afe2",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0261",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-a22a1b2984d1",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0262",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-83458df60d4b",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0263",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-0dd5a91a7aa5",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0264",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-f2cd4601b265",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0265",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-eed7c9bc75c2",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0266",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-c81b4f976c27",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0267",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-0ddb4600a192",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0268",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-508bdaf8e8ca",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0269",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-163a555a542f",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0270",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-4de2cb623112",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0272",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-cf1fca30a294",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0273",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-ce56608b5f2d",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0274",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-15365673010d",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0275",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-b68bef92b586",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0276",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-3d77981c187d",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0277",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-90fa34e02b4e",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0279",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-c9246fddda2d",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0280",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-d954b6141fbd",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0281",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-8c7f3e546dde",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0282",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-194a0e9e5aa2",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0283",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-58a4a69cc482",
+      "linked_candidate_ids": [
+        "candidate-business_rule-0284",
+        "candidate-technical-asset-0433"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-4395b87e3fe5",
+      "linked_candidate_ids": [
+        "candidate-kpi-0314",
+        "candidate-technical-asset-0438"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-8fd99a161b23",
+      "linked_candidate_ids": [
+        "candidate-kpi-0326",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-d8fe69e1dcc2",
+      "linked_candidate_ids": [
+        "candidate-kpi-0327",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-64ed42b1bf3b",
+      "linked_candidate_ids": [
+        "candidate-kpi-0328",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-8b4f6ae845e9",
+      "linked_candidate_ids": [
+        "candidate-kpi-0329",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-1bc379439e4f",
+      "linked_candidate_ids": [
+        "candidate-kpi-0330",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-1995838ecaa4",
+      "linked_candidate_ids": [
+        "candidate-kpi-0331",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-9b25ae82843c",
+      "linked_candidate_ids": [
+        "candidate-kpi-0332",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-23f825f6dacb",
+      "linked_candidate_ids": [
+        "candidate-kpi-0334",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-abed24ec6a14",
+      "linked_candidate_ids": [
+        "candidate-kpi-0335",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-18d2d4f65dbb",
+      "linked_candidate_ids": [
+        "candidate-kpi-0336",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-0e4c75f4add1",
+      "linked_candidate_ids": [
+        "candidate-kpi-0337",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-c5c6540f1961",
+      "linked_candidate_ids": [
+        "candidate-kpi-0338",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-97ee96f3778b",
+      "linked_candidate_ids": [
+        "candidate-kpi-0339",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-f52731efe924",
+      "linked_candidate_ids": [
+        "candidate-kpi-0340",
+        "candidate-technical-asset-0426"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-e8a5c2a4b802",
+      "linked_candidate_ids": [
+        "candidate-kpi-0345",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-4d0b6e7610be",
+      "linked_candidate_ids": [
+        "candidate-kpi-0346",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    },
+    {
+      "model_element_id": "model-source-binding-37b4967b6855",
+      "linked_candidate_ids": [
+        "candidate-kpi-0347",
+        "candidate-technical-asset-0407"
+      ],
+      "owner": ""
+    }
+  ]
+}

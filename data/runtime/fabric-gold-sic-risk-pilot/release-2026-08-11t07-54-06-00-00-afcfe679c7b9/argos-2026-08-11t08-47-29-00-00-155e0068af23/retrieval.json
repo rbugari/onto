@@ -1,0 +1,52 @@
+[
+  {
+    "item_id": "candidate-concept-0067",
+    "item_type": "concept",
+    "name": "Unidad de calculo",
+    "definition": "departamento o ambito funcional de puestos.",
+    "source_binding": {
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-001"
+    }
+  },
+  {
+    "item_id": "candidate-concept-0071",
+    "item_type": "concept",
+    "name": "Unidad de calculo vigente",
+    "definition": "departamento de referencia (codigo_departamento_ref) con SIC canonico auxiliar.",
+    "source_binding": {
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-ad65288dc47d-chunk-004"
+    }
+  },
+  {
+    "item_id": "model-source-binding-3da3bca81bab",
+    "item_type": "source_binding",
+    "name": "Unidad de calculo -> candidate-technical-asset-0426",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "source_binding": [
+      "candidate-concept-0067",
+      "candidate-technical-asset-0426"
+    ]
+  },
+  {
+    "item_id": "model-source-binding-beaa1d250efa",
+    "item_type": "source_binding",
+    "name": "Unidad de calculo vigente -> candidate-technical-asset-0433",
+    "definition": "Binding técnico propuesto por coincidencia determinista; requiere revisión humana.",
+    "source_binding": [
+      "candidate-concept-0071",
+      "candidate-technical-asset-0433"
+    ]
+  },
+  {
+    "item_id": "candidate-concept-0006",
+    "item_type": "concept",
+    "name": "INFRA",
+    "definition": "riesgo de infraestructura con scope funcional propio publicado en silver.dim_infra_cidat y metodo de calculo alineado con SIC.",
+    "source_binding": {
+      "source_document_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6",
+      "source_chunk_id": "document-2026-08-05T11-05-41-00-00-5ee9f23cecb6-chunk-001"
+    }
+  }
+]

@@ -1,0 +1,1 @@
+REAL significa que una regla se resolvió utilizando un dato usable procedente de Silver o de una fuente manual cargada. No indica que el valor sea constante ni que se haya aplicado un valor por defecto.

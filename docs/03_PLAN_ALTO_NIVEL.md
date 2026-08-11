@@ -1,7 +1,7 @@
 # Plan de alto nivel - ONTO
 
-Fecha: 2026-08-01  
-Estado: Fase 1 en ejecucion; secuencia para un monolito web local. Las estimaciones se definiran tras seleccionar piloto.
+Fecha: 2026-08-11  
+Estado: cortes iniciales de Atlas, Nexo, interoperabilidad y Argos implementados; secuencia para un monolito web local.
 
 ## Resultado esperado
 
@@ -34,7 +34,7 @@ Construir de forma incremental los tres productos de Ontology Factory sin bloque
 
 El primer corte ya implementado genera el paquete local con manifest, inventarios, hashes de documentos, indice de evidencia por fragmentos, score basal, backlog y checkpoint humano de revision. El adaptador `model.bim` conserva ahora el archivo original local y su hash cuando se importa por la aplicacion. Las siguientes iteraciones amplian adapters, citas por pagina/seccion y calidad del scoring.
 
-Situacion demostrada con `risk1`: el assessment es repetible y conserva 19 fragmentos de evidencia. El primer scanner heuristico produjo 104 definiciones candidatas; el scanner posterior con el proveedor compartido GPT-5.6 produjo 35 definiciones, 51 reglas y 33 KPIs, todos trazables por chunk. Tambien deja visibles las brechas reales: reimportar el `model.bim` original para capturar su evidencia, revisar candidatos y asignar ownership. No se debe promocionar ese proyecto a Registry hasta que la revision humana lo decida.
+Situacion demostrada con `fabric-gold-sic-risk-pilot`: el assessment es repetible y conserva evidencia documental por chunk junto con metadata técnica Fabric. El scanner del piloto produjo candidatos trazables de conceptos, reglas y KPIs; el flujo `documentation-first` conserva los gaps y los matches ambiguos para revisión humana. Una release local aprobada alimenta la evaluación de Argos, pero cada nuevo assessment o cambio de negocio debe volver a revisarse antes de emitirse.
 
 **Gate:** el equipo puede repetir una ejecucion con el mismo input y explicar cada score o gap con evidencia.
 
@@ -53,6 +53,8 @@ Situacion demostrada con `risk1`: el assessment es repetible y conserva 19 fragm
 **Gate:** un referente de negocio y uno tecnico pueden aceptar/rechazar cambios y la release puede reconstruirse desde sus manifiestos.
 
 Tercer corte implementado: Nexo crea un draft desde Atlas, conserva candidatos y decisiones por separado y bloquea la emisión de una release hasta que todos los candidatos y elementos del modelo sean revisados. Propone consolidaciones exactas o semánticas, permite revisiones masivas y puede aplicar una consolidación aceptada sin aprobar implícitamente el candidato canónico. El draft permite curar y aprobar propiedades, relaciones, sinónimos y restricciones, con responsable y vínculos trazables a candidatos aprobados. También compara un draft contra una release o dos releases entre sí, señalando altas, bajas y cambios semánticos sin alterar los artefactos. La siguiente iteración debe sumar generación asistida de estructuras canónicas y una revisión de impacto más rica, sin convertir inferencias en aprobaciones automáticas.
+
+**Siguiente release prioritaria:** incorporar autoridad de fuente configurable (`technical`, `documentation` o `hybrid`). Ya se puede crear un draft con esos tres modos y `documentation-first` excluye los activos técnicos no documentados del universo de candidatos. El matching determinista entre documentación y metadata Fabric ya registra documento/chunk, activo vinculado, confianza, motivo y gaps sin binding. Aún falta la revisión humana de esos resultados y resolver manualmente los casos ambiguos antes de emitir una release de negocio.
 
 ## Fase 3 - Interoperabilidad inicial
 
@@ -83,7 +85,7 @@ Primer corte implementado: una release aprobada puede generar un paquete local d
 
 **Gate:** la bateria valida evidencia, abstencion y autorizacion antes de ampliar cobertura.
 
-Primer corte implementado: Argos consulta únicamente el `agent_context_pack` de una release local, devuelve los elementos recuperados y se abstiene cuando no encuentra evidencia. La aplicación puede preparar una batería base desde la release, editar sus casos y evaluar `answered`/`abstained` más la evidencia esperada. Cada evaluación deja su manifest, resumen y resultados por caso bajo `data/runtime/<project>/<release>/evaluations/`. Para el piloto Fabric actual, el gate se cierra dentro de la aplicación local usando metadata, bindings y mappings ya aprobados; el gateway read-only, los controles de permisos y los casos de grano incompatible quedan fuera de alcance hasta que el piloto demuestre valor con preguntas reales.
+Primer corte implementado: Argos consulta únicamente el `agent_context_pack` de una release local, devuelve los elementos recuperados y se abstiene cuando no encuentra evidencia. La aplicación puede preparar una batería base desde la release, editar sus casos y evaluar `answered`/`abstained` más la evidencia esperada. La ruta LLM conserva la recuperación de evidencia y bloquea respuestas sin contexto aprobado o resultado live. Cada evaluación deja su manifest, resumen y resultados por caso bajo `data/runtime/<project>/<release>/evaluations/`. El piloto Fabric ya cerró este gate local con una release documentation-first: 6 de 6 casos pasaron, incluyendo una abstención fuera de alcance. El gateway read-only ampliado, los controles de permisos y los casos de grano incompatible quedan fuera de alcance.
 
 ## Fase 5 - Evaluacion de evolucion posterior
 

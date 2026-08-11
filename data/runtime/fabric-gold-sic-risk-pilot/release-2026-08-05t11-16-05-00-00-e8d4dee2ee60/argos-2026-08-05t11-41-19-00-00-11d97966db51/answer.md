@@ -1,0 +1,1 @@
+Consulta real Fabric: para la regla 1 en el SIC 12, el riesgo es ALT (3); probabilidad MIG, impacto ALT, metodo MATRIZ_4X4(probabilidad_final_num, impacto_final_num) y fecha 2026-07-24T11:21:48.170000.

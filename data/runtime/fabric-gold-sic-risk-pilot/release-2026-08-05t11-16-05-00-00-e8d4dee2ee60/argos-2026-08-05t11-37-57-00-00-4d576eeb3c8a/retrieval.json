@@ -1,0 +1,52 @@
+[
+  {
+    "item_id": "candidate-technical-asset-0571",
+    "item_type": "technical_asset",
+    "name": "gold_cultura.fact_impacto.tipo_valor",
+    "definition": "Activo técnico Fabric column: gold_cultura.fact_impacto.tipo_valor",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_cultura.fact_impacto.tipo_valor"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0589",
+    "item_type": "technical_asset",
+    "name": "gold_cultura.fact_impacto_bloque.tipo_valor",
+    "definition": "Activo técnico Fabric column: gold_cultura.fact_impacto_bloque.tipo_valor",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_cultura.fact_impacto_bloque.tipo_valor"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0601",
+    "item_type": "technical_asset",
+    "name": "gold_cultura.fact_probabilidad.valor_pct",
+    "definition": "Activo técnico Fabric column: gold_cultura.fact_probabilidad.valor_pct",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_cultura.fact_probabilidad.valor_pct"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0604",
+    "item_type": "technical_asset",
+    "name": "gold_cultura.fact_probabilidad.tipo_valor",
+    "definition": "Activo técnico Fabric column: gold_cultura.fact_probabilidad.tipo_valor",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_cultura.fact_probabilidad.tipo_valor"
+    }
+  },
+  {
+    "item_id": "candidate-technical-asset-0698",
+    "item_type": "technical_asset",
+    "name": "gold_governanca.fact_impacto.tipo_valor",
+    "definition": "Activo técnico Fabric column: gold_governanca.fact_impacto.tipo_valor",
+    "source_binding": {
+      "source_document_id": "fabric-information-schema",
+      "source_chunk_id": "fabric:gold_governanca.fact_impacto.tipo_valor"
+    }
+  }
+]

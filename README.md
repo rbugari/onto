@@ -32,13 +32,13 @@ La entrada web es una portada de **Ontology Factory**: permite elegir el proyect
 - Tool 2 local: carga de documentos y scanner de contexto de negocio.
 - Atlas: assessment package reproducible con inventarios, evidencia por fragmentos, score basal, gaps y registro de revision humana; puede incorporar metadata Fabric de solo lectura como evidencia técnica.
 - Nexo: draft de candidatos trazables, modelo canónico revisable (propiedades, relaciones, sinónimos y restricciones) y release local inmutable con `agent_context_pack`.
-- Argos: investigador de releases con abstención explícita y batería local de evaluación de respuestas y evidencia.
+- Argos: investigador de releases con abstención explícita, recuperación trazable y batería local de evaluación de respuestas y evidencia; la release documentation-first del piloto Fabric pasa 6/6 casos.
 - Interoperabilidad: paquetes locales de mapping revisable para Microsoft Fabric o Databricks, sin publicación externa.
 - Snapshots locales para versionado simple y restauracion.
 
 ### Alcance actual del piloto Fabric
 
-Fabric se utiliza como fuente técnica autorizada para descubrir metadata, validar bindings y ejecutar cuatro consultas agregadas read-only nombradas. La operación del piloto permanece dentro de la aplicación local: Atlas, Nexo, Argos y los mappings se ejecutan sobre artefactos locales. No se acepta SQL libre, no se leen filas de detalle desde la interfaz y no se publica ningún cambio externo.
+Fabric se utiliza como fuente técnica autorizada para descubrir metadata, validar bindings y ejecutar seis consultas read-only nombradas. La operación del piloto permanece dentro de la aplicación local: Atlas, Nexo, Argos y los mappings se ejecutan sobre artefactos locales. No se acepta SQL libre ni se publica ningún cambio externo; dos operaciones parametrizadas recuperan un máximo controlado de filas para una regla/SIC o un SIC específico.
 
 ## Estructura
 
@@ -84,6 +84,45 @@ Para consultar una pregunta propia o evitar la bateria automatica:
 python scripts/run_onto_demo.py fabric-gold-sic-risk-pilot --question "Que es gold_sic.fact_riesgo?"
 python scripts/run_onto_demo.py fabric-gold-sic-risk-pilot --skip-evaluation
 ```
+
+## Ejecutar procesos auxiliares
+
+Para ejecutar solo el scanner de contexto y dejar su estado en `data/context/<project>/working/llm_scan_status.json`:
+
+```powershell
+python scripts/run_context_scan.py fabric-gold-sic-risk-pilot
+```
+
+Para generar sugerencias de consolidación de un draft Nexo ya existente:
+
+```powershell
+python scripts/run_nexo_consolidation.py fabric-gold-sic-risk-pilot <draft-id>
+```
+
+Ambos procesos escriben un archivo de estado con resultado, fecha y error controlado si no finalizan correctamente.
+
+## Ejecutar el piloto guiado
+
+Para repetir el ciclo desde cero con pausas de verificacion y confirmaciones humanas:
+
+```powershell
+$env:ONTO_LLM_PROVIDER="disabled"
+python scripts/run_guided_pilot.py
+```
+
+El runner conserva los documentos fuente, limpia solo los artefactos operativos de
+`fabric-gold-sic-risk-pilot` y espera confirmacion en cada etapa. En Nexo aplica una
+regla automatica de analista: aprueba evidencia disponible con origen identificado
+y confianza suficiente, y rechaza el resto dejando una decision trazable. La
+publicacion de la release se ejecuta automaticamente cuando no quedan pendientes.
+
+Si una etapa requiere correccion, se puede retomar sin repetir las anteriores:
+
+```powershell
+python scripts/run_guided_pilot.py --from-step 8
+```
+
+Para ejecutar sin limpiar datos operativos, usar `--skip-reset`.
 
 ## Persistencia local
 
@@ -143,6 +182,17 @@ $env:ONTO_LLM_MODEL="llama3.1:8b"
 $env:ONTO_LLM_BASE_URL="http://localhost:11434/api/chat"
 ```
 
+## Configuracion Fabric
+
+La integración Fabric es opcional y de solo lectura. Requiere dependencias ya incluidas en `requirements.txt`, el controlador ODBC 18 para SQL Server y un archivo `.env` compartido autorizado. ONTO no guarda secretos: se configura únicamente la ruta del archivo y, opcionalmente, la ruta del registro local de autenticación.
+
+```powershell
+$env:ONTO_FABRIC_CONFIG_PATH="C:\ruta\a\fabric\.env"
+$env:ONTO_FABRIC_AUTH_RECORD_PATH="C:\ruta\local\fabric-auth-record.json" # opcional
+```
+
+El archivo compartido debe definir `FABRIC_AUTH_MODE=interactive_browser`, `FABRIC_WAREHOUSE_SERVER`, `FABRIC_WAREHOUSE_DATABASE`, `FABRIC_TENANT_ID`, `FABRIC_CLIENT_ID` y `FABRIC_AUTH_METHOD` (`interactive_browser` o `device_code`). Si no se indica `ONTO_FABRIC_AUTH_RECORD_PATH`, se usa `data/fabric-auth-record.json` junto al archivo compartido. Atlas limita el descubrimiento a `INFORMATION_SCHEMA`; Argos solo ejecuta consultas nombradas y vinculadas por una release aprobada.
+
 ## Prompts externos
 
 Los prompts del scanner quedaron fuera del codigo para que puedan modificarse sin tocar Python.
@@ -151,6 +201,8 @@ Los prompts del scanner quedaron fuera del codigo para que puedan modificarse si
 
 ## Proximo foco sugerido
 
-- Ajustar el modelo y los flujos al contenido real del Tool 01.
-- Definir reglas de validacion semantica de negocio.
-- Diseñar el contrato de publicacion hacia Fabric.
+- Ampliar el adaptador técnico más allá de `model.bim` y el catálogo Fabric actual.
+- Definir reglas de validacion semantica de negocio y revisión de impacto.
+- Diseñar y validar un adapter de publicación externo controlado.
+- Curar los matches ambiguos y los gaps del flujo `documentation-first` antes de emitir releases de negocio.
+- Ampliar la cobertura de evaluación y permisos del Runtime.
