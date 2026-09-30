@@ -5,11 +5,13 @@ Esta carpeta es la fuente de verdad del producto ONTO. Define una **Ontology Fac
 ## Por donde empezar
 
 1. [Objetivo, alcance y foco](OBJETIVO_ALCANCE_Y_FOCO.md): para que existe ONTO, que problema resuelve (dominios con datos distribuidos en varios sistemas), que incluye hoy y que no.
-2. [MVP operativo de ONTO](00_MVP_OPERATIVO.md): como trabajar con la release local actual, proyectos validados y limites.
+2. [Guia paso a paso no tecnica](GUIA_PASO_A_PASO_NO_TECNICA.md): ONTO explicado para negocio y gerencia, con el recorrido completo en lenguaje simple.
+3. [MVP operativo de ONTO](00_MVP_OPERATIVO.md): como trabajar con la release local actual, proyectos validados y limites.
 
 | Documento | Proposito |
 | --- | --- |
 | [Objetivo, alcance y foco](OBJETIVO_ALCANCE_Y_FOCO.md) | Documento de entrada: objetivo, problema, foco, alcance y metricas de exito. |
+| [Guia paso a paso no tecnica](GUIA_PASO_A_PASO_NO_TECNICA.md) | Explicacion sin tecnicismos para comunicar ONTO a personas de negocio. |
 | [MVP operativo](00_MVP_OPERATIVO.md) | Fuente de verdad para trabajar con la release local actual. |
 | [Diagnostico y transformacion](01_DIAGNOSTICO_Y_TRANSFORMACION.md) | Explica el estado real del MVP, las brechas y que se conserva o transforma. |
 | [PRD de Ontology Factory](02_PRD_ONTOLOGY_FACTORY.md) | Define problema, usuarios, productos, contratos, alcance y criterios de exito. |

@@ -2,7 +2,7 @@
 
 ONTO convierte evidencia tecnica y funcional existente en conocimiento ontologico gobernado, revisable y consumible por IA. Su foco son los dominios cuyos datos estan **distribuidos en varios sistemas y plataformas**: genera una ontologia comun, neutral de plataforma, que despues se implementa en Fabric, Databricks u otra herramienta del cliente.
 
-**Empezar por:** [Objetivo, alcance y foco](docs/OBJETIVO_ALCANCE_Y_FOCO.md). La direccion completa del producto esta en la [documentacion de producto](docs/README.md).
+**Empezar por:** [Objetivo, alcance y foco](docs/OBJETIVO_ALCANCE_Y_FOCO.md). Para personas no tecnicas: [Guia paso a paso](docs/GUIA_PASO_A_PASO_NO_TECNICA.md). La direccion completa del producto esta en la [documentacion de producto](docs/README.md).
 
 La Factory se organiza en tres productos independientes y conectables:
 

@@ -6,6 +6,8 @@ Estado: narrativa oficial del MVP operativo
 
 ONTO convierte evidencia tecnica y funcional existente en conocimiento ontologico gobernado, revisable y consumible por IA.
 
+Version para publico no tecnico: "Lo que antes decidia y validaba una persona experta en datos (que significa cada dato, como se cruza y que se puede responder), ahora lo preparamos como contexto aprobado para que lo use una IA". Guion completo en la [guia paso a paso](GUIA_PASO_A_PASO_NO_TECNICA.md).
+
 ## Problema
 
 Los modelos, datos, catalogos y documentos de una organizacion contienen conocimiento, pero suelen estar dispersos, ser desiguales y no declarar con claridad que puede usar un agente, con que evidencia y dentro de que limites.

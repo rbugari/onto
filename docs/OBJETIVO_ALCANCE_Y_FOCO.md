@@ -1,7 +1,7 @@
 # ONTO: objetivo, alcance y foco
 
 Fecha: 2026-09-30
-Estado: documento de entrada. Resume para qué existe ONTO, qué problema resuelve, qué incluye hoy y qué no. El detalle está en los documentos numerados de esta carpeta.
+Estado: documento de entrada. Resume para qué existe ONTO, qué problema resuelve, qué incluye hoy y qué no. El detalle está en los documentos numerados de esta carpeta. Versión sin tecnicismos: [Guía paso a paso](GUIA_PASO_A_PASO_NO_TECNICA.md).
 
 ## 1. Objetivo
 
