@@ -114,7 +114,7 @@ El piloto `fabric-gold-sic-risk-pilot` conserva drafts, decisiones, releases y c
 
 - Las propiedades, relaciones, sinónimos y restricciones son curadas manualmente; aún no hay generación asistida de estas estructuras.
 - Las equivalencias entre sistemas que detecta Atlas (por ejemplo, Cliente del ERP y del lakehouse) todavia no se registran como decision de Nexo; hoy se expresan con relaciones o sinonimos curados manualmente.
-- Existen paquetes de mapping locales para Fabric y Databricks, pero no adapters de publicación externa.
+- Existen paquetes importables para Fabric IQ y Databricks (archivos + cobertura + ruta A/B), pero no adapters de publicación externa.
 - Una release se guarda en carpetas locales y es reconstruible desde sus manifests; aún no hay control de acceso, firma ni gobierno de inmutabilidad empresarial.
 
 ## Autoridad documental implementada

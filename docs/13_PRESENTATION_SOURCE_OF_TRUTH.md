@@ -18,7 +18,7 @@ El caso mas frecuente y mas dificil es el dominio repartido en varios sistemas: 
 
 ## Propuesta
 
-ONTO ayuda a descubrir la evidencia de todos los sistemas del dominio, medir su readiness y sus cruces, convertirla en candidatos, someterla a revision humana y emitir una release portable para agentes y herramientas del cliente. En el MVP prepara mappings locales; no publica externamente.
+ONTO ayuda a descubrir la evidencia de todos los sistemas del dominio, medir su readiness y sus cruces, convertirla en candidatos, someterla a revision humana y emitir una release portable para agentes y herramientas del cliente. En el MVP prepara paquetes que la plataforma importa (Fabric IQ, Databricks); no publica externamente.
 
 ## Productos
 
@@ -28,7 +28,7 @@ ONTO ayuda a descubrir la evidencia de todos los sistemas del dominio, medir su 
 
 ## Ruta de implementacion
 
-Plan A (por defecto): la plataforma del cliente implementa todo. Mixto: la plataforma implementa lo que puede y ONTO el resto. Plan B: ONTO, solo si ninguna plataforma puede de forma viable. Todo deck debe mostrar este orden.
+Ruta A (por defecto): la plataforma del cliente implementa todo. Ruta B (mixta): la plataforma implementa lo que puede y ONTO el resto. Ruta C: ONTO como plan B, solo si ninguna plataforma puede de forma viable. Todo deck debe mostrar este orden. El paquete de entrega de Nexo recomienda A o B segun que fuentes alcanza la plataforma.
 
 ## Arquitectura narrativa
 

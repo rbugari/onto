@@ -637,6 +637,16 @@ class ProjectStore:
         self._write_json(package_dir / "publication_manifest.json", manifest)
         self._write_json(package_dir / "mapping.json", package["mapping"])
         self._write_json(package_dir / "deployment_manifest.json", package["deployment_manifest"])
+        export = dict(package.get("export", {}))
+        if export:
+            export_dir = (package_dir / "export").resolve()
+            for relative_path, content in dict(export["files"]).items():
+                target_path = (export_dir / relative_path).resolve()
+                if export_dir not in target_path.parents:
+                    raise ValueError(f"Ruta de exportacion invalida: {relative_path}")
+                target_path.parent.mkdir(parents=True, exist_ok=True)
+                target_path.write_text(str(content), encoding="utf-8")
+            self._write_json(package_dir / "coverage.json", {"summary": export["summary"], "items": export["coverage"]})
         return package_dir
 
     def save_fabric_discovery(self, project_id: str, discovery_id: str, payload: dict[str, object]) -> Path:

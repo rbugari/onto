@@ -16,15 +16,15 @@ Pensá en una obra:
 
 - **Fabric o Databricks son la constructora.** Ellos levantan la casa.
 - **ONTO es quien hace el relevamiento, los planos y el pedido de materiales**, y verifica que todo esté aprobado antes de empezar.
-- Si la constructora puede hacer todo, **hace todo** (plan A).
-- Si hay una parte que no puede hacer (por ejemplo, necesita materiales que están en otro lado y no le llegan), **hace lo que puede y ONTO cubre el resto** (plan mixto).
-- Solo si ninguna constructora puede hacerlo, **ONTO lo resuelve por su cuenta** (plan B).
+- Si la constructora puede hacer todo, **hace todo** (ruta A).
+- Si hay una parte que no puede hacer (por ejemplo, necesita materiales que están en otro lado y no le llegan), **hace lo que puede y ONTO cubre el resto** (ruta B, mixta).
+- Solo si ninguna constructora puede hacerlo, **ONTO lo resuelve por su cuenta** (ruta C: ONTO como plan B).
 
-| Plan | Cuándo | Quién implementa |
+| Ruta | Cuándo | Quién implementa |
 | --- | --- | --- |
 | **A (el normal)** | La plataforma de la empresa puede con todo. | Fabric o Databricks. ONTO entrega el paquete listo. |
-| **Mixto** | La plataforma puede con una parte. | La plataforma lo suyo; ONTO solo lo que falta. |
-| **B (excepción)** | Ninguna plataforma puede de forma viable. | ONTO, con las mismas reglas de respaldo y "no sé". |
+| **B (mixto)** | La plataforma puede con una parte. | La plataforma lo suyo; ONTO solo lo que falta. |
+| **C (excepción: plan B)** | Ninguna plataforma puede de forma viable. | ONTO, con las mismas reglas de respaldo y "no sé". |
 
 ## Una comparación que todos entienden
 
@@ -129,10 +129,10 @@ Se prepara una lista de preguntas de prueba ("esta la tiene que responder", "est
 ### Etapa 4 · Entrega: "que lo implemente la plataforma"
 
 **Paso 16. Decidir dónde se implementa.**
-Con lo aprendido, se decide el plan: A (todo en Fabric o Databricks), mixto o B (ONTO). La opción normal es la A.
+Con lo aprendido, se decide la ruta: A (todo en Fabric o Databricks), B (mixta) o C (todo en ONTO, plan B). La opción normal es la A.
 
 **Paso 17. Entregar el paquete.**
-ONTO genera un paquete con todo lo aprobado, preparado para la plataforma elegida, y el equipo de la empresa lo implementa ahí.
+ONTO genera un paquete con todo lo aprobado, en el formato que la plataforma elegida sabe importar, y el equipo de la empresa lo implementa ahí. Junto con el paquete viene un reporte que dice, punto por punto, qué entra directo, qué hay que completar en la plataforma y qué no le llega (por ejemplo, datos de un sistema al que la plataforma no accede). Con eso ONTO recomienda la ruta A o la B.
 
 **Paso 18. Cubrir solo lo que falte.**
 Si una parte no se puede implementar en la plataforma, ONTO la sigue atendiendo (plan B), con las mismas reglas.
@@ -201,7 +201,7 @@ Es el resultado más útil: dice exactamente qué ordenar antes de invertir en I
 | Brecha (gap) | Algo que falta o está mal y bloquea el uso con IA. |
 | Candidato | Una definición o regla propuesta que todavía no fue aprobada. |
 | Release / versión aprobada | La versión oficial del manual; es lo que se entrega a la plataforma y lo único que usa la IA de prueba. |
-| Plan A / mixto / B | Dónde se implementa: todo en la plataforma de la empresa (A), repartido (mixto) o en ONTO porque la plataforma no puede (B). |
+| Ruta A / B / C | Dónde se implementa: todo en la plataforma de la empresa (A), repartido entre plataforma y ONTO (B) o en ONTO porque la plataforma no puede (C). "Plan B" es el papel de ONTO como respaldo. |
 | Abstención | Cuando la IA dice "no sé" porque la pregunta está fuera de lo aprobado. |
 
 Para el detalle técnico: [Objetivo, alcance y foco](OBJETIVO_ALCANCE_Y_FOCO.md) y [MVP operativo](00_MVP_OPERATIVO.md).

@@ -170,6 +170,18 @@ class StreamlitUiTests(unittest.TestCase):
         self.assertNoExceptions(app)
         self.assertTrue(any(item.label == "Agregados" for item in app.metric))
 
+    def test_nexo_delivery_generates_platform_package(self) -> None:
+        for target in ("fabric", "databricks"):
+            with self.subTest(target=target):
+                app = self._app("Nexo", reviewer="Ana")
+                app.button_group(key=f"nexo-delivery-target-{self.pending_draft_id}").set_value(target).run()
+                submit = next(button for button in app.button if button.label == "Generar paquete para la plataforma")
+                submit.click().run()
+                self.assertNoExceptions(app)
+                metrics = {item.label: item.value for item in app.metric}
+                self.assertIn("Ruta recomendada", metrics)
+                self.assertTrue(any("Descargar paquete" in str(item.proto.label) for item in app.get("download_button")))
+
     def test_argos_chat_answers_and_abstains(self) -> None:
         app = self._app("Argos")
         self.assertNoExceptions(app)

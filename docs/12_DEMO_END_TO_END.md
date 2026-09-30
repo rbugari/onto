@@ -28,6 +28,8 @@ Incluye tres documentos (glosario, equivalencias entre sistemas, KPIs) y tres ca
 
 Resultado esperado: Cliente y Producto presentes en ERP, lakehouse y Power BI con clave comun; Venta en lakehouse y Power BI sin clave comun; gaps por CRM sin responsable, planillas sin metadata y venta sin clave. En la aplicacion, abrir el proyecto "Distribuidora - Ventas distribuidas" y recorrer las pestanas de Atlas.
 
+El script continua hasta Nexo (aprobacion de demo, release) y genera los paquetes para Fabric y Databricks. Ambos recomiendan **ruta B**: el ERP MariaDB y el CRM SQL Server no son alcanzables por la plataforma sin un puente (Mirroring/shortcuts o Lakehouse Federation). En Nexo, pestana **Release y entrega a la plataforma**, se ve la cobertura y se descarga el ZIP.
+
 Relato: "Ninguna plataforma por si sola ve el dominio completo; Atlas si, y muestra exactamente que falta para que un agente pueda cruzar los sistemas".
 
 ## Demo B: flujo completo (Atlas, Nexo, Argos)
@@ -56,7 +58,7 @@ La demo reproducible se ejecuta con `python scripts/run_commercial_sales_demo.py
 6. Revisar candidatos, evidencia, conflictos y bindings.
 7. Agregar y aprobar propiedades, relaciones y KPIs necesarios.
 8. Emitir una release Nexo local reconstruible.
-9. Generar `agent_context_pack` y mapping local.
+9. Generar `agent_context_pack` y el paquete importable para Fabric (ruta A: todo implementable).
 10. Ejecutar Argos con una pregunta respondible.
 11. Ejecutar una consulta operativa parametrizada si existe binding aprobado.
 12. Ejecutar una pregunta fuera de alcance y demostrar abstencion.

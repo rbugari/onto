@@ -20,13 +20,14 @@ Esta carpeta es la fuente de verdad del producto ONTO. Define una **Ontology Fac
 | [Atlas - Assessment MVP](05_ATLAS_ASSESSMENT_MVP.md) | Contrato y alcance del Producto 1 en el MVP operativo. |
 | [Nexo - Registry & Validation MVP](06_NEXO_REGISTRY_MVP.md) | Contrato y alcance del Producto 2 en el MVP operativo. |
 | [Argos - Runtime & Evaluation MVP](07_ARGOS_RUNTIME_MVP.md) | Contrato, límites y batería de evaluación del Producto 3. |
-| [Interoperabilidad MVP](08_INTEROPERABILIDAD_MVP.md) | Paquetes locales de mapping para Fabric y Databricks. |
+| [Interoperabilidad MVP](08_INTEROPERABILIDAD_MVP.md) | Planos de datos y ontologico; paquetes locales para Fabric y Databricks. |
 | [Politica de datos demo](09_DEMO_DATA_POLICY.md) | Reglas para ejemplos, pilotos y artefactos locales. |
 | [Posicionamiento y limites](10_POSITIONING_AND_BOUNDARIES.md) | Mensaje publico, productos, limites y anti-promesas. |
 | [Estrategia de exportacion e interoperabilidad](11_EXPORT_AND_INTEROPERABILITY_STRATEGY.md) | Separacion entre fuentes de datos, modelos ontologicos y destinos. |
 | [Demo end-to-end](12_DEMO_END_TO_END.md) | Guiones reproducibles: dominio distribuido (Atlas) y demo comercial completa. |
 | [Fuente de verdad para presentaciones](13_PRESENTATION_SOURCE_OF_TRUTH.md) | Narrativa oficial para decks y demos ejecutivas. |
 | [Caso Nalub real](14_NALUB_REAL_CASE.md) | Caso tecnico secundario con MariaDB read-only. |
+| [Integracion con Fabric y Databricks](15_INTEGRACION_FABRIC_DATABRICKS.md) | Como interpreta cada plataforma la ontologia, que archivos importables genera ONTO, cobertura/ruta y plan de conectores. |
 
 El caso Nalub usa el backup `doc _base/backNalub02042026.sql` como fuente local de schema y el documento funcional/tecnico Nalub como contexto. La ejecucion validada produce 33 tablas, 255 columnas, 25 relaciones y 451 candidatos. El runner es `python scripts/run_nalub_case.py`; su release declara cinco consultas MariaDB y `--live` ejecuta validaciones read-only contra el perfil indicado.
 

@@ -1216,10 +1216,11 @@ class WorkbenchService:
         target: str,
         prepared_by: str,
         note: str,
+        settings: dict[str, str] | None = None,
     ) -> dict[str, object]:
         release = self.store.load_nexo_release(project_id, release_id)
         package_id = f"mapping-{target.strip().lower()}-{utc_now_iso().replace(':', '-').replace('+', '-')}-{uuid.uuid4().hex[:12]}"
-        package = build_publication_package(release, target, prepared_by, note, package_id)
+        package = build_publication_package(release, target, prepared_by, note, package_id, settings)
         package["package_path"] = str(self.store.save_interoperability_package(project_id, package))
         return package
 

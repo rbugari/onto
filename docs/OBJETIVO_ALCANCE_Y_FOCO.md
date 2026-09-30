@@ -55,7 +55,7 @@ Cuando todo vive en una sola plataforma, sus herramientas nativas ayudan, pero i
 | Producto | Pregunta que responde | Usuario | Entrega |
 | --- | --- | --- | --- |
 | **Atlas** · Preparar evidencia | ¿Cómo estamos? ¿Qué sistemas, qué evidencia, qué falta, cómo se conectan y qué puede implementar la plataforma? | Analista técnico o funcional, consultor | Assessment package: alcance, casos de uso, inventario por sistema, mapa entre sistemas, score, brechas priorizadas, informe. |
-| **Nexo** · Validar conocimiento | ¿Qué conocimiento aceptamos y cómo lo entregamos a la plataforma? | Responsable de gobierno, referente de negocio | Release aprobada y paquete de mapping para Fabric o Databricks (ruta A/B); `agent_context_pack` para el plan B. |
+| **Nexo** · Validar conocimiento | ¿Qué conocimiento aceptamos y cómo lo entregamos a la plataforma? | Responsable de gobierno, referente de negocio | Release aprobada y paquete importable para Fabric o Databricks con cobertura y ruta recomendada (A/B); `agent_context_pack` para el plan B. |
 | **Argos** · Investigar el negocio | ¿El contexto aprobado responde bien las preguntas reales? | Usuario de negocio, analista | Banco de prueba antes de implementar en la plataforma; runtime de plan B para lo que la plataforma no cubre. |
 
 ```text
@@ -76,19 +76,19 @@ Sistemas + documentación ──► Atlas (diagnóstico) ──► Nexo (conocim
 - Casos de uso con pregunta de negocio, prioridad, responsable y sistemas involucrados.
 - Diagnóstico determinista: score por dimensión (incluida alineación entre sistemas), brechas por sistema, entre sistemas y por caso de uso, e informe descargable.
 - Revisión humana de candidatos, modelo canónico (propiedades, relaciones, sinónimos, restricciones, vínculos con fuentes), releases y comparación entre versiones.
-- Paquetes de mapping locales para Fabric y Databricks (`ready_for_review`).
+- Paquetes importables para Fabric IQ (Ontology + Data Agent) y Databricks (Pages, metric views, Unity Catalog, Genie Agents), con reporte de cobertura y ruta recomendada A/B (`ready_for_review`). Ver [integración](15_INTEGRACION_FABRIC_DATABRICKS.md).
 - Argos con consultas nombradas, parametrizadas y de solo lectura (Fabric, MariaDB, adapter sintético), abstención y evaluación.
 
 ### No incluye
 
 - Descubrimiento remoto de Databricks u otras plataformas (se cargan por archivo exportado).
-- Publicación o escritura en sistemas externos.
+- Publicación o escritura en sistemas externos: el paquete se importa en la plataforma; los conectores directos son la release 2.
 - SQL libre generado desde una pregunta.
 - Aprobación automática de conocimiento.
 - Usuarios, SSO, roles técnicos o multiusuario.
 - Garantía de calidad de datos a nivel de filas.
 - Reemplazo del catálogo, del gobierno de datos, de la plataforma del cliente ni de su ontología (Fabric IQ Ontology, Databricks u otra).
-- Evaluación automática de viabilidad por plataforma: hoy la ruta A/B/C la decide el equipo con la evidencia del diagnóstico.
+- Evaluación automática de viabilidad por plataforma en Atlas: hoy el paquete de Nexo recomienda la ruta A/B según qué fuentes alcanza la plataforma; la decisión final (incluida la C) la toma el equipo.
 
 ## 6. Cómo se usa en un proyecto
 

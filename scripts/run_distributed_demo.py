@@ -96,6 +96,26 @@ def main() -> None:
         print(f"  [{gap['severity']}] {gap['gap_id']}")
     print(f"Paquete: {package['package_path']}")
 
+    run_id = str(package["manifest"]["run_id"])
+    draft = service.create_nexo_draft(project.id, run_id, source_authority="technical")
+    draft_id = str(draft["manifest"]["draft_id"])
+    service.bulk_update_nexo_candidates(
+        project.id, draft_id, [str(item["candidate_id"]) for item in draft["candidates"]],
+        "approved", "Demo reviewer", "Negocio y datos", "Aprobado solo para la demo sintetica.",
+    )
+    release = service.publish_nexo_release(project.id, draft_id, "Demo reviewer", "Release demo distribuida.")
+    release_id = str(release["manifest"]["release_id"])
+    print(f"\nRelease: {release_id}")
+    for target, settings in (("fabric", {}), ("databricks", {"catalog": "main"})):
+        export = service.prepare_interoperability_package(
+            project.id, release_id, target, "Demo reviewer", "Paquete demo.", settings
+        )
+        summary = export["export"]["summary"]
+        print(
+            f"- {summary['target_label']}: ruta {summary['recommended_route']} "
+            f"({summary['implementable_in_platform']}/{summary['total']} implementables) -> {export['package_path']}"
+        )
+
 
 def reset_demo_artifacts() -> None:
     (ROOT_DIR / "data" / "projects" / f"{PROJECT_ID}.json").unlink(missing_ok=True)

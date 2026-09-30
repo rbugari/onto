@@ -43,9 +43,13 @@ data/interoperability/<project>/<release>/<target>/<package-id>/
   publication_manifest.json
   mapping.json
   deployment_manifest.json
+  coverage.json
+  export/            # archivos importables por la plataforma destino
 ```
 
 El mapping cubre entidades, reglas, KPIs, propiedades, relaciones, sinonimos y restricciones. Cada entrada conserva nombre, definicion, responsable y vinculos de origen cuando existen.
+
+Para Fabric y Databricks, `export/` contiene los archivos que la plataforma importa: item Ontology y Data Agent de Fabric IQ; Pages, metric views, SQL de Unity Catalog y request de Genie Agents en Databricks. Tambien incluye un reporte de cobertura por elemento y la ruta recomendada (A o B). Detalle, formatos, pasos de importacion y plan de conectores: [Integracion con Fabric y Databricks](15_INTEGRACION_FABRIC_DATABRICKS.md).
 
 ## Conector Fabric de solo lectura
 
@@ -67,5 +71,5 @@ Las consultas de Argos sobre filas de negocio son otro contrato: se ejecutan sol
 1. Separar en contratos de adapter la lectura de datos, la importacion de ontologias y la publicacion ontologica.
 2. Descubrimiento remoto de metadata en Databricks (Unity Catalog) con identidad delegada y solo lectura; hoy se carga por archivo exportado.
 3. Consolidar `template_id`, limites y formateo desde adapters de datos configurables; el primer adapter local sintetico ya esta validado.
-4. Elegir un primer destino ontologico real y documentar autenticacion, workspace, capacidades, auditoria y rollback.
+4. Conectores de publicacion para Fabric IQ y Databricks (release 2 del plan en [15_INTEGRACION_FABRIC_DATABRICKS.md](15_INTEGRACION_FABRIC_DATABRICKS.md)), con autenticacion, auditoria y rollback.
 5. Endurecer el adapter MariaDB de Nalub mediante un `connection_profile` aislado por proyecto, con credenciales read-only rotadas y pruebas de permisos, limites, latencia y abstencion.

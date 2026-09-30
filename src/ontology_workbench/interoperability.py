@@ -1,22 +1,39 @@
 from __future__ import annotations
 
 from ontology_workbench.models import utc_now_iso
+from ontology_workbench.platform_exports import build_platform_export
 
 
 TARGETS = {
     "fabric": {
         "label": "Microsoft Fabric",
-        "scope": "Paquete de mapping para revisión; no publica ni modifica un workspace de Fabric.",
+        "scope": (
+            "Paquete importable: item Ontology (Fabric IQ) en formato Git/REST y Data Agent con instrucciones; "
+            "no publica ni modifica un workspace de Fabric."
+        ),
+        "settings": {"ontology_name": "Nombre de la ontologia (opcional)"},
     },
     "databricks": {
         "label": "Databricks",
-        "scope": "Paquete de mapping para revisión; no publica ni modifica un workspace de Databricks.",
+        "scope": (
+            "Paquete importable: Pages, metric views, comentarios de Unity Catalog y Genie Agent; "
+            "no publica ni modifica un workspace de Databricks."
+        ),
+        "settings": {
+            "catalog": "Catalogo por defecto de Unity Catalog (opcional)",
+            "warehouse_id": "ID del SQL warehouse para Genie (opcional)",
+        },
     },
 }
 
 
 def build_publication_package(
-    release: dict[str, object], target: str, prepared_by: str, note: str, package_id: str
+    release: dict[str, object],
+    target: str,
+    prepared_by: str,
+    note: str,
+    package_id: str,
+    settings: dict[str, str] | None = None,
 ) -> dict[str, object]:
     clean_target = target.strip().lower()
     if clean_target not in TARGETS:
@@ -41,9 +58,10 @@ def build_publication_package(
         for item in ontology.get(key, [])
         if isinstance(item, dict)
     ]
+    export = build_platform_export(release, clean_target, settings)
     return {
         "manifest": {
-            "format": "onto-interoperability-package-v0.1",
+            "format": "onto-interoperability-package-v0.2",
             "package_id": package_id,
             "created_at": utc_now_iso(),
             "project_id": manifest["project_id"],
@@ -55,6 +73,8 @@ def build_publication_package(
             "note": note.strip(),
             "source_release_format": manifest["format"],
             "publication_mode": "local_mapping_only",
+            "recommended_route": export["summary"]["recommended_route"],
+            "export_files": sorted(export["files"]),
             "rollback": "No se ejecutó publicación externa; descartar este paquete revierte la preparación.",
         },
         "mapping": {
@@ -73,6 +93,7 @@ def build_publication_package(
             "requires": ["release_inmutable", "mapping_aprobado", "identidad_autorizada", "destino_configurado"],
             "external_changes": [],
         },
+        "export": export,
     }
 
 

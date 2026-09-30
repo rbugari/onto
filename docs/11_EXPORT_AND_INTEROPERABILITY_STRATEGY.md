@@ -64,9 +64,11 @@ Como minimo debe declarar:
 publication_manifest.json
 mapping.json
 deployment_manifest.json
+coverage.json
+export/
 ```
 
-La publicacion real requiere release aprobada, mapping aprobado, identidad autorizada, destino explicitamente seleccionado, auditoria, resultado verificable y rollback operativo. El MVP actual solo genera `publication_manifest.json`, `mapping.json` y `deployment_manifest.json` en paquetes `ready_for_review`; no genera aun `rollback_manifest.json` ni ejecuta publicaciones externas.
+La publicacion real requiere release aprobada, mapping aprobado, identidad autorizada, destino explicitamente seleccionado, auditoria, resultado verificable y rollback operativo. El MVP actual genera esos archivos en paquetes `ready_for_review` y, para Fabric y Databricks, la carpeta `export/` con archivos importables por la plataforma y un reporte de cobertura con la ruta recomendada. No genera aun `rollback_manifest.json` ni ejecuta publicaciones externas. Formatos y plan de conectores: [Integracion con Fabric y Databricks](15_INTEGRACION_FABRIC_DATABRICKS.md).
 
 ## Regla de autoridad
 

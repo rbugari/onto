@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import base64
+import re
 import sys
 import unittest
 import json
@@ -38,6 +40,7 @@ from ontology_workbench.query_catalog import (
 )
 from ontology_workbench.mariadb_schema import parse_mariadb_schema_dump
 from ontology_workbench.external_metadata import parse_columns_csv, parse_sql_ddl
+from ontology_workbench.platform_exports import build_platform_export
 from ontology_workbench.result_views import infer_visualization, starter_questions
 from ontology_workbench.runtime_evaluation import parse_evaluation_cases
 from ontology_workbench.query_catalog import LEGACY_FABRIC_QUERY_CATALOG
@@ -1236,6 +1239,10 @@ class WorkbenchServiceTests(unittest.TestCase):
         binding_mappings = [mapping for mapping in mappings if mapping["source_type"] == "data_binding"]
         self.assertEqual(len(binding_mappings), 1)
         self.assertEqual(binding_mappings[0]["target_object_kind"], "approved_source_binding")
+        export_dir = Path(str(package["package_path"])) / "export"
+        self.assertTrue((export_dir / "coverage_report.md").exists())
+        self.assertTrue((export_dir / "fabric" / "ontology" / "create_ontology_request.json").exists())
+        self.assertTrue((Path(str(package["package_path"])) / "coverage.json").exists())
 
     def test_semantic_comparison_detects_changed_definition_between_releases(self) -> None:
         baseline = {
@@ -1648,6 +1655,91 @@ class ArgosPresentationTests(unittest.TestCase):
         self.assertEqual([case["expected_status"] for case in cases], ["answered", "answered", "abstained"])
         self.assertEqual(cases[0]["expected_item_name"], "Cliente activo")
         self.assertEqual(invalid, ["5", "6"])
+
+
+class PlatformExportTests(unittest.TestCase):
+    def _release(self, lake_platform: str = "databricks") -> dict[str, object]:
+        def candidate(candidate_id: str, name: str, definition: str, metadata: dict[str, str] | None = None) -> dict[str, object]:
+            item = {"id": candidate_id, "name": name, "definition": definition, "confidence": 1.0,
+                    "source_binding": {"source_document_id": "doc-1", "source_chunk_id": "doc-1-chunk-001"}}
+            if metadata:
+                item["technical_metadata"] = metadata
+            return item
+
+        def element(element_id: str, name: str, linked: list[str]) -> dict[str, object]:
+            return {"id": element_id, "name": name, "definition": f"Definicion de {name}", "owner": "Negocio",
+                    "linked_candidate_ids": linked}
+
+        return {
+            "manifest": {"release_id": "release-test", "project_id": "p", "source_assessment": {"scope": {"domain_id": "comercial"}}},
+            "canonical_ontology": {
+                "concepts": [candidate("c1", "Cliente activo", "Cliente con compra en 12 meses."),
+                             candidate("c2", "Pedido", "Solicitud de compra.")],
+                "kpis": [candidate("k1", "Ventas netas", "Importe facturado menos descuentos.")],
+                "business_rules": [candidate("r1", "Anulados", "Un pedido anulado no cuenta como venta.")],
+                "technical_assets": [
+                    candidate("t1", "gold.dim_cliente", "tabla", {"bim.objectType": "table", "source.platform": lake_platform}),
+                    candidate("t2", "clientes", "tabla", {"bim.objectType": "table", "source.platform": "mariadb"}),
+                ],
+                "properties": [element("p1", "Zona", ["c1"])],
+                "relationships": [element("rel1", "realiza", ["c1", "c2"])],
+                "synonyms": [element("s1", "Cuenta", ["c1"])],
+                "constraints": [],
+                "data_bindings": [element("b1", "cliente en lakehouse", ["c1", "t1"]),
+                                  element("b2", "cliente en ERP", ["c1", "t2"])],
+            },
+            "agent_context_pack": {"query_catalog": {"q": {"example_question": "Cuantos clientes activos hay?"}}},
+        }
+
+    def test_fabric_export_builds_valid_ontology_definition(self) -> None:
+        export = build_platform_export(self._release("fabric"), "fabric", {"ontology_name": "Ventas ñ 2026"})
+        files = export["files"]
+        entity_paths = [path for path in files if "/EntityTypes/" in path]
+        self.assertEqual(len(entity_paths), 2)
+        entity = json.loads(files[entity_paths[0]])
+        self.assertRegex(entity["name"], r"^[a-zA-Z][a-zA-Z0-9_-]{0,127}$")
+        self.assertTrue(entity["id"].isdigit() and 0 < int(entity["id"]) < 2**63)
+        self.assertIn("Ventas_n_2026.Ontology/.platform", " ".join(files))
+        relation = json.loads(next(content for path, content in files.items() if "/RelationshipTypes/" in path))
+        self.assertEqual({relation["source"]["entityTypeId"], relation["target"]["entityTypeId"]},
+                         {json.loads(files[path])["id"] for path in entity_paths})
+        request = json.loads(files["fabric/ontology/create_ontology_request.json"])
+        decoded = {part["path"]: json.loads(base64.b64decode(part["payload"])) for part in request["definition"]["parts"]}
+        self.assertEqual(decoded[".platform"]["metadata"]["type"], "Ontology")
+        stage = json.loads(next(content for path, content in files.items() if path.endswith("stage_config.json")))
+        self.assertIn("Un pedido anulado no cuenta como venta.", stage["aiInstructions"])
+        self.assertIn("Cuenta", stage["aiInstructions"])
+        self.assertEqual(export["summary"]["recommended_route"], "B")
+        outside = [item for item in export["coverage"] if item["status"] == "outside_platform"]
+        self.assertEqual({item["name"] for item in outside}, {"clientes", "cliente en ERP"})
+
+    def test_databricks_export_builds_pages_metric_views_sql_and_genie_space(self) -> None:
+        export = build_platform_export(self._release(), "databricks", {"catalog": "main", "warehouse_id": "abc123"})
+        files = export["files"]
+        self.assertIn("databricks/pages/cliente-activo.md", files)
+        self.assertIn("**Sinonimos:** Cuenta", files["databricks/pages/cliente-activo.md"])
+        self.assertIn("COMPLETAR_EXPRESION_AGREGADA", files["databricks/metric_views/ventas-netas.yaml"])
+        sql = files["databricks/unity_catalog_comments.sql"]
+        self.assertIn("COMMENT ON TABLE main.gold.dim_cliente IS 'Cliente activo: Cliente con compra en 12 meses.';", sql)
+        self.assertNotIn("clientes", sql.split("\n", 3)[-1])
+        request = json.loads(files["databricks/genie_agent_create_request.json"])
+        self.assertEqual(request["warehouse_id"], "abc123")
+        space = json.loads(request["serialized_space"])
+        self.assertEqual(space["version"], 2)
+        ids = [item["id"] for item in space["config"]["sample_questions"]]
+        self.assertTrue(all(re.fullmatch(r"[0-9a-f]{32}", item) for item in ids))
+        self.assertEqual(ids, sorted(ids))
+        self.assertEqual(space["data_sources"]["tables"][0]["identifier"], "main.gold.dim_cliente")
+        self.assertEqual(len(space["instructions"]["text_instructions"]), 1)
+        self.assertEqual(export["summary"]["recommended_route"], "B")
+
+    def test_route_is_a_when_everything_is_reachable(self) -> None:
+        release = self._release()
+        release["canonical_ontology"]["technical_assets"] = release["canonical_ontology"]["technical_assets"][:1]
+        release["canonical_ontology"]["data_bindings"] = release["canonical_ontology"]["data_bindings"][:1]
+        export = build_platform_export(release, "databricks")
+        self.assertEqual(export["summary"]["recommended_route"], "A")
+        self.assertIn("Ruta recomendada: **A**", export["files"]["coverage_report.md"])
 
 
 if __name__ == "__main__":

@@ -1,8 +1,12 @@
 """Nexo screen: review Atlas findings, build the canonical model and publish releases."""
 from __future__ import annotations
 
+import io
+import zipfile
+
 import streamlit as st
 
+from ontology_workbench.platform_exports import COVERAGE_LABELS
 from ontology_workbench.service import WorkbenchService
 from onto_ui.common import require_reviewer, reviewer
 from onto_ui.labels import DECISION_LABELS, short_timestamp
@@ -450,14 +454,14 @@ def _render_comparison(service: WorkbenchService, project_id: str, draft_id: str
 # ---------------------------------------------------------------- Release
 
 def _render_release(service: WorkbenchService, project_id: str, draft_id: str, pending: int) -> None:
-    release_column, interop_column = st.columns(2)
-    with release_column, st.container(border=True):
-        st.markdown("**Emitir release**")
+    with st.container(border=True):
+        st.markdown("**1. Emitir release**")
         if pending:
             st.warning(f"Faltan {pending} decisiones; la release está bloqueada.")
         with st.form(f"nexo-release-{draft_id}"):
-            released_by = st.text_input("Responsable de la release", value=reviewer()[0])
-            note = st.text_area("Nota de release", height=80)
+            columns = st.columns((1, 2))
+            released_by = columns[0].text_input("Responsable de la release", value=reviewer()[0])
+            note = columns[1].text_input("Nota de release")
             if st.form_submit_button("Emitir release", type="primary", disabled=bool(pending)):
                 try:
                     release = service.publish_nexo_release(project_id, draft_id, released_by, note)
@@ -476,11 +480,16 @@ def _render_release(service: WorkbenchService, project_id: str, draft_id: str, p
                 width="stretch",
                 hide_index=True,
             )
-    with interop_column, st.container(border=True):
-        st.markdown("**Entregar a la plataforma destino** (ruta preferida)")
+    _render_delivery(service, project_id, draft_id)
+
+
+def _render_delivery(service: WorkbenchService, project_id: str, draft_id: str) -> None:
+    with st.container(border=True):
+        st.markdown("**2. Entregar a la plataforma destino** (ruta preferida)")
         st.caption(
-            "Genera el paquete para implementar la release en la ontología de Fabric, Databricks u otra plataforma. "
-            "Lo que la plataforma no pueda implementar queda en ONTO como plan B. No usa credenciales ni publica."
+            "Genera archivos que la plataforma del cliente importa en su propia ontología: Fabric IQ (ítem Ontology y "
+            "Data Agent) o Databricks (Pages, metric views, Unity Catalog y Genie). Indica qué se implementa ahí y "
+            "qué queda en ONTO como plan B. No usa credenciales ni publica."
         )
         releases = service.list_nexo_releases(project_id)
         if not releases:
@@ -488,23 +497,70 @@ def _render_release(service: WorkbenchService, project_id: str, draft_id: str, p
             return
         release_options = {str(item["release_id"]): item for item in releases}
         targets = service.interoperability_targets()
-        with st.form(f"nexo-interoperability-{draft_id}"):
-            release_id = st.selectbox(
+        target = st.segmented_control(
+            "Plataforma destino", list(targets), format_func=lambda item: targets[item]["label"],
+            default="fabric", key=f"nexo-delivery-target-{draft_id}",
+        ) or "fabric"
+        with st.form(f"nexo-interoperability-{draft_id}-{target}"):
+            columns = st.columns(2)
+            release_id = columns[0].selectbox(
                 "Release", list(release_options),
                 format_func=lambda item: f"{short_timestamp(release_options[item].get('created_at'))} · {item}",
             )
-            target = st.selectbox("Destino", list(targets), format_func=lambda item: targets[item]["label"])
-            prepared_by = st.text_input("Responsable del mapping", value=reviewer()[0])
-            note = st.text_area("Nota", height=70)
-            if st.form_submit_button("Generar paquete local"):
+            prepared_by = columns[1].text_input("Responsable del paquete", value=reviewer()[0])
+            settings_fields = dict(targets[target].get("settings", {}))
+            setting_columns = st.columns(max(len(settings_fields), 1))
+            settings = {
+                key: column.text_input(label, key=f"nexo-delivery-{target}-{key}-{draft_id}")
+                for column, (key, label) in zip(setting_columns, settings_fields.items())
+            }
+            note = st.text_input("Nota")
+            if st.form_submit_button("Generar paquete para la plataforma", type="primary"):
                 try:
                     st.session_state[f"nexo-interoperability-result-{project_id}"] = service.prepare_interoperability_package(
-                        project_id, release_id, target, prepared_by, note
+                        project_id, release_id, target, prepared_by, note, settings
                     )
                 except (ValueError, FileNotFoundError) as exc:
                     st.error(str(exc))
         package = st.session_state.get(f"nexo-interoperability-result-{project_id}")
-        if package:
-            st.success(f"Paquete para {package['manifest']['target_label']} listo para revisión.")
-            st.caption(str(package["package_path"]))
-            st.dataframe(package["mapping"]["mappings"], width="stretch", hide_index=True, height=250)
+        if package and package.get("export"):
+            _render_package(package)
+
+
+def _render_package(package: dict[str, object]) -> None:
+    export = dict(package["export"])
+    summary = dict(export["summary"])
+    counts = dict(summary["counts"])
+    route_labels = {"A": "A · Todo en la plataforma", "B": "B · Mixta (plataforma + ONTO)", "C": "C · Plan B en ONTO"}
+    metrics = st.columns(4)
+    metrics[0].metric("Ruta recomendada", route_labels.get(str(summary["recommended_route"]), summary["recommended_route"]))
+    metrics[1].metric("Implementables en la plataforma", f"{summary['implementable_in_platform']} / {summary['total']}")
+    metrics[2].metric("Falta completar", counts.get("needs_completion", 0))
+    metrics[3].metric("Fuera de alcance", counts.get("outside_platform", 0))
+    st.caption(str(summary["route_reason"]))
+    st.download_button(
+        f"Descargar paquete para {summary['target_label']} (.zip)",
+        data=_zip_files(dict(export["files"])),
+        file_name=f"onto-{summary['target']}-{package['manifest']['release_id']}.zip",
+        mime="application/zip",
+        key=f"nexo-download-{package['manifest']['package_id']}",
+    )
+    st.caption(f"También guardado en: {package['package_path']}")
+    st.dataframe(
+        [
+            {"Elemento": item["element_type"], "Nombre": item["name"], "Resultado": COVERAGE_LABELS[item["status"]],
+             "Dónde queda": item["target_artifact"], "Acción": item["action"]}
+            for item in export["coverage"]
+        ],
+        width="stretch",
+        hide_index=True,
+        height=300,
+    )
+
+
+def _zip_files(files: dict[str, str]) -> bytes:
+    buffer = io.BytesIO()
+    with zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED) as archive:
+        for path, content in sorted(files.items()):
+            archive.writestr(path, content)
+    return buffer.getvalue()
