@@ -46,7 +46,7 @@ Atlas no aprueba una ontologia y no consulta filas de negocio durante el inventa
 3. **Modelo canonico:** proponer vinculos con fuentes, agregar y decidir propiedades, relaciones, sinonimos y restricciones.
 4. **Consolidacion:** detectar duplicados, aceptarlos como plan y aplicarlos.
 5. **Comparar:** draft contra release o dos releases.
-6. **Release e interoperabilidad:** emitir la release cuando no quedan pendientes y preparar el mapping local.
+6. **Release y entrega a la plataforma:** emitir la release cuando no quedan pendientes y preparar el paquete para implementarla en Fabric, Databricks u otra plataforma (ruta preferida).
 
 Nexo conserva decisiones trazables. Una release no se emite con pendientes y no publica cambios externos.
 

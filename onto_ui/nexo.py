@@ -32,8 +32,9 @@ EMPTY_SUMMARY = {"total": 0, "pending_review": 0, "approved": 0, "rejected": 0}
 def render_nexo(service: WorkbenchService, project_id: str) -> None:
     st.title("Nexo · Validar conocimiento")
     st.caption(
-        "Convierte los hallazgos de Atlas en conocimiento aprobado y versionado. "
-        "Argos solo usa releases aprobadas."
+        "Convierte los hallazgos de Atlas en conocimiento aprobado y lo prepara para implementarlo en la "
+        "ontología de Fabric, Databricks u otra plataforma del cliente. ONTO no la reemplaza: solo cubre lo que la "
+        "plataforma no pueda (plan B)."
     )
     assessments = service.list_atlas_assessments(project_id)
     if not assessments:
@@ -59,7 +60,7 @@ def render_nexo(service: WorkbenchService, project_id: str) -> None:
     _render_status(summary, model_summary, pending)
 
     review_tab, model_tab, consolidation_tab, compare_tab, release_tab = st.tabs(
-        ["Revisión de candidatos", "Modelo canónico", "Consolidación", "Comparar", "Release e interoperabilidad"]
+        ["Revisión de candidatos", "Modelo canónico", "Consolidación", "Comparar", "Release y entrega a la plataforma"]
     )
     with review_tab:
         _render_candidate_review(service, project_id, draft_id, list(draft["candidates"]))
@@ -123,7 +124,7 @@ def _render_status(summary: dict[str, int], model_summary: dict[str, int], pendi
             icon=":material/arrow_forward:",
         )
     else:
-        st.success("Todo decidido. Podés emitir la release en **Release e interoperabilidad**.")
+        st.success("Todo decidido. Podés emitir la release y prepararla para la plataforma en **Release y entrega a la plataforma**.")
 
 
 # ---------------------------------------------------------------- Candidatos
@@ -463,7 +464,7 @@ def _render_release(service: WorkbenchService, project_id: str, draft_id: str, p
                 except ValueError as exc:
                     st.error(str(exc))
                 else:
-                    st.success(f"Release {release['manifest']['release_id']} creada. Argos ya puede usarla.")
+                    st.success(f"Release {release['manifest']['release_id']} creada. Siguiente paso: prepararla para la plataforma destino.")
         releases = service.list_nexo_releases(project_id)
         if releases:
             st.dataframe(
@@ -476,8 +477,11 @@ def _render_release(service: WorkbenchService, project_id: str, draft_id: str, p
                 hide_index=True,
             )
     with interop_column, st.container(border=True):
-        st.markdown("**Preparar interoperabilidad**")
-        st.caption("Genera un mapping local para Fabric, Databricks u otros destinos. No usa credenciales ni publica.")
+        st.markdown("**Entregar a la plataforma destino** (ruta preferida)")
+        st.caption(
+            "Genera el paquete para implementar la release en la ontología de Fabric, Databricks u otra plataforma. "
+            "Lo que la plataforma no pueda implementar queda en ONTO como plan B. No usa credenciales ni publica."
+        )
         releases = service.list_nexo_releases(project_id)
         if not releases:
             st.info("Emití una release para preparar un paquete.")

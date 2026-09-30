@@ -8,7 +8,19 @@ Estado: fuente normativa para producto, comunicacion y alcance del MVP
 
 ## Foco
 
-ONTO aporta mas valor cuando el dominio esta **repartido en varios sistemas y plataformas**. Atlas arma la vista completa del dominio (que sistemas participan, que entidades comparten, como se cruzan y que falta) y Nexo produce una ontologia comun, neutral de plataforma, que despues se implementa en Fabric, Databricks u otra herramienta. Ver [Objetivo, alcance y foco](OBJETIVO_ALCANCE_Y_FOCO.md).
+ONTO aporta mas valor cuando el dominio esta **repartido en varios sistemas y plataformas**. Atlas arma la vista completa del dominio (que sistemas participan, que entidades comparten, como se cruzan y que falta) y Nexo produce el conocimiento aprobado, en un formato portable, para que despues se implemente en Fabric, Databricks u otra herramienta. Ver [Objetivo, alcance y foco](OBJETIVO_ALCANCE_Y_FOCO.md).
+
+## Relacion con Fabric, Databricks y otras plataformas ontologicas
+
+**ONTO no compite con Fabric IQ Ontology, con las capacidades ontologicas de Databricks ni con otras herramientas del cliente.** Hace el trabajo previo que esas plataformas necesitan y no resuelven solas: relevar el dominio completo, cruzar sistemas, validar con evidencia y hacer aprobar el conocimiento por personas.
+
+Orden de preferencia para implementar lo aprobado:
+
+1. **Ruta A, nativa (por defecto):** se entrega el paquete y la plataforma del cliente lo implementa y lo gobierna.
+2. **Ruta B, mixta:** la plataforma implementa lo que puede; ONTO sostiene solo la parte que queda afuera (fuentes que no alcanza, reglas que no soporta, costo o gobierno).
+3. **Ruta C, plan B:** si ninguna plataforma puede implementarlo de forma viable, ONTO conserva la release y Argos la sirve.
+
+Argos no es el destino buscado: es el banco de prueba del contexto aprobado y el runtime de plan B.
 
 ## Que hace ONTO
 
@@ -26,7 +38,7 @@ ONTO aporta mas valor cuando el dominio esta **repartido en varios sistemas y pl
 ## Que no hace
 
 - no reemplaza el warehouse, lakehouse, catalogo o gobierno de datos del cliente;
-- no reemplaza Fabric, Databricks, Purview, Collibra, Neo4j u otra herramienta ontologica;
+- no reemplaza Fabric, Databricks, Purview, Collibra, Neo4j u otra herramienta ontologica: les entrega el conocimiento preparado y solo cubre lo que no pueden implementar;
 - no aprueba automaticamente inferencias de un LLM;
 - no inventa una ontologia final sin evidencia y decision humana;
 - no acepta SQL libre desde Argos;
@@ -47,7 +59,7 @@ Registry y validacion. Convierte evidencia en candidatos revisables, conserva de
 
 ### Argos
 
-Runtime e investigador. Usa una release aprobada para responder con evidencia, consultar fuentes autorizadas y abstenerse cuando faltan evidencia, permisos o granularidad.
+Runtime de validacion y de plan B. Usa una release aprobada para probar que el contexto responde bien antes de implementarlo en la plataforma, y para servir la parte que la plataforma no puede cubrir. Responde con evidencia, consulta fuentes autorizadas y se abstiene cuando faltan evidencia, permisos o granularidad.
 
 ## Dos planos
 
@@ -64,6 +76,8 @@ Evitar:
 - “ONTO reemplaza el catalogo o el gobierno de datos”.
 - “ONTO crea automaticamente la ontologia final”.
 - “ONTO funciona solo con Fabric”.
+- “ONTO es una alternativa a la ontologia de Fabric o de Databricks” (las prepara y complementa; no compite).
+- “Con ONTO no hace falta implementar en la plataforma” (la ruta por defecto es implementar en la plataforma del cliente).
 - “ONTO se conecta en vivo a Databricks” (hoy se carga por archivo exportado).
 - “ONTO resuelve automaticamente las equivalencias entre sistemas” (las detecta; las confirman personas).
 - “ONTO garantiza respuestas correctas fuera de la evidencia aprobada”.

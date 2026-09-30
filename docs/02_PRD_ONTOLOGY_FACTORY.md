@@ -10,15 +10,15 @@ Resumen ejecutivo: [Objetivo, alcance y foco](OBJETIVO_ALCANCE_Y_FOCO.md).
 
 Las organizaciones disponen de modelos BI, warehouse/lakehouse, queries, procesos y documentacion que contienen conocimiento valioso, pero esta disperso, es desigual y rara vez esta listo para agentes. La dificultad no es solo documentar activos: es determinar que es confiable, convertirlo en conocimiento semantico validado y usarlo despues sin que un agente invente relaciones o consulte fuentes indebidas.
 
-El caso dificil es el dominio **distribuido**: la misma entidad (cliente, producto, venta) vive en varios sistemas y plataformas con nombres y claves distintas. Si todo estuviera en una sola plataforma, sus herramientas nativas alcanzarian; cuando no, hace falta una ontologia comun que explique el dominio completo y que despues se implemente en la plataforma elegida.
+El caso dificil es el dominio **distribuido**: la misma entidad (cliente, producto, venta) vive en varios sistemas y plataformas con nombres y claves distintas. Si todo estuviera en una sola plataforma, sus herramientas nativas cubririan buena parte; cuando no, hace falta relevar y validar el dominio completo para que despues se implemente en la ontologia de la plataforma elegida, y cubrir aparte solo lo que esa plataforma no alcance.
 
 ## 2. Vision
 
-ONTO convierte activos tecnicos y documentacion de una organizacion en conocimiento ontologico gobernado y utilizable. La plataforma entrega tres productos independientes:
+ONTO convierte activos tecnicos y documentacion de una organizacion en conocimiento ontologico gobernado y lo entrega a la plataforma del cliente para que lo implemente en su propia ontologia. No compite con Fabric IQ Ontology ni con Databricks: hace el relevamiento, el cruce y la validacion que necesitan. La plataforma entrega tres productos independientes:
 
-1. un assessment de readiness ontologico;
-2. una ontologia validada, versionada y portable;
-3. un Runtime generico capaz de usar esa ontologia con evidencia y abstencion.
+1. un assessment de readiness ontologico, que incluye que puede implementar la plataforma destino;
+2. conocimiento validado, versionado y un paquete para implementarlo en la plataforma;
+3. un Runtime generico para probar ese conocimiento y servir, como plan B, la parte que la plataforma no pueda cubrir.
 
 ## 3. Usuarios y necesidades
 
@@ -35,7 +35,8 @@ ONTO convierte activos tecnicos y documentacion de una organizacion en conocimie
 - **Evidencia antes que inferencia**: toda propuesta debe conservar fuente y razon de confianza.
 - **LLM propone; personas y reglas aprueban**: ningun LLM publica una definicion o binding por si solo.
 - **Separacion de productos**: assessment, registry y runtime se comunican por contratos versionados.
-- **Portabilidad sin dependencia**: el modelo canonico no se ata a Fabric ni Databricks.
+- **Portabilidad sin dependencia**: el modelo intermedio no se ata a Fabric ni Databricks, para poder entregarlo a cualquiera.
+- **Plataforma del cliente primero**: lo aprobado se implementa en la plataforma del cliente siempre que sea viable; ONTO solo sostiene lo que la plataforma no puede (plan B) y lo justifica.
 - **Minimo privilegio**: se trabaja con metadata por defecto; los conectores de datos son read-only y explícitamente gobernados.
 - **No responder es una capacidad**: el Runtime declara falta de evidencia, permisos o granularidad.
 - **No duplicar datos**: la ontologia referencia activos y contratos autorizados; no replica datos de negocio innecesariamente.
@@ -211,7 +212,7 @@ Una publicacion exige release aprobada, mapping aprobado, identidad autorizada, 
 | --- | --- |
 | Inferencias LLM excesivas | Evidencia obligatoria, estados de revision y evaluaciones de precision. |
 | Fuentes pobres o contradictorias | Gaps y preguntas visibles; no forzar una definicion canonica. |
-| Dependencia de previews de plataforma | Modelo canonico propio, adapters aislados y modo fallback. |
+| Dependencia de previews de plataforma | Formato intermedio propio, adapters aislados y plan B en ONTO para lo que la plataforma no soporte. |
 | Datos sensibles en prompts | Minimizacion de contexto, configuracion por cliente y politica de LLM. |
 | Ontologia desactualizada | Releases, hash de fuentes, mappings stale y proceso de revalidacion. |
 | Runtime con acceso excesivo | Bindings declarativos, identidad delegada cuando aplique y gateways read-only. |

@@ -34,7 +34,7 @@ Ver tambien la [guia del caso Nalub](14_NALUB_REAL_CASE.md).
 
 ## Principio de interoperabilidad
 
-ONTO tendra un modelo canonico propio y versionado. Fabric, Databricks u otras plataformas pueden ser fuentes de datos, fuentes de evidencia, modelos semanticos, repositorios ontologicos externos o destinos de publicacion. No son bifurcaciones del producto: se conectan mediante adapters y contratos especificos para cada rol.
+ONTO usa un modelo canonico intermedio y versionado para relevar y validar. Fabric, Databricks u otras plataformas pueden ser fuentes de datos, fuentes de evidencia, modelos semanticos y, sobre todo, el destino preferido donde se implementa la ontologia aprobada. ONTO no compite con esas plataformas: solo sostiene por su cuenta lo que no pueden implementar (plan B). Se conectan mediante adapters y contratos especificos para cada rol.
 
 La documentacion debe responder siempre dos preguntas separadas:
 

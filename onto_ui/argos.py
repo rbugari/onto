@@ -24,7 +24,9 @@ def render_argos(service: WorkbenchService, project_id: str) -> None:
     settings = load_llm_settings()
     engine = f"{settings.provider} · {settings.model}" if settings.enabled else "modo local determinista"
     st.caption(
-        f"Responde solo con el conocimiento aprobado (release del {short_timestamp(releases[0].get('created_at'))}) "
+        "Banco de prueba del conocimiento aprobado antes de implementarlo en la plataforma del cliente, y runtime "
+        "de plan B para lo que la plataforma no pueda cubrir. "
+        f"Responde solo con la release del {short_timestamp(releases[0].get('created_at'))} "
         f"y consultas autorizadas. Motor: {engine}."
     )
     catalog = service.get_argos_query_catalog(project_id, release_id)

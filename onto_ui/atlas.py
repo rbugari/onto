@@ -41,7 +41,7 @@ def render_atlas(service: WorkbenchService, project_id: str) -> None:
     st.title("Atlas · Diagnóstico de preparación")
     st.caption(
         "Reúne la metadata de todos los sistemas del dominio y la documentación de negocio para saber "
-        "qué está listo, qué falta y cómo se conectan los sistemas entre sí."
+        "qué está listo, qué falta, cómo se conectan los sistemas y qué podrá implementar la plataforma destino."
     )
     _render_progress(project, documents, inventory, assessments)
 
@@ -94,7 +94,7 @@ def _render_progress(project, documents, inventory, assessments) -> None:
     if next_step:
         st.info(f"Siguiente paso: {messages[next_step]}", icon=":material/arrow_forward:")
     else:
-        st.success("Assessment revisado. Podés continuar en Nexo para validar el conocimiento.")
+        st.success("Diagnóstico revisado. Podés continuar en Nexo para validar el conocimiento y prepararlo para la plataforma.")
 
 
 # ---------------------------------------------------------------- Alcance

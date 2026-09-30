@@ -5,7 +5,7 @@ Alcance: dos planos de interoperabilidad; sin publicación externa
 
 ## Principio
 
-ONTO conserva una ontología canónica propia y puede convivir con el repositorio de datos y el repositorio ontologico que el cliente ya utilice. Fabric y Databricks no son una sola integracion: pueden ser fuentes de datos, modelos semanticos, fuentes de una ontologia existente o destinos de publicacion.
+ONTO trabaja con un formato canonico intermedio para relevar y validar el conocimiento, y lo entrega al repositorio ontologico que el cliente ya utilice (destino preferido). Solo lo conserva como sistema de registro cuando la plataforma no puede implementarlo (plan B). Fabric y Databricks no son una sola integracion: pueden ser fuentes de datos, modelos semanticos, fuentes de una ontologia existente o destinos de publicacion.
 
 ## Plano de datos
 

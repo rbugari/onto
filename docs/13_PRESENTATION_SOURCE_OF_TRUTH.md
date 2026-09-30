@@ -8,6 +8,8 @@ ONTO convierte evidencia tecnica y funcional existente en conocimiento ontologic
 
 Version para publico no tecnico: "Lo que antes decidia y validaba una persona experta en datos (que significa cada dato, como se cruza y que se puede responder), ahora lo preparamos como contexto aprobado para que lo use una IA". Guion completo en la [guia paso a paso](GUIA_PASO_A_PASO_NO_TECNICA.md).
 
+Mensaje obligatorio frente a Fabric y Databricks: "No competimos con su ontologia: hacemos el relevamiento, el cruce entre sistemas y la validacion que necesitan para implementarla. Solo cubrimos por nuestra cuenta lo que la plataforma no puede (plan B)".
+
 ## Problema
 
 Los modelos, datos, catalogos y documentos de una organizacion contienen conocimiento, pero suelen estar dispersos, ser desiguales y no declarar con claridad que puede usar un agente, con que evidencia y dentro de que limites.
@@ -20,13 +22,17 @@ ONTO ayuda a descubrir la evidencia de todos los sistemas del dominio, medir su 
 
 ## Productos
 
-- Atlas: assessment de readiness multi-sistema ("te cuento como estas").
-- Nexo: registry, validacion y release ("que conocimiento esta aprobado").
-- Argos: runtime con evidencia, permisos y abstencion ("que puedo contestar con seguridad").
+- Atlas: assessment de readiness multi-sistema ("te cuento como estas y que puede implementar tu plataforma").
+- Nexo: registry, validacion y paquete para la plataforma ("que conocimiento esta aprobado y como se entrega").
+- Argos: banco de prueba y runtime de plan B ("funciona de verdad; y cubrimos lo que la plataforma no puede").
+
+## Ruta de implementacion
+
+Plan A (por defecto): la plataforma del cliente implementa todo. Mixto: la plataforma implementa lo que puede y ONTO el resto. Plan B: ONTO, solo si ninguna plataforma puede de forma viable. Todo deck debe mostrar este orden.
 
 ## Arquitectura narrativa
 
-ONTO mantiene un modelo canonico propio. Fabric, Databricks, Snowflake, SQL Server y otras plataformas pueden aportar datos, metadata o modelos semanticos. Fabric IQ Ontology, Databricks u otras herramientas pueden ser destinos o sistemas de registro ontologico. Esos roles son independientes.
+ONTO usa un modelo intermedio portable para poder entregar a cualquier plataforma. Fabric, Databricks, Snowflake, SQL Server y otras plataformas pueden aportar datos, metadata o modelos semanticos. Fabric IQ Ontology, Databricks u otras herramientas son el destino preferido y el sistema de registro de la ontologia; ONTO solo lo es en el plan B.
 
 ## Demo oficial
 

@@ -102,7 +102,7 @@ Nexo puede comparar el draft activo con una release base, o dos releases entre s
 
 ## Pantalla de Nexo
 
-La pantalla (`onto_ui/nexo.py`) muestra metricas del draft, el avance de decisiones y el siguiente paso, y se organiza en cinco pestanas: **Revision de candidatos** (tabla filtrable por estado, tipo y texto; detalle con evidencia y botones Aprobar/Rechazar/Pendiente; decision masiva con confirmacion), **Modelo canonico**, **Consolidacion**, **Comparar** y **Release e interoperabilidad**.
+La pantalla (`onto_ui/nexo.py`) muestra metricas del draft, el avance de decisiones y el siguiente paso, y se organiza en cinco pestanas: **Revision de candidatos** (tabla filtrable por estado, tipo y texto; detalle con evidencia y botones Aprobar/Rechazar/Pendiente; decision masiva con confirmacion), **Modelo canonico**, **Consolidacion**, **Comparar** y **Release y entrega a la plataforma**.
 
 El revisor/a y su rol se indican una vez por sesion en la barra lateral y se registran en cada decision. Sin revisor/a, la aplicacion no registra aprobaciones ni rechazos.
 

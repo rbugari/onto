@@ -4,7 +4,7 @@ Estado: estrategia vigente del MVP operativo y direccion de evolucion
 
 ## Principio
 
-ONTO conserva una ontologia canonica propia para mantener portabilidad, evidencia y control de ciclo de vida. Puede usar plataformas externas como fuente de datos, fuente de evidencia, repositorio ontologico o destino de publicacion.
+ONTO usa una ontologia canonica intermedia para mantener portabilidad, evidencia y control de ciclo de vida mientras releva y valida. El destino preferido es la plataforma del cliente; ONTO solo actua como repositorio ontologico en el plan B. Puede usar plataformas externas como fuente de datos, fuente de evidencia, repositorio ontologico o destino de publicacion.
 
 ## Operaciones separadas
 
@@ -70,4 +70,4 @@ La publicacion real requiere release aprobada, mapping aprobado, identidad autor
 
 ## Regla de autoridad
 
-La autoridad de una definicion, regla, KPI o binding debe quedar declarada. Una herramienta externa no se convierte en autoridad por el hecho de ser consultada. ONTO puede gobernar la release, delegar el sistema de registro al cliente o trabajar en modo federado, siempre conservando evidencia y estado de sincronizacion.
+La autoridad de una definicion, regla, KPI o binding debe quedar declarada. Una herramienta externa no se convierte en autoridad por el hecho de ser consultada. El orden de preferencia es: la plataforma del cliente como sistema de registro (nativo), un reparto explicito entre plataforma y ONTO (federado) y, solo si ninguna plataforma puede implementarlo de forma viable, ONTO como sistema de registro (plan B). En todos los casos se conserva evidencia y estado de sincronizacion.

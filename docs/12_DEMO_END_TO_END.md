@@ -76,4 +76,4 @@ La misma secuencia se puede recorrer en `fabric-gold-sic-risk-pilot`, cambiando 
 
 ## Relato
 
-Atlas responde “como estas”. Nexo responde “que conocimiento esta validado”. Argos responde “que puedo contestar con ese conocimiento y esos permisos”.
+Atlas responde “como estas”. Nexo responde “que conocimiento esta validado y como se entrega a tu plataforma”. Argos responde “funciona de verdad” y cubre lo que la plataforma no pueda. La demo debe cerrar mostrando el paquete para Fabric o Databricks: ese es el destino, no Argos.

@@ -1,21 +1,23 @@
 # DataIA Ontology Factory (ONTO)
 
-ONTO convierte evidencia tecnica y funcional existente en conocimiento ontologico gobernado, revisable y consumible por IA. Su foco son los dominios cuyos datos estan **distribuidos en varios sistemas y plataformas**: genera una ontologia comun, neutral de plataforma, que despues se implementa en Fabric, Databricks u otra herramienta del cliente.
+ONTO convierte evidencia tecnica y funcional existente en conocimiento ontologico gobernado, revisable y consumible por IA. Su foco son los dominios cuyos datos estan **distribuidos en varios sistemas y plataformas**: releva, cruza y hace aprobar ese conocimiento para **entregarlo a la plataforma del cliente** (Fabric, Databricks u otra) y que lo implemente en su propia ontologia.
+
+**ONTO no compite con la ontologia de Fabric ni con la de Databricks.** La ruta por defecto es implementar en la plataforma del cliente; ONTO solo sostiene por su cuenta la parte que la plataforma no puede cubrir (plan B).
 
 **Empezar por:** [Objetivo, alcance y foco](docs/OBJETIVO_ALCANCE_Y_FOCO.md). Para personas no tecnicas: [Guia paso a paso](docs/GUIA_PASO_A_PASO_NO_TECNICA.md). La direccion completa del producto esta en la [documentacion de producto](docs/README.md).
 
 La Factory se organiza en tres productos independientes y conectables:
 
 1. **Atlas · Preparar evidencia**: inventaria todos los sistemas del dominio y su documentacion, mapea las entidades compartidas entre sistemas y mide readiness, gaps y prioridades por caso de uso.
-2. **Nexo · Validar conocimiento**: convierte evidencia en una ontologia revisada, versionada y portable.
-3. **Argos · Investigar el negocio**: usa una release aprobada para responder o investigar con evidencia y abstencion.
+2. **Nexo · Validar conocimiento**: convierte evidencia en conocimiento revisado y versionado, y prepara el paquete para la plataforma destino.
+3. **Argos · Investigar el negocio**: prueba la release aprobada con preguntas reales (evidencia y abstencion) y sirve como runtime de plan B para lo que la plataforma no cubre.
 
 Fabric, Databricks, Snowflake, SQL Server, MySQL y otras plataformas pueden cumplir roles distintos. Pueden ser repositorios de datos, fuentes de evidencia, modelos semanticos o destinos de una publicacion ontologica. ONTO mantiene separado el plano de datos del plano ontologico y conserva un modelo canonico portable.
 
 ## Dos planos de interoperabilidad
 
 - **Plano de datos:** Atlas descubre metadata y Argos consulta datos operativos mediante bindings y operaciones autorizadas. Fabric es aqui un repositorio mas, igual que Databricks, Snowflake o SQL Server.
-- **Plano ontologico:** Nexo mantiene una release canonica y puede importar, mapear o preparar su publicacion hacia Fabric IQ Ontology, Databricks u otra herramienta externa.
+- **Plano ontologico:** Nexo prepara la release aprobada y su mapping para implementarla en Fabric IQ Ontology, Databricks u otra herramienta externa (destino preferido). ONTO conserva la release como sistema de registro solo en el plan B.
 
 Una misma plataforma puede participar en ambos planos, pero las capacidades, permisos y contratos no son los mismos.
 

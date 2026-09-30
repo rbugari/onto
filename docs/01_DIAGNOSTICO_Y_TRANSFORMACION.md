@@ -55,7 +55,7 @@ Los tres comparten cuatro capacidades transversales implementadas dentro del mis
 
 ## 5. Modelo de autoridad e interoperabilidad
 
-El producto mantiene un modelo ontologico canonico propio. Esto evita que la capacidad de assessment, validacion o Runtime dependa de una API o preview de un proveedor.
+El producto mantiene un modelo canonico propio como **formato intermedio de trabajo**: permite relevar, validar y versionar el conocimiento sin depender de una API o preview de un proveedor, y entregarlo despues a la plataforma que elija el cliente. No pretende reemplazar la ontologia de esa plataforma.
 
 La interoperabilidad debe analizarse en dos planos independientes:
 
@@ -79,11 +79,11 @@ review_status                # draft | pending_review | approved | deprecated
 ontology_version             # release que lo contiene
 ```
 
-Asi se soportan tres modos de autoridad ontologica sin duplicar decisiones de negocio:
+Asi se soportan tres modos de autoridad ontologica, en este orden de preferencia y sin duplicar decisiones de negocio:
 
-- **Privado**: ONTO gobierna y sirve la ontologia.
-- **Nativo de plataforma**: el cliente decide que Fabric, Databricks u otra herramienta sea el sistema de registro ontologico; ONTO conserva mapping, evidencia y ciclo de revision.
-- **Federado**: distintos dominios o activos tienen sistemas de registro diferentes, con una vista canonica y reglas de sincronizacion explicitas.
+- **Nativo de plataforma (preferido)**: Fabric, Databricks u otra herramienta del cliente es el sistema de registro ontologico; ONTO conserva mapping, evidencia y ciclo de revision.
+- **Federado (mixto)**: la plataforma implementa lo que puede y ONTO sostiene la parte que queda afuera, con una vista canonica y reglas de sincronizacion explicitas.
+- **Privado (plan B)**: ONTO gobierna y sirve la ontologia solo cuando ninguna plataforma puede implementarla de forma viable.
 
 El producto nunca debe copiar datos de negocio para publicar una ontologia si basta con metadata, binding o referencia autorizada. La consulta de datos operativos de Argos es otro contrato y no convierte automaticamente al repositorio de datos en repositorio ontologico.
 
