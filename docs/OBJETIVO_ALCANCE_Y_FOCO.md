@@ -23,7 +23,9 @@ Dicho de forma operativa: toma la metadata de los sistemas de un dominio (ERP, l
 | **B. Mixta** | La plataforma cubre una parte, pero otra parte queda afuera (fuentes que no ve, reglas que no soporta, costo o gobierno). | La plataforma implementa lo que puede; ONTO sostiene solo el resto. Cada elemento declara dónde vive. |
 | **C. Plan B (ONTO)** | Ninguna plataforma puede implementarlo de forma viable (dominio repartido en sistemas que ninguna alcanza, restricciones técnicas o de costo). | ONTO conserva la release y Argos responde sobre ella, con las mismas reglas de evidencia y abstención. |
 
-La decisión se toma con evidencia en el diagnóstico de Atlas y se revisa en Nexo antes de emitir la release. La ruta por defecto es siempre la A.
+La decisión se toma con evidencia en el diagnóstico de Atlas y se revisa en Nexo antes de emitir la release; el paquete de entrega de Nexo recomienda A, B o C según qué fuentes alcanza la plataforma. La ruta por defecto es siempre la A.
+
+Que los datos vivan fuera de la plataforma (por ejemplo, una MySQL/MariaDB on-premises) no obliga por sí solo a la ruta C: se puede construir un puente (copia a un Lakehouse de Fabric o Lakehouse Federation en Databricks). La C corresponde cuando ese puente no se justifica, como en el caso Nalub.
 
 ## 2. El problema que resuelve
 
@@ -55,7 +57,7 @@ Cuando todo vive en una sola plataforma, sus herramientas nativas ayudan, pero i
 | Producto | Pregunta que responde | Usuario | Entrega |
 | --- | --- | --- | --- |
 | **Atlas** · Preparar evidencia | ¿Cómo estamos? ¿Qué sistemas, qué evidencia, qué falta, cómo se conectan y qué puede implementar la plataforma? | Analista técnico o funcional, consultor | Assessment package: alcance, casos de uso, inventario por sistema, mapa entre sistemas, score, brechas priorizadas, informe. |
-| **Nexo** · Validar conocimiento | ¿Qué conocimiento aceptamos y cómo lo entregamos a la plataforma? | Responsable de gobierno, referente de negocio | Release aprobada y paquete importable para Fabric o Databricks con cobertura y ruta recomendada (A/B); `agent_context_pack` para el plan B. |
+| **Nexo** · Validar conocimiento | ¿Qué conocimiento aceptamos y cómo lo entregamos a la plataforma? | Responsable de gobierno, referente de negocio | Release aprobada y paquete importable para Fabric o Databricks con cobertura y ruta recomendada (A/B/C); `agent_context_pack` para el plan B. |
 | **Argos** · Investigar el negocio | ¿El contexto aprobado responde bien las preguntas reales? | Usuario de negocio, analista | Banco de prueba antes de implementar en la plataforma; runtime de plan B para lo que la plataforma no cubre. |
 
 ```text
@@ -76,7 +78,7 @@ Sistemas + documentación ──► Atlas (diagnóstico) ──► Nexo (conocim
 - Casos de uso con pregunta de negocio, prioridad, responsable y sistemas involucrados.
 - Diagnóstico determinista: score por dimensión (incluida alineación entre sistemas), brechas por sistema, entre sistemas y por caso de uso, e informe descargable.
 - Revisión humana de candidatos, modelo canónico (propiedades, relaciones, sinónimos, restricciones, vínculos con fuentes), releases y comparación entre versiones.
-- Paquetes importables para Fabric IQ (Ontology + Data Agent) y Databricks (Pages, metric views, Unity Catalog, Genie Agents), con reporte de cobertura y ruta recomendada A/B (`ready_for_review`). Ver [integración](15_INTEGRACION_FABRIC_DATABRICKS.md).
+- Paquetes importables para Fabric IQ (Ontology + Data Agent) y Databricks (Pages, metric views, Unity Catalog, Genie Agents), con reporte de cobertura y ruta recomendada A/B/C (`ready_for_review`). Ver [integración](15_INTEGRACION_FABRIC_DATABRICKS.md).
 - Argos con consultas nombradas, parametrizadas y de solo lectura (Fabric, MariaDB, adapter sintético), abstención y evaluación.
 
 ### No incluye
@@ -88,7 +90,7 @@ Sistemas + documentación ──► Atlas (diagnóstico) ──► Nexo (conocim
 - Usuarios, SSO, roles técnicos o multiusuario.
 - Garantía de calidad de datos a nivel de filas.
 - Reemplazo del catálogo, del gobierno de datos, de la plataforma del cliente ni de su ontología (Fabric IQ Ontology, Databricks u otra).
-- Evaluación automática de viabilidad por plataforma en Atlas: hoy el paquete de Nexo recomienda la ruta A/B según qué fuentes alcanza la plataforma; la decisión final (incluida la C) la toma el equipo.
+- Evaluación automática de viabilidad por plataforma en Atlas: hoy la recomendación A/B/C la hace el paquete de Nexo según qué fuentes alcanza la plataforma; la decisión final la toma el equipo.
 
 ## 6. Cómo se usa en un proyecto
 

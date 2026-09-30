@@ -68,6 +68,12 @@ La investigacion queda persistida bajo `data/runtime/nalub-case/<release>/<inves
 
 Los perfiles se guardan fuera del JSON de Nexo, en `data/connections/<project_id>/<profile_id>.env`. Un proyecto puede tener varios perfiles y el catalogo de cada release declara cual usar.
 
+## Ruta de implementacion
+
+Nalub es un caso de **ruta C** (ONTO como plan B). Los datos viven solo en la MariaDB legacy; Nalub no usa Fabric ni Databricks y la base no se modifica porque la operacion trabaja asi. El paquete de entrega de Nexo lo confirma: para ambas plataformas marca las 33 tablas como fuera de alcance y recomienda la ruta C.
+
+Si en el futuro Nalub adopta una plataforma, la release sirve igual: se agrega un puente a los datos (Copy job con gateway hacia un Lakehouse en Fabric, o Lakehouse Federation en Databricks) y se pasa a la ruta B o A. Ver [Integracion con Fabric y Databricks](15_INTEGRACION_FABRIC_DATABRICKS.md#31-cuando-los-datos-viven-fuera-de-la-plataforma).
+
 ## Limites conocidos
 
 - La release inicial aprueba los candidatos del baseline para facilitar la demostracion; en un dominio productivo la aprobacion debe ser humana y selectiva.

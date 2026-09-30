@@ -49,7 +49,7 @@ data/interoperability/<project>/<release>/<target>/<package-id>/
 
 El mapping cubre entidades, reglas, KPIs, propiedades, relaciones, sinonimos y restricciones. Cada entrada conserva nombre, definicion, responsable y vinculos de origen cuando existen.
 
-Para Fabric y Databricks, `export/` contiene los archivos que la plataforma importa: item Ontology y Data Agent de Fabric IQ; Pages, metric views, SQL de Unity Catalog y request de Genie Agents en Databricks. Tambien incluye un reporte de cobertura por elemento y la ruta recomendada (A o B). Detalle, formatos, pasos de importacion y plan de conectores: [Integracion con Fabric y Databricks](15_INTEGRACION_FABRIC_DATABRICKS.md).
+Para Fabric y Databricks, `export/` contiene los archivos que la plataforma importa: item Ontology y Data Agent de Fabric IQ; Pages, metric views, SQL de Unity Catalog y request de Genie Agents en Databricks. Tambien incluye un reporte de cobertura por elemento y la ruta recomendada (A, B o C, con el puente sugerido cuando una fuente queda fuera de alcance). Detalle, formatos, pasos de importacion y plan de conectores: [Integracion con Fabric y Databricks](15_INTEGRACION_FABRIC_DATABRICKS.md).
 
 ## Conector Fabric de solo lectura
 

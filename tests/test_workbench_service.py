@@ -1741,6 +1741,15 @@ class PlatformExportTests(unittest.TestCase):
         self.assertEqual(export["summary"]["recommended_route"], "A")
         self.assertIn("Ruta recomendada: **A**", export["files"]["coverage_report.md"])
 
+    def test_route_is_c_when_no_table_is_reachable(self) -> None:
+        release = self._release()
+        release["canonical_ontology"]["technical_assets"] = release["canonical_ontology"]["technical_assets"][1:]
+        release["canonical_ontology"]["data_bindings"] = release["canonical_ontology"]["data_bindings"][1:]
+        for target in ("fabric", "databricks"):
+            summary = build_platform_export(release, target)["summary"]
+            self.assertEqual(summary["recommended_route"], "C")
+            self.assertIn("MySQL", summary["route_reason"])
+
 
 if __name__ == "__main__":
     unittest.main()

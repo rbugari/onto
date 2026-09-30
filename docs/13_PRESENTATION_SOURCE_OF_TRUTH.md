@@ -28,7 +28,7 @@ ONTO ayuda a descubrir la evidencia de todos los sistemas del dominio, medir su 
 
 ## Ruta de implementacion
 
-Ruta A (por defecto): la plataforma del cliente implementa todo. Ruta B (mixta): la plataforma implementa lo que puede y ONTO el resto. Ruta C: ONTO como plan B, solo si ninguna plataforma puede de forma viable. Todo deck debe mostrar este orden. El paquete de entrega de Nexo recomienda A o B segun que fuentes alcanza la plataforma.
+Ruta A (por defecto): la plataforma del cliente implementa todo. Ruta B (mixta): la plataforma implementa lo que puede y ONTO el resto. Ruta C: ONTO como plan B, solo si ninguna plataforma puede de forma viable. Todo deck debe mostrar este orden. El paquete de entrega de Nexo recomienda A, B o C segun que fuentes alcanza la plataforma. Datos fuera de la plataforma no implican C por si solos: puede haber un puente (copia o federacion).
 
 ## Arquitectura narrativa
 

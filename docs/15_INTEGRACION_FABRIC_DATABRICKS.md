@@ -11,7 +11,7 @@ Relacion con el foco: ONTO **no compite** con la ontologia de Fabric ni con la d
 | Como entiende Databricks una ontologia | Como la **capa semantica de Unity Catalog** (Genie Ontology): Pages (conceptos de negocio), metric views (KPIs gobernados), dominios, comentarios y tags en tablas y columnas. Genie Agents la consume para responder. |
 | Como les entregamos lo aprobado hoy | Nexo genera, desde una release aprobada, un **paquete de archivos** que cada plataforma importa: JSON de definicion de item (Fabric), Markdown, YAML y SQL (Databricks), y los cuerpos de request listos para la API. |
 | Hace falta conector | No para la release 1. El paquete se importa con Git integration, la API REST o el editor SQL. El conector directo es la release 2. |
-| Que pasa con lo que no entra | El paquete incluye un **reporte de cobertura** por elemento y recomienda la ruta: **A** (todo en la plataforma) o **B** (mixta: plataforma + ONTO como plan B). |
+| Que pasa con lo que no entra | El paquete incluye un **reporte de cobertura** por elemento y recomienda la ruta: **A** (todo en la plataforma), **B** (mixta: plataforma + ONTO como plan B) o **C** (ninguna tabla alcanzable: ONTO como plan B, salvo que se construya un puente a los datos). |
 
 ```mermaid
 flowchart LR
@@ -67,7 +67,26 @@ Estados del reporte de cobertura:
 - **Como instruccion**: entra como texto para el agente de IA de la plataforma.
 - **Fuera de alcance**: la fuente no es alcanzable por esa plataforma (por ejemplo, un ERP on-premise). Queda en ONTO (plan B) o se trae con un puente: Mirroring/shortcuts en Fabric, Lakehouse Federation en Databricks.
 
-Si algun elemento queda fuera de alcance, la ruta recomendada es **B (mixta)**. Si todo es implementable, **A**.
+Regla de recomendacion:
+
+- **A**: todo es implementable en la plataforma.
+- **B**: parte de los elementos queda fuera de alcance, pero al menos una tabla de la release es alcanzable.
+- **C**: ninguna tabla de la release es alcanzable. La definicion se podria cargar, pero sin datos la plataforma no puede responder; ONTO (Argos) opera como plan B mientras no exista un puente.
+
+La recomendacion es un punto de partida: la decision final la toma el equipo (costo, gobierno, licencias).
+
+### 3.1 Cuando los datos viven fuera de la plataforma
+
+Que la base este en otro lado (por ejemplo MySQL/MariaDB on-premises) **no descarta** por si solo a Fabric o Databricks. La ontologia de la plataforma necesita que la plataforma **alcance los datos**. Hay dos formas:
+
+| Plataforma | Puente a una base externa | Implica |
+| --- | --- | --- |
+| Fabric | Mirroring si el origen es compatible, shortcut, o Copy job/pipeline de Data Factory hacia un Lakehouse (bases on-premises via *on-premises data gateway*) | Copia de datos y actualizacion programada |
+| Databricks | Lakehouse Federation (MySQL, PostgreSQL, SQL Server, entre otras) o ingesta a Delta | Consulta sin copiar (requiere conectividad de red) o copia |
+
+Cuando se construye el puente, los activos pasan a ser alcanzables y la ruta cambia a B o A **sin rehacer el trabajo de Nexo**: la release aprobada es la misma.
+
+La ruta C es la correcta cuando el puente no se justifica. Caso tipico: una PYME sin Fabric ni Databricks, con una base legacy que no se quiere modificar y pocos usuarios. Ejemplo validado: el [caso Nalub](14_NALUB_REAL_CASE.md). Sus 33 tablas viven en MariaDB y el paquete recomienda **ruta C** para ambas plataformas; Argos ya responde en vivo, de solo lectura, con las consultas aprobadas.
 
 ## 4. Que genera ONTO hoy (release 1)
 
@@ -94,7 +113,7 @@ data/interoperability/<proyecto>/<release>/<destino>/<paquete>/
 
 La pantalla muestra la ruta recomendada, cuantos elementos se implementan en la plataforma, la tabla de cobertura y un boton para **descargar el paquete en ZIP**. Parametros opcionales: nombre de la ontologia (Fabric); catalogo y warehouse (Databricks).
 
-Validado con las demos: la demo comercial (fuente Power BI) recomienda **ruta A** en Fabric (13/13). La demo distribuida (ERP MariaDB + CRM SQL Server + lakehouse Databricks + Power BI) recomienda **ruta B** en ambas plataformas: 26/39 en Fabric y 33/45 en Databricks.
+Validado con las demos: la demo comercial (fuente Power BI) recomienda **ruta A** en Fabric (13/13). La demo distribuida (ERP MariaDB + CRM SQL Server + lakehouse Databricks + Power BI) recomienda **ruta B** en ambas plataformas: 26/39 en Fabric y 33/45 en Databricks. El caso Nalub (solo MariaDB) recomienda **ruta C** en ambas.
 
 ## 5. Como se importa
 
@@ -125,7 +144,7 @@ Validado con las demos: la demo comercial (fuente Power BI) recomienda **ruta A*
 
 | Fase | Entregable | Estado |
 | --- | --- | --- |
-| R1 - Paquetes de archivos | Generador Fabric + Databricks, reporte de cobertura, ruta A/B, descarga ZIP en Nexo, tests | **Hecho** |
+| R1 - Paquetes de archivos | Generador Fabric + Databricks, reporte de cobertura, ruta A/B/C con puentes sugeridos, descarga ZIP en Nexo, tests | **Hecho** |
 | R1.1 - Completar desde el origen | Tipos de propiedad desde la metadata tecnica; join specs desde relaciones y FK; ejemplos pregunta-SQL desde el catalogo de consultas; benchmarks desde la bateria de Argos; nombres de 3 partes desde el CSV de Databricks | Siguiente |
 | R1.2 - Viabilidad por plataforma en Atlas | Atlas estima por fuente si es alcanzable por la plataforma destino (y por que puente), para anticipar la ruta antes de Nexo | Siguiente |
 | R2 - Conectores de publicacion | Fabric: crear/actualizar Ontology y Data Agent por REST con identidad Entra delegada. Databricks: Genie Agents API y SQL Statement Execution para comentarios y metric views. Con aprobacion explicita, auditoria y rollback | Planificado |

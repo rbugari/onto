@@ -18,12 +18,12 @@ PLATFORM_REACH = {
 }
 BRIDGE_HINTS = {
     "fabric": (
-        "Replicar la fuente con Mirroring de Fabric o crear un shortcut a OneLake; si no es viable, "
-        "esa parte queda en ONTO (plan B)."
+        "Traer la fuente a OneLake: Mirroring (si el origen es compatible), shortcut, o Copy job/pipeline de Data Factory "
+        "(bases on-premises como MySQL/MariaDB via on-premises data gateway). Si no es viable, esa parte queda en ONTO (plan B)."
     ),
     "databricks": (
-        "Registrar la fuente con Lakehouse Federation (conexion externa en Unity Catalog) o ingerirla a Delta; "
-        "si no es viable, esa parte queda en ONTO (plan B)."
+        "Registrar la fuente con Lakehouse Federation (MySQL, PostgreSQL, SQL Server, entre otras; requiere conectividad de red) "
+        "o ingerirla a Delta. Si no es viable, esa parte queda en ONTO (plan B)."
     ),
 }
 TARGET_LABELS = {"fabric": "Microsoft Fabric (Fabric IQ)", "databricks": "Databricks (Unity Catalog / Genie)"}
@@ -415,10 +415,16 @@ def _coverage_summary(coverage: list[dict[str, str]], model: _ReleaseModel, targ
     counts = {status: sum(item["status"] == status for item in coverage) for status in COVERAGE_LABELS}
     outside = counts["outside_platform"]
     implementable = len(coverage) - outside
+    tables = [item for item in coverage if item["element_type"] == "technical_asset"]
     if not coverage:
         route, reason = "A", "La release no tiene elementos para entregar."
     elif not outside:
         route, reason = "A", "Todo lo aprobado se puede implementar en la plataforma destino."
+    elif tables and all(item["status"] == "outside_platform" for item in tables):
+        route, reason = "C", (
+            f"Ninguna tabla de la release es alcanzable hoy por {TARGET_LABELS[target]}: los datos viven en otros sistemas. "
+            f"La definicion se puede cargar, pero sin datos la plataforma no puede responder. Opciones: {BRIDGE_HINTS[target]}"
+        )
     else:
         route, reason = "B", (
             f"{outside} elemento(s) dependen de sistemas que la plataforma no alcanza hoy. "

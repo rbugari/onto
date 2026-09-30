@@ -132,7 +132,7 @@ Se prepara una lista de preguntas de prueba ("esta la tiene que responder", "est
 Con lo aprendido, se decide la ruta: A (todo en Fabric o Databricks), B (mixta) o C (todo en ONTO, plan B). La opción normal es la A.
 
 **Paso 17. Entregar el paquete.**
-ONTO genera un paquete con todo lo aprobado, en el formato que la plataforma elegida sabe importar, y el equipo de la empresa lo implementa ahí. Junto con el paquete viene un reporte que dice, punto por punto, qué entra directo, qué hay que completar en la plataforma y qué no le llega (por ejemplo, datos de un sistema al que la plataforma no accede). Con eso ONTO recomienda la ruta A o la B.
+ONTO genera un paquete con todo lo aprobado, en el formato que la plataforma elegida sabe importar, y el equipo de la empresa lo implementa ahí. Junto con el paquete viene un reporte que dice, punto por punto, qué entra directo, qué hay que completar en la plataforma y qué no le llega (por ejemplo, datos de un sistema al que la plataforma no accede). Con eso ONTO recomienda la ruta A, la B o la C. Que los datos estén en otro sistema no obliga a la C: muchas veces se puede "tender un puente" para que la plataforma los alcance; la C queda para cuando ese puente no vale la pena.
 
 **Paso 18. Cubrir solo lo que falte.**
 Si una parte no se puede implementar en la plataforma, ONTO la sigue atendiendo (plan B), con las mismas reglas.
