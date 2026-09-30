@@ -18,6 +18,7 @@ def build_bim_import_bundle(
     existing_concept_ids: set[str],
     existing_relation_ids: set[str],
     slugify,
+    source_label: str = "model.bim",
 ) -> BimImportBundle:
     model_payload = payload.get("model", payload)
     if not isinstance(model_payload, dict):
@@ -71,7 +72,7 @@ def build_bim_import_bundle(
             Concept(
                 id=table_concept_id,
                 name=table_name,
-                definition=f"Tabla importada desde model.bim: {table_name}",
+                definition=f"Tabla importada desde {source_label}: {table_name}",
                 status="draft",
                 tags=["table", "bim"],
                 metadata={

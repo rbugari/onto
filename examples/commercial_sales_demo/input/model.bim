@@ -1,0 +1,40 @@
+{
+  "model": {
+    "culture": "es-AR",
+    "compatibilityLevel": 1601,
+    "tables": [
+      {
+        "name": "DimCustomer",
+        "columns": [
+          {"name": "CustomerKey", "dataType": "int64"},
+          {"name": "CustomerName", "dataType": "string"},
+          {"name": "Region", "dataType": "string"}
+        ]
+      },
+      {
+        "name": "FactSales",
+        "columns": [
+          {"name": "CustomerKey", "dataType": "int64"},
+          {"name": "ProductKey", "dataType": "int64"},
+          {"name": "NetSales", "dataType": "decimal"},
+          {"name": "GrossMargin", "dataType": "decimal"}
+        ],
+        "measures": [
+          {"name": "Net Sales", "expression": "SUM(FactSales[NetSales])"},
+          {"name": "Gross Margin", "expression": "SUM(FactSales[GrossMargin])"}
+        ]
+      },
+      {
+        "name": "DimProduct",
+        "columns": [
+          {"name": "ProductKey", "dataType": "int64"},
+          {"name": "ProductName", "dataType": "string"}
+        ]
+      }
+    ],
+    "relationships": [
+      {"fromTable": "FactSales", "fromColumn": "CustomerKey", "toTable": "DimCustomer", "toColumn": "CustomerKey", "isActive": true},
+      {"fromTable": "FactSales", "fromColumn": "ProductKey", "toTable": "DimProduct", "toColumn": "ProductKey", "isActive": true}
+    ]
+  }
+}

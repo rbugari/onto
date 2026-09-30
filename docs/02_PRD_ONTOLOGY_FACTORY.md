@@ -1,12 +1,16 @@
 # PRD - DataIA Ontology Factory
 
-Fecha: 2026-08-01  
-Estado: borrador base para validacion de producto  
+Fecha: 2026-09-30
+Estado: PRD del MVP operativo; capacidades actuales y evolucion posterior diferenciadas
 Producto: ONTO
+
+Resumen ejecutivo: [Objetivo, alcance y foco](OBJETIVO_ALCANCE_Y_FOCO.md).
 
 ## 1. Problema
 
 Las organizaciones disponen de modelos BI, warehouse/lakehouse, queries, procesos y documentacion que contienen conocimiento valioso, pero esta disperso, es desigual y rara vez esta listo para agentes. La dificultad no es solo documentar activos: es determinar que es confiable, convertirlo en conocimiento semantico validado y usarlo despues sin que un agente invente relaciones o consulte fuentes indebidas.
+
+El caso dificil es el dominio **distribuido**: la misma entidad (cliente, producto, venta) vive en varios sistemas y plataformas con nombres y claves distintas. Si todo estuviera en una sola plataforma, sus herramientas nativas alcanzarian; cuando no, hace falta una ontologia comun que explique el dominio completo y que despues se implemente en la plataforma elegida.
 
 ## 2. Vision
 
@@ -39,33 +43,40 @@ ONTO convierte activos tecnicos y documentacion de una organizacion en conocimie
 
 ## 4.1 Arquitectura de entrega MVP
 
-La Factory se entrega inicialmente como una aplicacion Streamlit monolitica que se ejecuta localmente. Usa `data/` para archivos y workspaces de ejecucion, SQLite local para indices o decisiones cuando haga falta y `.env` para configuracion de conectores y LLM.
+La Factory se entrega inicialmente como una aplicacion Streamlit monolitica que se ejecuta localmente. Usa `data/` para archivos, releases y ejecuciones; JSON y directorios son la persistencia actual. SQLite queda como opcion futura para indices o auditoria ligera. `.env` y perfiles por proyecto contienen la configuracion local de conectores y LLM.
 
 No son requisitos del MVP: microservicios, API interna, cloud hosting, SSO, multi-tenancy real, colas, contenedores, base de datos gestionada ni sincronizacion continua con Fabric o Databricks. La separacion entre Assessment, Registry y Runtime es de contrato, datos, navegacion y pruebas.
 
 La decision completa y sus criterios de salida estan en la [Decision de arquitectura MVP](04_DECISION_ARQUITECTURA_MVP.md).
 
+## 4.2 Flujo de trabajo del MVP
+
+La interfaz presenta una ruta comun para todos los proyectos: **Atlas prepara evidencia**, **Nexo valida conocimiento** y **Argos investiga el negocio**. El usuario cambia de producto dentro del mismo proyecto; no necesita conocer las carpetas ni los contratos internos para completar el flujo.
+
 ## 5. Producto 1 - Atlas: Ontology Readiness Assessment
 
 ### Objetivo
 
-Inventariar y evaluar el nivel de preparacion ontologica de un cliente, dominio o data product. **Atlas** representa la cartografia inicial de activos, contexto, evidencia y gaps.
+Inventariar y evaluar el nivel de preparacion ontologica de un cliente, dominio o data product, aunque sus datos esten repartidos en varios sistemas. **Atlas** representa la cartografia inicial de activos, contexto, evidencia, cruces entre sistemas y gaps.
 
 ### Entradas
 
-- modelos Power BI/Fabric: inicialmente `model.bim`, despues PBIP, TMDL y API autorizada;
-- metadata Databricks y otras plataformas mediante adapters;
-- tablas, DDL, queries, catalogos, procesos y documentacion;
-- ontologias o catalogos ya existentes del cliente, si los hubiera;
-- configuracion de cliente, dominio, data product y politicas de analisis.
+- varios sistemas por dominio, cada uno con plataforma, responsable y formato;
+- modelos Power BI/Fabric: `model.bim`, TMDL, paquetes PBIP ZIP y payloads JSON semanticos compatibles;
+- metadata de Databricks, SQL Server, PostgreSQL, Snowflake, Oracle, MariaDB o planillas mediante DDL (`.sql`) o CSV de `information_schema.columns`;
+- metadata de Fabric por conexion directa de solo lectura;
+- documentacion funcional: glosarios, KPIs, procesos, diccionarios;
+- casos de uso con pregunta de negocio, responsable, prioridad y sistemas involucrados;
+- configuracion de cliente, dominio y data product.
 
 ### Capacidades MVP
 
 - alta de assessment y ejecuciones reproducibles;
-- inventario de fuentes y archivos con hash, parser y estado;
+- registro de sistemas e inventario por sistema, con archivo, hash y estado;
 - extraccion normalizada de metadata tecnica y contexto documental;
-- deteccion de cobertura, definiciones ausentes, conflictos, ownership incompleto y riesgos;
-- score determinista con evidencia y backlog priorizado;
+- mapa de entidades compartidas entre sistemas y deteccion de claves comunes;
+- deteccion de cobertura, definiciones ausentes, sistemas sin metadata o sin responsable y cruces sin clave;
+- score determinista con evidencia y backlog priorizado por caso de uso;
 - exportacion de `assessment package`.
 
 ### Salida contractual
@@ -73,12 +84,15 @@ Inventariar y evaluar el nivel de preparacion ontologica de un cliente, dominio 
 ```text
 assessment-package/
   manifest.json
+  scope_definition.json
   semantic_inventory.json
   business_context_inventory.json
   source_inventory.json
+  cross_source_map.json
+  evidence_index.json
   readiness_score.json
   gap_backlog.json
-  evidence/
+  assessment_review.json
   execution_summary.md
 ```
 
@@ -97,10 +111,11 @@ Transformar uno o varios assessment packages en una ontologia candidata, facilit
 - modelo canonico de entidades, propiedades, relaciones, KPIs, reglas, sinonimos, restricciones y fuentes;
 - generacion de candidatos a partir de metadata y contexto de negocio;
 - evidencia por elemento, confidence score, conflictos y preguntas;
-- workflow `draft -> pending_review -> approved/rejected -> deprecated`;
+- workflow `pending_review -> approved/rejected` por candidato y elemento canonico;
 - comparacion de versiones y decisiones de revision;
-- generacion de `agent_context_pack` y paquetes de publicacion;
-- importacion y mapping de una ontologia externa existente.
+- generacion de `agent_context_pack` y paquetes de publicacion locales.
+
+Evolucion posterior: estado `deprecated`, importacion y mapping de una ontologia externa existente y confirmacion de equivalencias entre sistemas como decision de Nexo.
 
 ### Salida contractual
 
@@ -140,21 +155,49 @@ Permitir que una persona o producto consulte una ontology release mediante lengu
 
 No crea definiciones oficiales, no modifica sistemas fuente y no elude permisos de usuarios o plataformas.
 
-## 8. Interoperabilidad
+## 8. Interoperabilidad en dos planos
 
-Fabric y Databricks se implementan como adapters de importacion, mapping y publicacion. Cada adapter debe declarar capacidades, limitaciones, autenticacion requerida y nivel de fidelidad.
+Fabric, Databricks y otras plataformas pueden participar en dos planos diferentes. Cada adapter debe declarar explicitamente en cual opera, sus capacidades, limitaciones, autenticacion requerida y nivel de fidelidad.
 
-Las operaciones se clasifican como:
+### 8.1 Plano de datos
 
-- **Importar**: traer metadata u ontologia existente como evidencia y candidato.
-- **Mapear**: relacionar elementos canonicos con objetos de plataforma sin publicar cambios.
-- **Publicar**: generar o actualizar una representacion externa solo desde elementos aprobados.
+Incluye warehouses, lakehouses, bases SQL, tablas, vistas, queries y modelos semanticos. En este plano ONTO puede:
 
-Una publicacion exige release inmutable, mapping aprobado, identidad autorizada, manifest de despliegue, log y rollback logico.
+- importar metadata tecnica para Atlas, por conexion (Fabric) o por archivo exportado (Databricks y otros);
+- importar un semantic model existente como evidencia y estructura tecnica;
+- registrar bindings entre elementos aprobados y activos externos;
+- ejecutar desde Argos operaciones read-only nombradas y parametrizadas.
+
+Fabric es en este plano un repositorio de datos mas, igual que Databricks, Snowflake, SQL Server o MySQL. El acceso a datos operativos requiere permisos, limites, auditoria y un contrato de consulta independiente del contrato ontologico.
+
+### 8.2 Plano ontologico
+
+Incluye la ontologia canonica de ONTO y los repositorios ontologicos externos del cliente, como Fabric IQ Ontology, capacidades ontologicas de Databricks, Purview, Collibra, Neo4j o RDF/OWL.
+
+En este plano ONTO puede:
+
+- importar una ontologia existente como evidencia o candidato;
+- mapear elementos canonicos aprobados hacia objetos ontologicos externos;
+- generar un paquete de publicacion;
+- publicar o actualizar una representacion externa solo mediante un adapter controlado.
+
+La ontologia externa no sustituye automaticamente la release de ONTO. El sistema de registro, la version, el estado del mapping y la autoridad de cada elemento deben quedar declarados.
+
+### 8.3 Operaciones
+
+- **Importar datos o metadata:** traer evidencia desde un repositorio de datos o semantic model.
+- **Importar ontologia:** traer una representacion ontologica externa para analizarla o mapearla.
+- **Mapear:** relacionar elementos canonicos aprobados con objetos externos sin publicar cambios.
+- **Publicar:** generar o actualizar una representacion externa solo desde una release aprobada.
+- **Consultar:** ejecutar operaciones read-only autorizadas sobre fuentes de datos mediante Argos.
+
+Una publicacion exige release aprobada, mapping aprobado, identidad autorizada, manifest de despliegue, log y rollback operativo. El MVP solo genera paquetes locales `ready_for_review` y no publica externamente.
 
 ## 9. Metricas de exito
 
 - Porcentaje de activos inventariados con parser y evidencia.
+- Porcentaje de sistemas del caso de uso inventariados y con responsable.
+- Entidades compartidas entre sistemas con clave o regla de cruce documentada.
 - Cobertura de definiciones, owners, reglas y lineage por dominio.
 - Tiempo de pasar de fuentes brutas a una release revisable.
 - Porcentaje de candidatos aceptados/rechazados y causas de rechazo.

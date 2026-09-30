@@ -62,11 +62,14 @@ class LlmSettings:
     api_version: str = ""
     configuration_source: str = "local_env"
     reasoning_effort: str = ""
+    data_policy: str = "approved_external"
     api_key: str = field(default="", repr=False)
 
     @property
     def enabled(self) -> bool:
         if self.provider == "disabled":
+            return False
+        if self.data_policy == "local_only" and self.provider != "ollama":
             return False
         if self.provider == "ollama":
             return True
@@ -92,6 +95,13 @@ def load_llm_settings() -> LlmSettings:
 
     if not explicit_provider and provider == "disabled" and _first_env("AZURE_OPENAI_ENDPOINT", "ONTO_AZURE_OPENAI_ENDPOINT"):
         provider = "azure_openai"
+    data_policy = (
+        _first_env("ONTO_LLM_DATA_POLICY")
+        or _first_config(shared_config, "ONTO_LLM_DATA_POLICY", "LLM_DATA_POLICY")
+        or "approved_external"
+    ).lower()
+    if data_policy not in {"approved_external", "local_only"}:
+        raise ValueError("ONTO_LLM_DATA_POLICY debe ser approved_external o local_only")
 
     return LlmSettings(
         provider=provider,
@@ -111,6 +121,7 @@ def load_llm_settings() -> LlmSettings:
             or _first_config(shared_config, "LLM_REASONING_EFFORT")
             or ("none" if provider == "openai" else "")
         ),
+        data_policy=data_policy,
         api_key=api_key,
     )
 

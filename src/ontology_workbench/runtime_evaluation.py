@@ -110,3 +110,25 @@ def _failure_reason(status_match: bool, evidence_match: bool) -> str:
     if not evidence_match:
         return "La respuesta no recuperó el elemento de evidencia esperado."
     return ""
+
+
+def parse_evaluation_cases(text: str) -> tuple[list[dict[str, str]], list[str]]:
+    """Parse `question | answered|abstained | expected evidence` lines; returns cases and invalid line numbers."""
+    cases: list[dict[str, str]] = []
+    invalid: list[str] = []
+    for line_number, raw_line in enumerate(text.splitlines(), start=1):
+        if not raw_line.strip():
+            continue
+        values = [value.strip() for value in raw_line.split("|", maxsplit=2)]
+        if not values[0] or (len(values) >= 2 and values[1] not in {"answered", "abstained"}):
+            invalid.append(str(line_number))
+            continue
+        cases.append(
+            {
+                "case_id": f"manual-{line_number:03d}",
+                "question": values[0],
+                "expected_status": values[1] if len(values) > 1 else "answered",
+                "expected_item_name": values[2] if len(values) > 2 else "",
+            }
+        )
+    return cases, invalid

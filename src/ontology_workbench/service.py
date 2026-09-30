@@ -6,7 +6,7 @@ import re
 import uuid
 from pathlib import Path
 
-from ontology_workbench.atlas import build_assessment_package
+from ontology_workbench.atlas import PLATFORM_LABELS, build_assessment_package
 from ontology_workbench.bim_importer import build_bim_import_bundle
 from ontology_workbench.context_scanner import (
     build_business_context_inventory,
@@ -15,11 +15,14 @@ from ontology_workbench.context_scanner import (
     load_llm_settings,
 )
 from ontology_workbench.exporters import export_project_json, export_project_markdown
+from ontology_workbench.external_metadata import parse_columns_csv, parse_sql_ddl
 from ontology_workbench.models import (
     Concept,
+    DataSource,
     DocumentRecord,
     OntologyProject,
     Relation,
+    UseCase,
     ValidationIssue,
     utc_now_iso,
 )
@@ -33,37 +36,91 @@ from ontology_workbench.fabric_adapter import (
     execute_fabric_read_only_query,
     fabric_connection_check,
 )
+from ontology_workbench.local_data_adapter import execute_local_synthetic_query
+from ontology_workbench.mariadb_adapter import (
+    check_mariadb_connection,
+    execute_mariadb_read_only_query,
+)
+from ontology_workbench.semantic_model_importer import (
+    normalize_semantic_model_api_payload,
+    parse_pbip_zip,
+    parse_tmdl_text,
+)
+from ontology_workbench.mariadb_schema import parse_mariadb_schema_dump
+from ontology_workbench.connection_profiles import ConnectionProfileStore
 from ontology_workbench.runtime import (
-    fabric_query_parameters,
     investigate_context_pack,
     investigate_context_pack_with_llm,
-    sic_query_parameter,
-    select_fabric_query,
+)
+from ontology_workbench.query_catalog import (
+    catalog_for_context,
+    extract_query_parameters,
+    ordered_query_parameters,
+    select_catalog_query,
 )
 from ontology_workbench.runtime_evaluation import evaluate_context_pack, suggest_evaluation_cases
 from ontology_workbench.storage import ProjectStore
 
 
+SOURCE_FORMAT_PLATFORMS = {
+    "model.bim": "powerbi",
+    "tmdl": "powerbi",
+    "pbip": "powerbi",
+    "semantic-model-api": "powerbi",
+    "mariadb-schema": "mariadb",
+    "fabric-information-schema": "fabric",
+}
+USE_CASE_PRIORITIES = ("alta", "media", "baja")
+
+
 class WorkbenchService:
     def __init__(self, store: ProjectStore) -> None:
         self.store = store
+        self.connection_profiles = ConnectionProfileStore(store.root_dir.parent / "connections")
 
     def list_projects(self) -> list[OntologyProject]:
         projects = [self.store.load_project(project_id) for project_id in self.store.list_project_ids()]
         return sorted(projects, key=lambda project: project.updated_at, reverse=True)
 
-    def create_project(self, name: str, description: str = "") -> OntologyProject:
+    def create_project(
+        self, name: str, description: str = "", project_id: str | None = None
+    ) -> OntologyProject:
         clean_name = name.strip()
         if not clean_name:
             raise ValueError("Project name is required")
 
-        project_id = self._next_available_id(self._slugify(clean_name), self.store.project_exists)
-        project = OntologyProject(id=project_id, name=clean_name, description=description.strip())
+        clean_project_id = (
+            self._scope_id(project_id, "Project id")
+            if project_id is not None
+            else self._next_available_id(self._slugify(clean_name), self.store.project_exists)
+        )
+        if self.store.project_exists(clean_project_id):
+            raise ValueError(f"Project already exists: {clean_project_id}")
+        project = OntologyProject(
+            id=clean_project_id,
+            name=clean_name,
+            description=description.strip(),
+        )
         self.store.save_project(project)
         return project
 
     def get_project(self, project_id: str) -> OntologyProject:
         return self.store.load_project(project_id)
+
+    def list_runtime_investigations(
+        self, project_id: str, release_id: str
+    ) -> list[dict[str, object]]:
+        return self.store.list_runtime_investigations(project_id, release_id)
+
+    def runtime_retention_report(
+        self, project_id: str, release_id: str, keep_latest: int = 100
+    ) -> dict[str, object]:
+        return self.store.runtime_retention_report(project_id, release_id, keep_latest)
+
+    def load_runtime_investigation(
+        self, project_id: str, release_id: str, investigation_id: str
+    ) -> dict[str, object]:
+        return self.store.load_runtime_investigation(project_id, release_id, investigation_id)
 
     def update_project(self, project_id: str, name: str, description: str = "") -> OntologyProject:
         clean_name = name.strip()
@@ -230,6 +287,244 @@ class WorkbenchService:
         self.store.save_project(project)
         return project
 
+    def update_assessment_scope(
+        self, project_id: str, client_id: str, domain_id: str, data_product_id: str, owner: str = ""
+    ) -> OntologyProject:
+        project = self.store.load_project(project_id)
+        project.metadata.update(
+            {
+                "client_id": self._scope_id(client_id, "Client"),
+                "domain_id": self._scope_id(domain_id, "Domain"),
+                "data_product_id": self._scope_id(data_product_id, "Data product"),
+            }
+        )
+        if owner.strip():
+            project.metadata["owner"] = owner.strip()
+        else:
+            project.metadata.pop("owner", None)
+        project.touch()
+        self.store.save_project(project)
+        return project
+
+    def list_data_sources(self, project_id: str) -> list[DataSource]:
+        return list(self.store.load_project(project_id).sources)
+
+    def register_data_source(
+        self,
+        project_id: str,
+        name: str,
+        platform: str,
+        owner: str = "",
+        description: str = "",
+        access_mode: str = "external_file",
+    ) -> DataSource:
+        """Declare a system in assessment scope before (or without) loading its metadata."""
+        clean_name = name.strip()
+        if not clean_name:
+            raise ValueError("El nombre del sistema es obligatorio")
+        if platform not in PLATFORM_LABELS:
+            raise ValueError(f"Plataforma no soportada: {platform}")
+        project = self.store.load_project(project_id)
+        source = DataSource(
+            source_id=self._next_available_id(
+                self._slugify(clean_name),
+                lambda candidate: any(item.source_id == candidate for item in project.sources),
+            ),
+            name=clean_name,
+            platform=platform,
+            owner=owner.strip(),
+            description=description.strip(),
+            access_mode=access_mode,
+        )
+        project.sources.append(source)
+        project.touch()
+        self.store.save_project(project)
+        return source
+
+    def update_data_source(
+        self, project_id: str, source_id: str, name: str, platform: str, owner: str = "", description: str = ""
+    ) -> DataSource:
+        if not name.strip():
+            raise ValueError("El nombre del sistema es obligatorio")
+        if platform not in PLATFORM_LABELS:
+            raise ValueError(f"Plataforma no soportada: {platform}")
+        project = self.store.load_project(project_id)
+        source = self._find_source(project, source_id)
+        source.name = name.strip()
+        source.platform = platform
+        source.owner = owner.strip()
+        source.description = description.strip()
+        for concept in project.concepts:
+            if concept.metadata.get("source.id") == source_id:
+                concept.metadata["source.platform"] = platform
+        project.touch()
+        self.store.save_project(project)
+        return source
+
+    def delete_data_source(self, project_id: str, source_id: str) -> dict[str, int]:
+        """Remove a system from scope together with the objects inventoried from it."""
+        project = self.store.load_project(project_id)
+        self._find_source(project, source_id)
+        self.store.create_snapshot(project, note=f"before-delete-source-{source_id}")
+        removed = self._remove_source_objects(project, source_id)
+        project.sources = [item for item in project.sources if item.source_id != source_id]
+        for use_case in project.use_cases:
+            use_case.source_ids = [item for item in use_case.source_ids if item != source_id]
+        project.touch()
+        self.store.save_project(project)
+        return {"removed_objects": removed}
+
+    def import_source_metadata_file(
+        self, project_id: str, source_id: str, filename: str, content: bytes
+    ) -> tuple[OntologyProject, dict[str, int]]:
+        """Inventory one system from an exported file; re-importing replaces that system's objects."""
+        suffix = Path(filename).suffix.casefold()
+        if suffix in {".bim", ".json", ".tmdl", ".pbip", ".zip"}:
+            return self.import_semantic_model_file(project_id, filename, content, source_id=source_id)
+        text = content.decode("utf-8-sig", errors="replace")
+        if suffix in {".sql", ".ddl"}:
+            parsed = parse_sql_ddl(text)
+        elif suffix in {".csv", ".tsv", ".txt"}:
+            parsed = parse_columns_csv(text)
+        else:
+            raise ValueError("Formato no soportado; use .sql/.ddl, .csv, .bim, .tmdl o PBIP .zip")
+        source_metadata = self.store.save_technical_source(
+            project_id, filename, content, source_format=str(parsed["source_format"])
+        )
+        return self.import_bim_model(
+            project_id,
+            dict(parsed["model"]),
+            snapshot_note=f"before-source-import-{source_id}",
+            source_metadata=source_metadata,
+            source_id=source_id,
+        )
+
+    def add_use_case(
+        self,
+        project_id: str,
+        name: str,
+        business_question: str = "",
+        owner: str = "",
+        priority: str = "media",
+        source_ids: list[str] | None = None,
+    ) -> UseCase:
+        clean_name = name.strip()
+        if not clean_name:
+            raise ValueError("El nombre del caso de uso es obligatorio")
+        if priority not in USE_CASE_PRIORITIES:
+            raise ValueError("Prioridad invalida")
+        project = self.store.load_project(project_id)
+        use_case = UseCase(
+            use_case_id=self._next_available_id(
+                self._slugify(clean_name),
+                lambda candidate: any(item.use_case_id == candidate for item in project.use_cases),
+            ),
+            name=clean_name,
+            business_question=business_question.strip(),
+            owner=owner.strip(),
+            priority=priority,
+            source_ids=list(source_ids or []),
+        )
+        project.use_cases.append(use_case)
+        project.touch()
+        self.store.save_project(project)
+        return use_case
+
+    def delete_use_case(self, project_id: str, use_case_id: str) -> None:
+        project = self.store.load_project(project_id)
+        remaining = [item for item in project.use_cases if item.use_case_id != use_case_id]
+        if len(remaining) == len(project.use_cases):
+            raise ValueError("Caso de uso no encontrado")
+        project.use_cases = remaining
+        project.touch()
+        self.store.save_project(project)
+
+    def _find_source(self, project: OntologyProject, source_id: str) -> DataSource:
+        source = next((item for item in project.sources if item.source_id == source_id), None)
+        if source is None:
+            raise ValueError(f"Sistema no encontrado: {source_id}")
+        return source
+
+    def _resolve_source(
+        self, project: OntologyProject, source_id: str | None, source_metadata: dict[str, str]
+    ) -> DataSource:
+        if source_id:
+            return self._find_source(project, source_id)
+        source_format = source_metadata.get("source.format", "")
+        platform = SOURCE_FORMAT_PLATFORMS.get(source_format, "other")
+        stem = Path(source_metadata.get("source.technical.filename", "") or source_format or "modelo").stem
+        derived_id = self._slugify(f"{platform}-{stem}")
+        existing = next((item for item in project.sources if item.source_id == derived_id), None)
+        if existing:
+            return existing
+        source = DataSource(source_id=derived_id, name=stem, platform=platform)
+        project.sources.append(source)
+        return source
+
+    def _remove_source_objects(self, project: OntologyProject, source_id: str) -> int:
+        removed_ids = {
+            concept.id for concept in project.concepts if concept.metadata.get("source.id") == source_id
+        }
+        project.concepts = [concept for concept in project.concepts if concept.id not in removed_ids]
+        project.relations = [
+            relation
+            for relation in project.relations
+            if relation.source_id not in removed_ids and relation.target_id not in removed_ids
+        ]
+        return len(removed_ids)
+
+    def _mark_source_inventoried(
+        self,
+        source: DataSource,
+        source_metadata: dict[str, str],
+        counts: dict[str, int],
+    ) -> None:
+        source.status = "inventoried"
+        source.source_format = source_metadata.get("source.format", source.source_format)
+        source.filename = source_metadata.get("source.technical.filename", source.filename)
+        source.stored_path = source_metadata.get("source.technical.path", source.stored_path)
+        source.content_sha256 = source_metadata.get("source.technical.sha256", source.content_sha256)
+        source.inventoried_at = utc_now_iso()
+        source.object_counts = {key: int(value) for key, value in counts.items()}
+
+    def save_mariadb_connection_profile(
+        self,
+        project_id: str,
+        profile_id: str,
+        host: str,
+        port: int,
+        user: str,
+        password: str,
+        database: str,
+    ) -> dict[str, str]:
+        self.store.load_project(project_id)
+        summary = self.connection_profiles.save_mariadb_profile(
+            project_id, profile_id, host, port, user, password, database
+        )
+        return {
+            "project_id": summary.project_id,
+            "profile_id": summary.profile_id,
+            "adapter": summary.adapter,
+            "path": str(summary.path),
+        }
+
+    def list_connection_profiles(self, project_id: str) -> list[dict[str, str]]:
+        self.store.load_project(project_id)
+        return [
+            {
+                "project_id": item.project_id,
+                "profile_id": item.profile_id,
+                "adapter": item.adapter,
+                "path": str(item.path),
+            }
+            for item in self.connection_profiles.list(project_id)
+        ]
+
+    def check_mariadb_connection(self, project_id: str, profile_id: str) -> dict[str, str]:
+        self.store.load_project(project_id)
+        profile_path = self.connection_profiles.profile_path(project_id, profile_id)
+        return check_mariadb_connection(profile_path)
+
     def create_snapshot(self, project_id: str, note: str = ""):
         project = self.store.load_project(project_id)
         return self.store.create_snapshot(project, note=note)
@@ -247,9 +542,9 @@ class WorkbenchService:
         project = self.store.load_project(project_id)
         issues: list[ValidationIssue] = []
 
-        seen_names: set[str] = set()
+        seen_names: set[tuple[str, str]] = set()
         for concept in project.concepts:
-            normalized_name = concept.name.strip().lower()
+            normalized_name = (concept.metadata.get("source.id", ""), concept.name.strip().lower())
             if normalized_name in seen_names:
                 issues.append(
                     ValidationIssue(
@@ -349,23 +644,34 @@ class WorkbenchService:
         clear_existing: bool = False,
         snapshot_note: str = "",
         source_metadata: dict[str, str] | None = None,
+        source_id: str | None = None,
     ) -> tuple[OntologyProject, dict[str, int]]:
         project = self.store.load_project(project_id)
-        existing_concepts = [] if clear_existing else project.concepts
-        existing_relations = [] if clear_existing else project.relations
-        bundle = build_bim_import_bundle(
-            payload,
-            existing_concept_ids={concept.id for concept in existing_concepts},
-            existing_relation_ids={relation.id for relation in existing_relations},
-            slugify=self._slugify,
-        )
-
         if project.concepts or project.relations or project.metadata:
             self.store.create_snapshot(project, note=snapshot_note.strip() or "before-bim-import")
 
         if clear_existing:
             project.concepts = []
             project.relations = []
+            for existing_source in project.sources:
+                existing_source.status = "declared"
+                existing_source.object_counts = {}
+        source = None
+        if source_id or source_metadata:
+            source = self._resolve_source(project, source_id, source_metadata or {})
+            self._remove_source_objects(project, source.source_id)
+        bundle = build_bim_import_bundle(
+            payload,
+            existing_concept_ids={concept.id for concept in project.concepts},
+            existing_relation_ids={relation.id for relation in project.relations},
+            slugify=self._slugify,
+            source_label=str((source_metadata or {}).get("source.format", "model.bim")),
+        )
+        if source is not None:
+            for concept in bundle.concepts:
+                concept.metadata["source.id"] = source.source_id
+                concept.metadata["source.platform"] = source.platform
+            self._mark_source_inventoried(source, source_metadata or {}, bundle.summary)
 
         project.concepts.extend(bundle.concepts)
         project.relations.extend(bundle.relations)
@@ -400,6 +706,106 @@ class WorkbenchService:
             clear_existing=clear_existing,
             snapshot_note=snapshot_note,
             source_metadata=source_metadata,
+        )
+
+    def import_semantic_model_file(
+        self,
+        project_id: str,
+        filename: str,
+        content: bytes,
+        clear_existing: bool = False,
+        snapshot_note: str = "",
+        source_id: str | None = None,
+    ) -> tuple[OntologyProject, dict[str, int]]:
+        """Import TMDL or PBIP semantic-model metadata through the BIM contract."""
+        suffix = Path(filename).suffix.casefold()
+        if suffix in {".bim", ".json"}:
+            try:
+                payload = json.loads(content.decode("utf-8-sig"))
+            except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+                raise ValueError("model.bim no contiene JSON UTF-8 valido") from exc
+            if not isinstance(payload, dict):
+                raise ValueError("model.bim invalido: se esperaba un objeto JSON")
+            source_format = "model.bim"
+        elif suffix == ".tmdl":
+            try:
+                payload = parse_tmdl_text(content.decode("utf-8-sig"))
+            except UnicodeDecodeError as exc:
+                raise ValueError("El archivo TMDL no es UTF-8 valido") from exc
+            source_format = "tmdl"
+        elif suffix in {".pbip", ".zip"}:
+            payload = parse_pbip_zip(content)
+            source_format = "pbip"
+        else:
+            raise ValueError("Formato no soportado; use .tmdl o un paquete PBIP .zip")
+        source_metadata = self.store.save_technical_source(
+            project_id, filename, content, source_format=source_format
+        )
+        return self.import_bim_model(
+            project_id,
+            payload,
+            clear_existing=clear_existing,
+            snapshot_note=snapshot_note,
+            source_metadata=source_metadata,
+            source_id=source_id,
+        )
+
+    def import_semantic_model_api_payload(
+        self,
+        project_id: str,
+        payload: dict[str, object],
+        endpoint_label: str = "semantic-model-api",
+        clear_existing: bool = False,
+        snapshot_note: str = "",
+    ) -> tuple[OntologyProject, dict[str, int]]:
+        """Import a previously retrieved semantic-model API response.
+
+        Authentication and network access stay outside this local adapter.
+        """
+        normalized = normalize_semantic_model_api_payload(payload)
+        serialized = json.dumps(normalized, indent=2, ensure_ascii=False).encode("utf-8")
+        source_metadata = self.store.save_technical_source(
+            project_id,
+            "semantic-model-api.json",
+            serialized,
+            source_format="semantic-model-api",
+        )
+        source_metadata["source.api.endpoint"] = endpoint_label.strip() or "semantic-model-api"
+        return self.import_bim_model(
+            project_id,
+            normalized,
+            clear_existing=clear_existing,
+            snapshot_note=snapshot_note,
+            source_metadata=source_metadata,
+        )
+
+    def import_mariadb_schema_file(
+        self,
+        project_id: str,
+        path: Path,
+        clear_existing: bool = False,
+        snapshot_note: str = "",
+        source_id: str | None = None,
+    ) -> tuple[OntologyProject, dict[str, int]]:
+        """Import only MariaDB DDL; INSERT rows are never converted into ontology objects."""
+        source_path = Path(path).expanduser()
+        schema = parse_mariadb_schema_dump(source_path)
+        source_metadata = {
+            "source.format": "mariadb-schema",
+            "source.technical.filename": source_path.name,
+            "source.technical.path": str(source_path.resolve()),
+            "source.technical.sha256": self._file_sha256(source_path),
+            "mariadb.tables": str(schema["table_count"]),
+            "mariadb.columns": str(schema["column_count"]),
+            "mariadb.relationships": str(schema["relationship_count"]),
+        }
+        return self.import_bim_model(
+            project_id,
+            dict(schema["model"]),
+            clear_existing=clear_existing,
+            snapshot_note=snapshot_note,
+            source_metadata=source_metadata,
+            source_id=source_id,
         )
 
     def upload_context_document(
@@ -560,6 +966,9 @@ class WorkbenchService:
     def list_atlas_assessments(self, project_id: str) -> list[dict[str, object]]:
         return self.store.list_atlas_assessments(project_id)
 
+    def get_atlas_assessment(self, project_id: str, run_id: str) -> dict[str, object]:
+        return self.store.load_atlas_package(project_id, run_id)
+
     def update_atlas_review(
         self,
         project_id: str,
@@ -581,6 +990,7 @@ class WorkbenchService:
         project_id: str,
         assessment_run_id: str,
         source_authority: str = "technical",
+        query_catalog: object = None,
     ) -> dict[str, object]:
         project = self.store.load_project(project_id)
         assessment = next(
@@ -612,6 +1022,7 @@ class WorkbenchService:
             semantic_inventory,
             draft_id,
             source_authority=source_authority,
+            query_catalog=query_catalog,
         )
         draft_path = self.store.save_nexo_draft(draft)
         draft["draft_path"] = str(draft_path)
@@ -843,7 +1254,22 @@ class WorkbenchService:
         if not tables and not columns:
             raise ValueError("El inventario Fabric no contiene metadata para importar")
         project = self.store.load_project(project_id)
+        fabric_source_id = self._slugify(f"fabric-{discovery.get('database') or 'warehouse'}")
+        fabric_source = next(
+            (item for item in project.sources if item.source_id == fabric_source_id), None
+        )
+        if fabric_source is None:
+            fabric_source = DataSource(
+                source_id=fabric_source_id,
+                name=f"Fabric {discovery.get('database') or 'warehouse'}",
+                platform="fabric",
+                access_mode="live_read_only",
+            )
+            project.sources.append(fabric_source)
+        source_tags = {"source.id": fabric_source_id, "source.platform": "fabric"}
         existing_ids = {concept.id for concept in project.concepts}
+        existing_relation_ids = {relation.id for relation in project.relations}
+        table_ids: dict[tuple[str, str], str] = {}
         added = 0
         for table in tables:
             schema = str(table.get("schema", "dbo"))
@@ -851,6 +1277,7 @@ class WorkbenchService:
             if not name:
                 continue
             concept_id = self._slugify(f"fabric-{schema}-{name}")
+            table_ids[(schema, name)] = concept_id
             if concept_id in existing_ids:
                 continue
             project.concepts.append(
@@ -863,6 +1290,7 @@ class WorkbenchService:
                         "fabric.objectType": "table",
                         "fabric.schema": schema,
                         "fabric.table": name,
+                        **source_tags,
                     },
                 )
             )
@@ -875,34 +1303,64 @@ class WorkbenchService:
             if not table_name or not name:
                 continue
             concept_id = self._slugify(f"fabric-{schema}-{table_name}-{name}")
-            if concept_id in existing_ids:
-                continue
-            project.concepts.append(
-                Concept(
-                    id=concept_id,
-                    name=f"{schema}.{table_name}.{name}",
-                    status="imported",
-                    tags=["column", "fabric"],
-                    metadata={
-                        "fabric.objectType": "column",
-                        "fabric.schema": schema,
-                        "fabric.table": table_name,
-                        "fabric.column": name,
-                        "fabric.dataType": str(column.get("data_type", "")),
-                        "fabric.nullable": str(column.get("nullable", "")),
-                    },
+            if concept_id not in existing_ids:
+                project.concepts.append(
+                    Concept(
+                        id=concept_id,
+                        name=f"{schema}.{table_name}.{name}",
+                        status="imported",
+                        tags=["column", "fabric"],
+                        metadata={
+                            "fabric.objectType": "column",
+                            "fabric.schema": schema,
+                            "fabric.table": table_name,
+                            "fabric.column": name,
+                            "fabric.dataType": str(column.get("data_type", "")),
+                            "fabric.nullable": str(column.get("nullable", "")),
+                            **source_tags,
+                        },
+                    )
                 )
-            )
-            existing_ids.add(concept_id)
-            added += 1
+                existing_ids.add(concept_id)
+                added += 1
+            table_id = table_ids.get((schema, table_name))
+            if table_id:
+                relation_id = self._slugify(
+                    f"fabric-{schema}-{table_name}-contains-column-{name}"
+                )
+                if relation_id not in existing_relation_ids:
+                    project.relations.append(
+                        Relation(
+                            id=relation_id,
+                            source_id=table_id,
+                            target_id=concept_id,
+                            relation_type="contains-column",
+                            description="Contencion derivada de INFORMATION_SCHEMA de Fabric",
+                        )
+                    )
+                    existing_relation_ids.add(relation_id)
+        for concept in project.concepts:
+            if concept.metadata.get("fabric.objectType") and not concept.metadata.get("source.id"):
+                concept.metadata.update(source_tags)
         package_path = Path(str(discovery.get("package_path", "")))
         source_path = package_path / "metadata_inventory.json"
+        fabric_metadata = {
+            "source.format": "fabric-information-schema",
+            "source.technical.path": str(source_path),
+            "source.technical.filename": "metadata_inventory.json",
+            "source.technical.sha256": self._file_sha256(source_path),
+        }
+        self._mark_source_inventoried(
+            fabric_source,
+            fabric_metadata,
+            {
+                "tables": sum(c.metadata.get("source.id") == fabric_source_id and "table" in c.tags for c in project.concepts),
+                "columns": sum(c.metadata.get("source.id") == fabric_source_id and "column" in c.tags for c in project.concepts),
+            },
+        )
         project.metadata.update(
             {
-                "source.format": "fabric-information-schema",
-                "source.technical.path": str(source_path),
-                "source.technical.filename": "metadata_inventory.json",
-                "source.technical.sha256": self._file_sha256(source_path),
+                **fabric_metadata,
                 "fabric.server": str(discovery.get("server", "")),
                 "fabric.database": str(discovery.get("database", "")),
             }
@@ -917,6 +1375,20 @@ class WorkbenchService:
         release = self.store.load_nexo_release(project_id, release_id)
         context_pack = json.loads((Path(str(release["package_path"])) / "agent_context_pack.json").read_text(encoding="utf-8"))
         investigation_id = f"argos-{utc_now_iso().replace(':', '-').replace('+', '-')}-{uuid.uuid4().hex[:12]}"
+        if _requests_direct_sql(question):
+            investigation = investigate_context_pack(context_pack, question.strip(), investigation_id)
+            investigation["answer"] = (
+                "Me abstengo: Argos no ejecuta SQL recibido desde la pregunta. "
+                "Use una capacidad aprobada del catalogo."
+            )
+            investigation["interpretation"] = (
+                "La pregunta fue bloqueada antes del routing y no se ejecuto ninguna consulta."
+            )
+            investigation["manifest"]["status"] = "abstained"
+            investigation["reasoning_advisory"] = _reasoning_advisory(question, None)
+            investigation["llm_used"] = False
+            investigation["package_path"] = str(self.store.save_runtime_investigation(project_id, investigation))
+            return investigation
         settings = load_llm_settings()
         if settings.enabled:
             investigation = investigate_context_pack_with_llm(
@@ -926,7 +1398,7 @@ class WorkbenchService:
                 settings,
                 _argos_query_catalog(context_pack),
                 lambda query_name, parameters: self._execute_llm_selected_query(
-                    context_pack, query_name, parameters
+                    project_id, context_pack, query_name, parameters
                 ),
             )
             investigation["reasoning_advisory"] = _llm_reasoning_advisory(settings)
@@ -935,16 +1407,26 @@ class WorkbenchService:
             return investigation
 
         investigation = investigate_context_pack(context_pack, question.strip(), investigation_id)
-        query_name = select_fabric_query(question)
+        query_catalog = _argos_query_catalog(context_pack)
+        query_name = select_catalog_query(question, query_catalog)
         investigation["reasoning_advisory"] = _reasoning_advisory(question, query_name)
-        if query_name and _has_fabric_query_binding(context_pack, query_name):
-            parameters = fabric_query_parameters(question) or ()
-            if query_name == "risk_sic":
-                sic = sic_query_parameter(question)
-                parameters = (sic,) if sic is not None else ()
-            query_result = self.execute_fabric_validation_query(query_name, parameters)
+        if query_name is None and _requests_catalog_capability(question):
+            investigation["answer"] = (
+                "Me abstengo: la release activa de este proyecto no tiene una consulta aprobada "
+                "para esa capacidad. Revise el catalogo de Argos o agregue una operacion allowlisted."
+            )
+            investigation["interpretation"] = (
+                "No se uso ninguna consulta de otro proyecto ni se genero SQL fuera del catalogo aprobado."
+            )
+            investigation["manifest"]["status"] = "abstained"
+        if query_name and _has_query_binding(context_pack, query_name):
+            specification = query_catalog[query_name]
+            extracted = extract_query_parameters(question, specification)
+            parameters = ordered_query_parameters(specification, extracted)
+            query_result = self._execute_catalog_query(project_id, context_pack, query_name, parameters)
             investigation["live_query"] = query_result
-            investigation["manifest"]["mode"] = "deterministic-context-pack-plus-fabric-read-only"
+            adapter = str(specification.get("adapter", "fabric"))
+            investigation["manifest"]["mode"] = f"deterministic-context-pack-plus-{adapter}-read-only"
             if query_name == "risk_rule_sic" and not query_result.get("rows"):
                 investigation["answer"] = (
                     "Me abstengo: Fabric no contiene un resultado para la regla y SIC solicitados."
@@ -965,27 +1447,71 @@ class WorkbenchService:
         return investigation
 
     def _execute_llm_selected_query(
-        self, context_pack: dict[str, object], query_name: str, parameters: object
+        self,
+        project_id: str,
+        context_pack: dict[str, object],
+        query_name: str,
+        parameters: object,
     ) -> dict[str, object]:
-        if not _has_fabric_query_binding(context_pack, query_name):
+        if not _has_query_binding(context_pack, query_name):
             return {"status": "not_executed", "query_name": query_name, "rows": []}
-        if query_name == "risk_rule_sic":
-            if not isinstance(parameters, dict):
-                return {"status": "invalid_parameters", "query_name": query_name, "rows": []}
-            try:
-                normalized = (int(parameters["id_risc"]), int(parameters["sic"]))
-            except (KeyError, TypeError, ValueError):
-                return {"status": "invalid_parameters", "query_name": query_name, "rows": []}
-            return self.execute_fabric_validation_query(query_name, normalized)
-        if query_name == "risk_sic":
-            if not isinstance(parameters, dict):
-                return {"status": "invalid_parameters", "query_name": query_name, "rows": []}
-            try:
-                normalized = (int(parameters["sic"]),)
-            except (KeyError, TypeError, ValueError):
-                return {"status": "invalid_parameters", "query_name": query_name, "rows": []}
-            return self.execute_fabric_validation_query(query_name, normalized)
-        return self.execute_fabric_validation_query(query_name)
+        specification = _argos_query_catalog(context_pack).get(query_name)
+        if specification is None:
+            return {"status": "not_executed", "query_name": query_name, "rows": []}
+        try:
+            ordered = ordered_query_parameters(specification, parameters)
+        except ValueError:
+            return {"status": "invalid_parameters", "query_name": query_name, "rows": []}
+        return self._execute_catalog_query(project_id, context_pack, query_name, ordered)
+
+    def _execute_catalog_query(
+        self,
+        project_id: str | dict[str, object],
+        context_pack: dict[str, object] | str,
+        query_name: str | tuple[object, ...],
+        parameters: tuple[object, ...] = (),
+    ) -> dict[str, object]:
+        if isinstance(project_id, dict):
+            legacy_context_pack = project_id
+            legacy_query_name = str(context_pack)
+            legacy_parameters = query_name if isinstance(query_name, tuple) else parameters
+            project_id = str(legacy_context_pack.get("project_id", ""))
+            context_pack = legacy_context_pack
+            query_name = legacy_query_name
+            parameters = legacy_parameters
+        if not isinstance(context_pack, dict) or not isinstance(query_name, str):
+            return {"status": "not_executed", "query_name": str(query_name), "rows": []}
+        specification = _argos_query_catalog(context_pack).get(query_name)
+        if specification is None:
+            return {"status": "not_executed", "query_name": query_name, "rows": []}
+        template_id = str(specification.get("template_id", query_name))
+        adapter = str(specification.get("adapter", "fabric")).casefold()
+        if adapter == "fabric":
+            return self.execute_fabric_validation_query(template_id, parameters)
+        if adapter == "local_synthetic":
+            return execute_local_synthetic_query(
+                template_id,
+                parameters,
+                int(specification.get("max_rows", 100)),
+            )
+        if adapter == "mariadb":
+            connection_profile = str(specification.get("connection_profile", "")).strip()
+            if not connection_profile:
+                return {
+                    "status": "missing_connection_profile",
+                    "query_name": query_name,
+                    "rows": [],
+                }
+            profile_path = self.connection_profiles.profile_path(
+                project_id, connection_profile
+            )
+            return execute_mariadb_read_only_query(
+                template_id,
+                parameters,
+                int(specification.get("max_rows", 100)),
+                config_path=profile_path,
+            )
+        return {"status": "not_executed", "query_name": query_name, "rows": []}
 
     def suggest_argos_evaluation_cases(
         self, project_id: str, release_id: str
@@ -1014,6 +1540,12 @@ class WorkbenchService:
     def _load_release_context_pack(self, project_id: str, release_id: str) -> dict[str, object]:
         release = self.store.load_nexo_release(project_id, release_id)
         return json.loads((Path(str(release["package_path"])) / "agent_context_pack.json").read_text(encoding="utf-8"))
+
+    def get_argos_query_catalog(
+        self, project_id: str, release_id: str
+    ) -> dict[str, dict[str, object]]:
+        """Return only the approved query capabilities from this project's release."""
+        return _argos_query_catalog(self._load_release_context_pack(project_id, release_id))
 
     def _next_available_id(self, seed: str, exists: callable) -> str:
         candidate = seed or "item"
@@ -1045,6 +1577,63 @@ class WorkbenchService:
 
 def _format_fabric_query_answer(query_name: str, query_result: dict[str, object]) -> str:
     rows = [row for row in query_result.get("rows", []) if isinstance(row, dict)]
+    if query_name == "order_status_summary":
+        if not rows:
+            return "Consulta MariaDB: no se encontraron pedidos."
+        details = "; ".join(
+            f"{row.get('estado', 'sin estado')}: {row.get('cantidad', 0)}"
+            for row in rows
+        )
+        return f"Consulta MariaDB: pedidos por estado: {details}."
+    if query_name == "sales_summary":
+        if not rows:
+            return "Consulta MariaDB: no se encontraron ventas en el periodo disponible."
+        total_sales = sum((row.get("ventas", 0) or 0 for row in rows), 0)
+        details = "; ".join(
+            f"{row.get('periodo', 'sin periodo')}: {row.get('ventas', 0)}"
+            for row in reversed(rows)
+        )
+        return (
+            f"Consulta MariaDB: las ventas acumuladas son {total_sales} en "
+            f"{len(rows)} mes(es). Evolucion mensual: {details}."
+        )
+    if query_name == "product_demand_by_year":
+        if not rows:
+            return "Consulta MariaDB: no se encontraron productos con pedidos en el año solicitado."
+        year = query_result.get("parameters", ["el periodo"])[0]
+        details = "; ".join(
+            f"{index}. {row.get('nombre', row.get('producto_id', 'sin producto'))} "
+            f"(codigo {row.get('codigo', 'sin codigo')}): "
+            f"{row.get('unidades_solicitadas', 0)} unidades en {row.get('cantidad_pedidos', 0)} pedidos"
+            for index, row in enumerate(rows, start=1)
+        )
+        return f"Consulta MariaDB: top de demanda de {year}: {details}."
+    if query_name == "customer_debt":
+        if not rows:
+            return "Consulta MariaDB: no se encontro el cliente solicitado."
+        row = rows[0]
+        return (
+            f"Consulta MariaDB: el cliente {row.get('nombre', row.get('id', 'sin ID'))} "
+            f"tiene deuda registrada de {row.get('deuda', 0)} y saldo pendiente en pedidos "
+            f"de {row.get('saldo_pedidos', 0)}."
+        )
+    if query_name == "product_availability":
+        if not rows:
+            return "Consulta MariaDB: no se encontraron productos."
+        return (
+            f"Consulta MariaDB: se obtuvieron {len(rows)} productos con stock actual, "
+            "reservado y disponible."
+        )
+    if query_name == "sales_by_customer":
+        if not rows:
+            return "Consulta local sintetica: no hay ventas para ese cliente."
+        row = rows[0]
+        return (
+            f"Consulta local sintetica: {row.get('customer_name', 'Cliente')} "
+            f"({row.get('customer_id', 'sin ID')}) tiene {row.get('order_count', 0)} ventas, "
+            f"por un neto de {row.get('net_sales', 0)} y un margen bruto de "
+            f"{row.get('gross_margin', 0)}."
+        )
     if query_name == "risk_summary" and rows:
         row = rows[0]
         return (
@@ -1095,8 +1684,11 @@ def _format_fabric_query_answer(query_name: str, query_result: dict[str, object]
     return "Consulta real Fabric ejecutada sin resultados agregados."
 
 
-def _has_fabric_query_binding(context_pack: dict[str, object], query_name: str) -> bool:
-    required_table = FABRIC_QUERY_BINDING_TABLES.get(query_name)
+def _has_query_binding(context_pack: dict[str, object], query_name: str) -> bool:
+    specification = catalog_for_context(context_pack).get(query_name, {})
+    adapter = str(specification.get("adapter", "fabric")).casefold()
+    default_binding = FABRIC_QUERY_BINDING_TABLES.get(query_name, "") if adapter == "fabric" else ""
+    required_table = str(specification.get("binding_required", default_binding))
     if not required_table:
         return False
     has_explicit_binding = any(
@@ -1112,6 +1704,10 @@ def _has_fabric_query_binding(context_pack: dict[str, object], query_name: str) 
         for asset in context_pack.get("technical_assets", [])
         if isinstance(asset, dict)
     )
+
+
+def _has_fabric_query_binding(context_pack: dict[str, object], query_name: str) -> bool:
+    return _has_query_binding(context_pack, query_name)
 
 
 def _suggest_follow_up_questions(
@@ -1188,36 +1784,10 @@ def _llm_reasoning_advisory(settings) -> dict[str, str]:
 
 
 def _argos_query_catalog(context_pack: dict[str, object]) -> dict[str, dict[str, object]]:
-    available = {
-        "risk_summary": {
-            "purpose": "contar registros de riesgo y SIC distintos",
-            "parameters": {},
-        },
-        "risk_levels": {
-            "purpose": "distribuir los riesgos por nivel final",
-            "parameters": {},
-        },
-        "impact_summary": {
-            "purpose": "resumir valores de impacto reales, proxies y pendientes",
-            "parameters": {},
-        },
-        "impact_statuses": {
-            "purpose": "comparar estados REAL y DEFAULT de impactos",
-            "parameters": {},
-        },
-        "risk_rule_sic": {
-            "purpose": "consultar el riesgo más reciente de una regla en un SIC",
-            "parameters": {"id_risc": "entero", "sic": "entero"},
-        },
-        "risk_sic": {
-            "purpose": "listar los riesgos de un SIC",
-            "parameters": {"sic": "entero"},
-        },
-    }
     return {
         name: details
-        for name, details in available.items()
-        if _has_fabric_query_binding(context_pack, name)
+        for name, details in catalog_for_context(context_pack).items()
+        if _has_query_binding(context_pack, name)
     }
 
 
@@ -1226,10 +1796,22 @@ def _requests_visualization(question: str) -> bool:
     return any(term in normalized for term in ("mermaid", "diagrama", "grafico", "gráfico"))
 
 
+def _requests_direct_sql(question: str) -> bool:
+    normalized = question.casefold()
+    if re.search(r"\b(insert|update|delete|drop|alter|truncate|create|grant|revoke)\b", normalized):
+        return True
+    return bool(re.search(r"\bselect\b.+\b(from|where|join|group|order|limit)\b", normalized, re.DOTALL))
+
+
 def _format_fabric_query_interpretation(
     query_name: str, query_result: dict[str, object]
 ) -> str:
     rows = [row for row in query_result.get("rows", []) if isinstance(row, dict)]
+    if query_name == "sales_summary" and rows:
+        return (
+            "La serie suma importeTotal de pedidos no cancelados, agrupado por mes. "
+            "Es una medida de ventas registradas en pedidos y no una inferencia sobre margen o cobros."
+        )
     if query_name == "risk_rule_sic" and rows:
         row = rows[0]
         return (
@@ -1240,6 +1822,11 @@ def _format_fabric_query_interpretation(
             "Esto es una interpretación de los campos devueltos, no una inferencia causal adicional."
         )
     return "La interpretación resume los valores devueltos por la consulta read-only; no agrega causalidad fuera de la evidencia."
+
+
+def _requests_catalog_capability(question: str) -> bool:
+    tokens = set(re.findall(r"[a-záéíóúñ0-9]+", question.casefold()))
+    return bool(tokens.intersection({"venta", "ventas", "facturacion", "facturación", "evolucion", "evolución", "monto"}))
 
 
 def _build_fabric_visualization(

@@ -1,58 +1,43 @@
 from __future__ import annotations
 
-import re
 import json
+import re
 
 from ontology_workbench.context_scanner import LlmSettings, call_llm_json
 from ontology_workbench.models import utc_now_iso
+from ontology_workbench.query_catalog import (
+    LEGACY_FABRIC_QUERY_CATALOG,
+    extract_query_parameters,
+    normalize_query_catalog,
+    ordered_query_parameters,
+    select_catalog_query,
+)
 
 
 STOP_WORDS = {"que", "como", "para", "con", "del", "las", "los", "una", "uno", "por", "sobre", "desde", "este", "esta", "son", "hay", "mas", "más", "the", "and"}
 
 
 def select_fabric_query(question: str) -> str | None:
-    """Route only unambiguous aggregate questions to the named Fabric gateway queries."""
-    tokens = _tokens(question)
-    if _risk_rule_sic_parameters(question) is not None and (
-        {"riesgo", "valor", "nivel"} & tokens
-    ):
-        return "risk_rule_sic"
-    if _sic_parameter(question) is not None and {"riesgo", "riesgos"} & tokens:
-        return "risk_sic"
-    if {"real", "default"}.issubset(tokens):
-        return "impact_statuses"
-    if ("nivel" in tokens or "niveles" in tokens) and ("riesgo" in tokens or "riesgos" in tokens):
-        return "risk_levels"
-    if ("cuantos" in tokens or "cuántos" in tokens or "total" in tokens) and ("riesgo" in tokens or "riesgos" in tokens):
-        return "risk_summary"
-    if "impacto" in tokens and ({"real", "default", "resumen"} & tokens):
-        return "impact_summary"
-    return None
+    """Keep the legacy pilot entry point while routing through the catalog contract."""
+    return select_catalog_query(question, normalize_query_catalog(LEGACY_FABRIC_QUERY_CATALOG))
 
 
 def fabric_query_parameters(question: str) -> tuple[int, int] | None:
-    """Extract only the bounded parameters for the named rule/SIC query."""
-    return _risk_rule_sic_parameters(question)
+    """Extract legacy rule/SIC parameters through the catalog contract."""
+    catalog = normalize_query_catalog(LEGACY_FABRIC_QUERY_CATALOG)
+    specification = catalog["risk_rule_sic"]
+    parameters = extract_query_parameters(question, specification)
+    if set(parameters) != {"id_risc", "sic"}:
+        return None
+    return ordered_query_parameters(specification, parameters)  # type: ignore[return-value]
 
 
 def sic_query_parameter(question: str) -> int | None:
-    return _sic_parameter(question)
-
-
-def _risk_rule_sic_parameters(question: str) -> tuple[int, int] | None:
-    normalized_question = question.casefold()
-    rule_match = re.search(r"\b(?:regla|riesgo)\s*(\d+)\b", normalized_question)
-    sic_match = re.search(r"\bsic\s*(\d+)\b", question.casefold())
-    if not sic_match:
-        sic_match = re.search(r"\ben\s+el\s+(?:sic\s*)?(\d+)\b", normalized_question)
-    if not rule_match or not sic_match:
-        return None
-    return int(rule_match.group(1)), int(sic_match.group(1))
-
-
-def _sic_parameter(question: str) -> int | None:
-    match = re.search(r"\bsic\s*(\d+)\b", question.casefold())
-    return int(match.group(1)) if match else None
+    catalog = normalize_query_catalog(LEGACY_FABRIC_QUERY_CATALOG)
+    specification = catalog["risk_sic"]
+    parameters = extract_query_parameters(question, specification)
+    value = parameters.get("sic")
+    return int(value) if isinstance(value, int) else None
 
 
 def investigate_context_pack(context_pack: dict[str, object], question: str, investigation_id: str) -> dict[str, object]:
@@ -131,6 +116,11 @@ def investigate_context_pack_with_llm(
     query_result = None
     if query_name:
         parameters = plan.get("parameters", {})
+        specification = query_catalog[str(query_name)]
+        extracted_parameters = extract_query_parameters(question, specification)
+        if not isinstance(parameters, dict):
+            parameters = {}
+        parameters = {**extracted_parameters, **parameters}
         query_result = live_query_runner(str(query_name), parameters)
     evidence = {
         "context_pack": context_pack,

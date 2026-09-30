@@ -17,7 +17,7 @@ if str(SRC_DIR) not in sys.path:
 
 from ontology_workbench.models import utc_now_iso
 from ontology_workbench.service import WorkbenchService
-from ontology_workbench.storage import ProjectStore
+from ontology_workbench.storage import ProjectStore, unique_file_paths_by_content
 
 PROJECT_ID = "fabric-gold-sic-risk-pilot"
 PROJECT_NAME = "Fabric Gold SIC Risk Pilot"
@@ -152,9 +152,11 @@ def run(args: argparse.Namespace) -> None:
         pause(4, "Inventario Fabric", "En Atlas confirma las tablas/columnas importadas y que no se leen filas de detalle.")
 
     if step <= 5:
-        documents = find_documents()
+        all_documents = find_documents()
+        documents = unique_file_paths_by_content(all_documents)
         if not documents:
             raise SystemExit(f"No hay documentos en {DOCUMENTATION_DIR}")
+        print(f"Fuentes encontradas: {len(all_documents)}; documentos unicos por contenido: {len(documents)}")
         print("Documentos que se cargaran:")
         for path in documents:
             print(f" - {path.name}")
@@ -258,7 +260,7 @@ def run(args: argparse.Namespace) -> None:
 
     if step <= 11:
         questions = [
-            "Cual es el riesgo de la regla 1003 en el SIC12?",
+            "Cual es el riesgo de la regla 1 en el SIC12?",
             "Cuantos riesgos hay?",
             "Cuantos valores REAL y DEFAULT hay?",
             "Que planeta es mas grande?",

@@ -1,7 +1,7 @@
 # Decision de arquitectura MVP - Monolito web local
 
-Fecha: 2026-08-01  
-Estado: decision vigente para las fases 0 a 4 del plan  
+Fecha: 2026-08-13
+Estado: decision vigente para el MVP operativo y su evolucion posterior
 Decision: ONTO se construye inicialmente como una unica aplicacion web monolitica, local y orientada a PoC/MVP.
 
 ## Contexto
@@ -17,13 +17,13 @@ Se mantiene una unica aplicacion web basada en el enfoque local existente de Str
 Los tres productos se diferencian por sus pantallas, modelos y archivos de salida, pero **no** por servicios desplegables distintos:
 
 ```text
-streamlit_app.py
-  ├── Assessment
-  ├── Registry & Validation
-  └── Runtime / Investigador
-
+streamlit_app.py              # entrada: proyecto, navegacion y administracion
+onto_ui/                      # pantallas por producto
+  atlas.py                    # Assessment
+  nexo.py                     # Registry & Validation
+  argos.py                    # Runtime / Investigador
 src/ontology_workbench/       # modulos Python internos, no microservicios
-data/                         # workspaces, archivos, ejecuciones y SQLite local
+data/                         # proyectos, contexto, workspaces, releases y ejecuciones JSON
 prompts/                      # instrucciones versionadas
 docs/                         # contratos y decisiones
 .env                          # configuracion y credenciales locales, nunca versionadas
@@ -36,7 +36,7 @@ La separacion interna en modulos sigue siendo necesaria para que el codigo sea l
 | Decision | Regla |
 | --- | --- |
 | Ejecucion | Un unico proceso web local; el punto de entrada actual es Streamlit. |
-| Persistencia | Carpetas bajo `data/` y SQLite local cuando se necesite indice, cola de revision o auditoria. |
+| Persistencia | Carpetas bajo `data/` con JSON y manifests. SQLite es una opcion futura, no un requisito actual. |
 | Configuracion | `.env` local y `.env.example`; no se almacenan secretos en JSON ni en las carpetas de datos. |
 | Multiusuario | Fuera de alcance. Los roles de revision existen como dato de dominio, no como SSO/portal empresarial. |
 | Conectores | Se invocan desde el monolito y solo con credenciales autorizadas en la maquina o sesion local. |
@@ -46,23 +46,18 @@ La separacion interna en modulos sigue siendo necesaria para que el codigo sea l
 
 ## Estructura local de datos objetivo
 
-Cada trabajo se organiza en carpetas para que una persona pueda inspeccionar el resultado sin infraestructura adicional:
+Cada trabajo se organiza en carpetas para que una persona pueda inspeccionar el resultado sin infraestructura adicional. La raiz es `data/`, o la carpeta indicada en `ONTO_DATA_DIR` (la usan los tests de interfaz). La estructura efectiva actual es:
 
 ```text
 data/
-  workspaces/
-    <client_id>/
-      <domain_id>/
-        <data_product_id>/
-          runs/
-            <run_id>/
-              input/
-              working/
-              output/
-              evidence/
-              review/
-              publication/
-  onto.db                     # indices locales, decisiones y auditoria ligera
+  projects/<project-id>.json          # incluye sistemas y casos de uso
+  history/<project-id>/...            # snapshots
+  context/<project-id>/...            # metadata tecnica importada y documentos
+  workspaces/<client>/<domain>/<data-product>/runs/<run-id>/...   # diagnosticos Atlas
+  registry/<project-id>/drafts|releases|comparisons/...
+  connections/<project-id>/<profile-id>.env
+  runtime/<project-id>/<release-id>/<investigation-id>/...
+  interoperability/<project-id>/<release-id>/<target>/<package-id>/...
 ```
 
 Los paquetes `assessment-package/` y `ontology-release/` son directorios exportables dentro de `output/`; su manifest permite moverlos o usarlos en otro entorno mas adelante.

@@ -1,0 +1,67 @@
+{
+  "sources": [
+    {
+      "key": "erp",
+      "name": "ERP operativo",
+      "platform": "mariadb",
+      "owner": "Jefe de Sistemas",
+      "description": "Pedidos, clientes, productos y stock operativo.",
+      "file": "erp_mariadb.sql"
+    },
+    {
+      "key": "lakehouse",
+      "name": "Lakehouse analitico",
+      "platform": "databricks",
+      "owner": "Lider de Datos",
+      "description": "Capa gold en Unity Catalog (main.gold). Export de information_schema.columns.",
+      "file": "lakehouse_databricks_columns.csv"
+    },
+    {
+      "key": "powerbi",
+      "name": "Modelo Power BI Ventas",
+      "platform": "powerbi",
+      "owner": "Analista BI",
+      "description": "Modelo semantico publicado para gerencia comercial.",
+      "file": "powerbi_ventas.bim"
+    },
+    {
+      "key": "crm",
+      "name": "CRM comercial",
+      "platform": "sqlserver",
+      "owner": "",
+      "description": "Cuentas, contactos y oportunidades. Sin responsable formal.",
+      "file": "crm_sqlserver.sql"
+    },
+    {
+      "key": "presupuesto",
+      "name": "Planillas de presupuesto",
+      "platform": "files",
+      "owner": "Control de Gestion",
+      "description": "Excel mensual por zona. Todavia no se entrego la estructura.",
+      "file": ""
+    }
+  ],
+  "use_cases": [
+    {
+      "name": "Rentabilidad por cliente",
+      "business_question": "Que clientes generan mas margen y como evoluciona mes a mes?",
+      "owner": "Gerencia Comercial",
+      "priority": "alta",
+      "sources": ["erp", "lakehouse", "powerbi"]
+    },
+    {
+      "name": "Pipeline vs ventas reales",
+      "business_question": "Que oportunidades del CRM terminan en pedidos facturados?",
+      "owner": "Jefe de Ventas",
+      "priority": "media",
+      "sources": ["crm", "erp"]
+    },
+    {
+      "name": "Cumplimiento de presupuesto",
+      "business_question": "Como vamos contra el presupuesto mensual por zona?",
+      "owner": "Control de Gestion",
+      "priority": "alta",
+      "sources": ["lakehouse", "presupuesto"]
+    }
+  ]
+}

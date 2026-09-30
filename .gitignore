@@ -4,4 +4,21 @@ __pycache__/
 .mypy_cache/
 .streamlit/
 .env
-data/projects/*.json
+.env.*
+!.env.example
+
+# Local runtime data. Keep only explicitly curated examples or samples.
+data/**
+!data/.gitkeep
+!data/samples/**
+!data/demo/**
+
+# Local databases and transient state
+*.db
+*.sqlite
+*.sqlite3
+*.log
+*.tmp
+
+# Backups de bases con datos potencialmente sensibles
+doc _base/*.sql

@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections import Counter
 
 from ontology_workbench.models import OntologyProject, utc_now_iso
+from ontology_workbench.query_catalog import normalize_query_catalog
 
 
 NEXO_PRODUCT_NAME = "Nexo"
@@ -18,6 +19,7 @@ def build_registry_draft(
     semantic_inventory: dict[str, object],
     draft_id: str,
     source_authority: str = "technical",
+    query_catalog: object = None,
 ) -> dict[str, object]:
     """Materialize reviewable registry candidates from an Atlas assessment package."""
     authority = source_authority.strip().lower()
@@ -48,6 +50,8 @@ def build_registry_draft(
             "scope": assessment_manifest["scope"],
         },
         "source_authority": authority,
+        "query_catalog": normalize_query_catalog(query_catalog),
+        "query_catalog_configured": query_catalog is not None,
         "authority_review": {
             "matches": authority_review["matches"],
             "gaps": authority_review["gaps"],
@@ -246,6 +250,10 @@ def build_ontology_release(
         "project_id": dict(draft["manifest"])["project_id"],
         "scope": source_assessment["scope"],
         "source_authority": source_authority,
+        "query_catalog": normalize_query_catalog(dict(draft["manifest"]).get("query_catalog")),
+        "query_catalog_configured": bool(
+            dict(draft["manifest"]).get("query_catalog_configured", False)
+        ),
         "authority_review": authority_review,
         "concepts": canonical_ontology["concepts"],
         "business_rules": canonical_ontology["business_rules"],
@@ -257,8 +265,9 @@ def build_ontology_release(
         "technical_assets": canonical_ontology["technical_assets"],
         "data_bindings": canonical_ontology["data_bindings"],
         "query_contract": {
-            "mode": "fabric-read-only-bound-only",
+            "mode": "catalog-read-only-bound-only",
             "allowed_operations": ["SELECT"],
+            "allowed_adapters": ["fabric", "local_synthetic", "mariadb"],
             "requires_approved_data_binding": True,
             "disallowed_operations": ["INSERT", "UPDATE", "DELETE", "DDL", "arbitrary_sql"],
         },
@@ -333,25 +342,35 @@ def _technical_candidates(objects: object, offset: int = 0) -> list[dict[str, ob
         if not isinstance(item, dict):
             continue
         metadata = dict(item.get("metadata", {})) if isinstance(item.get("metadata"), dict) else {}
-        if not str(metadata.get("fabric.objectType", "")).strip():
+        fabric_object_type = str(metadata.get("fabric.objectType", "")).strip()
+        bim_object_type = str(metadata.get("bim.objectType", "")).strip()
+        object_type = fabric_object_type or bim_object_type
+        if not object_type:
             continue
         name = str(item.get("name", "")).strip()
         source_ref = str(item.get("source_ref", name)).strip()
         if not name:
             continue
+        source_format = "fabric-information-schema" if fabric_object_type else "model.bim"
+        source_label = "Fabric" if fabric_object_type else "BIM"
+        origin_source_id = str(metadata.get("source.id", "")).strip()
+        if origin_source_id:
+            source_format = f"source:{origin_source_id}"
+            source_label = origin_source_id
         candidates.append(
             {
                 "candidate_id": f"candidate-technical-asset-{offset + len(candidates) + 1:04d}",
                 "candidate_type": "technical_asset",
                 "name": name,
-                "definition": f"Activo técnico Fabric {metadata.get('fabric.objectType')}: {source_ref}",
+                "definition": f"Activo técnico {source_label} {object_type}: {source_ref}",
                 "status": "pending_review",
                 "confidence": 1.0,
-                "origin": "atlas-fabric-metadata",
+                "origin": f"atlas-{'fabric' if fabric_object_type else 'bim'}-metadata",
+                "source_id": origin_source_id,
                 "technical_metadata": metadata,
                 "evidence": {
-                    "source_document_id": "fabric-information-schema",
-                    "source_chunk_id": f"fabric:{source_ref}",
+                    "source_document_id": source_format,
+                    "source_chunk_id": f"{source_format}:{source_ref}",
                     "source_excerpt": source_ref,
                     "evidence_status": "available",
                 },

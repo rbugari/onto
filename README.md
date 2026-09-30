@@ -1,54 +1,72 @@
 # DataIA Ontology Factory (ONTO)
 
-ONTO evoluciona desde el MVP local existente hacia una plataforma de conocimiento ontologico gobernado. La direccion del producto esta definida en la [documentacion de producto](docs/README.md).
+ONTO convierte evidencia tecnica y funcional existente en conocimiento ontologico gobernado, revisable y consumible por IA. Su foco son los dominios cuyos datos estan **distribuidos en varios sistemas y plataformas**: genera una ontologia comun, neutral de plataforma, que despues se implementa en Fabric, Databricks u otra herramienta del cliente.
+
+**Empezar por:** [Objetivo, alcance y foco](docs/OBJETIVO_ALCANCE_Y_FOCO.md). La direccion completa del producto esta en la [documentacion de producto](docs/README.md).
 
 La Factory se organiza en tres productos independientes y conectables:
 
-1. **Atlas · Ontology Readiness Assessment**: inventaria activos y mide readiness, gaps y prioridades.
-2. **Nexo Â· Ontology Registry & Validation**: convierte evidencia en una ontologia validada, versionada y portable.
-3. **Ontology Runtime**: usa una release aprobada para responder o investigar con evidencia y abstencion.
+1. **Atlas · Preparar evidencia**: inventaria todos los sistemas del dominio y su documentacion, mapea las entidades compartidas entre sistemas y mide readiness, gaps y prioridades por caso de uso.
+2. **Nexo · Validar conocimiento**: convierte evidencia en una ontologia revisada, versionada y portable.
+3. **Argos · Investigar el negocio**: usa una release aprobada para responder o investigar con evidencia y abstencion.
 
-Fabric, Databricks y otras plataformas son fuentes, sistemas de registro opcionales o destinos de publicacion; no sustituyen el modelo canonico de ONTO.
+Fabric, Databricks, Snowflake, SQL Server, MySQL y otras plataformas pueden cumplir roles distintos. Pueden ser repositorios de datos, fuentes de evidencia, modelos semanticos o destinos de una publicacion ontologica. ONTO mantiene separado el plano de datos del plano ontologico y conserva un modelo canonico portable.
+
+## Dos planos de interoperabilidad
+
+- **Plano de datos:** Atlas descubre metadata y Argos consulta datos operativos mediante bindings y operaciones autorizadas. Fabric es aqui un repositorio mas, igual que Databricks, Snowflake o SQL Server.
+- **Plano ontologico:** Nexo mantiene una release canonica y puede importar, mapear o preparar su publicacion hacia Fabric IQ Ontology, Databricks u otra herramienta externa.
+
+Una misma plataforma puede participar en ambos planos, pero las capacidades, permisos y contratos no son los mismos.
 
 ## Estado de la implementacion
 
-El codigo actual es un MVP local que aporta primeras capacidades de ingesta y exploracion. Corresponde principalmente al inicio del producto Assessment y no debe interpretarse como la Factory completa.
+El codigo actual es el MVP operativo local de los tres productos. Atlas, Nexo y Argos tienen flujos ejecutables y validados para `fabric-gold-sic-risk-pilot`, `commercial-sales-demo` y `distribuidora-ventas-distribuidas` (dominio repartido en cinco sistemas); `nalub-case` funciona como caso tecnico secundario. La publicacion externa, la seguridad multiusuario y la operacion productiva siguen fuera de alcance. El alcance detallado esta en [MVP operativo](docs/00_MVP_OPERATIVO.md).
 
 Durante esta etapa ONTO se mantiene como una unica aplicacion web local de Streamlit, con carpetas bajo `data/` y configuracion en `.env`. Assessment, Registry y Runtime se separan por contratos y navegacion, no por microservicios ni infraestructura. Ver la [decision de arquitectura MVP](docs/04_DECISION_ARQUITECTURA_MVP.md).
 
-La entrada web es una portada de **Ontology Factory**: permite elegir el proyecto activo y abrir Atlas, Nexo, Argos o el Workbench operativo. Cada producto se visualiza como un area independiente dentro de la misma aplicacion local.
+Al abrir la aplicacion se elige el proyecto activo y se confirma en **Contexto de trabajo**. La barra lateral muestra la ruta de tres etapas (**1. Preparar evidencia**, **2. Validar conocimiento**, **3. Investigar el negocio**), el acceso a **Administrar proyecto** y la identidad del **revisor/a de la sesion**, que se usa en todas las decisiones de revision.
 
 ## Estado actual
 
-- Creacion de proyectos locales.
-- Alta, edicion y borrado de conceptos y relaciones.
-- Edicion de datos basicos del proyecto.
-- Metadata por proyecto.
-- Validacion estructural basica.
-- Exportacion a JSON y resumen Markdown.
-- Importacion desde JSON exportado.
-- Importacion de archivos model.bim sobre el proyecto activo.
-- Captura local del `model.bim` original, con hash SHA-256, como evidencia de Atlas.
-- Tool 2 local: carga de documentos y scanner de contexto de negocio.
-- Atlas: assessment package reproducible con inventarios, evidencia por fragmentos, score basal, gaps y registro de revision humana; puede incorporar metadata Fabric de solo lectura como evidencia técnica.
-- Nexo: draft de candidatos trazables, modelo canónico revisable (propiedades, relaciones, sinónimos y restricciones) y release local inmutable con `agent_context_pack`.
-- Argos: investigador de releases con abstención explícita, recuperación trazable y batería local de evaluación de respuestas y evidencia; la release documentation-first del piloto Fabric pasa 6/6 casos.
-- Interoperabilidad: paquetes locales de mapping revisable para Microsoft Fabric o Databricks, sin publicación externa.
-- Snapshots locales para versionado simple y restauracion.
+- Proyectos locales, snapshots, exportacion/importacion JSON y resumen Markdown.
+- Conceptos, relaciones y metadata editables desde **Administrar proyecto**.
+- **Atlas** en cuatro pestanas: Alcance, Fuentes, Contexto de negocio y Diagnostico.
+  - Varios sistemas por proyecto, cada uno con plataforma, responsable, formato, archivo y hash SHA-256. Reimportar un sistema reemplaza solo sus objetos.
+  - Carga por archivo exportado: DDL generico (`.sql`), `information_schema.columns` (CSV), `model.bim`, TMDL y PBIP ZIP. Cubre Databricks, SQL Server, PostgreSQL, Snowflake, Oracle, MariaDB y planillas.
+  - Conexion directa de solo lectura a metadata de Microsoft Fabric.
+  - Casos de uso con pregunta de negocio, responsable, prioridad y sistemas.
+  - Scanner de contexto de negocio sobre documentos (antes "Tool 2"), con evidencia por fragmento.
+  - Diagnostico reproducible: score por dimension (incluida alineacion entre sistemas), mapa de entidades compartidas, gaps por sistema/caso de uso, informe Markdown y revision humana.
+- **Nexo** en cinco pestanas: revision de candidatos (lista y detalle con evidencia), modelo canonico, consolidacion, comparacion y release/interoperabilidad. Release local reconstruible con `agent_context_pack`.
+- **Argos**: conversacion tipo chat sobre una release aprobada, abstencion explicita, preguntas iniciales y graficos definidos por el catalogo, y pestana de analistas con catalogo de consultas y bateria de evaluacion.
+- Query catalog por release: routing, parametros, binding requerido, adapter, perfil de conexion, limites, `example_question` y `visualization`.
+- Interoperabilidad: paquetes locales de mapping revisable para Microsoft Fabric o Databricks, sin publicacion externa.
+- Demo distribuida sintetica: `examples/distributed_sales_demo/` y `scripts/run_distributed_demo.py` (ERP MariaDB, lakehouse Databricks, Power BI, CRM SQL Server y planillas).
+- Demo comercial sintetica: `examples/commercial_sales_demo/` y `scripts/run_commercial_sales_demo.py` ejecutan Atlas, Nexo, Argos y mapping local sin datos reales.
+- Caso Nalub: `scripts/run_nalub_case.py` ingesta el schema del backup y el contexto funcional, genera una release con cinco capacidades MariaDB y puede ejecutar consultas live read-only con un perfil de conexion local.
+- Conexiones por proyecto: los perfiles viven en `data/connections/<project_id>/<profile_id>.env`; una release solo referencia el nombre del perfil y nunca persiste secretos.
 
-### Alcance actual del piloto Fabric
+### Pilotos y casos de validacion
 
-Fabric se utiliza como fuente técnica autorizada para descubrir metadata, validar bindings y ejecutar seis consultas read-only nombradas. La operación del piloto permanece dentro de la aplicación local: Atlas, Nexo, Argos y los mappings se ejecutan sobre artefactos locales. No se acepta SQL libre ni se publica ningún cambio externo; dos operaciones parametrizadas recuperan un máximo controlado de filas para una regla/SIC o un SIC específico.
+El piloto `fabric-gold-sic-risk-pilot` valida una primera combinacion de ambos planos. Atlas descubre metadata del Warehouse; Nexo conserva bindings y prepara mappings; Argos ejecuta consultas read-only nombradas sobre datos operativos. Las queries y tablas del dominio SIC son especificas del piloto.
+
+El caso `nalub-case` valida un flujo schema-first sobre MariaDB legacy. La release actual declara `order_status_summary`, `sales_summary`, `product_demand_by_year`, `customer_debt` y `product_availability`. Las consultas live usan solo templates allowlisted, parametros validados, sesion read-only y perfiles aislados por proyecto. No se acepta SQL libre.
 
 ## Estructura
 
-- `streamlit_app.py`: interfaz local.
-- `src/ontology_workbench/models.py`: modelos del dominio.
-- `src/ontology_workbench/service.py`: logica del workbench.
-- `src/ontology_workbench/storage.py`: persistencia en archivos JSON y snapshots.
-- `src/ontology_workbench/exporters.py`: salidas portables.
-- `src/ontology_workbench/context_scanner.py`: extraccion de texto y scanner Tool 2.
-- `tests/test_workbench_service.py`: pruebas unitarias.
+- `streamlit_app.py`: punto de entrada, seleccion de proyecto, navegacion y administracion del proyecto.
+- `onto_ui/`: pantallas `atlas.py`, `nexo.py`, `argos.py`, widgets compartidos (`common.py`) y etiquetas en espanol (`labels.py`).
+- `src/ontology_workbench/`:
+  - `models.py`, `service.py`, `storage.py`: dominio, logica y persistencia local.
+  - `atlas.py`, `cross_source.py`, `external_metadata.py`, `bim_importer.py`, `semantic_model_importer.py`, `mariadb_schema.py`: assessment, alineacion entre sistemas e importadores.
+  - `context_scanner.py`: extraccion de texto y scanner de contexto.
+  - `nexo.py`, `nexo_curation.py`, `nexo_diff.py`: drafts, consolidacion, comparacion y releases.
+  - `runtime.py`, `runtime_evaluation.py`, `query_catalog.py`, `result_views.py`: Argos, evaluacion, catalogo y presentacion de resultados.
+  - `fabric_adapter.py`, `mariadb_adapter.py`, `local_data_adapter.py`, `connection_profiles.py`, `interoperability.py`: conectores y mappings.
+- `tests/test_workbench_service.py`: pruebas de servicio y contratos.
+- `tests/test_streamlit_ui.py`: pruebas de interfaz con `streamlit.testing.v1.AppTest` (se omiten si Streamlit no esta instalado).
+- `examples/`: casos sinteticos versionables. `scripts/`: runners y demos.
 
 ## Ejecutar local
 
@@ -66,9 +84,27 @@ streamlit run streamlit_app.py
 ## Verificacion rapida
 
 ```powershell
-python -m unittest discover -s tests
-python -m compileall src tests streamlit_app.py
+.\.venv\Scripts\python.exe -m unittest discover -s tests
+.\.venv\Scripts\python.exe -m compileall -q streamlit_app.py onto_ui src scripts tests
 ```
+
+Con el Python del entorno virtual se ejecutan tambien las pruebas de interfaz. Los tests de UI usan `ONTO_DATA_DIR` apuntando a una carpeta temporal y no tocan `data/`.
+
+## Ejecutar las demos
+
+Dominio distribuido en varios sistemas (foco de Atlas):
+
+```powershell
+python scripts/run_distributed_demo.py
+```
+
+Flujo completo Atlas, Nexo, Argos y mapping con datos sinteticos:
+
+```powershell
+python scripts/run_commercial_sales_demo.py
+```
+
+Ambos scripts regeneran solo los artefactos de su propio proyecto demo.
 
 ## Ejecutar la demo local
 
@@ -126,11 +162,18 @@ Para ejecutar sin limpiar datos operativos, usar `--skip-reset`.
 
 ## Persistencia local
 
-- Proyectos: `data/projects/*.json`
-- Snapshots: `data/history/<project-id>/*.json`
-- Tool 2: `data/context/<project-id>/...`
+La raiz es `data/` o la carpeta indicada en `ONTO_DATA_DIR`.
 
-## LLM para Tool 2
+- Proyectos (incluye sistemas y casos de uso): `data/projects/*.json`
+- Snapshots: `data/history/<project-id>/*.json`
+- Metadata tecnica y documentos: `data/context/<project-id>/...`
+- Diagnosticos Atlas: `data/workspaces/<client>/<domain>/<data-product>/runs/<run-id>/...`
+- Registry: `data/registry/<project-id>/...`
+- Interoperabilidad: `data/interoperability/<project-id>/<release-id>/<target>/...`
+- Conexiones: `data/connections/<project-id>/<profile>.env` (secretos locales, no versionar)
+- Runtime: `data/runtime/<project-id>/<release-id>/<investigation-id>/...`
+
+## LLM para el scanner de contexto y Argos
 
 La app no puede usar tu sesion de Copilot como backend runtime. Para el scanner con LLM necesitas configurar un proveedor propio o correr en modo heuristico local.
 
@@ -164,6 +207,8 @@ Para modelos de razonamiento compatibles con Chat Completions se admite `LLM_REA
 
 Si existe `.env` en la raiz del proyecto, la app lo carga automaticamente.
 
+`ONTO_LLM_DATA_POLICY` controla que se puede enviar al proveedor: `approved_external` (por defecto) permite el proveedor configurado; `local_only` bloquea proveedores externos y solo admite Ollama local.
+
 Para Azure OpenAI:
 
 ```powershell
@@ -182,6 +227,16 @@ $env:ONTO_LLM_MODEL="llama3.1:8b"
 $env:ONTO_LLM_BASE_URL="http://localhost:11434/api/chat"
 ```
 
+## Configuracion MariaDB Nalub
+
+El runner live usa un perfil por proyecto con `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD` y `DB_NAME`. El perfil no se copia a la release ni al contexto.
+
+```powershell
+python scripts/run_nalub_case.py --live --project-id nalub-case --connection-profile nalub-test
+```
+
+La consulta de demanda por producto acepta un año entre 2000 y 2100 y excluye pedidos cancelados. El adapter no ejecuta SQL recibido desde la pregunta.
+
 ## Configuracion Fabric
 
 La integración Fabric es opcional y de solo lectura. Requiere dependencias ya incluidas en `requirements.txt`, el controlador ODBC 18 para SQL Server y un archivo `.env` compartido autorizado. ONTO no guarda secretos: se configura únicamente la ruta del archivo y, opcionalmente, la ruta del registro local de autenticación.
@@ -199,9 +254,14 @@ Los prompts del scanner quedaron fuera del codigo para que puedan modificarse si
 
 - `prompts/tool2_business_context_extraction.md`
 
-## Proximo foco sugerido
+## Evolucion posterior al MVP
 
-- Ampliar el adaptador técnico más allá de `model.bim` y el catálogo Fabric actual.
+- Formalizar contratos separados para fuentes de datos, modelos semanticos y repositorios ontologicos externos.
+- Descubrimiento remoto de metadata para Databricks (Unity Catalog) y otras plataformas; hoy se cargan por archivo exportado.
+- Confirmacion humana de equivalencias entre sistemas (por ejemplo Cuenta CRM = Cliente ERP) como parte de Nexo.
+- Registrar templates y adapters de ejecucion para catalogos de nuevos dominios.
+- Ampliar la cobertura de consultas operativas comerciales y sus evaluaciones.
+- Consolidar la politica de datos demo y separar artefactos operativos del repo.
 - Definir reglas de validacion semantica de negocio y revisión de impacto.
 - Diseñar y validar un adapter de publicación externo controlado.
 - Curar los matches ambiguos y los gaps del flujo `documentation-first` antes de emitir releases de negocio.

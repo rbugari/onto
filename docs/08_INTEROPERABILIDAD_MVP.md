@@ -1,15 +1,42 @@
 # Interoperabilidad MVP
 
-Estado: primer corte implementado y con lectura de metadata Fabric validada  
-Alcance: lectura de catálogo y preparación local; sin publicación externa
+Estado: MVP operativo implementado; lectura de metadata Fabric, adapters read-only y mappings locales validados
+Alcance: dos planos de interoperabilidad; sin publicación externa
 
-## Propósito
+## Principio
 
-ONTO conserva una ontología canónica propia. Fabric y Databricks son destinos opcionales: este corte prepara cómo podría representarse una release aprobada, sin reemplazar ni duplicar la ontología de ONTO.
+ONTO conserva una ontología canónica propia y puede convivir con el repositorio de datos y el repositorio ontologico que el cliente ya utilice. Fabric y Databricks no son una sola integracion: pueden ser fuentes de datos, modelos semanticos, fuentes de una ontologia existente o destinos de publicacion.
+
+## Plano de datos
+
+En este plano, Fabric es un repositorio estructurado mas, igual que Databricks, Snowflake, SQL Server o MySQL.
+
+Atlas puede:
+
+- registrar varios sistemas por dominio, cada uno con plataforma y responsable;
+- descubrir tablas y columnas de Fabric mediante catalogo, de solo lectura;
+- importar metadata exportada de Databricks, SQL Server, PostgreSQL, Snowflake, Oracle, MariaDB o planillas mediante DDL (`.sql`) o CSV de `information_schema.columns`;
+- importar `model.bim`, TMDL, paquetes PBIP ZIP y payloads JSON semanticos compatibles;
+- conservar hashes y metadata como evidencia reproducible;
+- detectar entidades compartidas entre sistemas y sus claves comunes;
+- registrar activos tecnicos para su posterior vinculacion.
+
+Argos puede consultar datos operativos solo mediante bindings aprobados y operaciones nombradas, parametrizadas y read-only. Fabric mantiene las consultas del piloto SIC; MariaDB implementa el catalogo live del caso Nalub; ninguno es un catalogo universal.
+
+## Plano ontologico
+
+Nexo puede preparar una release para ser:
+
+- conservada como ontologia canonica en ONTO;
+- mapeada hacia Fabric IQ Ontology;
+- mapeada hacia capacidades ontologicas de Databricks;
+- exportada a Purview, Collibra, Neo4j, RDF/OWL u otro formato futuro.
+
+El mapping ontologico no publica automaticamente. El repositorio de datos, el repositorio ontologico, la release, la identidad autorizada y el estado de sincronizacion deben declararse por separado.
 
 ## Paquete generado
 
-Una release puede preparar un paquete para `fabric` o `databricks` bajo:
+Una release puede preparar un paquete local bajo:
 
 ```text
 data/interoperability/<project>/<release>/<target>/<package-id>/
@@ -18,24 +45,27 @@ data/interoperability/<project>/<release>/<target>/<package-id>/
   deployment_manifest.json
 ```
 
-El mapping cubre entidades, reglas, KPIs, propiedades, relaciones, sinónimos y restricciones. Cada entrada conserva nombre, definición, responsable y vínculos de origen cuando existen.
+El mapping cubre entidades, reglas, KPIs, propiedades, relaciones, sinonimos y restricciones. Cada entrada conserva nombre, definicion, responsable y vinculos de origen cuando existen.
 
 ## Conector Fabric de solo lectura
 
-Atlas puede reutilizar la configuración externa de Fabric ya autorizada para ONTO. La autenticación es delegada mediante Entra; ONTO no copia secretos. El conector valida identidad y base de datos, y puede consultar únicamente `INFORMATION_SCHEMA.TABLES` y `INFORMATION_SCHEMA.COLUMNS` con límites de inventario.
+Atlas puede reutilizar la configuracion externa de Fabric ya autorizada para ONTO. La autenticacion es delegada mediante Entra; ONTO no copia secretos. El descubrimiento de metadata consulta `INFORMATION_SCHEMA.TABLES` y `INFORMATION_SCHEMA.COLUMNS` con limites de inventario.
 
-El resultado se guarda bajo `data/fabric/<project>/discoveries/` y puede incorporarse al proyecto como tablas y columnas técnicas. El archivo de metadata queda retenido con hash SHA-256, por lo que el assessment Atlas lo usa como evidencia técnica reproducible. La validación inicial contra el Warehouse configurado confirmó acceso de solo lectura y recuperación limitada de catálogo.
-
-Al crear un draft Nexo desde ese assessment, los objetos Fabric se convierten en candidatos `technical_asset`. Los `source_binding` aprobados conectan esos activos con conceptos o KPIs de negocio y alimentan el context pack de Argos con una frontera de consulta explícita.
+Las consultas de Argos sobre filas de negocio son otro contrato: se ejecutan solo desde operaciones allowlisted, con bindings aprobados y parametros validados. No deben confundirse con el descubrimiento de metadata de Atlas.
 
 ## Límites de seguridad
 
-- El paquete tiene estado `ready_for_review`; no se publica automáticamente.
+- El paquete ontologico tiene estado `ready_for_review`; no se publica automaticamente.
 - No pide ni guarda credenciales.
-- El inventario Fabric no consulta filas de negocio; solo metadata de `INFORMATION_SCHEMA`.
-- No contiene datos de negocio ni ejecuta escrituras contra una plataforma externa.
-- El rollback lógico consiste en descartar el paquete, porque todavía no ocurrió ningún cambio externo.
+- Atlas no consulta filas de negocio durante el inventario Fabric.
+- Argos puede consultar filas solo por operaciones read-only declaradas y aprobadas.
+- No se ejecutan escrituras externas en este MVP.
+- El rollback logico consiste en descartar el paquete, porque todavia no ocurrio ningun cambio externo.
 
-## Próximo corte
+## Evolucion posterior al MVP
 
-Cuando exista un piloto y se elija destino, el adapter concreto deberá declarar autenticación, workspace o catálogo, capacidades soportadas, bindings aprobados, deployment manifest, auditoría y rollback de la publicación real.
+1. Separar en contratos de adapter la lectura de datos, la importacion de ontologias y la publicacion ontologica.
+2. Descubrimiento remoto de metadata en Databricks (Unity Catalog) con identidad delegada y solo lectura; hoy se carga por archivo exportado.
+3. Consolidar `template_id`, limites y formateo desde adapters de datos configurables; el primer adapter local sintetico ya esta validado.
+4. Elegir un primer destino ontologico real y documentar autenticacion, workspace, capacidades, auditoria y rollback.
+5. Endurecer el adapter MariaDB de Nalub mediante un `connection_profile` aislado por proyecto, con credenciales read-only rotadas y pruebas de permisos, limites, latencia y abstencion.

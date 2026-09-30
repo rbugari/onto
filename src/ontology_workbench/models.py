@@ -57,6 +57,72 @@ class Relation:
 
 
 @dataclass(slots=True)
+class DataSource:
+    """A system in assessment scope; its objects carry `source.id` in concept metadata."""
+
+    source_id: str
+    name: str
+    platform: str = "other"
+    owner: str = ""
+    description: str = ""
+    access_mode: str = "external_file"
+    status: str = "declared"
+    source_format: str = ""
+    filename: str = ""
+    stored_path: str = ""
+    content_sha256: str = ""
+    inventoried_at: str = ""
+    object_counts: dict[str, int] = field(default_factory=dict)
+
+    def to_dict(self) -> dict[str, object]:
+        return asdict(self)
+
+    @classmethod
+    def from_dict(cls, raw: dict[str, object]) -> "DataSource":
+        return cls(
+            source_id=str(raw["source_id"]),
+            name=str(raw.get("name", raw["source_id"])),
+            platform=str(raw.get("platform", "other")),
+            owner=str(raw.get("owner", "")),
+            description=str(raw.get("description", "")),
+            access_mode=str(raw.get("access_mode", "external_file")),
+            status=str(raw.get("status", "declared")),
+            source_format=str(raw.get("source_format", "")),
+            filename=str(raw.get("filename", "")),
+            stored_path=str(raw.get("stored_path", "")),
+            content_sha256=str(raw.get("content_sha256", "")),
+            inventoried_at=str(raw.get("inventoried_at", "")),
+            object_counts={
+                str(key): int(value) for key, value in dict(raw.get("object_counts", {})).items()
+            },
+        )
+
+
+@dataclass(slots=True)
+class UseCase:
+    use_case_id: str
+    name: str
+    business_question: str = ""
+    owner: str = ""
+    priority: str = "media"
+    source_ids: list[str] = field(default_factory=list)
+
+    def to_dict(self) -> dict[str, object]:
+        return asdict(self)
+
+    @classmethod
+    def from_dict(cls, raw: dict[str, object]) -> "UseCase":
+        return cls(
+            use_case_id=str(raw["use_case_id"]),
+            name=str(raw.get("name", raw["use_case_id"])),
+            business_question=str(raw.get("business_question", "")),
+            owner=str(raw.get("owner", "")),
+            priority=str(raw.get("priority", "media")),
+            source_ids=[str(item) for item in raw.get("source_ids", [])],
+        )
+
+
+@dataclass(slots=True)
 class OntologyProject:
     id: str
     name: str
@@ -66,6 +132,8 @@ class OntologyProject:
     concepts: list[Concept] = field(default_factory=list)
     relations: list[Relation] = field(default_factory=list)
     metadata: dict[str, str] = field(default_factory=dict)
+    sources: list[DataSource] = field(default_factory=list)
+    use_cases: list[UseCase] = field(default_factory=list)
 
     def touch(self) -> None:
         self.updated_at = utc_now_iso()
@@ -80,6 +148,8 @@ class OntologyProject:
             "concepts": [concept.to_dict() for concept in self.concepts],
             "relations": [relation.to_dict() for relation in self.relations],
             "metadata": dict(self.metadata),
+            "sources": [source.to_dict() for source in self.sources],
+            "use_cases": [use_case.to_dict() for use_case in self.use_cases],
         }
 
     @classmethod
@@ -95,6 +165,8 @@ class OntologyProject:
             metadata={
                 str(key): str(value) for key, value in dict(raw.get("metadata", {})).items()
             },
+            sources=[DataSource.from_dict(item) for item in raw.get("sources", [])],
+            use_cases=[UseCase.from_dict(item) for item in raw.get("use_cases", [])],
         )
 
 

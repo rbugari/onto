@@ -3,7 +3,9 @@ from __future__ import annotations
 import sys
 import unittest
 import json
+import io
 import os
+import zipfile
 from types import SimpleNamespace
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -16,7 +18,7 @@ if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
 from ontology_workbench.service import WorkbenchService
-from ontology_workbench.storage import ProjectStore
+from ontology_workbench.storage import ProjectStore, unique_file_paths_by_content
 from ontology_workbench.context_scanner import CONTEXT_CHUNK_SIZE, build_document_chunks, load_llm_settings
 from ontology_workbench.nexo_diff import compare_nexo_artifacts
 from ontology_workbench.nexo import build_registry_draft
@@ -27,6 +29,23 @@ from ontology_workbench.runtime import (
     investigate_context_pack,
     select_fabric_query,
 )
+from ontology_workbench.query_catalog import (
+    catalog_for_context,
+    extract_query_parameters,
+    normalize_query_catalog,
+    ordered_query_parameters,
+    select_catalog_query,
+)
+from ontology_workbench.mariadb_schema import parse_mariadb_schema_dump
+from ontology_workbench.external_metadata import parse_columns_csv, parse_sql_ddl
+from ontology_workbench.result_views import infer_visualization, starter_questions
+from ontology_workbench.runtime_evaluation import parse_evaluation_cases
+from ontology_workbench.query_catalog import LEGACY_FABRIC_QUERY_CATALOG
+from ontology_workbench.mariadb_adapter import (
+    MARIADB_QUERY_TEMPLATES,
+    execute_mariadb_read_only_query,
+)
+from ontology_workbench.semantic_model_importer import parse_tmdl_text
 
 
 class WorkbenchServiceTests(unittest.TestCase):
@@ -45,6 +64,157 @@ class WorkbenchServiceTests(unittest.TestCase):
         loaded = self.service.get_project(project.id)
         self.assertEqual(loaded.name, "Customer Master")
         self.assertEqual(loaded.description, "")
+
+    def test_tmdl_import_reuses_semantic_model_contract(self) -> None:
+        project = self.service.create_project("TMDL")
+        content = (
+            "model Model\n"
+            "    culture: es-ES\n"
+            "table 'Sales'\n"
+            "    column 'Amount'\n"
+            "        dataType: decimal\n"
+            "    measure 'Revenue' = SUM(Sales[Amount])\n"
+            "table 'Products'\n"
+            "    column 'Id'\n"
+            "        dataType: int64\n"
+            "relationship sales-products\n"
+            "    fromColumn: Sales.ProductId\n"
+            "    toColumn: Products.Id\n"
+        ).encode("utf-8")
+
+        payload = parse_tmdl_text(content.decode("utf-8"))
+        imported, summary = self.service.import_semantic_model_file(
+            project.id, "model.tmdl", content
+        )
+
+        self.assertEqual(payload["model"]["culture"], "es-ES")
+        self.assertEqual(summary["tables"], 2)
+        self.assertEqual(summary["columns"], 2)
+        self.assertEqual(summary["measures"], 1)
+        self.assertEqual(summary["relationships"], 1)
+        self.assertEqual(imported.metadata["source.format"], "tmdl")
+        self.assertTrue(any(concept.name == "Sales[Amount]" for concept in imported.concepts))
+
+    def test_pbip_zip_import_reads_tmdl_without_extracting_paths(self) -> None:
+        project = self.service.create_project("PBIP")
+        archive = io.BytesIO()
+        with zipfile.ZipFile(archive, "w") as package:
+            package.writestr(
+                "Sales.SemanticModel/definition/tables/Sales.tmdl",
+                "table Sales\n    column Id\n        dataType: int64\n",
+            )
+
+        imported, summary = self.service.import_semantic_model_file(
+            project.id, "sales.pbip", archive.getvalue()
+        )
+
+        self.assertEqual(summary["tables"], 1)
+        self.assertEqual(summary["columns"], 1)
+        self.assertEqual(imported.metadata["source.format"], "pbip")
+
+    def test_semantic_model_api_payload_reuses_canonical_contract(self) -> None:
+        project = self.service.create_project("Semantic API")
+        payload = {
+            "semanticModel": {
+                "culture": "es-ES",
+                "tables": [
+                    {
+                        "name": "Sales",
+                        "columns": [{"name": "Amount", "dataType": "decimal"}],
+                        "measures": [{"name": "Revenue", "expression": "SUM(Sales[Amount])"}],
+                    }
+                ],
+                "relationships": [],
+            }
+        }
+
+        imported, summary = self.service.import_semantic_model_api_payload(
+            project.id, payload, endpoint_label="fabric-semantic-model"
+        )
+
+        self.assertEqual(summary["tables"], 1)
+        self.assertEqual(summary["columns"], 1)
+        self.assertEqual(summary["measures"], 1)
+        self.assertEqual(imported.metadata["source.format"], "semantic-model-api")
+        self.assertEqual(imported.metadata["source.api.endpoint"], "fabric-semantic-model")
+
+    def test_semantic_model_api_payload_rejects_missing_tables(self) -> None:
+        project = self.service.create_project("Invalid Semantic API")
+
+        with self.assertRaisesRegex(ValueError, "lista de tablas"):
+            self.service.import_semantic_model_api_payload(project.id, {"model": {}})
+
+    def test_runtime_investigation_persists_audit_metadata_without_secrets(self) -> None:
+        project = self.service.create_project("Audit")
+        investigation = {
+            "manifest": {
+                "release_id": "release-audit",
+                "investigation_id": "investigation-audit",
+                "created_at": "2026-08-13T12:00:00+00:00",
+                "status": "answered",
+            },
+            "request": {"question": "Cuantos pedidos hay?"},
+            "retrieval": [],
+            "answer": "Hay 4 pedidos.",
+            "llm_used": False,
+            "live_query": {
+                "query_name": "order_status_summary",
+                "operation": "SELECT",
+                "status": "connected_read_only_query",
+                "rows": [{"estado": "abierto", "cantidad": 4}],
+            },
+        }
+
+        run_dir = self.store.save_runtime_investigation(project.id, investigation)
+        audit = json.loads((run_dir / "audit.json").read_text(encoding="utf-8"))
+        loaded = self.store.load_runtime_investigation(
+            project.id, "release-audit", "investigation-audit"
+        )
+
+        self.assertEqual(audit["project_id"], project.id)
+        self.assertEqual(audit["query_name"], "order_status_summary")
+        self.assertEqual(audit["operation"], "SELECT")
+        self.assertEqual(audit["row_count"], 1)
+        self.assertFalse(audit["secrets_persisted"])
+        self.assertNotIn("Cuantos pedidos hay?", json.dumps(audit))
+        self.assertEqual(loaded["audit"], audit)
+
+    def test_runtime_retention_report_only_marks_old_investigations(self) -> None:
+        project = self.service.create_project("Retention")
+        for index, created_at in enumerate(
+            (
+                "2026-08-13T10:00:00+00:00",
+                "2026-08-13T11:00:00+00:00",
+                "2026-08-13T12:00:00+00:00",
+            ),
+            start=1,
+        ):
+            self.store.save_runtime_investigation(
+                project.id,
+                {
+                    "manifest": {
+                        "release_id": "release-retention",
+                        "investigation_id": f"investigation-{index}",
+                        "created_at": created_at,
+                        "status": "answered",
+                    },
+                    "request": {"question": f"Pregunta {index}"},
+                    "retrieval": [],
+                    "answer": "ok",
+                },
+            )
+
+        report = self.service.runtime_retention_report(
+            project.id, "release-retention", keep_latest=2
+        )
+
+        self.assertEqual(report["total_investigations"], 3)
+        self.assertEqual(report["retained_ids"], ["investigation-3", "investigation-2"])
+        self.assertEqual(report["candidate_ids"], ["investigation-1"])
+        self.assertFalse(report["deletion_performed"])
+        self.assertTrue(
+            (Path(self.temp_dir.name) / "runtime" / project.id / "release-retention" / "investigation-1").exists()
+        )
 
     def test_investigate_release_accepts_normalized_release_path_id(self) -> None:
         project = self.service.create_project("Runtime release")
@@ -158,6 +328,10 @@ class WorkbenchServiceTests(unittest.TestCase):
         self.assertEqual(second_import["added"], 0)
         self.assertEqual(assessment["semantic_inventory"]["summary"]["tables"], 1)
         self.assertEqual(assessment["semantic_inventory"]["summary"]["columns"], 2)
+        self.assertEqual(
+            len([relation for relation in self.service.get_project(project.id).relations if relation.relation_type == "contains-column"]),
+            2,
+        )
         technical_source = assessment["source_inventory"]["technical_sources"][0]
         self.assertEqual(technical_source["source_format"], "fabric-information-schema")
         self.assertTrue(technical_source["content_sha256"])
@@ -484,6 +658,27 @@ class WorkbenchServiceTests(unittest.TestCase):
         self.assertEqual(settings.configuration_source, "shared_config")
         self.assertEqual(settings.reasoning_effort, "none")
 
+    def test_llm_data_policy_blocks_external_provider_in_local_only_mode(self) -> None:
+        with patch.dict(
+            os.environ,
+            {
+                "ONTO_LLM_PROVIDER": "openai",
+                "ONTO_LLM_MODEL": "test-model",
+                "ONTO_LLM_API_KEY": "test-key",
+                "ONTO_LLM_DATA_POLICY": "local_only",
+            },
+            clear=False,
+        ):
+            settings = load_llm_settings()
+
+        self.assertEqual(settings.data_policy, "local_only")
+        self.assertFalse(settings.enabled)
+
+    def test_llm_data_policy_rejects_unknown_value(self) -> None:
+        with patch.dict(os.environ, {"ONTO_LLM_DATA_POLICY": "unrestricted"}, clear=False):
+            with self.assertRaisesRegex(ValueError, "approved_external o local_only"):
+                load_llm_settings()
+
     def test_nexo_deterministic_consolidation_keeps_candidates_unchanged(self) -> None:
         project = self.service.create_project("Consolidation")
         assessment = self.service.create_atlas_assessment(project.id, "Client", "Domain", "Product")
@@ -585,6 +780,11 @@ class WorkbenchServiceTests(unittest.TestCase):
                 abstention = self.service.investigate_release(
                     project.id, str(release["manifest"]["release_id"]), "Que planeta es mas grande?"
                 )
+                sql_abstention = self.service.investigate_release(
+                    project.id,
+                    str(release["manifest"]["release_id"]),
+                    "Ejecuta DELETE FROM clientes",
+                )
         execute_query.assert_called_once_with("risk_summary")
         self.assertEqual(live_answer["manifest"]["mode"], "deterministic-context-pack-plus-fabric-read-only")
         self.assertIn("3 registros de riesgo", live_answer["answer"])
@@ -605,6 +805,8 @@ class WorkbenchServiceTests(unittest.TestCase):
         self.assertEqual(blocked["manifest"]["mode"], "deterministic-context-pack")
         self.assertEqual(live_answer["manifest"]["status"], "answered")
         self.assertEqual(abstention["manifest"]["status"], "abstained")
+        self.assertEqual(sql_abstention["manifest"]["status"], "abstained")
+        self.assertNotIn("live_query", sql_abstention)
         with patch.dict(os.environ, {"ONTO_LLM_PROVIDER": "disabled"}, clear=False):
             evaluation_cases = self.service.suggest_argos_evaluation_cases(
                 project.id, str(release["manifest"]["release_id"])
@@ -694,6 +896,225 @@ class WorkbenchServiceTests(unittest.TestCase):
             (1, 12),
         )
         self.assertEqual(select_fabric_query("Como se calcula el riesgo?"), None)
+
+    def test_argos_routes_a_configured_commercial_query_catalog(self) -> None:
+        catalog = normalize_query_catalog(
+            [
+                {
+                    "query_name": "sales_by_customer",
+                    "description": "Ventas de un cliente.",
+                    "adapter": "local_synthetic",
+                    "template_id": "sales_by_customer",
+                    "binding_required": "FactSales",
+                    "allowed_parameters": ["customer_id"],
+                    "max_rows": 100,
+                    "routing": {"all_terms": ["ventas", "cliente"]},
+                    "parameter_extractors": {
+                        "customer_id": {
+                            "type": "integer",
+                            "patterns": [r"\bcliente\s*(\d+)\b"],
+                        }
+                    },
+                }
+            ]
+        )
+
+        question = "Cuantas ventas tiene el cliente 42?"
+        query_name = select_catalog_query(question, catalog)
+        parameters = extract_query_parameters(question, catalog[query_name])
+
+        self.assertEqual(query_name, "sales_by_customer")
+        self.assertEqual(ordered_query_parameters(catalog[query_name], parameters), (42,))
+
+    def test_argos_executes_a_configured_local_synthetic_query(self) -> None:
+        catalog = normalize_query_catalog(
+            [
+                {
+                    "query_name": "sales_by_customer",
+                    "adapter": "local_synthetic",
+                    "template_id": "sales_by_customer",
+                    "binding_required": "FactSales",
+                    "allowed_parameters": ["customer_id"],
+                    "max_rows": 10,
+                }
+            ]
+        )
+        context_pack = {
+            "query_catalog": catalog,
+            "technical_assets": [{"name": "FactSales"}],
+            "data_bindings": [],
+        }
+
+        result = self.service._execute_catalog_query(context_pack, "sales_by_customer", (42,))
+
+        self.assertEqual(result["status"], "local_synthetic_query")
+        self.assertEqual(result["rows"][0]["customer_name"], "Acme Sur")
+
+    def test_mariadb_schema_parser_reads_ddl_without_rows(self) -> None:
+        with TemporaryDirectory() as temp_dir:
+            dump_path = Path(temp_dir) / "schema.sql"
+            dump_path.write_text(
+                "CREATE TABLE IF NOT EXISTS `clientes` (\n"
+                "  `id` int(11) NOT NULL,\n"
+                "  `nombre` varchar(100) DEFAULT NULL,\n"
+                "  PRIMARY KEY (`id`)\n"
+                ") ENGINE=InnoDB;\n"
+                "CREATE TABLE IF NOT EXISTS `pedidos` (\n"
+                "  `id` int(11) NOT NULL,\n"
+                "  `cliente` int(11) NOT NULL,\n"
+                "  CONSTRAINT `fk_pedido_cliente` FOREIGN KEY (`cliente`) REFERENCES `clientes` (`id`)\n"
+                ") ENGINE=InnoDB;\n"
+                "INSERT INTO `clientes` VALUES (1,'No debe importarse');\n",
+                encoding="utf-8",
+            )
+
+            parsed = parse_mariadb_schema_dump(dump_path)
+
+        self.assertEqual(parsed["table_count"], 2)
+        self.assertEqual(parsed["column_count"], 4)
+        self.assertEqual(parsed["relationship_count"], 1)
+        self.assertEqual(parsed["model"]["tables"][0]["name"], "clientes")
+
+    def test_argos_routes_nalub_mariadb_catalog(self) -> None:
+        catalog = normalize_query_catalog(
+            [
+                {
+                    "query_name": "customer_debt",
+                    "adapter": "mariadb",
+                    "template_id": "customer_debt",
+                    "binding_required": "clientes",
+                    "connection_profile": "nalub-test",
+                    "allowed_parameters": ["customer_id"],
+                    "routing": {"all_terms": ["deuda", "cliente"]},
+                    "parameter_extractors": {
+                        "customer_id": {
+                            "type": "integer",
+                            "patterns": [r"\bcliente\s*(\d+)\b"],
+                        }
+                    },
+                }
+            ]
+        )
+
+        question = "Cuanta deuda tiene el cliente 12?"
+        self.assertEqual(select_catalog_query(question, catalog), "customer_debt")
+        parameters = extract_query_parameters(question, catalog["customer_debt"])
+        self.assertEqual(ordered_query_parameters(catalog["customer_debt"], parameters), (12,))
+
+    def test_argos_routes_nalub_sales_catalog(self) -> None:
+        catalog = normalize_query_catalog(
+            [
+                {
+                    "query_name": "sales_summary",
+                    "adapter": "mariadb",
+                    "template_id": "sales_summary",
+                    "binding_required": "pedidos",
+                    "connection_profile": "nalub-test",
+                    "allowed_parameters": [],
+                    "max_rows": 24,
+                    "routing": {"any_terms": ["venta", "ventas"]},
+                }
+            ]
+        )
+
+        self.assertEqual(
+            select_catalog_query("Calculame las ventas y su evolucion por mes", catalog),
+            "sales_summary",
+        )
+        self.assertIn("DATE_FORMAT(fecha", MARIADB_QUERY_TEMPLATES["sales_summary"])
+        self.assertIn("importeTotal", MARIADB_QUERY_TEMPLATES["sales_summary"])
+
+    def test_argos_routes_product_demand_by_year(self) -> None:
+        catalog = normalize_query_catalog(
+            [
+                {
+                    "query_name": "product_demand_by_year",
+                    "adapter": "mariadb",
+                    "template_id": "product_demand_by_year",
+                    "binding_required": "pedidoItems",
+                    "connection_profile": "nalub-test",
+                    "allowed_parameters": ["year"],
+                    "max_rows": 10,
+                    "routing": {
+                        "all_terms": ["productos"],
+                        "any_terms": ["demandados", "unidades", "pedidos"],
+                        "requires_parameter": "year",
+                    },
+                    "parameter_extractors": {
+                        "year": {
+                            "type": "integer",
+                            "patterns": [r"\b(20\d{2})\b"],
+                        }
+                    },
+                }
+            ]
+        )
+        question = "Quiero los 10 productos mas demandados de 2025, con unidades y pedidos"
+        self.assertEqual(select_catalog_query(question, catalog), "product_demand_by_year")
+        parameters = extract_query_parameters(question, catalog["product_demand_by_year"])
+        self.assertEqual(ordered_query_parameters(catalog["product_demand_by_year"], parameters), (2025,))
+        self.assertIn("pedidoItems", MARIADB_QUERY_TEMPLATES["product_demand_by_year"])
+        self.assertIn("unidades_solicitadas", MARIADB_QUERY_TEMPLATES["product_demand_by_year"])
+
+    def test_empty_project_catalog_does_not_fall_back_to_fabric(self) -> None:
+        self.assertEqual(catalog_for_context({"query_catalog": []}), {})
+
+    def test_connection_profiles_are_isolated_per_project(self) -> None:
+        first_project = self.service.create_project("Nalub")
+        second_project = self.service.create_project("Human Resources")
+
+        profile = self.service.save_mariadb_connection_profile(
+            first_project.id,
+            "nalub-test",
+            "db.test.local",
+            3306,
+            "nalub_reader",
+            "test-secret",
+            "nalub",
+        )
+
+        self.assertEqual(profile["profile_id"], "nalub-test")
+        self.assertEqual(
+            [item["profile_id"] for item in self.service.list_connection_profiles(first_project.id)],
+            ["nalub-test"],
+        )
+        self.assertEqual(self.service.list_connection_profiles(second_project.id), [])
+        project_json = (Path(self.temp_dir.name) / "projects" / f"{first_project.id}.json").read_text()
+        self.assertNotIn("test-secret", project_json)
+
+    def test_connection_profiles_reject_unsafe_ids(self) -> None:
+        project = self.service.create_project("Nalub")
+
+        with self.assertRaises(ValueError):
+            self.service.save_mariadb_connection_profile(
+                project.id,
+                "../shared",
+                "db.test.local",
+                3306,
+                "reader",
+                "secret",
+                "nalub",
+            )
+
+    def test_mariadb_catalog_requires_connection_profile(self) -> None:
+        with self.assertRaises(ValueError):
+            normalize_query_catalog(
+                [
+                    {
+                        "query_name": "customer_debt",
+                        "adapter": "mariadb",
+                        "template_id": "customer_debt",
+                    }
+                ]
+            )
+
+    def test_mariadb_templates_reject_invalid_parameters_before_connecting(self) -> None:
+        with self.assertRaisesRegex(ValueError, "customer_id entero"):
+            execute_mariadb_read_only_query("customer_debt", ())
+        with self.assertRaisesRegex(ValueError, "año entero"):
+            execute_mariadb_read_only_query("product_demand_by_year", (1999,))
+        with self.assertRaisesRegex(ValueError, "limite entero"):
+            execute_mariadb_read_only_query("product_availability", ("50",))
 
     def test_argos_returns_interpretation_and_mermaid_for_risk_question(self) -> None:
         project = self.service.create_project("Argos Mermaid")
@@ -871,6 +1292,37 @@ class WorkbenchServiceTests(unittest.TestCase):
         self.assertGreaterEqual(len(inventory["business_rules"]), 1)
         self.assertGreaterEqual(len(inventory["kpis"]), 1)
 
+    def test_document_source_deduplication_keeps_first_path_for_each_content(self) -> None:
+        with TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            first = root / "first.md"
+            duplicate = root / "nested" / "duplicate.md"
+            unique = root / "unique.md"
+            duplicate.parent.mkdir()
+            first.write_bytes(b"same document")
+            duplicate.write_bytes(b"same document")
+            unique.write_bytes(b"other document")
+
+            selected = unique_file_paths_by_content([first, duplicate, unique])
+
+        self.assertEqual(selected, [first, unique])
+
+    def test_upload_context_document_shortens_only_physical_storage_name(self) -> None:
+        project = self.service.create_project("Long filenames")
+        filename = f"document-{'nested-' * 40}source.md"
+
+        document = self.service.upload_context_document(
+            project.id,
+            filename,
+            b"Cliente Activo: cliente vigente.",
+            "business_context",
+            "text/markdown",
+        )
+
+        self.assertEqual(document.filename, filename)
+        self.assertTrue(Path(document.stored_path).exists())
+        self.assertLessEqual(len(Path(document.stored_path).name), 130)
+
     def test_context_scanner_reads_markdown_glossary_and_rule_tables(self) -> None:
         project = self.service.create_project("Markdown Context")
         content = (
@@ -950,6 +1402,12 @@ class WorkbenchServiceTests(unittest.TestCase):
         self.assertTrue((package_path / "assessment_review.json").exists())
         self.assertTrue((package_path / "gap_backlog.json").exists())
         self.assertTrue((package_path / "execution_summary.md").exists())
+        report = (package_path / "execution_summary.md").read_text(encoding="utf-8")
+        self.assertIn("## Lectura ejecutiva", report)
+        self.assertIn("sales-glossary.md", report)
+        self.assertIn("## Brechas y acciones sugeridas", report)
+        self.assertIn("## Limites del diagnostico", report)
+        self.assertIn("no certifica que los datos esten listos para agentes", report)
         self.assertEqual(len(self.service.list_atlas_assessments(project.id)), 1)
         evidence_index = json.loads((package_path / "evidence_index.json").read_text(encoding="utf-8"))
         self.assertEqual(evidence_index["summary"]["chunks"], 1)
@@ -1039,6 +1497,157 @@ class WorkbenchServiceTests(unittest.TestCase):
         self.assertTrue(inventory["definitions"][0]["source_excerpt"])
         chunks_path = Path(self.temp_dir.name) / "context" / project.id / "working" / "chunks" / "chunks.json"
         self.assertTrue(chunks_path.exists())
+
+
+class AtlasMultiSourceTests(unittest.TestCase):
+    ERP_DDL = (
+        "CREATE TABLE `clientes` (\n  `id_cliente` int(11) NOT NULL,\n  `razon_social` varchar(200),\n"
+        "  PRIMARY KEY (`id_cliente`),\n  KEY `idx` (`razon_social`)\n) ENGINE=InnoDB;\n"
+        "CREATE TABLE `pedidos` (\n  `id_pedido` int NOT NULL,\n  `id_cliente` int NOT NULL,\n"
+        "  `total` decimal(14,2),\n"
+        "  CONSTRAINT `fk` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`)\n) ENGINE=InnoDB;\n"
+    ).encode("utf-8")
+    LAKEHOUSE_CSV = (
+        "table_catalog,table_schema,table_name,column_name,data_type\n"
+        "main,gold,dim_cliente,cliente_id,BIGINT\n"
+        "main,gold,dim_cliente,nombre,STRING\n"
+        "main,gold,fact_ventas,cliente_id,BIGINT\n"
+        "main,gold,fact_ventas,importe,\"DECIMAL(14,2)\"\n"
+    ).encode("utf-8")
+
+    def setUp(self) -> None:
+        self.temp_dir = TemporaryDirectory()
+        self.store = ProjectStore(Path(self.temp_dir.name) / "projects")
+        self.service = WorkbenchService(self.store)
+
+    def tearDown(self) -> None:
+        self.temp_dir.cleanup()
+
+    def test_generic_ddl_parser_reads_bracketed_and_inline_references(self) -> None:
+        parsed = parse_sql_ddl(
+            "CREATE TABLE [dbo].[Accounts] ([AccountId] INT NOT NULL PRIMARY KEY, [CheckinDate] DATE);\n"
+            "CREATE OR REPLACE TABLE main.gold.opps (id BIGINT, account_id INT REFERENCES [dbo].[Accounts]([AccountId]),"
+            " tags ARRAY<STRING>, amount DECIMAL(10,2), CONSTRAINT pk PRIMARY KEY (id)) USING DELTA;"
+        )
+
+        tables = {table["name"]: table for table in parsed["model"]["tables"]}
+        self.assertEqual(set(tables), {"dbo.Accounts", "main.gold.opps"})
+        self.assertEqual([c["name"] for c in tables["dbo.Accounts"]["columns"]], ["AccountId", "CheckinDate"])
+        self.assertEqual(len(tables["main.gold.opps"]["columns"]), 4)
+        self.assertEqual(parsed["model"]["relationships"][0]["toTable"], "dbo.Accounts")
+
+    def test_columns_csv_requires_table_and_column_headers(self) -> None:
+        parsed = parse_columns_csv(self.LAKEHOUSE_CSV.decode("utf-8"))
+        self.assertEqual(parsed["table_count"], 2)
+        self.assertEqual(parsed["column_count"], 4)
+        with self.assertRaisesRegex(ValueError, "table_name"):
+            parse_columns_csv("a,b\n1,2\n")
+
+    def test_assessment_inventories_several_systems_and_maps_shared_entities(self) -> None:
+        project = self.service.create_project("Distribuido")
+        erp = self.service.register_data_source(project.id, "ERP", "mariadb", owner="Sistemas")
+        lake = self.service.register_data_source(project.id, "Lakehouse", "databricks")
+        budget = self.service.register_data_source(project.id, "Presupuesto", "files", owner="Control")
+        self.service.import_source_metadata_file(project.id, erp.source_id, "erp.sql", self.ERP_DDL)
+        self.service.import_source_metadata_file(project.id, lake.source_id, "cols.csv", self.LAKEHOUSE_CSV)
+        self.service.add_use_case(
+            project.id, "Margen por cliente", "Que clientes dejan mas margen?", "Comercial", "alta",
+            [erp.source_id, lake.source_id],
+        )
+
+        package = self.service.create_atlas_assessment(project.id, "Client", "Sales", "Product")
+
+        technical = package["source_inventory"]["technical_sources"]
+        self.assertEqual({item["source_id"] for item in technical}, {erp.source_id, lake.source_id})
+        self.assertEqual(package["source_inventory"]["declared_sources"][0]["source_id"], budget.source_id)
+        shared = {row["entity"]: row for row in package["cross_source_map"]["shared_entities"]}
+        self.assertEqual(shared["cliente"]["common_key"], "cliente#id")
+        dimensions = {item["dimension"] for item in package["readiness_score"]["dimensions"]}
+        self.assertIn("cross_source_alignment", dimensions)
+        gaps = {gap["gap_id"]: gap for gap in package["gap_backlog"]}
+        self.assertIn(f"source-not-inventoried:{budget.source_id}", gaps)
+        self.assertEqual(gaps[f"source-without-owner:{lake.source_id}"]["use_case_ids"], ["margen-por-cliente"])
+        self.assertNotIn("missing-use-cases", gaps)
+        self.assertNotEqual(package["readiness_score"]["interpretation"], "strong_foundation")
+        details = self.service.get_atlas_assessment(project.id, str(package["manifest"]["run_id"]))
+        self.assertEqual(details["scope_definition"]["use_cases"][0]["name"], "Margen por cliente")
+        self.assertIn("## Mapa entre sistemas", details["execution_summary"])
+
+    def test_reimporting_a_source_replaces_only_its_objects(self) -> None:
+        project = self.service.create_project("Reimport")
+        erp = self.service.register_data_source(project.id, "ERP", "mariadb")
+        lake = self.service.register_data_source(project.id, "Lakehouse", "databricks")
+        self.service.import_source_metadata_file(project.id, erp.source_id, "erp.sql", self.ERP_DDL)
+        self.service.import_source_metadata_file(project.id, lake.source_id, "cols.csv", self.LAKEHOUSE_CSV)
+        before = len(self.service.get_project(project.id).concepts)
+
+        self.service.import_source_metadata_file(project.id, erp.source_id, "erp.sql", self.ERP_DDL)
+        project_after = self.service.get_project(project.id)
+
+        self.assertEqual(len(project_after.concepts), before)
+        self.assertFalse(
+            [issue for issue in self.service.validate_project(project.id) if issue.code == "duplicate-concept-name"]
+        )
+        self.service.delete_data_source(project.id, lake.source_id)
+        remaining = self.service.get_project(project.id)
+        self.assertEqual({c.metadata.get("source.id") for c in remaining.concepts}, {erp.source_id})
+        self.assertEqual([source.source_id for source in remaining.sources], [erp.source_id])
+
+    def test_legacy_imports_register_a_source_automatically(self) -> None:
+        project = self.service.create_project("Legacy import")
+        content = json.dumps({"model": {"tables": [{"name": "DimDate", "columns": [{"name": "Date"}]}]}}).encode()
+
+        imported, _ = self.service.import_bim_file(project.id, "ventas.bim", content)
+
+        self.assertEqual(imported.sources[0].platform, "powerbi")
+        self.assertEqual(imported.sources[0].status, "inventoried")
+        self.assertTrue(all(c.metadata.get("source.id") == imported.sources[0].source_id for c in imported.concepts))
+
+
+class ArgosPresentationTests(unittest.TestCase):
+    def test_starter_questions_prefer_catalog_examples_and_fall_back_to_known_queries(self) -> None:
+        catalog = {
+            "custom": {"example_question": "¿Cuánto vendimos ayer?"},
+            "risk_levels": {},
+            "unknown": {"description": "Sin ejemplo"},
+        }
+        self.assertEqual(
+            starter_questions(catalog),
+            ["¿Cuánto vendimos ayer?", "¿Cómo se distribuyen los riesgos por nivel?"],
+        )
+
+    def test_infer_visualization_uses_catalog_spec_then_row_shape(self) -> None:
+        rows = [{"nivel": "Alto", "total": 3, "extra": "x"}, {"nivel": "Bajo", "total": 5, "extra": "y"}]
+        self.assertEqual(infer_visualization(rows), {"type": "bar", "x": "nivel", "y": "total"})
+        self.assertEqual(
+            infer_visualization(rows, {"visualization": {"type": "bar", "x": "extra", "y": "total"}}),
+            {"type": "bar", "x": "extra", "y": "total"},
+        )
+        self.assertEqual(
+            infer_visualization([{"a": 1, "b": "x"}], {"visualization": {"type": "metrics", "fields": ["b", "missing"]}}),
+            {"type": "metrics", "fields": ["b"]},
+        )
+        self.assertEqual(infer_visualization([{"a": 1, "b": 2}]), {"type": "metrics", "fields": ["a", "b"]})
+        self.assertIsNone(infer_visualization([{"texto": "a"}, {"texto": "b"}]))
+        self.assertIsNone(infer_visualization([]))
+
+    def test_legacy_risk_catalog_declares_examples_and_visualizations(self) -> None:
+        catalog = normalize_query_catalog(LEGACY_FABRIC_QUERY_CATALOG)
+        self.assertEqual(catalog["risk_levels"]["visualization"]["type"], "bar")
+        self.assertIn("SIC 12", catalog["risk_rule_sic"]["example_question"])
+
+    def test_parse_evaluation_cases_validates_expected_status(self) -> None:
+        cases, invalid = parse_evaluation_cases(
+            "¿Qué es Cliente activo? | answered | Cliente activo\n"
+            "\n"
+            "Solo pregunta\n"
+            "¿Planeta? | abstained |\n"
+            "Mal | quizas\n"
+            " | answered\n"
+        )
+        self.assertEqual([case["expected_status"] for case in cases], ["answered", "answered", "abstained"])
+        self.assertEqual(cases[0]["expected_item_name"], "Cliente activo")
+        self.assertEqual(invalid, ["5", "6"])
 
 
 if __name__ == "__main__":

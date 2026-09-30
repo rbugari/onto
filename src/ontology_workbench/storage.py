@@ -73,12 +73,22 @@ class ProjectStore:
 
     def save_document(self, project_id: str, filename: str, content: bytes) -> tuple[str, Path]:
         document_id = self.new_document_id()
-        target_name = f"{document_id}_{Path(filename).name}"
+        target_name = f"{document_id}_{self._safe_document_filename(filename)}"
         target_path = self._documents_dir(project_id) / target_name
         target_path.parent.mkdir(parents=True, exist_ok=True)
         target_path.write_bytes(content)
         return document_id, target_path
 
+    @staticmethod
+    def _safe_document_filename(filename: str, max_length: int = 80) -> str:
+        original_name = Path(filename).name
+        if len(original_name) <= max_length:
+            return original_name
+
+        suffix = Path(original_name).suffix
+        digest = hashlib.sha256(original_name.encode("utf-8")).hexdigest()[:12]
+        stem_length = max_length - len(suffix) - len(digest) - 1
+        return f"{Path(original_name).stem[:max(1, stem_length)]}-{digest}{suffix}"
     def save_extracted_text(self, project_id: str, document_id: str, text: str) -> Path:
         target_path = self._extracted_text_dir(project_id) / f"{document_id}.txt"
         target_path.parent.mkdir(parents=True, exist_ok=True)
@@ -188,6 +198,8 @@ class ProjectStore:
             package_dir / "business_context_inventory.json", package["business_context_inventory"]
         )
         self._write_json(package_dir / "source_inventory.json", package["source_inventory"])
+        self._write_json(package_dir / "scope_definition.json", package.get("scope_definition", {}))
+        self._write_json(package_dir / "cross_source_map.json", package.get("cross_source_map", {}))
         self._write_json(package_dir / "evidence_index.json", package["evidence_index"])
         self._write_json(package_dir / "readiness_score.json", package["readiness_score"])
         self._write_json(package_dir / "gap_backlog.json", package["gap_backlog"])
@@ -214,6 +226,23 @@ class ProjectStore:
                     raw["assessment_review"] = json.loads(review_path.read_text(encoding="utf-8"))
                 manifests.append(raw)
         return sorted(manifests, key=lambda item: str(item.get("created_at", "")), reverse=True)
+
+    def load_atlas_package(self, project_id: str, run_id: str) -> dict[str, object]:
+        """Read the artifacts of one Atlas run for inspection in the UI."""
+        for assessment in self.list_atlas_assessments(project_id):
+            if assessment.get("run_id") != run_id:
+                continue
+            package_dir = Path(str(assessment["package_path"]))
+            package: dict[str, object] = {"manifest": assessment, "package_path": str(package_dir)}
+            for name in (
+                "scope_definition", "source_inventory", "cross_source_map",
+                "readiness_score", "gap_backlog", "assessment_review",
+            ):
+                package[name] = self._read_json_or_default(package_dir / f"{name}.json", {})
+            summary_path = package_dir / "execution_summary.md"
+            package["execution_summary"] = summary_path.read_text(encoding="utf-8") if summary_path.exists() else ""
+            return package
+        raise FileNotFoundError(f"Atlas assessment not found: {run_id}")
 
     def update_atlas_review(
         self,
@@ -629,15 +658,101 @@ class ProjectStore:
         self._write_json(run_dir / "investigation_manifest.json", manifest)
         self._write_json(run_dir / "request.json", investigation["request"])
         self._write_json(run_dir / "retrieval.json", investigation["retrieval"])
-        self._write_json(run_dir / "traceability.json", {
-            "reasoning_advisory": investigation.get("reasoning_advisory", {}),
-            "live_query": investigation.get("live_query", {}),
-            "llm_used": investigation.get("llm_used", False),
-            "llm_plan": investigation.get("llm_plan", {}),
-            "llm_response": investigation.get("llm_response", {}),
-        })
+        live_query = investigation.get("live_query", {})
+        if not isinstance(live_query, dict):
+            live_query = {}
+        request = investigation.get("request", {})
+        question = str(request.get("question", "")) if isinstance(request, dict) else ""
+        self._write_json(
+            run_dir / "traceability.json",
+            {
+                "reasoning_advisory": investigation.get("reasoning_advisory", {}),
+                "live_query": live_query,
+                "llm_used": investigation.get("llm_used", False),
+                "llm_plan": investigation.get("llm_plan", {}),
+                "llm_response": investigation.get("llm_response", {}),
+            },
+        )
+        self._write_json(
+            run_dir / "audit.json",
+            {
+                "event_type": "argos_investigation",
+                "project_id": project_id,
+                "release_id": manifest.get("release_id", ""),
+                "investigation_id": manifest.get("investigation_id", ""),
+                "created_at": manifest.get("created_at", ""),
+                "actor": "local-user",
+                "status": manifest.get("status", ""),
+                "question_sha256": hashlib.sha256(question.encode("utf-8")).hexdigest(),
+                "llm_used": bool(investigation.get("llm_used", False)),
+                "query_name": live_query.get("query_name", ""),
+                "operation": live_query.get("operation", ""),
+                "adapter_status": live_query.get("status", ""),
+                "row_count": len(live_query.get("rows", [])) if isinstance(live_query.get("rows", []), list) else 0,
+                "secrets_persisted": False,
+            },
+        )
         (run_dir / "answer.md").write_text(str(investigation["answer"]), encoding="utf-8")
         return run_dir
+
+    def list_runtime_investigations(
+        self, project_id: str, release_id: str
+    ) -> list[dict[str, object]]:
+        runtime_dir = (
+            self.root_dir.parent
+            / "runtime"
+            / self._safe_workspace_segment(project_id)
+            / self._safe_workspace_segment(release_id)
+        )
+        if not runtime_dir.exists():
+            return []
+        investigations = []
+        for manifest_path in runtime_dir.glob("*/investigation_manifest.json"):
+            investigations.append(json.loads(manifest_path.read_text(encoding="utf-8")))
+        return sorted(
+            investigations,
+            key=lambda manifest: str(manifest.get("created_at", "")),
+            reverse=True,
+        )
+
+    def runtime_retention_report(
+        self, project_id: str, release_id: str, keep_latest: int = 100
+    ) -> dict[str, object]:
+        if keep_latest < 0:
+            raise ValueError("keep_latest no puede ser negativo")
+        investigations = self.list_runtime_investigations(project_id, release_id)
+        retained = investigations[:keep_latest]
+        candidates = investigations[keep_latest:]
+        return {
+            "project_id": project_id,
+            "release_id": release_id,
+            "policy": "manual_review",
+            "keep_latest": keep_latest,
+            "total_investigations": len(investigations),
+            "retained_ids": [str(item.get("investigation_id", "")) for item in retained],
+            "candidate_ids": [str(item.get("investigation_id", "")) for item in candidates],
+            "deletion_performed": False,
+        }
+
+    def load_runtime_investigation(
+        self, project_id: str, release_id: str, investigation_id: str
+    ) -> dict[str, object]:
+        run_dir = (
+            self.root_dir.parent
+            / "runtime"
+            / self._safe_workspace_segment(project_id)
+            / self._safe_workspace_segment(release_id)
+            / self._safe_workspace_segment(investigation_id)
+        )
+        return {
+            "manifest": json.loads((run_dir / "investigation_manifest.json").read_text(encoding="utf-8")),
+            "request": json.loads((run_dir / "request.json").read_text(encoding="utf-8")),
+            "retrieval": json.loads((run_dir / "retrieval.json").read_text(encoding="utf-8")),
+            "audit": json.loads((run_dir / "audit.json").read_text(encoding="utf-8")),
+            **json.loads((run_dir / "traceability.json").read_text(encoding="utf-8")),
+            "answer": (run_dir / "answer.md").read_text(encoding="utf-8"),
+            "package_path": str(run_dir),
+        }
 
     def save_runtime_evaluation(self, project_id: str, evaluation: dict[str, object]) -> Path:
         manifest = dict(evaluation["manifest"])
@@ -760,3 +875,16 @@ class ProjectStore:
 
     def _read_json_or_default(self, path: Path, default: object) -> object:
         return json.loads(path.read_text(encoding="utf-8")) if path.exists() else default
+
+
+def unique_file_paths_by_content(paths: list[Path]) -> list[Path]:
+    """Keep the first path for each content hash, preserving sorted input order."""
+    seen_hashes: set[str] = set()
+    unique_paths: list[Path] = []
+    for path in paths:
+        content_hash = hashlib.sha256(path.read_bytes()).hexdigest()
+        if content_hash in seen_hashes:
+            continue
+        seen_hashes.add(content_hash)
+        unique_paths.append(path)
+    return unique_paths
