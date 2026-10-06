@@ -28,8 +28,9 @@ Esta carpeta es la fuente de verdad del producto ONTO. Define una **Ontology Fac
 | [Fuente de verdad para presentaciones](13_PRESENTATION_SOURCE_OF_TRUTH.md) | Narrativa oficial para decks y demos ejecutivas. |
 | [Caso Nalub real](14_NALUB_REAL_CASE.md) | Caso tecnico secundario con MariaDB read-only. |
 | [Integracion con Fabric y Databricks](15_INTEGRACION_FABRIC_DATABRICKS.md) | Como interpreta cada plataforma la ontologia, que archivos importables genera ONTO, cobertura/ruta y plan de conectores. |
+| [Casos de prueba](casos/README.md) | Origenes de cada caso (comercial, distribuido, Nalub, Fabric SIC) para regenerarlos desde cero: que cargar en Atlas y resultado esperado. |
 
-El caso Nalub usa el backup `doc _base/backNalub02042026.sql` como fuente local de schema y el documento funcional/tecnico Nalub como contexto. La ejecucion validada produce 33 tablas, 255 columnas, 25 relaciones y 451 candidatos. El runner es `python scripts/run_nalub_case.py`; su release declara cinco consultas MariaDB y `--live` ejecuta validaciones read-only contra el perfil indicado.
+El caso Nalub usa `docs/casos/nalub_mariadb/` (esquema MariaDB sin datos y documento funcional/tecnico). La ejecucion validada produce 33 tablas, 255 columnas, 25 relaciones y 451 candidatos. El runner es `python scripts/run_nalub_case.py`; su release declara cinco consultas MariaDB y `--live` ejecuta validaciones read-only contra el perfil indicado.
 
 Ver tambien la [guia del caso Nalub](14_NALUB_REAL_CASE.md).
 

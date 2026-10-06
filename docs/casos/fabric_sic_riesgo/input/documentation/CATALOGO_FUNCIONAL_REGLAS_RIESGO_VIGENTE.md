@@ -1,0 +1,282 @@
+# Catalogo funcional vigente de reglas de riesgo
+
+Ultima actualizacion: 2026-07-26
+Estado: vigente  
+Objetivo: dejar una lectura unica, funcional y auditable de cada regla de riesgo: que calcula, que fuente usa, como traduce el dato a nivel, para que se usa y que ocurre si falta dato.  
+Alcance: reglas activas en Gold para LLDT, SIC, CULTURA, GOVERNANCA e INFRA, alineadas con el catalogo Silver `silver.dim_modelo_riesgo_regla`, el overlay manual `risk_rule_defaults_review.xlsx` y los procedimientos Gold vigentes en Dev y Prod.
+
+---
+
+## 1. Lectura comun del modelo
+
+El modelo calcula riesgo con tres piezas:
+
+1. probabilidad por regla;
+2. impacto por regla o por bloque, segun dominio;
+3. riesgo final por cruce de probabilidad e impacto en la matriz 4x4 publicada en `silver.ref_risk_final_matrix`.
+
+Escala comun:
+
+| Nivel | Texto | Lectura funcional |
+|---|---|---|
+| 1 | BAIX | riesgo bajo |
+| 2 | MIG | riesgo medio |
+| 3 | ALT | riesgo alto |
+| 4 | MOLT ALT | riesgo muy alto |
+
+Tipos de valor vigentes:
+
+| Tipo | Significado |
+|---|---|
+| `REAL` | la regla se resolvio con dato usable de Silver o de una fuente manual cargada |
+| `DEFAULT` | falta dato usable y se aplica el default funcional configurado para no romper el calculo |
+| `CONSTANTE` | el valor queda fijado por decision funcional, no por fuente dinamica |
+| `LLDT_SIC_EMULADO` | lectura especial del impacto LLDT cuando una regla requiere atributos de un SIC asociado al departamento |
+
+No usar `PROXY` ni `PENDIENTE` como tipos vigentes de resultado Gold. Pueden aparecer en documentos historicos, pero la lectura actual de Dev y Prod debe cerrarse sobre `REAL`, `DEFAULT`, `CONSTANTE` y, para impacto LLDT, `LLDT_SIC_EMULADO`.
+
+---
+
+## 2. Como se agregan las reglas
+
+Primero cada dato fuente se traduce a `nivel_num`. Despues se agregan niveles, no porcentajes crudos.
+
+Probabilidad por bloque:
+
+- si hay pesos positivos: `SUM(nivel_num * peso_regla) / SUM(peso_regla)`;
+- si no hay pesos positivos: promedio simple de niveles;
+- el resultado se redondea al entero mas cercano y vuelve a la escala `BAIX/MIG/ALT/MOLT ALT`.
+
+Impacto:
+
+- SIC, CULTURA, GOVERNANCA e INFRA publican impacto con detalle por regla y agregado por bloque;
+- LLDT publica impacto agregado por bloque, construido desde reglas propias departamentales y reglas emuladas con el SIC informado en `silver.dim_lldt_cidat.codi_dialeg`.
+
+Riesgo final:
+
+- `riesgo_final_num = matriz_4x4(probabilidad_final_num, impacto_final_num)`;
+- la matriz vigente se administra como fuente compartida, no como formula hardcodeada en cada dominio.
+
+---
+
+## 3. LLDT - Probabilidad por regla
+
+Unidad de calculo: departamento o ambito funcional de puestos.  
+Uso: estas reglas explican `gold_lldt.fact_probabilidad` y se agregan en `gold_lldt.fact_probabilidad_bloque`.
+
+| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |
+|---|---|---|---|---|---|
+| 1001 | 100 | indisponibilidad por falta de antivirus | `silver.fact_inventario_workstations.pct_antivirus` | cobertura antivirus: >=96 BAIX, 91-95 MIG, 86-90 ALT, <86 MOLT ALT | si falta dato, se asume 100% y queda `DEFAULT` BAIX |
+| 1002 | 100 | indisponibilidad por falta de EDR | `pct_edr` | misma escala de cobertura que 1001 | si falta dato, 100% `DEFAULT` BAIX |
+| 1003 | 100 | exposicion por parches antiguos | `pct_patch_gt_60` | <30 BAIX, 30-79 MIG, 80-89 ALT, >=90 MOLT ALT | si falta dato, 0% `DEFAULT` BAIX |
+| 1004 | 100 | alertas criticas o altas no resueltas | tickets/alertas departamentales | 0 BAIX, 1-5 ALT, >5 MOLT ALT | si falta fila, 0 `DEFAULT` BAIX |
+| 2001 | 200 | proteccion de credenciales via EDR | `pct_edr` | misma escala de cobertura EDR que 1002 | 100% `DEFAULT` BAIX si falta |
+| 2002 | 200 | MFA VPN administradores | decision funcional | valor fijo 100% MFA | `CONSTANTE` BAIX |
+| 2003 | 200 | MFA VPN usuarios | `silver.vw_src_prob_puestos_mfa_vpn.pct_mfa_vpn` | >=90 BAIX, 60-89 MIG, 30-59 ALT, <30 MOLT ALT | 100% `DEFAULT` BAIX si falta |
+| 2004 | 200 | MFA O365 usuarios | `silver.vw_src_prob_puestos_mfa_o365.pct_mfa_o365` | misma escala que 2003 | 100% `DEFAULT` BAIX si falta |
+| 2005 | 200 | MFA en cuentas genericas | decision funcional | se considera 0% MFA para cuentas genericas | `CONSTANTE` MOLT ALT |
+| 2006 | 200 | formacion de usuarios para compromiso de informacion | `silver.fact_training.passed` + `silver.fact_inventario_workstations` | aprobados `I_PASS` realizados/finalizados / puestos desde `DIM_INV_DEVICES`: >60 BAIX, 45-60 MIG, 30-44 ALT, <30 MOLT ALT; limitado al 100% | si hay denominator usable y no hay aprobados, numerador 0 y queda `REAL`; `DEFAULT` solo si falta denominator |
+| 2007 | 200 | TPM | `pct_tpm` | >=95 BAIX, <95 MOLT ALT | 100% `DEFAULT` BAIX si falta |
+| 2008 | 200 | EDR para plataforma/correo | `pct_edr` | misma escala que 1002 | 100% `DEFAULT` BAIX si falta |
+| 2009 | 200 | MFA O365 para plataforma/correo | `pct_mfa_o365` | misma escala que 2003 | 100% `DEFAULT` BAIX si falta |
+| 2010 | 200 | riesgo por cuentas genericas | `generic_accounts` | 0 BAIX, 1-199 MIG, 200-700 ALT, >700 MOLT ALT | 0 cuentas `DEFAULT` BAIX si falta |
+| 2011 | 200 | formacion para plataforma/correo | `silver.fact_training.passed` + `silver.fact_inventario_workstations` | misma escala y fuentes que 2006 | mismo criterio que 2006 |
+| 2012 | 200 | parches antiguos para compromiso de credenciales | `pct_patch_gt_60` | misma escala que 1003 | 0% `DEFAULT` BAIX si falta |
+| 2013 | 200 | cifrado de disco | `pct_encrypted` | >=95 BAIX, 50-94 ALT, <50 MOLT ALT | 100% `DEFAULT` BAIX si falta |
+| 3001 | 300 | antivirus para compromiso del equipo | `pct_antivirus` | misma escala que 1001 | 100% `DEFAULT` BAIX si falta |
+| 3002 | 300 | EDR para compromiso del equipo | `pct_edr` | misma escala que 1002 | 100% `DEFAULT` BAIX si falta |
+| 3003 | 300 | parches antiguos para compromiso del equipo | `pct_patch_gt_60` | misma escala que 1003 | 0% `DEFAULT` BAIX si falta |
+| 3004 | 300 | alertas no resueltas para compromiso del equipo | tickets/alertas departamentales | misma escala que 1004 | 0 `DEFAULT` BAIX si falta |
+| 3005 | 300 | obsolescencia de sistema operativo | `pct_os_obsolete` | 0% BAIX, >0% ALT | 0% `DEFAULT` BAIX si falta |
+| 3006 | 300 | parches antiguos para explotacion/malware | `pct_patch_gt_60` | misma escala que 1003 | 0% `DEFAULT` BAIX si falta |
+| 3007 | 300 | obsolescencia SO para explotacion | `pct_os_obsolete` | misma escala que 3005 | 0% `DEFAULT` BAIX si falta |
+| 4001 | 400 | formacion vinculada a cumplimiento | `silver.fact_training.passed` + `silver.fact_inventario_workstations` | misma escala y fuentes que 2006 | mismo criterio que 2006 |
+
+Nota vigente sobre training LLDT/CULTURA/GOVERNANCA: solo cuentan filas realizadas/finalizadas y el numerador es `I_PASS` publicado como `passed`; `ATTENDEES`, `B_ACTIVE`, estados previstos, pendientes o aplazados no participan. El join funcional es `department_entity_id` -> `entidad_id`. Si existe denominator usable de `DIM_INV_DEVICES` pero no hay aprobados, el resultado es 0 y la regla queda `REAL`; no se convierte en default optimista. `linked_hosts` no participa en esas tres reglas de CULTURA/GOVERNANCA.
+
+### Contrato operativo de los pilotos LLDT
+
+Para una pregunta identificada por `codigo_departamento`, primero se recuperan el resultado y la regla desde `gold_lldt.fact_riesgo` y `gold_lldt.fact_probabilidad`. La población de puestos se obtiene con `silver.fact_inventario_workstations.department_fk = silver.dim_departamento.departamento_sk`. La clave de formación es `silver.fact_training.department_entity_id = silver.dim_departamento.entidad_id`; no se debe usar `department_fk` de formación. Para `2006`, las únicas filas válidas tienen `LOWER(training_status)` en `realitzat`, `realizado`, `finalitzat` o `finalizado` y el numerador es `SUM(COALESCE(passed, 0))`.
+
+La consulta de cobertura debe devolver en la misma fila puestos, aprobados y porcentaje limitado al 100%. El contrato ejecutable está en `knowledge/logic/LLDT_PILOTOS_EVIDENCIA_OPERATIVA.sql`: usa dos CTE, una que cuenta puestos por `codigo_departamento` y otra que suma aprobados a través de `entidad_id`; ambos se unen por el código de departamento. Para `1001`, el numerador es `SUM(CASE WHEN has_antivirus = 1 THEN 1 ELSE 0 END)` sobre la misma población de puestos. No se usan campos como `department_code`, `training_id`, `target_population` ni `snapshot_date` porque no pertenecen a estos contratos.
+
+---
+
+## 4. LLDT - Impacto por regla funcional
+
+Unidad de calculo publicada: bloque por departamento en `gold_lldt.fact_impacto_bloque`.  
+Uso: las reglas siguientes explican la semantica del impacto LLDT aunque Gold no publique todas como detalle independiente.
+
+| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / tipo |
+|---|---|---|---|---|---|
+| 101 | 100 | tolerancia de indisponibilidad | SIC emulado via `codi_dialeg`, atributo `rto` | 0h BAIX; 1/8/24h MIG; 48/72h o 1-3 dias ALT; sin dato MOLT ALT | `LLDT_SIC_EMULADO` si hay SIC usable; `DEFAULT` si falta |
+| 102 | 100 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | matriz de criticidad/volumetria; criticidad alta y muchos usuarios suben impacto | `LLDT_SIC_EMULADO` o `DEFAULT` |
+| 103 | 100 | criticidad del sistema | SIC emulado: `criticidad_negocio` | criticidad 0-1 MOLT ALT, 2-3 ALT, 4 MIG, resto BAIX | `LLDT_SIC_EMULADO` o `DEFAULT` |
+| 104 | 100 | usuarios afectados | SIC emulado: usuarios + T11 | publico/T11 ALT; <500 BAIX; >=500 MIG | `LLDT_SIC_EMULADO` o `DEFAULT` |
+| 105 | 100 | impacto legal por criticidad | SIC emulado: criticidad | misma escala que 103 | `LLDT_SIC_EMULADO` o `DEFAULT` |
+| 201 | 200 | volumetria de usuarios afectados | SIC emulado: `num_usuarios_max` | <=500 BAIX, 501-3000 MIG, 3001-9000 ALT, >9000 MOLT ALT | `LLDT_SIC_EMULADO` o `DEFAULT` |
+| 202 | 200 | ambito de usuarios | SIC emulado: T11/publico | interno BAIX; publico ALT; sin dato MIG | `LLDT_SIC_EMULADO` o `DEFAULT` |
+| 203 | 200 | criticidad del sistema | SIC emulado: criticidad | misma escala que 103 | `LLDT_SIC_EMULADO` o `DEFAULT` |
+| 204 | 200 | clasificacion de informacion | `silver.dim_lldt_cidat.key_seguretat` | toma el nivel informado; si falta, maximo riesgo | `REAL` si hay dato; `DEFAULT` MOLT ALT si falta |
+| 301 | 300 | usuarios y criticidad para compromiso de equipo | SIC emulado: usuarios + criticidad | >9000 o criticidad 0-1 MOLT ALT; >3000 o criticidad 2-3 ALT; >500 o criticidad 4 MIG; resto BAIX | `LLDT_SIC_EMULADO` o `DEFAULT` |
+| 401 | 400 | proteccion de datos y ENS | `silver.dim_lldt_cidat` C/I/D/A/T | maximo CIDAT del departamento | `REAL` si hay CIDAT; `DEFAULT` MIG si falta |
+| 402 | 400 | ambito de usuarios y criticidad | SIC emulado: criticidad + usuarios + T11 | misma lectura que 102 | `LLDT_SIC_EMULADO` o `DEFAULT` |
+
+---
+
+## 5. SIC - Probabilidad por regla
+
+Unidad de calculo: SIC/aplicacion en `gold_sic.fact_probabilidad`.  
+Uso: estas reglas se agregan por bloque y despues se cruzan con impacto SIC.
+
+| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default / constante |
+|---|---|---|---|---|---|
+| 1001 | 100 | EDR por SIC | bridge host -> app -> SIC + EDR current | >=95 BAIX, 91-94 MIG, 86-90 ALT, <86 MOLT ALT | nivel 2 `DEFAULT` si no hay mapping usable |
+| 1002 | 100 | perimetro base | `silver.fact_perimetro.base_attributes_noncompleted`, `status = Alta`, ultima foto | despliegue base = `1 - base_attributes_noncompleted / 6`; 100 BAIX, 85-99 MIG, 1-84 ALT, 0 MOLT ALT | nivel 2 `DEFAULT` si falta perimetro usable |
+| 1003 | 100 | vulnerabilidades criticas | `silver.fact_vulnerabilidad`; clave `TRY_CAST(key_app_bk AS INT) = SIC`; Critical abiertas: `risk_level = Critical` o `risk_severity = 4`, activas y sin remediacion | 0 BAIX, 1-5 ALT, >5 MOLT ALT | `REAL` cuando se calcula; sin fila se interpreta como 0 si el universo existe |
+| 1004 | 100 | alertas criticas no resueltas | tickets/alertas asociados por departamento/SIC | 0 BAIX, 1-5 ALT, >5 MOLT ALT | nivel 2 `DEFAULT` si falta fila usable |
+| 1005 | 100 | exposicion a amenaza CPD | exposicion CPD ya traducida | BAIX/MIG/ALT/MOLT ALT se toma directo como nivel | nivel 2 `DEFAULT` si falta resolucion; nivel 3 `CONSTANTE` si existe regla sin valor concreto |
+| 1006 | 100 | publicacion a internet | `is_t11` desde inventario SIC | interno BAIX; publico/T11 ALT; sin dato MIG | nivel 2 `DEFAULT` si falta |
+| 2001 | 200 | EDR para credenciales | misma cobertura EDR que 1001 | misma escala que 1001 | nivel 2 `DEFAULT` si falta |
+| 2002 | 200 | MFA VPN administradores | decision funcional | 100% cubierto | `CONSTANTE` BAIX |
+| 2003 | 200 | MFA cloud administradores | decision funcional | 100% cubierto | `CONSTANTE` BAIX |
+| 2004 | 200 | MFA aplicaciones administradores | decision funcional | 100% cubierto | `CONSTANTE` BAIX |
+| 2005 | 200 | MFA aplicaciones usuarios | decision funcional | se asume sin MFA a nivel aplicacion/SIC | `CONSTANTE` MOLT ALT |
+| 2006 | 200 | exposicion CPD para informacion | exposicion CPD del SIC | nivel directo BAIX/MIG/ALT/MOLT ALT | nivel 2 `DEFAULT` o nivel 3 `CONSTANTE` segun disponibilidad |
+| 2007 | 200 | integracion GICAR | `has_gicar` | con GICAR BAIX; sin GICAR ALT | `DEFAULT` si origen vacio |
+| 2008 | 200 | vulnerabilidades criticas para informacion | Critical abiertas | misma escala que 1003 | `REAL` si se calcula |
+| 2009 | 200 | exposicion CPD tecnica | exposicion CPD | misma lectura que 1005 | `REAL` / `DEFAULT` / `CONSTANTE` segun disponibilidad |
+| 2010 | 200 | perimetro base para exfiltracion | `base_attributes_noncompleted`, `status = Alta`, ultima foto | misma escala que 1002 | nivel 2 `DEFAULT` si falta |
+| 2011 | 200 | publicacion a internet para informacion | `is_t11` | interno BAIX; publico ALT; sin dato MIG | nivel 2 `DEFAULT` si falta |
+| 3001 | 300 | EDR para malware/ransomware | cobertura EDR del SIC | misma escala que 1001 | nivel 2 `DEFAULT` si falta |
+| 3002 | 300 | perimetro tecnico base | `base_attributes_noncompleted`, `status = Alta`, ultima foto | misma escala que 1002 | nivel 2 `DEFAULT` si falta |
+| 3003 | 300 | vulnerabilidades criticas de plataforma | Critical abiertas | misma escala que 1003 | `REAL` si se calcula |
+| 3004 | 300 | alertas criticas no resueltas | tickets/alertas asociados | misma escala que 1004 | nivel 2 `DEFAULT` si falta |
+| 3005 | 300 | exposicion CPD de plataforma | exposicion CPD | nivel directo BAIX/MIG/ALT/MOLT ALT | nivel 2 `DEFAULT` o nivel 3 `CONSTANTE` segun disponibilidad |
+| 3006 | 300 | publicacion a internet de plataforma | `is_t11` | interno BAIX; publico ALT; sin dato MIG | nivel 2 `DEFAULT` si falta |
+| 3007 | 300 | obsolescencia SO de hosts asociados | `silver.inv_sic_host_current.i_sic` -> `hostname_norm` -> `silver.vw_crowdstrike_cpd_current.hostname_norm`; catálogo por `platform_norm = UPPER(platform)` y `os_version_norm = UPPER(os_version)`, con `is_deprecated` | 0% obsoleto BAIX; >0% ALT | sin parque usable: ALT `DEFAULT` |
+| 3008 | 300 | vulnerabilidades criticas complementarias | Critical abiertas | misma escala que 3003 | `REAL` si se calcula |
+| 3009 | 300 | exposicion CPD complementaria | exposicion CPD | misma lectura que 3005 | `REAL` / `DEFAULT` / `CONSTANTE` segun disponibilidad |
+| 3010 | 300 | perimetro tecnico complementario | `base_attributes_noncompleted`, `status = Alta`, ultima foto | misma escala que 1002 | nivel 2 `DEFAULT` si falta |
+| 3011 | 300 | obsolescencia SO complementaria | mismo contrato de hosts, CPD current y catálogo lifecycle de 3007 | misma escala que 3007 | ALT `DEFAULT` si no hay parque usable |
+| 3012 | 300 | publicacion a internet complementaria | `is_t11` | interno BAIX; publico ALT; sin dato MIG | nivel 2 `DEFAULT` si falta |
+| 4001 | 400 | certificaciones/auditorias | `silver.fact_certificacion_sic` | certificacion activa BAIX; solo caducada/no vigente MOLT ALT; sin SIC certificado MIG | `REAL` si hay certificacion materializada; `DEFAULT` MIG si no |
+| 4002 | 400 | politica de ciberseguridad | `silver.fact_gobernanza_departamento` | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` si hay dato; `DEFAULT` MIG si falta |
+| 4003 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |
+| 4004 | 400 | roles definidos | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |
+| 4005 | 400 | DPD | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |
+| 4006 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento` | misma logica si/no | `REAL` o `DEFAULT` MIG |
+
+---
+
+## 6. SIC - Impacto por regla
+
+Unidad de calculo: SIC/aplicacion en `gold_sic.fact_impacto`.
+
+| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default |
+|---|---|---|---|---|---|
+| 101 | 100 | tolerancia de indisponibilidad | `rto` del SIC | 0h BAIX; 1/8/24h MIG; 48/72h o 1-3 dias ALT; sin dato MOLT ALT | MOLT ALT si falta RTO |
+| 102 | 100 | ambito y criticidad | criticidad + usuarios + T11 | criticidad alta y volumetria/publico elevan impacto | default si falta SIC usable |
+| 103 | 100 | criticidad del sistema | `criticidad_negocio` | 0-1 MOLT ALT, 2-3 ALT, 4 MIG, resto BAIX | default si falta |
+| 104 | 100 | usuarios afectados | usuarios + T11 | publico ALT; <500 BAIX; >=500 MIG; sin dato MIG | MIG si falta |
+| 105 | 100 | impacto legal por criticidad | criticidad | misma escala que 103 | default si falta |
+| 201 | 200 | volumetria de usuarios afectados | `num_usuarios_max` | <=500 BAIX, 501-3000 MIG, 3001-9000 ALT, >9000 MOLT ALT | default si falta |
+| 202 | 200 | ambito de usuarios | T11/publico | interno BAIX; publico ALT; sin dato MIG | MIG si falta |
+| 203 | 200 | criticidad del sistema | criticidad | misma escala que 103 | default si falta |
+| 204 | 200 | clasificacion de informacion | `key_seguretat` | nivel 1-4 directo; si falta maximo riesgo | MOLT ALT si falta |
+| 301 | 300 | usuarios y criticidad de plataforma | usuarios + criticidad | >9000 o criticidad 0-1 MOLT ALT; >3000 o criticidad 2-3 ALT; >500 o criticidad 4 MIG; resto BAIX | default si falta |
+| 401 | 400 | proteccion de datos y ENS | maximo C/I/D/A/T | maximo CIDAT como nivel final | MIG si falta CIDAT |
+| 402 | 400 | ambito y criticidad | criticidad + usuarios + T11 | misma matriz que 102 | default si falta |
+
+---
+
+## 7. CULTURA - Reglas activas
+
+Unidad de calculo vigente: departamento de referencia (`codigo_departamento_ref`) con SIC canonico auxiliar.  
+Uso: explica `gold_cultura.fact_probabilidad`, `gold_cultura.fact_impacto` y `gold_cultura.fact_riesgo`.
+
+### Probabilidad CULTURA
+
+| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default |
+|---|---|---|---|---|---|
+| 2006 | 200 | formacion para compromiso de informacion | `silver.fact_training.passed` + `silver.fact_inventario_workstations` | aprobados `I_PASS` realizados/finalizados / puestos desde `DIM_INV_DEVICES`; misma escala training LLDT y limitado al 100% | si hay denominator y no hay aprobados, 0 `REAL`; `DEFAULT` solo si falta denominator |
+| 2011 | 200 | formacion para plataforma/correo | misma fuente que 2006 | misma escala, fuentes y contrato que 2006 | mismo criterio que 2006 |
+| 4001 | 400 | formacion para cumplimiento | misma fuente que 2006 | misma escala, fuentes y contrato que 2006 | mismo criterio que 2006 |
+
+### Impacto CULTURA
+
+| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default |
+|---|---|---|---|---|---|
+| 201 | 200 | volumetria de usuarios afectados | SIC canonico auxiliar por departamento | misma escala de impacto SIC 201 | default si falta SIC usable |
+| 204 | 200 | clasificacion de informacion | `key_seguretat` del SIC/departamento de referencia | nivel directo; si falta sube a maximo riesgo | default segun regla admin |
+| 401 | 400 | proteccion de datos y ENS | maximo CIDAT del SIC/departamento | maximo C/I/D/A/T | default MIG si falta |
+| 402 | 400 | ambito y criticidad | criticidad + usuarios + T11 del SIC canonico | misma matriz que SIC 102/402 | default si falta SIC usable |
+
+---
+
+## 8. GOVERNANCA - Reglas activas
+
+Unidad de calculo vigente: departamento de referencia (`codigo_departamento_ref`) con SIC canonico auxiliar.  
+Uso: explica `gold_governanca.fact_probabilidad`, `gold_governanca.fact_impacto` y `gold_governanca.fact_riesgo`.
+
+### Probabilidad GOVERNANCA
+
+| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default |
+|---|---|---|---|---|---|
+| 2006 | 200 | formacion para compromiso de informacion | `silver.fact_training.passed` + `silver.fact_inventario_workstations` | aprobados `I_PASS` realizados/finalizados / puestos desde `DIM_INV_DEVICES`; misma escala training LLDT y limitado al 100% | si hay denominator y no hay aprobados, 0 `REAL`; `DEFAULT` solo si falta denominator |
+| 2011 | 200 | formacion para plataforma/correo | misma fuente que 2006 | misma escala, fuentes y contrato que 2006 | mismo criterio que 2006 |
+| 4001 | 400 | formacion para cumplimiento | misma fuente que 2006 | misma escala, fuentes y contrato que 2006 | mismo criterio que 2006 |
+| 4002 | 400 | certificaciones/auditorias | `silver.fact_certificacion_sic` | certificacion activa BAIX; caducada/no vigente MOLT ALT; sin SIC certificado MIG | `REAL` si hay certificacion; `DEFAULT` MIG si no |
+| 4003 | 400 | politica de ciberseguridad | `silver.fact_gobernanza_departamento`, origen 4002 SIC remapeado a 4003 | Si BAIX, No MOLT ALT, sin dato MIG | `REAL` o `DEFAULT` MIG |
+| 4004 | 400 | marco normativo actualizado | `silver.fact_gobernanza_departamento`, origen 4003 remapeado | misma logica si/no | `REAL` o `DEFAULT` MIG |
+| 4005 | 400 | roles definidos | `silver.fact_gobernanza_departamento`, origen 4004 remapeado | misma logica si/no | `REAL` o `DEFAULT` MIG |
+| 4006 | 400 | DPD | `silver.fact_gobernanza_departamento`, origen 4005 remapeado | misma logica si/no | `REAL` o `DEFAULT` MIG |
+| 4007 | 400 | comite de seguridad | `silver.fact_gobernanza_departamento`, origen 4006 remapeado | misma logica si/no | `REAL` o `DEFAULT` MIG |
+
+### Impacto GOVERNANCA
+
+| Regla | Bloque | Para que se usa | Fuente / dato | Calculo funcional | Default |
+|---|---|---|---|---|---|
+| 201 | 200 | volumetria de usuarios afectados | SIC canonico auxiliar por departamento | misma escala de impacto SIC 201 | default si falta SIC usable |
+| 204 | 200 | clasificacion de informacion | `key_seguretat` del SIC/departamento de referencia | nivel directo; si falta sube a maximo riesgo | default segun regla admin |
+| 401 | 400 | proteccion de datos y ENS | maximo CIDAT del SIC/departamento | maximo C/I/D/A/T | default MIG si falta |
+| 402 | 400 | ambito y criticidad | criticidad + usuarios + T11 del SIC canonico | misma matriz que SIC 102/402 | default si falta SIC usable |
+
+---
+
+## 9. INFRA - Lectura vigente
+
+Unidad de calculo: activo INFRA/aplicacion dentro de `gold_infra`, con scope publicado desde `silver.dim_infra_cidat`.
+
+INFRA no introduce un catalogo funcional nuevo de reglas en este repo. Reutiliza el metodo de calculo SIC y varias fuentes Silver compartidas, pero cambia el universo de calculo:
+
+- scope: `silver.dim_infra_cidat`;
+- metodo de probabilidad: reglas SIC aplicadas al activo/scope INFRA cuando existe fuente equivalente;
+- metodo de impacto: lectura tipo SIC sobre atributos INFRA/CIDAT disponibles;
+- salida: `gold_infra.fact_riesgo` y tablas Gold auxiliares equivalentes.
+
+Por tanto, para explicar una regla INFRA se debe leer la regla SIC equivalente de este catalogo y confirmar que el activo INFRA tiene dato Silver usable. Si falta dato, aplica el mismo principio de defaults controlados del metodo SIC, no un default optimista LLDT.
+
+---
+
+## 10. Reglas operativas para mantener Dev y Prod alineados
+
+1. El catalogo tecnico base debe existir en `silver.dim_modelo_riesgo_regla`.
+2. LLDT y SIC se siembran desde [../sql/48_CREATE_DIM_MODELO_RIESGO_REGLA.sql](../sql/48_CREATE_DIM_MODELO_RIESGO_REGLA.sql).
+3. CULTURA y GOVERNANCA se extienden desde [../sql/59_EXTEND_DIM_MODELO_RIESGO_REGLA_CULTURA_GOVERNANCA.sql](../sql/59_EXTEND_DIM_MODELO_RIESGO_REGLA_CULTURA_GOVERNANCA.sql).
+4. El overlay funcional de nombres, pesos y defaults sale de `risk_rule_defaults_review.xlsx` y su tabla Bronze `raw_risk_rule_admin`.
+5. Si Dev y Prod difieren en resultado, revisar primero: version de scripts SQL desplegada, fecha de carga de ManualLoads, contenido de `silver.dim_modelo_riesgo_regla_admin`, matriz `silver.ref_risk_final_matrix` y ultimo `run_id` de cada dominio.
+6. En documentacion vigente, si aparece una contradiccion, prevalece esta secuencia: [GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md](GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md), este catalogo, scripts Gold vigentes y finalmente documentos historicos.
+
+---
+
+## 11. Fuentes documentales y tecnicas
+
+- [GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md](GUIA_FUNCIONAL_CALCULO_GOLD_RIESGO.md)
+- [GUIA_OPERATIVA_DEFAULTS_REGLAS_RIESGO.md](GUIA_OPERATIVA_DEFAULTS_REGLAS_RIESGO.md)
+- [ANALISIS_MODELO_RIESGO_V31_CATALOGO_REGLAS.md](ANALISIS_MODELO_RIESGO_V31_CATALOGO_REGLAS.md)
+- [../sql/48_CREATE_DIM_MODELO_RIESGO_REGLA.sql](../sql/48_CREATE_DIM_MODELO_RIESGO_REGLA.sql)
+- [../sql/59_EXTEND_DIM_MODELO_RIESGO_REGLA_CULTURA_GOVERNANCA.sql](../sql/59_EXTEND_DIM_MODELO_RIESGO_REGLA_CULTURA_GOVERNANCA.sql)
+- [../sql/61_CREATE_GOLD_CULTURA.sql](../sql/61_CREATE_GOLD_CULTURA.sql)
+- [../sql/62_CREATE_GOLD_GOVERNANCA.sql](../sql/62_CREATE_GOLD_GOVERNANCA.sql)
+- [../sql/65_CREATE_GOLD_INFRA.sql](../sql/65_CREATE_GOLD_INFRA.sql)

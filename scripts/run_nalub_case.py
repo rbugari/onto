@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import shutil
 import sys
 from pathlib import Path
 
@@ -21,8 +22,9 @@ PROJECT_ID = "nalub-case"
 CLIENT_ID = "nalub"
 DOMAIN_ID = "commercial-operations"
 DATA_PRODUCT_ID = "nalub-legacy-mariadb"
-DUMP_PATH = ROOT_DIR / "doc _base" / "backNalub02042026.sql"
-CONTEXT_PATH = ROOT_DIR / "doc _base" / "ONTOLOGIA_FUNCIONAL_TECNICA_NALUB.md"
+CASE_ROOT = ROOT_DIR / "docs" / "casos" / "nalub_mariadb" / "input"
+DUMP_PATH = CASE_ROOT / "nalub_schema.sql"
+CONTEXT_PATH = CASE_ROOT / "documentation" / "ONTOLOGIA_FUNCIONAL_TECNICA_NALUB.md"
 
 NALUB_QUERY_CATALOG = [
     {
@@ -113,9 +115,16 @@ def main() -> None:
         default=PROJECT_ID,
         help="Identificador estable del proyecto Nalub",
     )
+    parser.add_argument(
+        "--keep",
+        action="store_true",
+        help="No borrar artefactos previos del caso (los perfiles de conexion nunca se borran)",
+    )
     args = parser.parse_args()
 
     os.environ["ONTO_LLM_PROVIDER"] = "disabled"
+    if not args.keep:
+        reset_case_artifacts(args.project_id)
     service = WorkbenchService(ProjectStore(ROOT_DIR / "data" / "projects"))
     if service.store.project_exists(args.project_id):
         project = service.get_project(args.project_id)
@@ -238,6 +247,13 @@ def main() -> None:
             raise RuntimeError("La solicitud de SQL libre no fue bloqueada antes de ejecutar")
     else:
         print(f"Live query: omitida; usar --live con el perfil '{args.connection_profile}' configurado")
+
+
+def reset_case_artifacts(project_id: str) -> None:
+    (ROOT_DIR / "data" / "projects" / f"{project_id}.json").unlink(missing_ok=True)
+    for folder in ("context", "history", "registry", "runtime", "interoperability"):
+        shutil.rmtree(ROOT_DIR / "data" / folder / project_id, ignore_errors=True)
+    shutil.rmtree(ROOT_DIR / "data" / "workspaces" / CLIENT_ID / DOMAIN_ID / DATA_PRODUCT_ID, ignore_errors=True)
 
 
 if __name__ == "__main__":

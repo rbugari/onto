@@ -4,12 +4,12 @@ Estado: caso tecnico secundario del MVP operativo; no es el flujo principal de l
 
 ## Fuentes
 
-- Schema local: `doc _base/backNalub02042026.sql`.
-- Contexto funcional y tecnico: `doc _base/ONTOLOGIA_FUNCIONAL_TECNICA_NALUB.md`.
+- Schema: `docs/casos/nalub_mariadb/input/nalub_schema.sql` (solo estructura, extraida del backup `doc _base/backNalub02042026.sql`, que queda fuera de git).
+- Contexto funcional y tecnico: `docs/casos/nalub_mariadb/input/documentation/ONTOLOGIA_FUNCIONAL_TECNICA_NALUB.md`.
 - Sistema de registro de datos: MariaDB legacy Nalub.
 - Sistema de registro ontologico: release Nexo local de ONTO.
 
-El backup se usa para extraer DDL. El runner no importa filas `INSERT` como conceptos ni las publica.
+El esquema se usa para extraer DDL; no contiene filas. Carga paso a paso y resultado esperado: [README del caso](casos/nalub_mariadb/README.md).
 
 ## Ejecucion schema-first
 

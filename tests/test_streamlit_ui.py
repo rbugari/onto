@@ -21,7 +21,7 @@ except ImportError:  # pragma: no cover - streamlit only lives in the app virtua
 from ontology_workbench.service import WorkbenchService
 from ontology_workbench.storage import ProjectStore
 
-EXAMPLE = ROOT_DIR / "examples" / "distributed_sales_demo" / "input"
+EXAMPLE = ROOT_DIR / "docs" / "casos" / "ventas_distribuidas" / "input"
 APP = str(ROOT_DIR / "streamlit_app.py")
 
 

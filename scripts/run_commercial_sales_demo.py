@@ -22,7 +22,7 @@ PROJECT_ID = "commercial-sales-demo"
 CLIENT_ID = "demo-client"
 DOMAIN_ID = "commercial-sales"
 DATA_PRODUCT_ID = "sales-analytics"
-EXAMPLE_ROOT = ROOT_DIR / "examples" / "commercial_sales_demo"
+EXAMPLE_ROOT = ROOT_DIR / "docs" / "casos" / "comercial_powerbi"
 
 COMMERCIAL_QUERY_CATALOG = [
     {

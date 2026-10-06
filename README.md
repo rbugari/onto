@@ -44,8 +44,8 @@ Al abrir la aplicacion se elige el proyecto activo y se confirma en **Contexto d
 - **Argos**: conversacion tipo chat sobre una release aprobada, abstencion explicita, preguntas iniciales y graficos definidos por el catalogo, y pestana de analistas con catalogo de consultas y bateria de evaluacion.
 - Query catalog por release: routing, parametros, binding requerido, adapter, perfil de conexion, limites, `example_question` y `visualization`.
 - Interoperabilidad: desde una release, paquetes importables por la plataforma destino (Fabric IQ: Ontology + Data Agent; Databricks: Pages, metric views, Unity Catalog, Genie Agents), con reporte de cobertura, ruta recomendada A/B/C y descarga ZIP. Sin publicacion externa. Ver `docs/15_INTEGRACION_FABRIC_DATABRICKS.md`.
-- Demo distribuida sintetica: `examples/distributed_sales_demo/` y `scripts/run_distributed_demo.py` (ERP MariaDB, lakehouse Databricks, Power BI, CRM SQL Server y planillas), hasta release y paquetes para ambas plataformas (ruta B).
-- Demo comercial sintetica: `examples/commercial_sales_demo/` y `scripts/run_commercial_sales_demo.py` ejecutan Atlas, Nexo, Argos y el paquete Fabric (ruta A) sin datos reales.
+- Demo distribuida sintetica: `docs/casos/ventas_distribuidas/` y `scripts/run_distributed_demo.py` (ERP MariaDB, lakehouse Databricks, Power BI, CRM SQL Server y planillas), hasta release y paquetes para ambas plataformas (ruta B).
+- Demo comercial sintetica: `docs/casos/comercial_powerbi/` y `scripts/run_commercial_sales_demo.py` ejecutan Atlas, Nexo, Argos y el paquete Fabric (ruta A) sin datos reales.
 - Caso Nalub: `scripts/run_nalub_case.py` ingesta el schema del backup y el contexto funcional, genera una release con cinco capacidades MariaDB y puede ejecutar consultas live read-only con un perfil de conexion local.
 - Conexiones por proyecto: los perfiles viven en `data/connections/<project_id>/<profile_id>.env`; una release solo referencia el nombre del perfil y nunca persiste secretos.
 
@@ -68,7 +68,7 @@ El caso `nalub-case` valida un flujo schema-first sobre MariaDB legacy. La relea
   - `fabric_adapter.py`, `mariadb_adapter.py`, `local_data_adapter.py`, `connection_profiles.py`, `interoperability.py`: conectores y mappings.
 - `tests/test_workbench_service.py`: pruebas de servicio y contratos.
 - `tests/test_streamlit_ui.py`: pruebas de interfaz con `streamlit.testing.v1.AppTest` (se omiten si Streamlit no esta instalado).
-- `examples/`: casos sinteticos versionables. `scripts/`: runners y demos.
+- `docs/casos/`: origenes de cada caso de prueba (archivos tecnicos, documentacion, que cargar y resultado esperado) para regenerarlos desde cero. `scripts/`: runners y demos.
 
 ## Ejecutar local
 

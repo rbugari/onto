@@ -92,7 +92,7 @@ Un proyecto Atlas registra **todos los sistemas** que participan del dominio, au
 | Microsoft Fabric | Conexion directa de solo lectura o export a CSV. |
 | Planillas u otros | CSV con `table_name`, `column_name`, `data_type`. |
 
-Con dos o mas sistemas, Atlas compara entidades por nombre normalizado (con un vocabulario bilingue minimo, por ejemplo `DimCustomer` = `clientes`) y busca una clave comun (`id_cliente`, `cliente_id`, `CustomerKey`). El resultado es orientativo: las equivalencias las confirman los responsables. La demo `scripts/run_distributed_demo.py` usa `examples/distributed_sales_demo/`.
+Con dos o mas sistemas, Atlas compara entidades por nombre normalizado (con un vocabulario bilingue minimo, por ejemplo `DimCustomer` = `clientes`) y busca una clave comun (`id_cliente`, `cliente_id`, `CustomerKey`). El resultado es orientativo: las equivalencias las confirman los responsables. La demo `scripts/run_distributed_demo.py` usa `docs/casos/ventas_distribuidas/`.
 
 ## Pantalla de Atlas
 

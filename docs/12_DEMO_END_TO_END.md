@@ -14,7 +14,7 @@ Muestra el foco del producto: un dominio comercial repartido en varios sistemas.
 python scripts/run_distributed_demo.py
 ```
 
-Fuentes en `examples/distributed_sales_demo/input/`:
+Fuentes en `docs/casos/ventas_distribuidas/input/` (ver el [README del caso](casos/ventas_distribuidas/README.md) para la carga paso a paso y el resultado esperado):
 
 | Sistema | Plataforma | Archivo |
 | --- | --- | --- |

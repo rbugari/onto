@@ -23,7 +23,7 @@ PROJECT_ID = "distribuidora-ventas-distribuidas"
 CLIENT_ID = "demo-distribuidora"
 DOMAIN_ID = "comercial"
 DATA_PRODUCT_ID = "ventas-distribuidas"
-EXAMPLE_ROOT = ROOT_DIR / "examples" / "distributed_sales_demo" / "input"
+EXAMPLE_ROOT = ROOT_DIR / "docs" / "casos" / "ventas_distribuidas" / "input"
 
 
 def main() -> None:
