@@ -29,6 +29,12 @@ Durante esta etapa ONTO se mantiene como una unica aplicacion web local de Strea
 
 Al abrir la aplicacion se elige el proyecto activo y se confirma en **Contexto de trabajo**. La barra lateral muestra la ruta de tres etapas (**1. Preparar evidencia**, **2. Validar conocimiento**, **3. Investigar el negocio**), el acceso a **Administrar proyecto** y la identidad del **revisor/a de la sesion**, que se usa en todas las decisiones de revision.
 
+### Idioma de la interfaz
+
+El selector **Idioma / Language** de la barra lateral permite usar la interfaz en **Espanol** o **English**. El idioma inicial es espanol; se conserva durante la sesion y en el parametro `?lang=es` o `?lang=en` de la URL. No es una preferencia global ni modifica el proyecto. Cambiarlo conserva el proyecto, las selecciones y los campos en edicion.
+
+Se traducen navegacion, controles, ayudas, encabezados y pedidos estructurados de Atlas. Los nombres y documentos del proyecto, las citas, las respuestas de negocio y los artefactos guardados o exportados conservan su idioma original. No se utiliza un LLM para traducir. El catalogo central vive en [onto_ui/i18n.py](onto_ui/i18n.py); los textos nuevos de interfaz deben pasar por `t()` y las opciones mantener sus IDs internos con `option_labels()`.
+
 ## Estado actual
 
 - Proyectos locales, snapshots, exportacion/importacion JSON y resumen Markdown.
@@ -58,7 +64,7 @@ El caso `nalub-case` valida un flujo schema-first sobre MariaDB legacy. La relea
 ## Estructura
 
 - `streamlit_app.py`: punto de entrada, seleccion de proyecto, navegacion y administracion del proyecto.
-- `onto_ui/`: pantallas `atlas.py`, `nexo.py`, `argos.py`, widgets compartidos (`common.py`) y etiquetas en espanol (`labels.py`).
+- `onto_ui/`: pantallas `atlas.py`, `nexo.py`, `argos.py`, widgets compartidos (`common.py`), etiquetas (`labels.py`) y catalogo bilingue (`i18n.py`).
 - `src/ontology_workbench/`:
   - `models.py`, `service.py`, `storage.py`: dominio, logica y persistencia local.
   - `atlas.py`, `cross_source.py`, `external_metadata.py`, `bim_importer.py`, `semantic_model_importer.py`, `mariadb_schema.py`: assessment, alineacion entre sistemas e importadores.
@@ -122,6 +128,14 @@ Para consultar una pregunta propia o evitar la bateria automatica:
 python scripts/run_onto_demo.py fabric-gold-sic-risk-pilot --question "Que es gold_sic.fact_riesgo?"
 python scripts/run_onto_demo.py fabric-gold-sic-risk-pilot --skip-evaluation
 ```
+
+Para un ciclo con el proveedor LLM configurado y un caso existente:
+
+```powershell
+python scripts/run_onto_demo.py distribuidora-ventas-distribuidas --full-cycle --max-calls 12
+```
+
+Ejecuta scanner, contraste Atlas y un nuevo draft Nexo pendiente de revision. Las explicaciones inferidas se guardan en `explanatory_coverage.json` como `inferred_explanations`, con aporte importante del modelo, supuestos y validaciones pendientes. No cuentan como respaldo documental ni cierran pedidos. Argos, su bateria y los paquetes de plataformas usan la release anteriormente aprobada, nunca el nuevo draft sin revisar. El assessment conserva `llm_cycle_summary.json` con los IDs y resultados de cada etapa; no se aprueban candidatos ni se publica una nueva release automaticamente.
 
 ## Ejecutar procesos auxiliares
 
@@ -215,11 +229,14 @@ Para Azure OpenAI:
 
 ```powershell
 $env:ONTO_LLM_PROVIDER="azure_openai"
+$env:ONTO_LLM_MODEL="<deployment>"
 $env:ONTO_AZURE_OPENAI_ENDPOINT="https://<resource>.openai.azure.com"
 $env:ONTO_AZURE_OPENAI_DEPLOYMENT="<deployment>"
-$env:ONTO_AZURE_OPENAI_API_VERSION="2024-10-21"
+$env:ONTO_AZURE_OPENAI_API_VERSION="2024-12-01-preview"
 $env:ONTO_LLM_API_KEY="..."
 ```
+
+En Azure se utiliza el nombre del deployment, no el URI `azureml://` del registro de modelos. La llamada solicita JSON, limita la respuesta a `16384` tokens de completado y omite `temperature` para admitir deployments de razonamiento que solo aceptan su valor predeterminado. La clave debe permanecer en el `.env` local, excluido de Git; no se guarda en proyectos ni artefactos.
 
 Para local sin clave:
 

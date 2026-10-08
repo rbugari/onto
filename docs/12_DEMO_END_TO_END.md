@@ -2,6 +2,12 @@
 
 Estado: guion validado del MVP operativo
 
+## Proxima sesion manual
+
+Para repetir el caso distribuido desde cero el **2026-10-07**, seguir la [guia de validacion manual](casos/ventas_distribuidas/README.md#validacion-manual-desde-cero-2026-10-07). Usa los mismos archivos en un proyecto nuevo, conserva el historial del proyecto anterior y define puntos de control, criterios de detencion y una plantilla de registro. No ejecutar los runners automaticos durante ese recorrido.
+
+El ciclo real del 2026-10-06 y sus limites estan documentados en el [plan de cobertura explicativa](16_PLAN_ATLAS_COBERTURA_EXPLICATIVA.md#ciclo-real-del-2026-10-06). Los resultados de Argos y los paquetes de ese ciclo corresponden a la release anterior aprobada, no al draft nuevo pendiente.
+
 ## Objetivo
 
 Mostrar que ONTO prepara conocimiento gobernado para IA y que puede convivir con distintos repositorios de datos y repositorios ontologicos. La demo no debe depender exclusivamente del caso SIC/riesgo.

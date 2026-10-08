@@ -180,6 +180,9 @@ class ProjectStore:
 
     def save_atlas_assessment(self, package: dict[str, object]) -> Path:
         """Persist an Atlas assessment package in the local workspace convention."""
+        from ontology_workbench.explanatory_coverage import attach_explanatory_diagnosis
+
+        attach_explanatory_diagnosis(package)
         manifest = dict(package["manifest"])
         scope = dict(manifest["scope"])
         run_dir = self._atlas_run_dir(
@@ -198,6 +201,9 @@ class ProjectStore:
             package_dir / "business_context_inventory.json", package["business_context_inventory"]
         )
         self._write_json(package_dir / "source_inventory.json", package["source_inventory"])
+        self._write_json(package_dir / "explanatory_scope.json", package.get("explanatory_scope", {}))
+        self._write_json(package_dir / "explanatory_coverage.json", package.get("explanatory_coverage", {}))
+        self._write_json(package_dir / "explanatory_diagnosis.json", package.get("explanatory_diagnosis", {}))
         self._write_json(package_dir / "scope_definition.json", package.get("scope_definition", {}))
         self._write_json(package_dir / "cross_source_map.json", package.get("cross_source_map", {}))
         self._write_json(package_dir / "evidence_index.json", package["evidence_index"])
@@ -225,7 +231,14 @@ class ProjectStore:
                 if review_path.exists():
                     raw["assessment_review"] = json.loads(review_path.read_text(encoding="utf-8"))
                 manifests.append(raw)
-        return sorted(manifests, key=lambda item: str(item.get("created_at", "")), reverse=True)
+        return sorted(
+            manifests,
+            key=lambda item: (
+                str(item.get("created_at", "")),
+                (Path(str(item["package_path"])) / "manifest.json").stat().st_mtime_ns,
+            ),
+            reverse=True,
+        )
 
     def load_atlas_package(self, project_id: str, run_id: str) -> dict[str, object]:
         """Read the artifacts of one Atlas run for inspection in the UI."""
@@ -235,6 +248,9 @@ class ProjectStore:
             package_dir = Path(str(assessment["package_path"]))
             package: dict[str, object] = {"manifest": assessment, "package_path": str(package_dir)}
             for name in (
+                "explanatory_scope",
+                "explanatory_coverage",
+                "explanatory_diagnosis",
                 "scope_definition", "source_inventory", "cross_source_map",
                 "readiness_score", "gap_backlog", "assessment_review",
             ):

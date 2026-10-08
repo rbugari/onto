@@ -5,32 +5,31 @@ import json
 
 import streamlit as st
 
+from onto_ui.i18n import LocalizedLabels, localize_rows, localized_tabs, option_labels, t
+
 from ontology_workbench.context_scanner import load_llm_settings
 from ontology_workbench.result_views import infer_visualization, starter_questions
 from ontology_workbench.runtime_evaluation import parse_evaluation_cases
 from ontology_workbench.service import WorkbenchService
 from onto_ui.labels import short_timestamp
 
-STATUS_LABELS = {"answered": "Respondida", "abstained": "Abstención", "error": "Error"}
+STATUS_LABELS = LocalizedLabels({"answered": "Respondida", "abstained": "Abstención", "error": "Error"})
 
 
 def render_argos(service: WorkbenchService, project_id: str) -> None:
-    st.title("Argos · Investigación de negocio")
+    st.title(t("Argos · Investigación de negocio"))
     releases = service.list_nexo_releases(project_id)
     if not releases:
-        st.info("Argos todavía no está disponible: falta emitir una release aprobada en Nexo.")
+        st.info(t("Argos todavía no está disponible: falta emitir una release aprobada en Nexo."))
         return
     release_id = str(releases[0]["release_id"])
     settings = load_llm_settings()
-    engine = f"{settings.provider} · {settings.model}" if settings.enabled else "modo local determinista"
+    engine = t('{v0} · {v1}', v0=settings.provider, v1=settings.model) if settings.enabled else t("modo local determinista")
     st.caption(
-        "Banco de prueba del conocimiento aprobado antes de implementarlo en la plataforma del cliente, y runtime "
-        "de plan B para lo que la plataforma no pueda cubrir. "
-        f"Responde solo con la release del {short_timestamp(releases[0].get('created_at'))} "
-        f"y consultas autorizadas. Motor: {engine}."
+        t('Banco de prueba del conocimiento aprobado antes de implementarlo en la plataforma del cliente, y runtime de plan B para lo que la plataforma no pueda cubrir. Responde solo con la release del {v0} y consultas autorizadas. Motor: {v1}.', v0=short_timestamp(releases[0].get('created_at')), v1=engine)
     )
     catalog = service.get_argos_query_catalog(project_id, release_id)
-    chat_tab, analyst_tab = st.tabs(["Conversación", "Analistas"])
+    chat_tab, analyst_tab = localized_tabs(["Conversación", "Analistas"], key=f"argos-tabs-{project_id}")
     with chat_tab:
         _render_conversation(service, project_id, release_id, catalog)
     with analyst_tab:
@@ -61,7 +60,7 @@ def _conversation(service: WorkbenchService, project_id: str, release_id: str) -
 
 def _ask(service: WorkbenchService, project_id: str, release_id: str, question: str) -> None:
     try:
-        with st.spinner("Argos está consultando el contexto y los datos permitidos…"):
+        with st.spinner(t("Argos está consultando el contexto y los datos permitidos…")):
             result = service.investigate_release(project_id, release_id, question)
     except (ValueError, FileNotFoundError) as exc:
         st.error(str(exc))
@@ -75,17 +74,17 @@ def _ask(service: WorkbenchService, project_id: str, release_id: str, question: 
 def _render_conversation(service: WorkbenchService, project_id: str, release_id: str, catalog) -> None:
     conversation = _conversation(service, project_id, release_id)
     if not conversation:
-        st.markdown("**¿Por dónde empezar?**")
+        st.markdown(t("**¿Por dónde empezar?**"))
         questions = starter_questions(catalog)
         if not questions:
-            st.caption("Escribí una pregunta sobre el negocio. Ejemplo: ¿Qué es un cliente activo?")
+            st.caption(t("Escribí una pregunta sobre el negocio. Ejemplo: ¿Qué es un cliente activo?"))
         for row_start in range(0, len(questions), 3):
             columns = st.columns(3)
             for column, (index, question) in zip(columns, enumerate(questions[row_start:row_start + 3], start=row_start)):
                 if column.button(question, key=f"argos-starter-{project_id}-{index}", width="stretch"):
                     _ask(service, project_id, release_id, question)
     else:
-        if st.button("Limpiar conversación", type="tertiary", icon=":material/delete_sweep:", key=f"argos-clear-{project_id}"):
+        if st.button(t("Limpiar conversación"), type="tertiary", icon=":material/delete_sweep:", key=f"argos-clear-{project_id}"):
             conversation.clear()
             st.rerun()
         for position, exchange in enumerate(conversation):
@@ -94,7 +93,7 @@ def _render_conversation(service: WorkbenchService, project_id: str, release_id:
             with st.chat_message("assistant"):
                 _render_answer(service, project_id, release_id, exchange["result"], catalog, position)
 
-    question = st.chat_input("Preguntá sobre el negocio", key=f"argos-chat-input-{project_id}")
+    question = st.chat_input(t("Preguntá sobre el negocio"), key=f"argos-chat-input-{project_id}")
     if question and question.strip():
         _ask(service, project_id, release_id, question)
 
@@ -118,7 +117,7 @@ def _render_answer(service, project_id: str, release_id: str, result: dict[str, 
         for index, follow_up in enumerate(follow_ups[:3]):
             if columns[index].button(follow_up, key=f"argos-follow-up-{project_id}-{position}-{index}", width="stretch"):
                 _ask(service, project_id, release_id, follow_up)
-    with st.expander("Evidencia y trazabilidad"):
+    with st.expander(t("Evidencia y trazabilidad")):
         _render_traceability(result)
 
 
@@ -137,24 +136,23 @@ def _render_rows(rows: list[dict[str, object]], specification: dict[str, object]
             height=240,
         )
     if len(rows) > 1 or not visualization:
-        with st.expander(f"Datos ({len(rows)} fila(s))", expanded=not visualization):
+        with st.expander(t('Datos ({v0} fila(s))', v0=len(rows)), expanded=not visualization):
             st.dataframe(rows, width="stretch", hide_index=True)
 
 
 def _render_traceability(result: dict[str, object]) -> None:
     manifest = dict(result.get("manifest", {}))
     status = str(manifest.get("status", ""))
-    st.caption(f"Estado: {STATUS_LABELS.get(status, status or 'desconocido')} · Registro: {result.get('package_path', 'sin ruta')}")
+    st.caption(t('Estado: {v0} · Registro: {v1}', v0=STATUS_LABELS.get(status, status or 'desconocido'), v1=result.get('package_path', 'sin ruta')))
     advisory = result.get("reasoning_advisory")
     if isinstance(advisory, dict):
         st.caption(str(advisory.get("message", "")))
         if advisory.get("model_used"):
-            st.caption(f"Motor: {advisory['model_used']}")
+            st.caption(t('Motor: {v0}', v0=advisory['model_used']))
     live_query = result.get("live_query")
     if isinstance(live_query, dict):
         st.caption(
-            f"Consulta: {live_query.get('query_name', 'consulta')} · {live_query.get('operation', 'SELECT')} · "
-            f"{len(live_query.get('rows', []))} fila(s)"
+            t('Consulta: {v0} · {v1} · {v2} fila(s)', v0=live_query.get('query_name', 'consulta'), v1=live_query.get('operation', 'SELECT'), v2=len(live_query.get('rows', [])))
         )
     retrieval = result.get("retrieval", [])
     if retrieval:
@@ -169,10 +167,10 @@ def _plain(value: object) -> str:
 # ---------------------------------------------------------------- Analistas
 
 def _render_analyst_workspace(service: WorkbenchService, project_id: str, release_id: str, catalog) -> None:
-    st.markdown("**Consultas autorizadas en esta release**")
+    st.markdown(t("**Consultas autorizadas en esta release**"))
     if catalog:
         st.dataframe(
-            [
+            localize_rows([
                 {
                     "Consulta": name,
                     "Descripción": spec.get("description", ""),
@@ -182,44 +180,44 @@ def _render_analyst_workspace(service: WorkbenchService, project_id: str, releas
                     "Pregunta de ejemplo": spec.get("example_question", ""),
                 }
                 for name, spec in catalog.items()
-            ],
+            ]),
             width="stretch",
             hide_index=True,
         )
     else:
-        st.caption("La release no tiene consultas de datos; Argos responde solo con el conocimiento aprobado.")
+        st.caption(t("La release no tiene consultas de datos; Argos responde solo con el conocimiento aprobado."))
 
-    st.markdown("**Batería de evaluación**")
+    st.markdown(t("**Batería de evaluación**"))
     st.caption(
-        "Define qué debe responder Argos y de qué debe abstenerse. Cada ejecución valida el estado esperado "
-        "y, si corresponde, la evidencia recuperada."
+        t("Define qué debe responder Argos y de qué debe abstenerse. Cada ejecución valida el estado esperado "
+        "y, si corresponde, la evidencia recuperada.")
     )
     cases_key = f"argos-evaluation-cases-{project_id}"
-    if st.button("Preparar batería base", key=f"argos-evaluation-suggest-{project_id}"):
+    if st.button(t("Preparar batería base"), key=f"argos-evaluation-suggest-{project_id}"):
         try:
             suggested = service.suggest_argos_evaluation_cases(project_id, release_id)
         except FileNotFoundError as exc:
             st.error(str(exc))
         else:
             st.session_state[cases_key] = "\n".join(
-                f"{case['question']} | {case['expected_status']} | {case['expected_item_name']}" for case in suggested
+                t('{v0} | {v1} | {v2}', v0=case['question'], v1=case['expected_status'], v2=case['expected_item_name']) for case in suggested
             )
             st.rerun()
     cases_text = st.text_area(
-        "Un caso por línea: pregunta | answered o abstained | evidencia esperada (opcional)",
+        t("Un caso por línea: pregunta | answered o abstained | evidencia esperada (opcional)"),
         key=cases_key,
-        placeholder="¿Qué es Cliente Activo? | answered | Cliente Activo\n¿Qué planeta es más grande? | abstained |",
+        placeholder=t("¿Qué es Cliente Activo? | answered | Cliente Activo\n¿Qué planeta es más grande? | abstained |"),
         height=160,
     )
-    if st.button("Ejecutar batería", type="primary", key=f"argos-evaluation-run-{project_id}"):
+    if st.button(t("Ejecutar batería"), type="primary", key=f"argos-evaluation-run-{project_id}"):
         cases, invalid = parse_evaluation_cases(cases_text)
         if invalid:
-            st.error("Formato inválido en líneas: " + ", ".join(invalid))
+            st.error(t("Formato inválido en líneas: ") + ", ".join(invalid))
         elif not cases:
-            st.error("Cargá al menos un caso.")
+            st.error(t("Cargá al menos un caso."))
         else:
             try:
-                with st.spinner("Ejecutando batería…"):
+                with st.spinner(t("Ejecutando batería…")):
                     st.session_state[f"argos-evaluation-result-{project_id}"] = service.evaluate_argos_release(
                         project_id, release_id, cases
                     )
@@ -230,11 +228,11 @@ def _render_analyst_workspace(service: WorkbenchService, project_id: str, releas
         return
     summary = dict(evaluation["summary"])
     metrics = st.columns(3)
-    metrics[0].metric("Casos", summary["total"])
-    metrics[1].metric("Correctos", summary["passed"])
-    metrics[2].metric("Fallidos", summary["failed"])
+    metrics[0].metric(t("Casos"), summary["total"])
+    metrics[1].metric(t("Correctos"), summary["passed"])
+    metrics[2].metric(t("Fallidos"), summary["failed"])
     st.dataframe(
-        [
+        localize_rows([
             {
                 "Correcto": case["passed"],
                 "Pregunta": case["question"],
@@ -244,15 +242,15 @@ def _render_analyst_workspace(service: WorkbenchService, project_id: str, releas
                 "Motivo": case["failure_reason"],
             }
             for case in evaluation["cases"]
-        ],
+        ]),
         width="stretch",
         hide_index=True,
-        column_config={"Correcto": st.column_config.CheckboxColumn()},
+        column_config={t("Correcto"): st.column_config.CheckboxColumn()},
     )
-    st.caption(f"Paquete de evaluación: {evaluation['package_path']}")
+    st.caption(t('Paquete de evaluación: {v0}', v0=evaluation['package_path']))
     questions = {index: case["question"] for index, case in enumerate(evaluation["cases"])}
     selected = st.selectbox(
-        "Ver respuesta de un caso", list(questions), format_func=questions.get, key=f"argos-evaluation-detail-{project_id}"
+        t("Ver respuesta de un caso"), list(questions), format_func=option_labels(list(questions), questions.get), key=f"argos-evaluation-detail-{project_id}"
     )
     investigation = dict(evaluation["cases"][selected].get("investigation", {}))
     st.write(_plain(investigation.get("answer", "Sin respuesta")))

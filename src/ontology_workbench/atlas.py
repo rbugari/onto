@@ -3,6 +3,8 @@ from __future__ import annotations
 from collections import Counter
 
 from ontology_workbench.cross_source import build_cross_source_map
+from ontology_workbench.explanatory_coverage import build_explanatory_coverage
+from ontology_workbench.explanatory_scope import build_explanatory_scope
 from ontology_workbench.models import DocumentRecord, OntologyProject, utc_now_iso
 
 
@@ -37,6 +39,7 @@ def build_assessment_package(
 ) -> dict[str, object]:
     """Build the first deterministic Atlas assessment package from local MVP evidence."""
     semantic_inventory = _semantic_inventory(project)
+    explanatory_scope = build_explanatory_scope(project)
     source_inventory = _source_inventory(project, documents, source_hashes)
     cross_source_map = build_cross_source_map(
         source_inventory["technical_sources"], semantic_inventory["objects"]
@@ -61,6 +64,8 @@ def build_assessment_package(
             "data_product_id": data_product_id,
         },
         "artifacts": [
+            "explanatory_scope.json",
+            "explanatory_coverage.json",
             "scope_definition.json",
             "semantic_inventory.json",
             "business_context_inventory.json",
@@ -83,6 +88,8 @@ def build_assessment_package(
     }
     return {
         "manifest": manifest,
+        "explanatory_scope": explanatory_scope,
+        "explanatory_coverage": build_explanatory_coverage(explanatory_scope, context_chunks),
         "scope_definition": scope_definition,
         "semantic_inventory": semantic_inventory,
         "business_context_inventory": business_context or _empty_business_context(),

@@ -128,6 +128,8 @@ La implementacion del MVP permite que Argos consulte el `agent_context_pack` de 
 
 ### Pendiente prioritario
 
+La siguiente mejora funcional de Atlas es el [plan de cobertura explicativa](16_PLAN_ATLAS_COBERTURA_EXPLICATIVA.md): universo evaluable, matriz reproducible, contraste con LLM, diagnostico accionable y comparacion entre assessments. Se implementa y prueba por partes, solo con documentacion y metadata; no habilita exploracion de filas. Las prioridades de gobierno e integracion siguientes se mantienen como trabajo posterior o transversal.
+
 1. **Formalizar gobierno del piloto:** secretos y criterios de aprobacion; la politica LLM (`approved_external`/`local_only`), la auditoria tecnica base y el informe manual de retencion ya estan implementados. Multiusuario, roles y autorizacion quedan diferidos para una etapa posterior.
 2. **Cerrar el ciclo multi-sistema:** que Nexo registre como decision las equivalencias entre sistemas detectadas por Atlas (clave comun o tabla de correspondencia) y que la release las incluya.
 3. **Ampliar fuentes:** descubrimiento remoto de Databricks (Unity Catalog) y conexion autenticada a APIs de semantic models solo despues de estabilizar los contratos; hoy se cargan por archivo exportado.

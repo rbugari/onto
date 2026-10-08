@@ -7,6 +7,7 @@ import uuid
 from pathlib import Path
 
 from ontology_workbench.atlas import PLATFORM_LABELS, build_assessment_package
+from ontology_workbench.explanatory_analysis import analyze_explanatory_scope
 from ontology_workbench.bim_importer import build_bim_import_bundle
 from ontology_workbench.context_scanner import (
     build_business_context_inventory,
@@ -954,6 +955,29 @@ class WorkbenchService:
         )
         package_path = self.store.save_atlas_assessment(package)
         package["package_path"] = str(package_path)
+        return package
+
+    def create_semantic_atlas_assessment(
+        self, project_id: str, client_id: str, domain_id: str, data_product_id: str,
+        max_calls: int = 40,
+    ) -> dict[str, object]:
+        settings = load_llm_settings()
+        documents = self.store.list_documents(project_id)
+        texts = {document.document_id: self.store.load_document_text(project_id, document.document_id)
+                 for document in documents}
+        chunks = build_document_chunks(documents, texts)
+        self.store.save_context_chunks(project_id, chunks)
+        cached = None
+        for assessment in self.list_atlas_assessments(project_id):
+            previous = self.get_atlas_assessment(project_id, str(assessment["run_id"]))
+            coverage = previous.get("explanatory_coverage", {})
+            if coverage.get("analysis", {}).get("status") == "complete":
+                cached = coverage
+                break
+        package = self.create_atlas_assessment(project_id, client_id, domain_id, data_product_id)
+        package["explanatory_coverage"] = analyze_explanatory_scope(
+            package["explanatory_scope"], chunks, settings, max_calls=max_calls, cached=cached)
+        package["package_path"] = str(self.store.save_atlas_assessment(package))
         return package
 
     def execute_fabric_validation_query(

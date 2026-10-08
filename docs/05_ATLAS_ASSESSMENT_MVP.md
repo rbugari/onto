@@ -7,6 +7,10 @@ Producto: 1 de 3 de ONTO
 
 Atlas prepara la evidencia tecnica y funcional de un dominio. No pretende declarar una ontologia final: produce un baseline reproducible que permite saber con que evidencia se cuenta, que falta y que conviene priorizar antes de pasar a Nexo.
 
+Evolucion acordada: medir la **cobertura explicativa** del alcance inventariado y compararla entre assessments. Las Partes 1 a 3 agregan el universo versionado y ajustable, la matriz reproducible y la accion explicita Evaluar cobertura con LLM en Diagnostico > Contraste semantico. Esta accion recorre todo el inventario incluido, compara evidencia documental y genera un assessment nuevo, con presupuesto, politica de datos, cache y fallos visibles sin fallback heuristico. El assessment normal sigue siendo determinista y sin evaluar. La verificacion tecnica usa proveedores simulados; falta contrastar calidad con un modelo real y una muestra humana. El score basal no es cobertura explicativa y explicado no significa aprobado. Entregables y pruebas por etapa: [Plan Atlas: cobertura explicativa](16_PLAN_ATLAS_COBERTURA_EXPLICATIVA.md).
+
+Las Partes 4 y 5 completan el diagnostico operativo: cobertura por sistema/caso, filtros sin alterar denominadores, pedidos con responsable propuesto y criterio de cierre, y comparacion de dos assessments por identidad logica. Se separa completar un analisis de resolver una ausencia documental; cambios de alcance no generan un delta de avance. Los pedidos pueden mostrar Revisar cierre, pero no se cierran automaticamente ni aprueban conocimiento. La conexion real al LLM y la validacion semantica humana quedaron para el final por decision del usuario.
+
 ## Oferta de entrada: assessment de preparacion para agentes
 
 Se vende un diagnostico acotado, apoyado por Atlas, no una implementacion de agentes ni una certificacion automatica. El resultado responde: que fuentes y definiciones existen, que se puede respaldar con evidencia, que falta documentar y cual es el siguiente trabajo necesario para habilitar casos de uso con IA.
@@ -75,6 +79,9 @@ El paquete de salida contiene:
 - `source_inventory.json`: sistemas inventariados y declarados (plataforma, responsable, formato, hash SHA-256) y documentos cargados.
 - `cross_source_map.json`: entidades presentes en mas de un sistema, clave comun detectada y entidades de un solo sistema.
 - `evidence_index.json`: chunks, rangos y extractos que permiten ubicar la evidencia usada.
+- `explanatory_scope.json`: universo explicativo versionado y decisiones de inclusion/exclusion.
+- `explanatory_coverage.json`: estados, aspectos, citas verificadas y snapshots para reproducir el calculo.
+- `explanatory_diagnosis.json`: contadores por sistema/caso y pedidos de informacion o analisis con responsable propuesto, prioridad y cierre.
 - `readiness_score.json`: score basal determinista por dimension, en escala 0-5.
 - `gap_backlog.json`: gaps con severidad, categoria, sistema y casos de uso afectados.
 - `assessment_review.json`: checkpoint humano del baseline, sus gaps abiertos y la decision de revision; no aprueba una ontologia.
@@ -101,7 +108,7 @@ La pantalla (`onto_ui/atlas.py`) muestra el avance en cinco pasos y el siguiente
 1. **Alcance:** cliente, dominio, producto de datos, responsable y casos de uso.
 2. **Fuentes:** tabla de sistemas, alta de sistema, carga de metadata con ayuda segun la plataforma, conexion directa a Fabric, edicion o baja (con snapshot previo) y objetos inventariados.
 3. **Contexto de negocio:** documentos, analisis y resultados por tipo (definiciones, KPIs, reglas, entidades vinculadas, preguntas para taller).
-4. **Diagnostico:** generar, elegir un diagnostico, puntaje por dimension, vistas de brechas (filtrables), mapa entre sistemas, sistemas evaluados e informe descargable, y revision humana.
+4. **Diagnostico:** generar, elegir un diagnostico, universo ajustable, cobertura y pedidos filtrables, comparacion con otro assessment, puntaje por dimension, brechas, mapa entre sistemas, sistemas evaluados, informe descargable y revision humana. La comparacion se descarga en JSON, sin modificar los paquetes originales.
 
 Si el proyecto cambio despues del ultimo diagnostico, la pantalla lo marca como desactualizado.
 

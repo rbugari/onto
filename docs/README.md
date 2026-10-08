@@ -28,11 +28,16 @@ Esta carpeta es la fuente de verdad del producto ONTO. Define una **Ontology Fac
 | [Fuente de verdad para presentaciones](13_PRESENTATION_SOURCE_OF_TRUTH.md) | Narrativa oficial para decks y demos ejecutivas. |
 | [Caso Nalub real](14_NALUB_REAL_CASE.md) | Caso tecnico secundario con MariaDB read-only. |
 | [Integracion con Fabric y Databricks](15_INTEGRACION_FABRIC_DATABRICKS.md) | Como interpreta cada plataforma la ontologia, que archivos importables genera ONTO, cobertura/ruta y plan de conectores. |
+| [Plan Atlas: cobertura explicativa](16_PLAN_ATLAS_COBERTURA_EXPLICATIVA.md) | Cinco partes implementables y comprobables para medir que entendemos, que falta y como avanzar entre assessments. |
 | [Casos de prueba](casos/README.md) | Origenes de cada caso (comercial, distribuido, Nalub, Fabric SIC) para regenerarlos desde cero: que cargar en Atlas y resultado esperado. |
 
 El caso Nalub usa `docs/casos/nalub_mariadb/` (esquema MariaDB sin datos y documento funcional/tecnico). La ejecucion validada produce 33 tablas, 255 columnas, 25 relaciones y 451 candidatos. El runner es `python scripts/run_nalub_case.py`; su release declara cinco consultas MariaDB y `--live` ejecuta validaciones read-only contra el perfil indicado.
 
 Ver tambien la [guia del caso Nalub](14_NALUB_REAL_CASE.md).
+
+## Validacion manual programada
+
+El **2026-10-07** se repetira el caso de ventas distribuidas desde el inicio, paso a paso, sin runners ni aprobaciones automaticas. La [guia del mismo caso](casos/ventas_distribuidas/README.md#validacion-manual-desde-cero-2026-10-07) especifica archivos, proyecto nuevo sin resultados heredados, controles de scanner/Atlas/inferencias/Nexo/Argos/entrega y registro de observaciones. Se conserva la ejecucion anterior para comparar; no se inicia otro ciclo hasta la sesion manual.
 
 ## Principio de interoperabilidad
 

@@ -22,6 +22,7 @@ from onto_ui.argos import render_argos
 from onto_ui.atlas import render_atlas
 from onto_ui.common import render_reviewer_identity
 from onto_ui.nexo import render_nexo
+from onto_ui.i18n import LocalizedLabels, localize_rows, option_labels, render_language_selector, t
 
 
 store = ProjectStore(DATA_DIR / "projects")
@@ -34,27 +35,27 @@ PRODUCT_AREAS = {
     "Argos": "Argos",
 }
 
-PRODUCT_STAGE_LABELS = {
+PRODUCT_STAGE_LABELS = LocalizedLabels({
     "Atlas": "1. Atlas · Diagnóstico",
     "Nexo": "2. Nexo · Validar conocimiento",
     "Argos": "3. Argos · Investigar el negocio",
-}
+})
 
 
 def render_project_selector() -> str | None:
     projects = service.list_projects()
     if not projects:
-        st.sidebar.info("No hay proyectos todavia. Crea uno para empezar.")
+        st.sidebar.info(t("No hay proyectos todavia. Crea uno para empezar."))
         return None
 
     labels = {project.id: project.name for project in projects}
     current_id = st.session_state.get("selected_project_id")
     selected_index = list(labels.keys()).index(current_id) if current_id in labels else 0
     selected_id = st.sidebar.selectbox(
-        "Proyecto",
+        t("Proyecto"),
         options=list(labels.keys()),
         index=selected_index,
-        format_func=lambda item: labels[item],
+        format_func=option_labels(list(labels.keys()), lambda item: labels[item]),
         key="project-selector",
     )
     if selected_id != current_id:
@@ -66,11 +67,11 @@ def render_project_selector() -> str | None:
 
 
 def render_create_project() -> None:
-    with st.sidebar.expander("Crear proyecto"):
+    with st.sidebar.expander(t("Crear proyecto")):
         with st.form("create-project", clear_on_submit=True):
-            project_name = st.text_input("Nombre")
-            project_description = st.text_area("Descripcion")
-            submitted = st.form_submit_button("Crear proyecto")
+            project_name = st.text_input(t("Nombre"), key='ui-streamlit_app-render_create_project-72')
+            project_description = st.text_area(t("Descripcion"), key='ui-streamlit_app-render_create_project-73')
+            submitted = st.form_submit_button(t("Crear proyecto"), key='ui-streamlit_app-render_create_project-74')
             if submitted:
                 try:
                     project = service.create_project(project_name, project_description)
@@ -82,10 +83,10 @@ def render_create_project() -> None:
                     st.session_state["project_context_project_id"] = None
                     st.rerun()
 
-    with st.sidebar.expander("Importar proyecto"):
-        uploaded_file = st.file_uploader("Archivo JSON exportado", type=["json"])
-        preserve_project_id = st.checkbox("Preservar id si esta libre", value=False)
-        if uploaded_file is not None and st.button("Importar JSON"):
+    with st.sidebar.expander(t("Importar proyecto")):
+        uploaded_file = st.file_uploader(t("Archivo JSON exportado"), type=["json"], key='ui-streamlit_app-render_create_project-87')
+        preserve_project_id = st.checkbox(t("Preservar id si esta libre"), value=False, key='ui-streamlit_app-render_create_project-88')
+        if uploaded_file is not None and st.button(t("Importar JSON"), key='ui-streamlit_app-render_create_project-89'):
             try:
                 payload = json.loads(uploaded_file.getvalue().decode("utf-8"))
                 project = service.import_project(payload, preserve_project_id=preserve_project_id)
@@ -95,7 +96,7 @@ def render_create_project() -> None:
                 st.session_state["selected_project_id"] = project.id
                 st.session_state["project_context_ready"] = False
                 st.session_state["project_context_project_id"] = None
-                st.success("Proyecto importado")
+                st.success(t("Proyecto importado"))
                 st.rerun()
 
 
@@ -106,10 +107,10 @@ def render_project_context_gate(project) -> bool:
     ):
         return True
 
-    st.title("Contexto de trabajo")
+    st.title(t("Contexto de trabajo"))
     st.header(project.name)
     st.caption(
-        "Selecciona un proyecto para trabajar con sus datos, contexto y decisiones."
+        t("Selecciona un proyecto para trabajar con sus datos, contexto y decisiones.")
     )
 
     issues = service.validate_project(project.id)
@@ -118,26 +119,26 @@ def render_project_context_gate(project) -> bool:
     infos = [issue for issue in issues if issue.level == "info"]
 
     if errors:
-        st.error("El proyecto no puede abrirse todavía porque tiene errores estructurales.")
+        st.error(t("El proyecto no puede abrirse todavía porque tiene errores estructurales."))
         for issue in errors:
-            st.error(f"{issue.code}: {issue.message}")
+            st.error(t('{v0}: {v1}', v0=issue.code, v1=issue.message))
     else:
-        st.success("Proyecto validado. Listo para trabajar.")
-        with st.expander("Ver validación del proyecto"):
-            st.write(f"Conceptos: {len(project.concepts)}")
-            st.write(f"Relaciones: {len(project.relations)}")
-            st.write(f"Avisos: {len(warnings)}")
+        st.success(t("Proyecto validado. Listo para trabajar."))
+        with st.expander(t("Ver validación del proyecto")):
+            st.write(t('Conceptos: {v0}', v0=len(project.concepts)))
+            st.write(t('Relaciones: {v0}', v0=len(project.relations)))
+            st.write(t('Avisos: {v0}', v0=len(warnings)))
             for issue in warnings:
-                st.warning(f"{issue.code}: {issue.message}")
+                st.warning(t('{v0}: {v1}', v0=issue.code, v1=issue.message))
             for issue in infos:
-                st.info(f"{issue.code}: {issue.message}")
+                st.info(t('{v0}: {v1}', v0=issue.code, v1=issue.message))
 
     open_project = st.button(
-        "Abrir proyecto",
+        t("Abrir proyecto"),
         type="primary",
         disabled=bool(errors),
         width="stretch",
-    )
+    key='ui-streamlit_app-render_project_context_gate-136')
     if open_project and not errors:
         st.session_state["project_context_ready"] = True
         st.session_state["project_context_project_id"] = project.id
@@ -149,81 +150,81 @@ def render_project_context_gate(project) -> bool:
 def render_project_overview(project_id: str, project) -> None:
     issues = service.validate_project(project_id)
     metrics = st.columns(4)
-    metrics[0].metric("Conceptos", len(project.concepts))
-    metrics[1].metric("Relaciones", len(project.relations))
-    metrics[2].metric("Errores", sum(1 for issue in issues if issue.level == "error"))
-    metrics[3].metric("Warnings", sum(1 for issue in issues if issue.level == "warning"))
+    metrics[0].metric(t("Conceptos"), len(project.concepts))
+    metrics[1].metric(t("Relaciones"), len(project.relations))
+    metrics[2].metric(t("Errores"), sum(1 for issue in issues if issue.level == "error"))
+    metrics[3].metric(t("Warnings"), sum(1 for issue in issues if issue.level == "warning"))
 
-    with st.expander("Validacion estructural", expanded=True):
+    with st.expander(t("Validacion estructural"), expanded=True):
         if not issues:
-            st.success("No se detectaron observaciones estructurales.")
+            st.success(t("No se detectaron observaciones estructurales."))
         else:
             for issue in issues:
                 if issue.level == "error":
-                    st.error(f"{issue.code}: {issue.message}")
+                    st.error(t('{v0}: {v1}', v0=issue.code, v1=issue.message))
                 elif issue.level == "warning":
-                    st.warning(f"{issue.code}: {issue.message}")
+                    st.warning(t('{v0}: {v1}', v0=issue.code, v1=issue.message))
                 else:
-                    st.info(f"{issue.code}: {issue.message}")
+                    st.info(t('{v0}: {v1}', v0=issue.code, v1=issue.message))
 
 
 def render_export_actions(project_id: str) -> None:
-    st.subheader("Exportacion")
+    st.subheader(t("Exportacion"))
     json_payload = service.export_project_json(project_id)
     markdown_payload = service.export_project_markdown(project_id)
     st.download_button(
-        "Descargar JSON",
+        t("Descargar JSON"),
         data=json_payload,
         file_name=f"{project_id}.json",
         mime="application/json",
         width="stretch",
-    )
+    key='ui-streamlit_app-render_export_actions-175')
     st.download_button(
-        "Descargar resumen Markdown",
+        t("Descargar resumen Markdown"),
         data=markdown_payload,
         file_name=f"{project_id}.md",
         mime="text/markdown",
         width="stretch",
-    )
+    key='ui-streamlit_app-render_export_actions-182')
 
 
 def render_snapshots(project_id: str) -> None:
-    st.subheader("Snapshots locales")
+    st.subheader(t("Snapshots locales"))
     with st.form("create-snapshot", clear_on_submit=True):
-        note = st.text_input("Nota del snapshot")
-        submitted = st.form_submit_button("Crear snapshot")
+        note = st.text_input(t("Nota del snapshot"), key='ui-streamlit_app-render_snapshots-194')
+        submitted = st.form_submit_button(t("Crear snapshot"), key='ui-streamlit_app-render_snapshots-195')
         if submitted:
             service.create_snapshot(project_id, note=note)
-            st.success("Snapshot generado")
+            st.success(t("Snapshot generado"))
             st.rerun()
 
     snapshots = service.list_snapshots(project_id)
     if not snapshots:
-        st.caption("Todavia no hay snapshots para este proyecto.")
+        st.caption(t("Todavia no hay snapshots para este proyecto."))
         return
 
     snapshot_options = {snapshot.snapshot_id: snapshot for snapshot in snapshots}
     selected_snapshot_id = st.selectbox(
-        "Historial disponible",
+        t("Historial disponible"),
         options=list(snapshot_options.keys()),
-        format_func=lambda item: f"{item} | {snapshot_options[item].note or 'sin nota'}",
-    )
-    if st.button("Restaurar snapshot"):
+        format_func=option_labels(list(snapshot_options.keys()), lambda item: t('{v0} | {v1}', v0=item, v1=snapshot_options[item].note or 'sin nota')),
+    key='ui-streamlit_app-render_snapshots-207')
+    if st.button(t("Restaurar snapshot"), key='ui-streamlit_app-render_snapshots-212'):
         service.restore_snapshot(project_id, selected_snapshot_id)
-        st.success("Snapshot restaurado")
+        st.success(t("Snapshot restaurado"))
         st.rerun()
 
 
 def render_metadata_editor(project_id: str, metadata: dict[str, str]) -> None:
-    with st.expander("Metadata del proyecto"):
+    with st.expander(t("Metadata del proyecto")):
         raw_metadata = "\n".join(f"{key}={value}" for key, value in metadata.items())
         with st.form("metadata-form"):
             metadata_blob = st.text_area(
-                "Pares clave=valor, uno por linea",
+                t("Pares clave=valor, uno por linea"),
                 value=raw_metadata,
                 height=140,
-            )
-            submitted = st.form_submit_button("Guardar metadata")
+            key='ui-streamlit_app-render_metadata_editor-222')
+            submitted = st.form_submit_button(t("Guardar metadata"), key='ui-streamlit_app-render_metadata_editor-227')
             if submitted:
                 parsed: dict[str, str] = {}
                 for line in metadata_blob.splitlines():
@@ -231,35 +232,35 @@ def render_metadata_editor(project_id: str, metadata: dict[str, str]) -> None:
                         continue
                     key, separator, value = line.partition("=")
                     if not separator:
-                        st.error(f"Linea invalida: {line}")
+                        st.error(t('Linea invalida: {v0}', v0=line))
                         return
                     parsed[key.strip()] = value.strip()
                 service.update_metadata(project_id, parsed)
-                st.success("Metadata actualizada")
+                st.success(t("Metadata actualizada"))
                 st.rerun()
 
 
 def render_connection_profiles(project_id: str) -> None:
-    with st.expander("Conexiones del proyecto"):
+    with st.expander(t("Conexiones del proyecto")):
         st.caption(
-            "Cada perfil queda aislado en data/connections/<proyecto>. La password no se guarda en el JSON del proyecto."
+            t("Cada perfil queda aislado en data/connections/<proyecto>. La password no se guarda en el JSON del proyecto.")
         )
         profiles = service.list_connection_profiles(project_id)
         if profiles:
             st.dataframe(
-                [{"Perfil": item["profile_id"], "Adapter": item["adapter"]} for item in profiles],
+                localize_rows([{"Perfil": item["profile_id"], "Adapter": item["adapter"]} for item in profiles]),
                 hide_index=True,
                 width="stretch",
             )
         with st.form(f"mariadb-profile-{project_id}"):
-            profile_id = st.text_input("Nombre del perfil", value="default")
-            host = st.text_input("Host")
-            port = st.number_input("Puerto", min_value=1, max_value=65_535, value=3306)
-            user = st.text_input("Usuario")
-            password = st.text_input("Password", type="password")
-            database = st.text_input("Base de datos")
-            save_submitted = st.form_submit_button("Guardar perfil MariaDB")
-            check_submitted = st.form_submit_button("Comprobar conexion")
+            profile_id = st.text_input(t("Nombre del perfil"), value="default", key='ui-streamlit_app-render_connection_profiles-256')
+            host = st.text_input("Host", key='ui-streamlit_app-render_connection_profiles-257')
+            port = st.number_input(t("Puerto"), min_value=1, max_value=65_535, value=3306, key='ui-streamlit_app-render_connection_profiles-258')
+            user = st.text_input(t("Usuario"), key='ui-streamlit_app-render_connection_profiles-259')
+            password = st.text_input("Password", type="password", key='ui-streamlit_app-render_connection_profiles-260')
+            database = st.text_input(t("Base de datos"), key='ui-streamlit_app-render_connection_profiles-261')
+            save_submitted = st.form_submit_button(t("Guardar perfil MariaDB"), key='ui-streamlit_app-render_connection_profiles-262')
+            check_submitted = st.form_submit_button(t("Comprobar conexion"), key='ui-streamlit_app-render_connection_profiles-263')
             if save_submitted:
                 try:
                     service.save_mariadb_connection_profile(
@@ -274,7 +275,7 @@ def render_connection_profiles(project_id: str) -> None:
                 except ValueError as exc:
                     st.error(str(exc))
                 else:
-                    st.success(f"Perfil '{profile_id}' guardado para este proyecto")
+                    st.success(t("Perfil '{v0}' guardado para este proyecto", v0=profile_id))
                     st.rerun()
             if check_submitted:
                 try:
@@ -283,14 +284,14 @@ def render_connection_profiles(project_id: str) -> None:
                     st.error(str(exc))
                 else:
                     st.success(
-                        f"Conexion read-only OK: {result['server']} / {result['database']}"
+                        t('Conexion read-only OK: {v0} / {v1}', v0=result['server'], v1=result['database'])
                     )
 
 
 def render_project_admin(project_id: str, project) -> None:
-    st.title("Proyecto")
-    st.caption(f"Administración del contexto seleccionado: {project.name}")
-    if st.button("Volver a productos", type="primary"):
+    st.title(t("Proyecto"))
+    st.caption(t('Administración del contexto seleccionado: {v0}', v0=project.name))
+    if st.button(t("Volver a productos"), type="primary", key='ui-streamlit_app-render_project_admin-294'):
         st.session_state["active_product_area"] = "Atlas"
         st.rerun()
     render_project_overview(project_id, project)
@@ -311,43 +312,43 @@ def render_project_admin(project_id: str, project) -> None:
 
 
 def render_project_editor(project) -> None:
-    with st.expander("Editar proyecto"):
+    with st.expander(t("Editar proyecto")):
         with st.form("project-form"):
-            project_name = st.text_input("Nombre del proyecto", value=project.name)
-            project_description = st.text_area("Descripcion del proyecto", value=project.description)
-            submitted = st.form_submit_button("Guardar datos del proyecto")
+            project_name = st.text_input(t("Nombre del proyecto"), value=project.name, key='ui-streamlit_app-render_project_editor-317')
+            project_description = st.text_area(t("Descripcion del proyecto"), value=project.description, key='ui-streamlit_app-render_project_editor-318')
+            submitted = st.form_submit_button(t("Guardar datos del proyecto"), key='ui-streamlit_app-render_project_editor-319')
             if submitted:
                 try:
                     service.update_project(project.id, project_name, project_description)
                 except ValueError as exc:
                     st.error(str(exc))
                 else:
-                    st.success("Proyecto actualizado")
+                    st.success(t("Proyecto actualizado"))
                     st.rerun()
 
 
 def render_bim_import(project_id: str, project) -> None:
-    with st.expander("Importar modelo semantico", expanded=not project.concepts and not project.relations):
+    with st.expander(t("Importar modelo semantico"), expanded=not project.concepts and not project.relations):
         st.caption(
-            "Carga un model.bim, un archivo TMDL o un paquete PBIP .zip para poblar tablas, columnas, medidas y relaciones. "
-            "El archivo original queda guardado localmente con hash para Atlas."
+            t("Carga un model.bim, un archivo TMDL o un paquete PBIP .zip para poblar tablas, columnas, medidas y relaciones. "
+            "El archivo original queda guardado localmente con hash para Atlas.")
         )
         uploaded_file = st.file_uploader(
-            "Archivo de modelo semantico",
+            t("Archivo de modelo semantico"),
             type=["bim", "json", "tmdl", "zip", "pbip"],
             key=f"bim-uploader-{project_id}",
         )
         clear_existing = st.checkbox(
-            "Limpiar conceptos y relaciones actuales antes de importar",
+            t("Limpiar conceptos y relaciones actuales antes de importar"),
             value=not project.concepts and not project.relations,
             key=f"bim-clear-{project_id}",
         )
         snapshot_note = st.text_input(
-            "Nota para snapshot previo",
+            t("Nota para snapshot previo"),
             value="before-bim-import",
             key=f"bim-note-{project_id}",
         )
-        if uploaded_file is not None and st.button("Importar modelo semantico", key=f"bim-import-button-{project_id}"):
+        if uploaded_file is not None and st.button(t("Importar modelo semantico"), key=f"bim-import-button-{project_id}"):
             try:
                 _, summary = service.import_semantic_model_file(
                     project_id,
@@ -360,15 +361,13 @@ def render_bim_import(project_id: str, project) -> None:
                 st.error(str(exc))
             else:
                 st.success(
-                    "Importacion BIM lista: "
-                    f"{summary['tables']} tablas, {summary['columns']} columnas, "
-                    f"{summary['measures']} medidas y {summary['relationships']} relaciones detectadas."
+                    t('Importacion BIM lista: {v0} tablas, {v1} columnas, {v2} medidas y {v3} relaciones detectadas.', v0=summary['tables'], v1=summary['columns'], v2=summary['measures'], v3=summary['relationships'])
                 )
                 st.rerun()
 
 
 def render_concepts(project_id: str, project) -> None:
-    st.subheader("Conceptos")
+    st.subheader(t("Conceptos"))
     if project.concepts:
         rows = [
             {
@@ -380,17 +379,17 @@ def render_concepts(project_id: str, project) -> None:
             }
             for concept in project.concepts
         ]
-        st.dataframe(rows, width="stretch", hide_index=True)
+        st.dataframe(localize_rows(rows), width="stretch", hide_index=True)
     else:
-        st.info("Todavia no hay conceptos cargados.")
+        st.info(t("Todavia no hay conceptos cargados."))
 
     with st.form("add-concept", clear_on_submit=True):
-        st.markdown("### Agregar concepto")
-        name = st.text_input("Nombre del concepto")
-        definition = st.text_area("Definicion")
-        status = st.selectbox("Estado", options=["draft", "review", "approved"])
-        tags = st.text_input("Tags separados por coma")
-        submitted = st.form_submit_button("Guardar concepto")
+        st.markdown(t("### Agregar concepto"))
+        name = st.text_input(t("Nombre del concepto"), key='ui-streamlit_app-render_concepts-390')
+        definition = st.text_area(t("Definicion"), key='ui-streamlit_app-render_concepts-391')
+        status = st.selectbox(t("Estado"), options=["draft", "review", "approved"], key='ui-streamlit_app-render_concepts-392', format_func=option_labels(["draft", "review", "approved"], t))
+        tags = st.text_input(t("Tags separados por coma"), key='ui-streamlit_app-render_concepts-393')
+        submitted = st.form_submit_button(t("Guardar concepto"), key='ui-streamlit_app-render_concepts-394')
         if submitted:
             try:
                 service.add_concept(
@@ -403,30 +402,30 @@ def render_concepts(project_id: str, project) -> None:
             except ValueError as exc:
                 st.error(str(exc))
             else:
-                st.success("Concepto guardado")
+                st.success(t("Concepto guardado"))
                 st.rerun()
 
     if project.concepts:
-        with st.expander("Editar o borrar concepto"):
+        with st.expander(t("Editar o borrar concepto")):
             concept_options = {concept.id: concept for concept in project.concepts}
             selected_concept_id = st.selectbox(
-                "Concepto",
+                t("Concepto"),
                 options=list(concept_options.keys()),
-                format_func=lambda item: concept_options[item].name,
-            )
+                format_func=option_labels(list(concept_options.keys()), lambda item: concept_options[item].name),
+            key='ui-streamlit_app-render_concepts-413')
             selected_concept = concept_options[selected_concept_id]
             with st.form("edit-concept"):
-                name = st.text_input("Nombre", value=selected_concept.name)
-                definition = st.text_area("Definicion", value=selected_concept.definition)
+                name = st.text_input(t("Nombre"), value=selected_concept.name, key='ui-streamlit_app-render_concepts-420')
+                definition = st.text_area(t("Definicion"), value=selected_concept.definition, key='ui-streamlit_app-render_concepts-421')
                 status = st.selectbox(
-                    "Estado",
+                    t("Estado"),
                     options=["draft", "review", "approved"],
                     index=["draft", "review", "approved"].index(selected_concept.status)
                     if selected_concept.status in ["draft", "review", "approved"]
                     else 0,
-                )
-                tags = st.text_input("Tags separados por coma", value=", ".join(selected_concept.tags))
-                save_submitted = st.form_submit_button("Guardar cambios")
+                key='ui-streamlit_app-render_concepts-422', format_func=option_labels(["draft", "review", "approved"], t))
+                tags = st.text_input(t("Tags separados por coma"), value=", ".join(selected_concept.tags), key='ui-streamlit_app-render_concepts-429')
+                save_submitted = st.form_submit_button(t("Guardar cambios"), key='ui-streamlit_app-render_concepts-430')
                 if save_submitted:
                     try:
                         service.update_concept(
@@ -440,16 +439,16 @@ def render_concepts(project_id: str, project) -> None:
                     except ValueError as exc:
                         st.error(str(exc))
                     else:
-                        st.success("Concepto actualizado")
+                        st.success(t("Concepto actualizado"))
                         st.rerun()
-            if st.button("Borrar concepto", type="secondary"):
+            if st.button(t("Borrar concepto"), type="secondary", key='ui-streamlit_app-render_concepts-446'):
                 service.delete_concept(project_id, selected_concept_id)
-                st.success("Concepto eliminado")
+                st.success(t("Concepto eliminado"))
                 st.rerun()
 
 
 def render_relations(project_id: str, project) -> None:
-    st.subheader("Relaciones")
+    st.subheader(t("Relaciones"))
     if project.relations:
         rows = [
             {
@@ -461,32 +460,32 @@ def render_relations(project_id: str, project) -> None:
             }
             for relation in project.relations
         ]
-        st.dataframe(rows, width="stretch", hide_index=True)
+        st.dataframe(localize_rows(rows), width="stretch", hide_index=True)
     else:
-        st.info("Todavia no hay relaciones cargadas.")
+        st.info(t("Todavia no hay relaciones cargadas."))
 
     if len(project.concepts) < 2:
-        st.caption("Necesitas al menos dos conceptos para definir relaciones.")
+        st.caption(t("Necesitas al menos dos conceptos para definir relaciones."))
         return
 
     concept_options = {concept.id: concept.name for concept in project.concepts}
     with st.form("add-relation", clear_on_submit=True):
-        st.markdown("### Agregar relacion")
+        st.markdown(t("### Agregar relacion"))
         source_id = st.selectbox(
-            "Origen",
+            t("Origen"),
             options=list(concept_options.keys()),
-            format_func=lambda item: concept_options[item],
+            format_func=option_labels(list(concept_options.keys()), lambda item: concept_options[item]),
             key="source_id",
         )
         target_id = st.selectbox(
-            "Destino",
+            t("Destino"),
             options=list(concept_options.keys()),
-            format_func=lambda item: concept_options[item],
+            format_func=option_labels(list(concept_options.keys()), lambda item: concept_options[item]),
             key="target_id",
         )
-        relation_type = st.text_input("Tipo de relacion", value="depends-on")
-        description = st.text_area("Descripcion")
-        submitted = st.form_submit_button("Guardar relacion")
+        relation_type = st.text_input(t("Tipo de relacion"), value="depends-on", key='ui-streamlit_app-render_relations-488')
+        description = st.text_area(t("Descripcion"), key='ui-streamlit_app-render_relations-489')
+        submitted = st.form_submit_button(t("Guardar relacion"), key='ui-streamlit_app-render_relations-490')
         if submitted:
             try:
                 service.add_relation(
@@ -499,36 +498,36 @@ def render_relations(project_id: str, project) -> None:
             except ValueError as exc:
                 st.error(str(exc))
             else:
-                st.success("Relacion guardada")
+                st.success(t("Relacion guardada"))
                 st.rerun()
 
     if project.relations:
-        with st.expander("Editar o borrar relacion"):
+        with st.expander(t("Editar o borrar relacion")):
             relation_options = {relation.id: relation for relation in project.relations}
             selected_relation_id = st.selectbox(
-                "Relacion",
+                t("Relacion"),
                 options=list(relation_options.keys()),
-                format_func=lambda item: f"{relation_options[item].source_id} --{relation_options[item].relation_type}--> {relation_options[item].target_id}",
-            )
+                format_func=option_labels(list(relation_options.keys()), lambda item: t('{v0} --{v1}--> {v2}', v0=relation_options[item].source_id, v1=relation_options[item].relation_type, v2=relation_options[item].target_id)),
+            key='ui-streamlit_app-render_relations-509')
             selected_relation = relation_options[selected_relation_id]
             with st.form("edit-relation"):
                 source_id = st.selectbox(
-                    "Origen",
+                    t("Origen"),
                     options=list(concept_options.keys()),
                     index=list(concept_options.keys()).index(selected_relation.source_id),
-                    format_func=lambda item: concept_options[item],
+                    format_func=option_labels(list(concept_options.keys()), lambda item: concept_options[item]),
                     key="edit_source_id",
                 )
                 target_id = st.selectbox(
-                    "Destino",
+                    t("Destino"),
                     options=list(concept_options.keys()),
                     index=list(concept_options.keys()).index(selected_relation.target_id),
-                    format_func=lambda item: concept_options[item],
+                    format_func=option_labels(list(concept_options.keys()), lambda item: concept_options[item]),
                     key="edit_target_id",
                 )
-                relation_type = st.text_input("Tipo de relacion", value=selected_relation.relation_type)
-                description = st.text_area("Descripcion", value=selected_relation.description)
-                save_submitted = st.form_submit_button("Guardar cambios de relacion")
+                relation_type = st.text_input(t("Tipo de relacion"), value=selected_relation.relation_type, key='ui-streamlit_app-render_relations-530')
+                description = st.text_area(t("Descripcion"), value=selected_relation.description, key='ui-streamlit_app-render_relations-531')
+                save_submitted = st.form_submit_button(t("Guardar cambios de relacion"), key='ui-streamlit_app-render_relations-532')
                 if save_submitted:
                     try:
                         service.update_relation(
@@ -542,21 +541,22 @@ def render_relations(project_id: str, project) -> None:
                     except ValueError as exc:
                         st.error(str(exc))
                     else:
-                        st.success("Relacion actualizada")
+                        st.success(t("Relacion actualizada"))
                         st.rerun()
-            if st.button("Borrar relacion", type="secondary"):
+            if st.button(t("Borrar relacion"), type="secondary", key='ui-streamlit_app-render_relations-548'):
                 service.delete_relation(project_id, selected_relation_id)
-                st.success("Relacion eliminada")
+                st.success(t("Relacion eliminada"))
                 st.rerun()
 
 
 def main() -> None:
     st.set_page_config(page_title="DataIA Ontology Workbench", layout="wide")
+    render_language_selector()
 
     selected_id = render_project_selector()
     render_create_project()
     if not selected_id:
-        st.info("Crea un proyecto desde la barra lateral para empezar.")
+        st.info(t("Crea un proyecto desde la barra lateral para empezar."))
         return
 
     project = service.get_project(selected_id)
@@ -575,24 +575,26 @@ def main() -> None:
     context_gate.empty()
 
     active_area = st.session_state.get("active_product_area", "Atlas")
+    product_labels = dict(PRODUCT_STAGE_LABELS)
     with project_navigation.container():
         st.divider()
         st.subheader(project.name)
-        st.caption("Ruta de trabajo")
+        st.caption(t("Ruta de trabajo"))
         if active_area == "Proyecto":
-            if st.button("Volver a productos", width="stretch"):
+            if st.button(t("Volver a productos"), width="stretch", key='ui-streamlit_app-main-586'):
                 st.session_state["active_product_area"] = "Atlas"
                 st.rerun()
             selected_area = "Proyecto"
         else:
-            if st.button("Administrar proyecto", width="stretch"):
+            if st.button(t("Administrar proyecto"), width="stretch", key='ui-streamlit_app-main-591'):
                 st.session_state["active_product_area"] = "Proyecto"
                 st.rerun()
             selected_area = st.radio(
-                "Producto",
+                t("Producto"),
                 options=list(PRODUCT_AREAS.keys()),
                 index=list(PRODUCT_AREAS.keys()).index(active_area) if active_area in PRODUCT_AREAS else 0,
-                format_func=lambda item: PRODUCT_STAGE_LABELS[item],
+                format_func=option_labels(list(PRODUCT_AREAS.keys()), product_labels.get),
+                key="product-navigation",
             )
     render_reviewer_identity()
     st.session_state["active_product_area"] = selected_area
