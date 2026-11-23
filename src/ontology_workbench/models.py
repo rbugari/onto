@@ -73,6 +73,7 @@ class DataSource:
     content_sha256: str = ""
     inventoried_at: str = ""
     object_counts: dict[str, int] = field(default_factory=dict)
+    layer: str = ""
 
     def to_dict(self) -> dict[str, object]:
         return asdict(self)
@@ -95,6 +96,7 @@ class DataSource:
             object_counts={
                 str(key): int(value) for key, value in dict(raw.get("object_counts", {})).items()
             },
+            layer=str(raw.get("layer", "")),
         )
 
 

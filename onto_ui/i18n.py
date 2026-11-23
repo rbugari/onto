@@ -314,6 +314,15 @@ EN = {
     "**Supuestos por confirmar**": "**Assumptions to confirm**",
     "**Validaciones pendientes**": "**Pending validations**",
     "Contexto que motivo la hipotesis, no prueba: {chunk_id}": "Context motivating the hypothesis, not proof: {chunk_id}",
+    "Capa (opcional)": "Layer (optional)", "Sin declarar": "Not declared",
+    "Bronze": "Bronze", "Silver": "Silver", "Gold": "Gold", "Sin clasificar": "Unclassified",
+    "**Qué entiende hoy la plataforma y qué queda sin significado**": "**What the platform understands today and what stays without meaning**",
+    "Ruta {v0}": "Route {v0}",
+    "{v0} de {v1} tablas alcanzables": "{v0} of {v1} tables reachable",
+    "Alcanzable": "Reachable", "Requiere puente": "Needs a bridge", "Capas (tablas)": "Layers (tables)",
+    "Fabric": "Fabric", "Databricks": "Databricks",
+    "Entidades en Silver o Bronze sin definición de negocio: {v0}": "Silver or Bronze entities without a business definition: {v0}",
+    "Entidades sin definición en ninguna capa: {v0}": "Entities without a definition in any layer: {v0}",
 }
 
 

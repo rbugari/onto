@@ -3,9 +3,12 @@ from __future__ import annotations
 from collections import Counter
 
 from ontology_workbench.cross_source import build_cross_source_map
+from ontology_workbench.data_layers import LAYER_LABELS
 from ontology_workbench.explanatory_coverage import build_explanatory_coverage
 from ontology_workbench.explanatory_scope import build_explanatory_scope
 from ontology_workbench.models import DocumentRecord, OntologyProject, utc_now_iso
+from ontology_workbench.platform_coverage import build_platform_coverage, coverage_gap_texts
+from ontology_workbench.platform_reach import TARGET_LABELS
 
 
 ATLAS_PRODUCT_NAME = "Atlas"
@@ -44,9 +47,12 @@ def build_assessment_package(
     cross_source_map = build_cross_source_map(
         source_inventory["technical_sources"], semantic_inventory["objects"]
     )
+    platform_coverage = build_platform_coverage(
+        source_inventory["technical_sources"], semantic_inventory["objects"], business_context
+    )
     scope_definition = _scope_definition(project, client_id, domain_id, data_product_id)
     gap_backlog = _gap_backlog(
-        project, semantic_inventory, source_inventory, business_context, cross_source_map
+        project, semantic_inventory, source_inventory, business_context, cross_source_map, platform_coverage
     )
     readiness_score = _readiness_score(
         semantic_inventory, source_inventory, business_context, cross_source_map, scope_definition,
@@ -71,6 +77,7 @@ def build_assessment_package(
             "business_context_inventory.json",
             "source_inventory.json",
             "cross_source_map.json",
+            "platform_coverage.json",
             "readiness_score.json",
             "gap_backlog.json",
             "evidence_index.json",
@@ -95,13 +102,14 @@ def build_assessment_package(
         "business_context_inventory": business_context or _empty_business_context(),
         "source_inventory": source_inventory,
         "cross_source_map": cross_source_map,
+        "platform_coverage": platform_coverage,
         "evidence_index": _evidence_index(context_chunks),
         "readiness_score": readiness_score,
         "gap_backlog": gap_backlog,
         "assessment_review": _assessment_review(gap_backlog),
         "execution_summary": _execution_summary(
             manifest, scope_definition, semantic_inventory, source_inventory,
-            cross_source_map, readiness_score, gap_backlog,
+            cross_source_map, readiness_score, gap_backlog, platform_coverage,
         ),
     }
 
@@ -266,6 +274,7 @@ def _source_row(source) -> dict[str, object]:
         "content_sha256": source.content_sha256,
         "inventoried_at": source.inventoried_at,
         "object_counts": dict(source.object_counts),
+        "layer": source.layer,
         "integrity_status": "recorded" if source.stored_path and source.content_sha256 else "incomplete_record",
     }
 
@@ -418,6 +427,7 @@ def _gap_backlog(
     source_inventory: dict[str, object],
     business_context: dict[str, object] | None,
     cross_source_map: dict[str, object],
+    platform_coverage: dict[str, object],
 ) -> list[dict[str, object]]:
     summary = dict(semantic_inventory["summary"])
     source_summary = dict(source_inventory["summary"])
@@ -534,9 +544,33 @@ def _gap_backlog(
         pending_definitions = sum(item.get("status") != "approved" for item in business_context.get("definitions", []) if isinstance(item, dict))
         if pending_definitions:
             add_gap("definitions-pending-review", "medium", f"Hay {pending_definitions} definiciones extraidas sin aprobacion humana.", "Planificar una revision funcional de terminos y definiciones candidatas.", category="negocio")
+    for gap in coverage_gap_texts(platform_coverage):
+        add_gap(gap["code"], gap["severity"], gap["message"], gap["recommendation"], category="negocio", use_case_ids=[])
     if not project.metadata.get("owner"):
         add_gap("missing-owner", "medium", "El proyecto no declara un owner responsable del conocimiento.", "Asignar owner de negocio y steward tecnico en la metadata del assessment.")
     return gaps
+
+
+def _platform_coverage_lines(coverage: dict[str, object] | None) -> list[str]:
+    if not coverage or not dict(coverage.get("summary", {})).get("tables"):
+        return []
+    lines = ["", "## Que entiende hoy la plataforma y que queda sin significado", ""]
+    for target, route in dict(coverage["routes"]).items():
+        label = TARGET_LABELS[target]
+        if route["route"]:
+            lines.append(f"- {label}: ruta **{route['route']}** ({route['tables_total'] - route['tables_outside']} de {route['tables_total']} tablas alcanzables hoy).")
+    lines.extend(["", "| Sistema | Plataforma | Capas (tablas) | Fabric | Databricks |", "| --- | --- | --- | --- | --- |"])
+    for row in coverage["sources"]:
+        layers = ", ".join(f"{LAYER_LABELS[layer]} {count}" for layer, count in dict(row["layers"]).items()) or "-"
+        marks = ["alcanzable" if row["reachable_by"][target]["reachable"] else "requiere puente" for target in ("fabric", "databricks")]
+        lines.append(f"| {row['name']} | {row['platform_label']} | {layers} | {marks[0]} | {marks[1]} |")
+    undefined = dict(coverage.get("undefined_entities", {}))
+    if undefined.get("below_gold"):
+        lines.append(f"- Entidades en Silver o Bronze sin definicion de negocio: {', '.join(undefined['below_gold'])}.")
+    if undefined.get("other"):
+        lines.append(f"- Entidades sin definicion en ninguna capa: {', '.join(undefined['other'])}.")
+    lines.append(f"- Nota: {coverage['warning']}")
+    return lines
 
 
 def _empty_business_context() -> dict[str, object]:
@@ -559,6 +593,7 @@ def _execution_summary(
     cross_source_map: dict[str, object],
     readiness_score: dict[str, object],
     gap_backlog: list[dict[str, object]],
+    platform_coverage: dict[str, object] | None = None,
 ) -> str:
     scope = dict(manifest["scope"])
     summary = dict(semantic_inventory["summary"])
@@ -613,6 +648,7 @@ def _execution_summary(
             f"{row.get('common_key') or 'no identificada'}."
         )
     lines.append(f"- Nota: {cross_source_map['warning']}")
+    lines.extend(_platform_coverage_lines(platform_coverage))
     lines.extend([
         "", "## Evidencia documental", "",
         f"- Documentos: {source_summary['documents']} ({source_summary['extracted_documents']} extraidos).",

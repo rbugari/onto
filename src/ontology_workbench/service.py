@@ -7,6 +7,7 @@ import uuid
 from pathlib import Path
 
 from ontology_workbench.atlas import PLATFORM_LABELS, build_assessment_package
+from ontology_workbench.data_layers import LAYERS
 from ontology_workbench.explanatory_analysis import analyze_explanatory_scope
 from ontology_workbench.bim_importer import build_bim_import_bundle
 from ontology_workbench.context_scanner import (
@@ -318,6 +319,7 @@ class WorkbenchService:
         owner: str = "",
         description: str = "",
         access_mode: str = "external_file",
+        layer: str = "",
     ) -> DataSource:
         """Declare a system in assessment scope before (or without) loading its metadata."""
         clean_name = name.strip()
@@ -325,6 +327,8 @@ class WorkbenchService:
             raise ValueError("El nombre del sistema es obligatorio")
         if platform not in PLATFORM_LABELS:
             raise ValueError(f"Plataforma no soportada: {platform}")
+        if layer and layer not in LAYERS:
+            raise ValueError(f"Capa no soportada: {layer}")
         project = self.store.load_project(project_id)
         source = DataSource(
             source_id=self._next_available_id(
@@ -336,6 +340,7 @@ class WorkbenchService:
             owner=owner.strip(),
             description=description.strip(),
             access_mode=access_mode,
+            layer=layer,
         )
         project.sources.append(source)
         project.touch()
@@ -343,18 +348,23 @@ class WorkbenchService:
         return source
 
     def update_data_source(
-        self, project_id: str, source_id: str, name: str, platform: str, owner: str = "", description: str = ""
+        self, project_id: str, source_id: str, name: str, platform: str, owner: str = "", description: str = "",
+        layer: str | None = None,
     ) -> DataSource:
         if not name.strip():
             raise ValueError("El nombre del sistema es obligatorio")
         if platform not in PLATFORM_LABELS:
             raise ValueError(f"Plataforma no soportada: {platform}")
+        if layer and layer not in LAYERS:
+            raise ValueError(f"Capa no soportada: {layer}")
         project = self.store.load_project(project_id)
         source = self._find_source(project, source_id)
         source.name = name.strip()
         source.platform = platform
         source.owner = owner.strip()
         source.description = description.strip()
+        if layer is not None:
+            source.layer = layer
         for concept in project.concepts:
             if concept.metadata.get("source.id") == source_id:
                 concept.metadata["source.platform"] = platform

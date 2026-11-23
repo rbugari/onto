@@ -78,6 +78,7 @@ El paquete de salida contiene:
 - `business_context_inventory.json`: resultado existente del scanner o declaracion explicita de ausencia.
 - `source_inventory.json`: sistemas inventariados y declarados (plataforma, responsable, formato, hash SHA-256) y documentos cargados.
 - `cross_source_map.json`: entidades presentes en mas de un sistema, clave comun detectada y entidades de un solo sistema.
+- `platform_coverage.json`: por sistema, capa de sus tablas (Bronze, Silver, Gold o sin clasificar) y si Fabric y Databricks lo alcanzan (con el puente sugerido); ruta A/B/C por plataforma; entidades sin definicion de negocio.
 - `evidence_index.json`: chunks, rangos y extractos que permiten ubicar la evidencia usada.
 - `explanatory_scope.json`: universo explicativo versionado y decisiones de inclusion/exclusion.
 - `explanatory_coverage.json`: estados, aspectos, citas verificadas y snapshots para reproducir el calculo.
@@ -100,6 +101,16 @@ Un proyecto Atlas registra **todos los sistemas** que participan del dominio, au
 | Planillas u otros | CSV con `table_name`, `column_name`, `data_type`. |
 
 Con dos o mas sistemas, Atlas compara entidades por nombre normalizado (con un vocabulario bilingue minimo, por ejemplo `DimCustomer` = `clientes`) y busca una clave comun (`id_cliente`, `cliente_id`, `CustomerKey`). El resultado es orientativo: las equivalencias las confirman los responsables. La demo `scripts/run_distributed_demo.py` usa `docs/casos/ventas_distribuidas/`.
+
+### Capa y viabilidad por plataforma
+
+Las ontologias y capas semanticas de Fabric y Databricks parten de Gold y de su propio ecosistema. Atlas muestra que queda afuera:
+
+- **Capa:** cada tabla es Bronze, Silver, Gold o sin clasificar. Prevalece la capa **declarada** del sistema (campo opcional "Capa" en *Editar o quitar un sistema*); si no hay, se **infiere** por palabras en el nombre (`bronze/raw`, `silver/stg/clean`, `gold/dim/fact/mart`) y los modelos de Power BI se asumen Gold. Sin pistas queda "sin clasificar".
+- **Alcance:** cada sistema se marca como alcanzable o "requiere puente" para Fabric (`fabric`, `powerbi`) y para Databricks (`databricks`), con el puente sugerido (Mirroring, shortcut, Copy job; Lakehouse Federation o ingesta). La **ruta A/B/C** por plataforma usa la misma regla que el paquete de Nexo (`platform_reach.py`), aplicada a las tablas inventariadas.
+- **Definicion de negocio:** con el contexto de negocio escaneado, Atlas lista las entidades sin definicion y abre brechas: `entities-without-definition-below-gold` (hay tablas en Silver o Bronze) y `entities-without-definition` (resto). Sin contexto escaneado no se abren estas brechas.
+
+Todo esto es heuristico y lo confirman los responsables. Se ve en el diagnostico, vista **Sistemas**, y en la seccion "Que entiende hoy la plataforma y que queda sin significado" del informe.
 
 ## Pantalla de Atlas
 

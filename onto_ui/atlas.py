@@ -9,6 +9,8 @@ from onto_ui.i18n import localize_rows, localized_tabs, option_labels, t
 from onto_ui.i18n import reason_text, request_text
 
 from ontology_workbench.atlas import PLATFORM_LABELS
+from ontology_workbench.data_layers import LAYER_LABELS, LAYERS
+from ontology_workbench.platform_reach import TARGET_LABELS
 from ontology_workbench.context_scanner import (
     SUPPORTED_DOCUMENT_TYPES,
     SUPPORTED_FILE_EXTENSIONS,
@@ -332,10 +334,17 @@ def _render_source_editor(service: WorkbenchService, project) -> None:
                 format_func=option_labels(platforms, lambda key: t(PLATFORM_LABELS[key])),
             key='ui-atlas-_render_source_editor-327')
             owner = columns[2].text_input(t("Responsable"), value=selected.owner, key='ui-atlas-_render_source_editor-331')
-            description = st.text_input(t("Descripción"), value=selected.description, key='ui-atlas-_render_source_editor-332')
+            description_column, layer_column = st.columns([3, 1])
+            description = description_column.text_input(t("Descripción"), value=selected.description, key='ui-atlas-_render_source_editor-332')
+            layers = ["", *LAYERS]
+            layer = layer_column.selectbox(
+                t("Capa (opcional)"), layers, index=layers.index(selected.layer) if selected.layer in layers else 0,
+                format_func=option_labels(layers, lambda key: t(LAYER_LABELS[key]) if key else t("Sin declarar")),
+                key=f"atlas-source-layer-{project.id}-{selected_id}",
+            )
             if st.form_submit_button(t("Guardar cambios"), key='ui-atlas-_render_source_editor-333'):
                 try:
-                    service.update_data_source(project.id, selected_id, name, platform, owner, description)
+                    service.update_data_source(project.id, selected_id, name, platform, owner, description, layer)
                 except ValueError as exc:
                     st.error(str(exc))
                 else:
@@ -595,6 +604,7 @@ def _render_diagnosis(service: WorkbenchService, project, assessments: list[dict
         _render_cross_source_map(dict(details.get("cross_source_map", {})))
     elif view == "Sistemas":
         _render_assessed_sources(source_inventory)
+        _render_platform_coverage(dict(details.get("platform_coverage", {})))
     else:
         st.download_button(
             t("Descargar informe (Markdown)"),
@@ -1006,6 +1016,41 @@ def _render_cross_source_map(cross_source_map: dict[str, object]) -> None:
                 width="stretch",
                 hide_index=True,
             )
+
+
+def _render_platform_coverage(coverage: dict[str, object]) -> None:
+    if not dict(coverage.get("summary", {})).get("tables"):
+        return
+    st.markdown(t("**Qué entiende hoy la plataforma y qué queda sin significado**"))
+    routes = dict(coverage.get("routes", {}))
+    columns = st.columns(len(routes) or 1)
+    for column, (target, route) in zip(columns, routes.items()):
+        if route.get("route"):
+            column.metric(
+                TARGET_LABELS[target], t("Ruta {v0}", v0=route["route"]),
+                t("{v0} de {v1} tablas alcanzables", v0=route["tables_total"] - route["tables_outside"], v1=route["tables_total"]),
+                delta_color="off",
+            )
+    st.dataframe(
+        localize_rows([
+            {
+                "Sistema": row["name"],
+                "Plataforma": row["platform_label"],
+                "Capas (tablas)": ", ".join(f"{t(LAYER_LABELS[layer])} {count}" for layer, count in dict(row["layers"]).items()) or "-",
+                "Fabric": t("Alcanzable") if row["reachable_by"]["fabric"]["reachable"] else t("Requiere puente"),
+                "Databricks": t("Alcanzable") if row["reachable_by"]["databricks"]["reachable"] else t("Requiere puente"),
+            }
+            for row in coverage.get("sources", [])
+        ]),
+        width="stretch",
+        hide_index=True,
+    )
+    undefined = dict(coverage.get("undefined_entities", {}))
+    if undefined.get("below_gold"):
+        st.warning(t("Entidades en Silver o Bronze sin definición de negocio: {v0}", v0=", ".join(undefined["below_gold"])))
+    if undefined.get("other"):
+        st.caption(t("Entidades sin definición en ninguna capa: {v0}", v0=", ".join(undefined["other"])))
+    st.caption(str(coverage.get("warning", "")))
 
 
 def _render_assessed_sources(source_inventory: dict[str, object]) -> None:

@@ -206,6 +206,7 @@ class ProjectStore:
         self._write_json(package_dir / "explanatory_diagnosis.json", package.get("explanatory_diagnosis", {}))
         self._write_json(package_dir / "scope_definition.json", package.get("scope_definition", {}))
         self._write_json(package_dir / "cross_source_map.json", package.get("cross_source_map", {}))
+        self._write_json(package_dir / "platform_coverage.json", package.get("platform_coverage", {}))
         self._write_json(package_dir / "evidence_index.json", package["evidence_index"])
         self._write_json(package_dir / "readiness_score.json", package["readiness_score"])
         self._write_json(package_dir / "gap_backlog.json", package["gap_backlog"])
@@ -251,7 +252,7 @@ class ProjectStore:
                 "explanatory_scope",
                 "explanatory_coverage",
                 "explanatory_diagnosis",
-                "scope_definition", "source_inventory", "cross_source_map",
+                "scope_definition", "source_inventory", "cross_source_map", "platform_coverage",
                 "readiness_score", "gap_backlog", "assessment_review",
             ):
                 package[name] = self._read_json_or_default(package_dir / f"{name}.json", {})

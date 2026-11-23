@@ -146,7 +146,7 @@ Validado con las demos: la demo comercial (fuente Power BI) recomienda **ruta A*
 | --- | --- | --- |
 | R1 - Paquetes de archivos | Generador Fabric + Databricks, reporte de cobertura, ruta A/B/C con puentes sugeridos, descarga ZIP en Nexo, tests | **Hecho** |
 | R1.1 - Completar desde el origen | Tipos de propiedad desde la metadata tecnica; join specs desde relaciones y FK; ejemplos pregunta-SQL desde el catalogo de consultas; benchmarks desde la bateria de Argos; nombres de 3 partes desde el CSV de Databricks | Plan F3 |
-| R1.2 - Viabilidad por plataforma en Atlas | Atlas estima por fuente si es alcanzable por la plataforma destino (y por que puente), junto con la capa Bronze/Silver/Gold, para anticipar la ruta antes de Nexo | Plan F2 |
+| R1.2 - Viabilidad por plataforma en Atlas | Atlas estima por fuente si es alcanzable por la plataforma destino (y por que puente), junto con la capa Bronze/Silver/Gold, para anticipar la ruta antes de Nexo | **Hecho** (F2, ver [Atlas](05_ATLAS_ASSESSMENT_MVP.md)) |
 | R1.3 - Formatos estables | Fabric al modelo nuevo de Ontology, export OWL/TTL y Ossie (experimental) | Plan F4 |
 | R2 - Conectores de publicacion | Crear/actualizar Ontology, Data Agent, Genie Agents por API | **No planificado** (las APIs estan en preview y el paquete por archivo alcanza) |
 | R2.1 - DataBindings | Seleccion de Lakehouse/tabla/columna en Nexo y generacion de `DataBindings` de Fabric | **No planificado** |

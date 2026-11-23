@@ -11,22 +11,10 @@ import json
 import re
 import unicodedata
 
-# Source platforms each target can reach without extra integration work.
-PLATFORM_REACH = {
-    "fabric": {"fabric", "powerbi"},
-    "databricks": {"databricks"},
-}
-BRIDGE_HINTS = {
-    "fabric": (
-        "Traer la fuente a OneLake: Mirroring (si el origen es compatible), shortcut, o Copy job/pipeline de Data Factory "
-        "(bases on-premises como MySQL/MariaDB via on-premises data gateway). Si no es viable, esa parte queda en ONTO (plan B)."
-    ),
-    "databricks": (
-        "Registrar la fuente con Lakehouse Federation (MySQL, PostgreSQL, SQL Server, entre otras; requiere conectividad de red) "
-        "o ingerirla a Delta. Si no es viable, esa parte queda en ONTO (plan B)."
-    ),
-}
-TARGET_LABELS = {"fabric": "Microsoft Fabric (Fabric IQ)", "databricks": "Databricks (Unity Catalog / Genie)"}
+from ontology_workbench.platform_reach import (  # noqa: F401  (re-exported for callers of this module)
+    BRIDGE_HINTS, PLATFORM_REACH, TARGET_LABELS, recommend_route, reachable,
+)
+
 COVERAGE_LABELS = {
     "native": "Se implementa en la plataforma",
     "needs_completion": "Se implementa en la plataforma, falta completar un dato",
@@ -34,10 +22,6 @@ COVERAGE_LABELS = {
     "outside_platform": "Fuera del alcance de la plataforma (puente o plan B)",
 }
 INSTRUCTION_CHAR_LIMIT = 19_000
-
-
-def reachable(source_platform: str, target: str) -> bool:
-    return source_platform in PLATFORM_REACH.get(target, set())
 
 
 def build_platform_export(
@@ -416,20 +400,9 @@ def _coverage_summary(coverage: list[dict[str, str]], model: _ReleaseModel, targ
     outside = counts["outside_platform"]
     implementable = len(coverage) - outside
     tables = [item for item in coverage if item["element_type"] == "technical_asset"]
-    if not coverage:
-        route, reason = "A", "La release no tiene elementos para entregar."
-    elif not outside:
-        route, reason = "A", "Todo lo aprobado se puede implementar en la plataforma destino."
-    elif tables and all(item["status"] == "outside_platform" for item in tables):
-        route, reason = "C", (
-            f"Ninguna tabla de la release es alcanzable hoy por {TARGET_LABELS[target]}: los datos viven en otros sistemas. "
-            f"La definicion se puede cargar, pero sin datos la plataforma no puede responder. Opciones: {BRIDGE_HINTS[target]}"
-        )
-    else:
-        route, reason = "B", (
-            f"{outside} elemento(s) dependen de sistemas que la plataforma no alcanza hoy. "
-            f"Implementar el resto en {TARGET_LABELS[target]} y resolver esos con un puente o en ONTO (plan B)."
-        )
+    route, reason = recommend_route(
+        target, len(coverage), outside, len(tables), sum(item["status"] == "outside_platform" for item in tables)
+    )
     return {
         "target": target,
         "target_label": TARGET_LABELS[target],
