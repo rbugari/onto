@@ -23,7 +23,7 @@ Si algo no se puede verificar, marcarlo experimental o `COMPLETAR`. No inventar 
 ## Criterios de aceptacion
 - El TTL generado es valido (parsear con `rdflib` o validador equivalente; agregar la dependencia solo si es necesaria y registrarla en `requirements.txt`).
 - El YAML de Ossie valida contra la spec consultada o queda explicitamente como experimental.
-- Los tests existentes de interoperabilidad se actualizan al nuevo formato y pasan: `.venv\Scripts\python -m pytest -q`.
+- Los tests existentes de interoperabilidad se actualizan al nuevo formato y pasan: `.venv\Scripts\python.exe -m unittest discover -s tests`.
 
 ## Fuera de alcance
 Publicar en las plataformas, usar credenciales.

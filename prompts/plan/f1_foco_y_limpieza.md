@@ -16,7 +16,7 @@ Alinear la documentacion con el nuevo posicionamiento y dejar explicito que se c
 ## Criterios de aceptacion
 - Ningun documento afirma que Argos es destino o que ONTO compite con las plataformas.
 - Lo congelado esta listado en un solo lugar.
-- `.venv\Scripts\python -m pytest -q` pasa (los tests de UI pueden depender de textos: ajustarlos si cambia un literal).
+- `.venv\Scripts\python.exe -m unittest discover -s tests` pasa (los tests de UI pueden depender de textos: ajustarlos si cambia un literal).
 
 ## Entrega
 Commit(s) en la rama y resumen con hallazgos de la tarea 5.

@@ -7,10 +7,11 @@ Producto: 3 de 3 de ONTO
 
 Argos es el investigador de negocio de ONTO. Consulta una release Nexo aprobada, no los documentos crudos ni un modelo libre. Su funcion es responder dentro del contexto aprobado y declarar una abstencion cuando la release no contiene evidencia suficiente.
 
-Argos cumple dos roles y ninguno compite con la plataforma del cliente:
+Argos cumple un rol y no compite con la plataforma del cliente:
 
 1. **Banco de prueba:** demuestra con preguntas reales que el contexto aprobado funciona antes de implementarlo en Fabric, Databricks u otra plataforma.
-2. **Runtime de plan B:** sirve la parte del conocimiento que la plataforma no puede implementar de forma viable (ruta mixta o plan B).
+
+Su uso como **runtime de plan B** (servir la parte que la plataforma no puede implementar) queda **congelado**: se mantiene para los casos ya validados (por ejemplo Nalub) pero no recibe inversion nueva. Ver [MVP operativo](00_MVP_OPERATIVO.md).
 
 Argos separa dos dependencias:
 

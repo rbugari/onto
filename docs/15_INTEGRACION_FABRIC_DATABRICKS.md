@@ -1,7 +1,7 @@
 # Integracion con Fabric y Databricks
 
-Estado: release 1 implementada (paquetes de archivos importables). Conectores directos planificados.
-Relacion con el foco: ONTO **no compite** con la ontologia de Fabric ni con la de Databricks. Releva, valida y **entrega** a esas plataformas. Solo sostiene por su cuenta lo que la plataforma no puede implementar (plan B).
+Estado: release 1 implementada (paquetes de archivos importables). Conectores directos y sincronizacion bidireccional: **no planificados** (ver [plan de reposicionamiento](18_PLAN_REPOSICIONAMIENTO.md)).
+Relacion con el foco: ONTO **no compite** con la ontologia de Fabric ni con la de Databricks. Releva, valida y **entrega** a esas plataformas. El plan B (servir desde ONTO lo que la plataforma no puede implementar) queda congelado como caso excepcional.
 
 ## 1. Resumen ejecutivo
 
@@ -145,18 +145,19 @@ Validado con las demos: la demo comercial (fuente Power BI) recomienda **ruta A*
 | Fase | Entregable | Estado |
 | --- | --- | --- |
 | R1 - Paquetes de archivos | Generador Fabric + Databricks, reporte de cobertura, ruta A/B/C con puentes sugeridos, descarga ZIP en Nexo, tests | **Hecho** |
-| R1.1 - Completar desde el origen | Tipos de propiedad desde la metadata tecnica; join specs desde relaciones y FK; ejemplos pregunta-SQL desde el catalogo de consultas; benchmarks desde la bateria de Argos; nombres de 3 partes desde el CSV de Databricks | Siguiente |
-| R1.2 - Viabilidad por plataforma en Atlas | Atlas estima por fuente si es alcanzable por la plataforma destino (y por que puente), para anticipar la ruta antes de Nexo | Siguiente |
-| R2 - Conectores de publicacion | Fabric: crear/actualizar Ontology y Data Agent por REST con identidad Entra delegada. Databricks: Genie Agents API y SQL Statement Execution para comentarios y metric views. Con aprobacion explicita, auditoria y rollback | Planificado |
-| R2.1 - DataBindings | Seleccion de Lakehouse/tabla/columna en Nexo y generacion de `DataBindings` de Fabric | Planificado |
-| R3 - Sincronizacion | Importar la ontologia existente de la plataforma como evidencia, comparar con la release y proponer cambios (bidireccional) | Planificado |
+| R1.1 - Completar desde el origen | Tipos de propiedad desde la metadata tecnica; join specs desde relaciones y FK; ejemplos pregunta-SQL desde el catalogo de consultas; benchmarks desde la bateria de Argos; nombres de 3 partes desde el CSV de Databricks | Plan F3 |
+| R1.2 - Viabilidad por plataforma en Atlas | Atlas estima por fuente si es alcanzable por la plataforma destino (y por que puente), junto con la capa Bronze/Silver/Gold, para anticipar la ruta antes de Nexo | Plan F2 |
+| R1.3 - Formatos estables | Fabric al modelo nuevo de Ontology, export OWL/TTL y Ossie (experimental) | Plan F4 |
+| R2 - Conectores de publicacion | Crear/actualizar Ontology, Data Agent, Genie Agents por API | **No planificado** (las APIs estan en preview y el paquete por archivo alcanza) |
+| R2.1 - DataBindings | Seleccion de Lakehouse/tabla/columna en Nexo y generacion de `DataBindings` de Fabric | **No planificado** |
+| R3 - Importar lo existente | Leer semantic models, metric views, Pages y ontologias exportadas como evidencia de Atlas y cruzarlas con los sistemas que la plataforma no ve. Reemplaza la sincronizacion bidireccional | Plan F5 (opcional) |
 
 Proximos pasos concretos:
 
 1. Validar el paquete con un workspace de Fabric con Fabric IQ habilitado y un workspace de Databricks con Genie (piloto guiado).
 2. Ajustar el generador segun lo que cada plataforma acepte en la practica y fijar la version de formato probada.
-3. Implementar R1.1 (lo que ya sabemos y hoy se pierde en el paquete).
-4. Definir identidad, permisos minimos y rollback para R2 antes de escribir cualquier conector.
+3. Implementar R1.1 y R1.2 (lo que ya sabemos y hoy se pierde en el paquete) segun el [plan](18_PLAN_REPOSICIONAMIENTO.md).
+4. Actualizar el export de Fabric al modelo nuevo antes del retiro de la experiencia vieja de Ontology (2027-01-31).
 
 ## 8. Fuentes consultadas
 

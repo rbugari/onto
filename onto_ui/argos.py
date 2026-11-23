@@ -26,7 +26,7 @@ def render_argos(service: WorkbenchService, project_id: str) -> None:
     settings = load_llm_settings()
     engine = t('{v0} · {v1}', v0=settings.provider, v1=settings.model) if settings.enabled else t("modo local determinista")
     st.caption(
-        t('Banco de prueba del conocimiento aprobado antes de implementarlo en la plataforma del cliente, y runtime de plan B para lo que la plataforma no pueda cubrir. Responde solo con la release del {v0} y consultas autorizadas. Motor: {v1}.', v0=short_timestamp(releases[0].get('created_at')), v1=engine)
+        t('Banco de prueba: verifica con preguntas reales que el conocimiento aprobado responde bien antes de implementarlo en la plataforma. Responde solo con la release del {v0} y consultas autorizadas. Motor: {v1}.', v0=short_timestamp(releases[0].get('created_at')), v1=engine)
     )
     catalog = service.get_argos_query_catalog(project_id, release_id)
     chat_tab, analyst_tab = localized_tabs(["Conversación", "Analistas"], key=f"argos-tabs-{project_id}")

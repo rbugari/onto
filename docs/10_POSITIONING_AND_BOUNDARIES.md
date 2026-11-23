@@ -4,11 +4,19 @@ Estado: fuente normativa para producto, comunicacion y alcance del MVP
 
 ## Frase de posicionamiento
 
-> ONTO convierte evidencia tecnica y funcional existente en conocimiento ontologico gobernado, revisable y consumible por IA.
+> ONTO prepara el conocimiento de negocio que las plataformas necesitan y no pueden generar solas: llega a Silver, cruza varios sistemas y lo entrega aprobado, listo para cargar.
+
+Version larga: ONTO convierte evidencia tecnica y funcional existente en conocimiento ontologico gobernado, revisable y consumible por IA.
 
 ## Foco
 
-ONTO aporta mas valor cuando el dominio esta **repartido en varios sistemas y plataformas**. Atlas arma la vista completa del dominio (que sistemas participan, que entidades comparten, como se cruzan y que falta) y Nexo produce el conocimiento aprobado, en un formato portable, para que despues se implemente en Fabric, Databricks u otra herramienta. Ver [Objetivo, alcance y foco](OBJETIVO_ALCANCE_Y_FOCO.md).
+Las capas semanticas y ontologias de las plataformas (modelos semanticos y Ontology de Fabric IQ, metric views y Genie Ontology de Databricks) parten de la capa Gold y de su propio ecosistema. ONTO aporta mas valor donde ellas no llegan:
+
+- **Mas abajo de Gold:** entidades en Silver o Bronze, y sistemas fuera de la plataforma, que no tienen significado documentado.
+- **Entre sistemas:** el dominio esta **repartido en varios sistemas y plataformas**. Atlas arma la vista completa (que sistemas participan, que entidades comparten, como se cruzan y que falta).
+- **Contenido que alguien tiene que escribir:** definiciones, sinonimos, reglas y descripciones que las plataformas esperan pero no inventan. Nexo los produce desde evidencia, con aprobacion humana, en un formato portable para cargarlos en Fabric, Databricks u otra herramienta.
+
+Cuando todo vive en una sola plataforma y esta en Gold, las herramientas nativas alcanzan y ONTO no intenta competir. Ver [Objetivo, alcance y foco](OBJETIVO_ALCANCE_Y_FOCO.md) y el [plan de reposicionamiento](18_PLAN_REPOSICIONAMIENTO.md).
 
 ## Relacion con Fabric, Databricks y otras plataformas ontologicas
 
@@ -20,7 +28,7 @@ Orden de preferencia para implementar lo aprobado:
 2. **Ruta B, mixta:** la plataforma implementa lo que puede; ONTO sostiene solo la parte que queda afuera (fuentes que no alcanza, reglas que no soporta, costo o gobierno).
 3. **Ruta C, plan B:** si ninguna plataforma puede implementarlo de forma viable, ONTO conserva la release y Argos la sirve.
 
-Argos no es el destino buscado: es el banco de prueba del contexto aprobado y el runtime de plan B.
+Argos no es el destino buscado: es el banco de prueba del contexto aprobado. El plan B (ruta C) sigue funcionando como caso documentado, pero no recibe inversion nueva.
 
 ## Que hace ONTO
 
@@ -59,7 +67,7 @@ Registry y validacion. Convierte evidencia en candidatos revisables, conserva de
 
 ### Argos
 
-Runtime de validacion y de plan B. Usa una release aprobada para probar que el contexto responde bien antes de implementarlo en la plataforma, y para servir la parte que la plataforma no puede cubrir. Responde con evidencia, consulta fuentes autorizadas y se abstiene cuando faltan evidencia, permisos o granularidad.
+Banco de prueba. Usa una release aprobada para probar que el contexto responde bien antes de implementarlo en la plataforma. Responde con evidencia, consulta fuentes autorizadas y se abstiene cuando faltan evidencia, permisos o granularidad. Su uso como runtime de plan B esta congelado (ver [MVP operativo](00_MVP_OPERATIVO.md)).
 
 ## Dos planos
 
@@ -76,6 +84,7 @@ Evitar:
 - “ONTO reemplaza el catalogo o el gobierno de datos”.
 - “ONTO crea automaticamente la ontologia final”.
 - “ONTO funciona solo con Fabric”.
+- “ONTO es un agente o runtime de preguntas de negocio” (es el banco de prueba de lo que se entrega).
 - “ONTO es una alternativa a la ontologia de Fabric o de Databricks” (las prepara y complementa; no compite).
 - “Con ONTO no hace falta implementar en la plataforma” (la ruta por defecto es implementar en la plataforma del cliente).
 - “ONTO se conecta en vivo a Databricks” (hoy se carga por archivo exportado).

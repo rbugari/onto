@@ -1,8 +1,8 @@
 # DataIA Ontology Factory (ONTO)
 
-ONTO convierte evidencia tecnica y funcional existente en conocimiento ontologico gobernado, revisable y consumible por IA. Su foco son los dominios cuyos datos estan **distribuidos en varios sistemas y plataformas**: releva, cruza y hace aprobar ese conocimiento para **entregarlo a la plataforma del cliente** (Fabric, Databricks u otra) y que lo implemente en su propia ontologia.
+ONTO prepara el conocimiento de negocio que las plataformas necesitan y no pueden generar solas: llega a Silver, cruza varios sistemas y lo entrega aprobado, listo para cargar. Convierte evidencia tecnica y funcional existente en conocimiento ontologico gobernado, revisable y consumible por IA. Su foco son los dominios cuyos datos estan **distribuidos en varios sistemas y plataformas** y lo que queda mas abajo de la capa Gold: releva, cruza y hace aprobar ese conocimiento para **entregarlo a la plataforma del cliente** (Fabric, Databricks u otra) y que lo implemente en su propia ontologia.
 
-**ONTO no compite con la ontologia de Fabric ni con la de Databricks.** La ruta por defecto es implementar en la plataforma del cliente; ONTO solo sostiene por su cuenta la parte que la plataforma no puede cubrir (plan B).
+**ONTO no compite con la ontologia de Fabric ni con la de Databricks.** La ruta por defecto es implementar en la plataforma del cliente. El plan B (servir desde ONTO lo que la plataforma no cubre) queda como caso excepcional y congelado. Plan de evolucion: [reposicionamiento](docs/18_PLAN_REPOSICIONAMIENTO.md).
 
 **Empezar por:** [Objetivo, alcance y foco](docs/OBJETIVO_ALCANCE_Y_FOCO.md). Para personas no tecnicas: [Guia paso a paso](docs/GUIA_PASO_A_PASO_NO_TECNICA.md). La direccion completa del producto esta en la [documentacion de producto](docs/README.md).
 
@@ -10,7 +10,7 @@ La Factory se organiza en tres productos independientes y conectables:
 
 1. **Atlas · Preparar evidencia**: inventaria todos los sistemas del dominio y su documentacion, mapea las entidades compartidas entre sistemas y mide readiness, gaps y prioridades por caso de uso.
 2. **Nexo · Validar conocimiento**: convierte evidencia en conocimiento revisado y versionado, y prepara el paquete para la plataforma destino.
-3. **Argos · Investigar el negocio**: prueba la release aprobada con preguntas reales (evidencia y abstencion) y sirve como runtime de plan B para lo que la plataforma no cubre.
+3. **Argos · Investigar el negocio**: banco de prueba que verifica con preguntas reales (evidencia y abstencion) que la release aprobada responde bien antes de implementarla en la plataforma.
 
 Fabric, Databricks, Snowflake, SQL Server, MySQL y otras plataformas pueden cumplir roles distintos. Pueden ser repositorios de datos, fuentes de evidencia, modelos semanticos o destinos de una publicacion ontologica. ONTO mantiene separado el plano de datos del plano ontologico y conserva un modelo canonico portable.
 

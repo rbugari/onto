@@ -7,13 +7,15 @@ Estado: documento de entrada. Resume para qué existe ONTO, qué problema resuel
 
 ONTO convierte evidencia técnica y funcional existente en **conocimiento ontológico gobernado, revisable y consumible por IA**, y lo **entrega a la plataforma del cliente** (Microsoft Fabric, Databricks u otra) para que lo implemente en su propia ontología.
 
-**ONTO no compite con la ontología de Fabric ni con la de Databricks. Hace el trabajo previo que esas plataformas necesitan**: relevar, cruzar, validar y aprobar el conocimiento del dominio, para que después se implemente allá.
+**ONTO prepara el conocimiento de negocio que las plataformas necesitan y no pueden generar solas: llega a Silver, cruza varios sistemas y lo entrega aprobado, listo para cargar.** Las ontologías y capas semánticas de Fabric y Databricks parten de la capa Gold y de su propio ecosistema; alguien tiene que relevar lo que queda más abajo o fuera de ellas, y escribir y aprobar las definiciones, sinónimos y reglas que esperan.
+
+**ONTO no compite con la ontología de Fabric ni con la de Databricks. Hace el trabajo previo que esas plataformas necesitan**: relevar, cruzar, validar y aprobar el conocimiento del dominio, para que después se implemente allá. Si todo vive en una sola plataforma y en Gold, sus herramientas nativas alcanzan.
 
 Dicho de forma operativa: toma la metadata de los sistemas de un dominio (ERP, lakehouse, warehouse, modelos de BI, CRM, planillas) y su documentación de negocio, y produce:
 
 1. un **diagnóstico** de qué tan preparado está ese dominio y de **qué se puede implementar en la plataforma destino**;
 2. una **ontología aprobada por personas** y un **paquete para cargar en la plataforma** del cliente;
-3. un **banco de prueba** que valida con preguntas reales que el contexto aprobado funciona, y que opera como **plan B** solo para lo que la plataforma no puede resolver.
+3. un **banco de prueba** que valida con preguntas reales que el contexto aprobado funciona antes de implementarlo. El plan B (servir desde ONTO lo que la plataforma no cubre) queda como caso documentado, congelado, sin inversión nueva.
 
 ## 1.1 Ruta de implementación: primero la plataforma, ONTO como plan B
 
@@ -21,7 +23,7 @@ Dicho de forma operativa: toma la metadata de los sistemas de un dominio (ERP, l
 | --- | --- | --- |
 | **A. Nativa (preferida)** | La plataforma del cliente puede alcanzar las fuentes y representar el conocimiento aprobado. | Entrega el paquete para implementarlo en Fabric IQ Ontology, Databricks u otra herramienta. La plataforma pasa a ser el sistema de registro. |
 | **B. Mixta** | La plataforma cubre una parte, pero otra parte queda afuera (fuentes que no ve, reglas que no soporta, costo o gobierno). | La plataforma implementa lo que puede; ONTO sostiene solo el resto. Cada elemento declara dónde vive. |
-| **C. Plan B (ONTO)** | Ninguna plataforma puede implementarlo de forma viable (dominio repartido en sistemas que ninguna alcanza, restricciones técnicas o de costo). | ONTO conserva la release y Argos responde sobre ella, con las mismas reglas de evidencia y abstención. |
+| **C. Plan B (ONTO)** | Ninguna plataforma puede implementarlo de forma viable (dominio repartido en sistemas que ninguna alcanza, restricciones técnicas o de costo). Caso excepcional. | ONTO conserva la release y Argos responde sobre ella, con las mismas reglas de evidencia y abstención. Funcionalidad congelada (ver [MVP operativo](00_MVP_OPERATIVO.md)). |
 
 La decisión se toma con evidencia en el diagnóstico de Atlas y se revisa en Nexo antes de emitir la release; el paquete de entrega de Nexo recomienda A, B o C según qué fuentes alcanza la plataforma. La ruta por defecto es siempre la A.
 
@@ -45,7 +47,7 @@ Cuando todo vive en una sola plataforma, sus herramientas nativas ayudan, pero i
 | Foco | Qué significa en la práctica |
 | --- | --- |
 | **Al servicio de la plataforma del cliente** | No reemplaza la ontología de Fabric ni la de Databricks: prepara y valida lo que después se implementa ahí. ONTO solo sostiene lo que la plataforma no puede (plan B). |
-| **Dominio completo, no una plataforma** | Atlas inventaria todos los sistemas del dominio en un mismo proyecto y detecta qué entidades comparten, con qué clave se cruzan y dónde faltan equivalencias. |
+| **Dominio completo, no una plataforma** | Atlas inventaria todos los sistemas del dominio en un mismo proyecto, incluida la capa Silver y los sistemas que la plataforma no ve, y detecta qué entidades comparten, con qué clave se cruzan y dónde faltan equivalencias. |
 | **Formato de trabajo portable** | El modelo intermedio de ONTO no depende de ninguna plataforma, para poder entregarlo a cualquiera de ellas mediante mappings. |
 | **Evidencia antes que inferencia** | Cada elemento conserva su fuente (archivo, hash, fragmento, sistema). Un LLM puede proponer; solo una persona aprueba. |
 | **Casos de uso primero** | El diagnóstico prioriza brechas según los casos de uso que el negocio declaró. |
@@ -58,13 +60,13 @@ Cuando todo vive en una sola plataforma, sus herramientas nativas ayudan, pero i
 | --- | --- | --- | --- |
 | **Atlas** · Preparar evidencia | ¿Cómo estamos? ¿Qué sistemas, qué evidencia, qué falta, cómo se conectan y qué puede implementar la plataforma? | Analista técnico o funcional, consultor | Assessment package: alcance, casos de uso, inventario por sistema, mapa entre sistemas, score, brechas priorizadas, informe. |
 | **Nexo** · Validar conocimiento | ¿Qué conocimiento aceptamos y cómo lo entregamos a la plataforma? | Responsable de gobierno, referente de negocio | Release aprobada y paquete importable para Fabric o Databricks con cobertura y ruta recomendada (A/B/C); `agent_context_pack` para el plan B. |
-| **Argos** · Investigar el negocio | ¿El contexto aprobado responde bien las preguntas reales? | Usuario de negocio, analista | Banco de prueba antes de implementar en la plataforma; runtime de plan B para lo que la plataforma no cubre. |
+| **Argos** · Investigar el negocio | ¿El contexto aprobado responde bien las preguntas reales? | Usuario de negocio, analista | Banco de prueba antes de implementar en la plataforma. |
 
 ```text
 Sistemas + documentación ──► Atlas (diagnóstico) ──► Nexo (conocimiento aprobado) ──► Paquete para Fabric / Databricks  (ruta A, preferida)
                                                                  │
                                                                  ├──► Argos: prueba con preguntas reales
-                                                                 └──► Argos: plan B solo para lo que la plataforma no cubre
+                                                                 └──► Argos: plan B (congelado, caso excepcional)
 ```
 
 ## 5. Alcance actual (MVP operativo)

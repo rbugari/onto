@@ -98,6 +98,18 @@ La deduplicacion documental por contenido conserva el primer archivo de cada con
 - Aprobacion automatica de conocimiento para uso productivo.
 - Garantia de calidad ontologica fuera de la evidencia y las decisiones registradas.
 
+## Congelado (no se invierte mas)
+
+Decision del [plan de reposicionamiento](18_PLAN_REPOSICIONAMIENTO.md). Se mantiene el codigo y sigue funcionando para los casos validados, pero no se agregan capacidades ni adapters nuevos:
+
+| Area | Archivos |
+| --- | --- |
+| Argos como runtime de plan B | `runtime.py`, `query_catalog.py` |
+| Adapters de datos de Argos | `fabric_adapter.py`, `mariadb_adapter.py`, `local_data_adapter.py` |
+| Conectores de publicacion y sincronizacion (R2 y R3 de la [integracion](15_INTEGRACION_FABRIC_DATABRICKS.md)) | no planificados |
+
+Argos sigue vigente como banco de prueba de una release (`runtime_evaluation.py` y la bateria de evaluacion). Las nuevas inversiones van a Atlas (capa y viabilidad), al contenido del paquete de Nexo y a los formatos de entrega.
+
 ## Criterio de trabajo
 
 La release MVP se considera utilizable cuando se puede repetir el flujo completo de un proyecto, inspeccionar sus artefactos locales y explicar cada respuesta con evidencia o con el resultado de una consulta autorizada. La evolucion posterior se decide a partir del uso de estos flujos, no agregando infraestructura por anticipado.

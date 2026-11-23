@@ -16,7 +16,7 @@ Que Atlas diga que parte del dominio entiende ya la plataforma (Gold) y que qued
 - Con la demo distribuida (`scripts/run_distributed_demo.py`) el informe muestra capas y viabilidad por plataforma y coincide con las rutas del doc 15 (B en ambas).
 - Con el caso Nalub la viabilidad da ruta C para ambas.
 - Tests nuevos: inferencia de capa (declarada gana a inferida), brecha "solo Gold", viabilidad por fuente.
-- `.venv\Scripts\python -m pytest -q` pasa.
+- `.venv\Scripts\python.exe -m unittest discover -s tests` pasa.
 
 ## Fuera de alcance
 Conexiones remotas, descubrimiento en vivo, cambios en Nexo.

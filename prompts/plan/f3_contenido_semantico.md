@@ -19,7 +19,7 @@ Que el paquete salga casi listo para cargar: menos `COMPLETAR`, mas contenido ge
 - Todo texto generado conserva la referencia a su evidencia.
 - Ningun elemento no aprobado se presenta como aprobado.
 - Tests nuevos: mapeo de tipos, join desde FK, Page con fuentes, KPI sin evidencia queda `COMPLETAR`.
-- `.venv\Scripts\python -m pytest -q` pasa.
+- `.venv\Scripts\python.exe -m unittest discover -s tests` pasa.
 
 ## Fuera de alcance
 Cambios de formato de plataforma (es F4), publicacion, LLM nuevo para generar texto: usar lo ya aprobado en Nexo.

@@ -45,6 +45,13 @@ F4 es urgente por fecha: la experiencia vieja de Ontology en Fabric se retira el
 - Apache Ossie (ex OSI): estandar abierto en incubacion, version 0.3 dev.
 - Confirmar el estado GA de Pages y Genie Ontology antes de afirmarlo a un cliente.
 
+## Hallazgos F1
+
+- **Cobertura explicativa (`explanatory_coverage.py`, `explanatory_analysis.py`, `explanatory_scope.py`, [doc 16](16_PLAN_ATLAS_COBERTURA_EXPLICATIVA.md)): mantener.** Contesta cuanto del alcance se puede explicar con evidencia y que falta, algo que el scanner de contexto no mide (solo extrae). Es la base de "que queda sin significado" que F2 necesita; no se solapa con las plataformas.
+- **Congelado:** Argos como runtime de plan B y sus adapters, y los conectores R2/R3 (ver [MVP operativo](00_MVP_OPERATIVO.md)). Argos sigue como banco de prueba.
+- **UI:** solo cambio el subtitulo de Argos (sin menciones a plan B). Navegacion y pantallas intactas.
+- **Entorno:** el repo se valida con `unittest` (no hay pytest instalado).
+
 ## Reglas para el agente autonomo (aplican a todas las fases)
 
 - Una fase por ejecucion. No empezar la siguiente.
@@ -52,7 +59,7 @@ F4 es urgente por fecha: la experiencia vieja de Ontology en Fabric se retira el
 - Cambios minimos y dirigidos; no refactorizar fuera del alcance de la fase.
 - No borrar codigo de Argos ni de conectores: solo marcar como congelado.
 - Idioma de documentos: espanol sin tildes dobles de formato, como el resto de `docs/`.
-- Validar con `.venv\Scripts\python -m pytest -q` antes de dar por cerrada la fase; los tests existentes no deben romperse.
+- Validar con `.venv\Scripts\python.exe -m unittest discover -s tests` antes de dar por cerrada la fase; los tests existentes no deben romperse.
 - Agregar tests solo para comportamiento nuevo.
 - Al terminar: commit con mensaje claro, y un resumen con lo hecho, lo que quedo pendiente y las decisiones que requieren al usuario.
 - Si falta una decision de producto, parar y preguntar en vez de inventar.

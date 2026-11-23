@@ -18,7 +18,7 @@ Que Atlas reconozca el conocimiento que Fabric o Databricks ya tienen (semantic 
 ## Criterios de aceptacion
 - Una demo con una metric view y un TTL de ejemplo muestra las tres clases de hallazgo.
 - Tests nuevos para cada importador y para la deteccion de contradicciones.
-- `.venv\Scripts\python -m pytest -q` pasa.
+- `.venv\Scripts\python.exe -m unittest discover -s tests` pasa.
 
 ## Fuera de alcance
 Lectura remota, escritura en plataformas, sincronizacion.

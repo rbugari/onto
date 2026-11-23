@@ -212,7 +212,7 @@ EN = {
     "Importacion BIM lista: {v0} tablas, {v1} columnas, {v2} medidas y {v3} relaciones detectadas.": "BIM import complete: {v0} tables, {v1} columns, {v2} measures and {v3} relationships detected.",
     "Perfil '{v0}' guardado para este proyecto": "Profile '{v0}' saved for this project", "Conexion read-only OK: {v0} / {v1}": "Read-only connection OK: {v0} / {v1}",
     "Linea invalida: {v0}": "Invalid line: {v0}",
-    "Banco de prueba del conocimiento aprobado antes de implementarlo en la plataforma del cliente, y runtime de plan B para lo que la plataforma no pueda cubrir. Responde solo con la release del {v0} y consultas autorizadas. Motor: {v1}.": "Test bench for approved knowledge before implementation on the client platform, and fallback runtime for what the platform cannot cover. Answers using only the release from {v0} and authorized queries. Engine: {v1}.",
+    "Banco de prueba: verifica con preguntas reales que el conocimiento aprobado responde bien antes de implementarlo en la plataforma. Responde solo con la release del {v0} y consultas autorizadas. Motor: {v1}.": "Test bench: checks with real questions that the approved knowledge answers well before it is implemented on the platform. Answers using only the release from {v0} and authorized queries. Engine: {v1}.",
     "Estado: {v0} · Registro: {v1}": "Status: {v0} · Record: {v1}", "Paquete de evaluación: {v0}": "Evaluation package: {v0}",
     "Consulta: {v0} · {v1} · {v2} fila(s)": "Query: {v0} · {v1} · {v2} row(s)", "Datos ({v0} fila(s))": "Data ({v0} row(s))", "Motor: {v0}": "Engine: {v0}",
     "{v0} | {v1} | {v2}": "{v0} | {v1} | {v2}",
