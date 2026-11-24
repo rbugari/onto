@@ -53,7 +53,7 @@ flowchart LR
 | --- | --- | --- | --- |
 | Concepto / entidad | Tipo de entidad (Ontology) | Page | - |
 | Propiedad | Propiedad del tipo de entidad (tipo a completar) | Seccion de la Page | - |
-| Relacion | Tipo de relacion | Page e instrucciones del Genie Agent (join spec en R1.1) | - |
+| Relacion | Tipo de relacion | Page e instrucciones del Genie Agent y join spec (si la release incluye la columna clave) | - |
 | Sinonimo | Instruccion del Data Agent | Sinonimos de Page y columnas | - |
 | Regla de negocio | Instruccion del Data Agent | Instruccion del Genie Agent / Page | - |
 | KPI | Instruccion del Data Agent (+ medida en el modelo semantico) | Metric view (expresion a completar) | - |
@@ -136,8 +136,11 @@ Validado con las demos: la demo comercial (fuente Power BI) recomienda **ruta A*
 
 - Fabric IQ Ontology y Databricks Pages estan en preview/beta: los formatos pueden cambiar. El generador esta aislado en `platform_exports.py` para ajustarlo sin tocar Atlas ni Nexo.
 - ONTO no conoce ids de workspace, lakehouse ni warehouse: los DataBindings de Fabric y el `warehouse_id` de Databricks se completan en la plataforma (o se pasan como parametro).
-- Las expresiones de KPI no se inventan: el metric view sale con `COMPLETAR_EXPRESION_AGREGADA` hasta que el equipo de datos la defina.
-- Los tipos de propiedad salen como `String` salvo que se completen.
+- Las expresiones de KPI no se inventan: el metric view sale con `COMPLETAR_EXPRESION_AGREGADA`. Si el KPI esta vinculado a una medida de un modelo Power BI, su DAX se incluye como **propuesta** (comentario en el YAML y en las instrucciones del Data Agent de Fabric) para que el equipo de datos la convierta a SQL y la valide.
+- Los tipos de propiedad se toman de la columna aprobada que coincide por nombre con la propiedad (`bim.dataType` o `fabric.dataType`); sin columna respaldada salen como `String` y quedan marcados "completar".
+- Los joins (metric views y `join_specs` de Genie) solo se generan cuando una relacion aprobada une dos conceptos con tabla y la release incluye la columna clave (por ejemplo `cliente_id` hacia `id`); si falta, se informa y no se inventa.
+- No se generan ejemplos pregunta-SQL ni benchmarks de Genie: la release no guarda SQL aprobado (las plantillas viven en los adapters congelados de Argos). Las preguntas de ejemplo del catalogo se usan como `sample_questions` y como "Ejemplos" de las Pages.
+- `coverage_report.md` lista los elementos y las marcas `COMPLETAR` que quedan por completar.
 - No se publica nada ni se usan credenciales en la release 1.
 
 ## 7. Plan de implementacion y proximos pasos
@@ -145,7 +148,7 @@ Validado con las demos: la demo comercial (fuente Power BI) recomienda **ruta A*
 | Fase | Entregable | Estado |
 | --- | --- | --- |
 | R1 - Paquetes de archivos | Generador Fabric + Databricks, reporte de cobertura, ruta A/B/C con puentes sugeridos, descarga ZIP en Nexo, tests | **Hecho** |
-| R1.1 - Completar desde el origen | Tipos de propiedad desde la metadata tecnica; join specs desde relaciones y FK; ejemplos pregunta-SQL desde el catalogo de consultas; benchmarks desde la bateria de Argos; nombres de 3 partes desde el CSV de Databricks | Plan F3 |
+| R1.1 - Completar desde el origen | Tipos de propiedad desde la metadata tecnica; joins desde relaciones aprobadas y claves; Pages completas (responsable, uso de negocio, ejemplos, propiedades tipadas, fuentes); comentarios de columna; formula DAX propuesta para KPIs; conteo de pendientes. Sin ejemplos SQL ni benchmarks (ver limites) | **Hecho** (F3) |
 | R1.2 - Viabilidad por plataforma en Atlas | Atlas estima por fuente si es alcanzable por la plataforma destino (y por que puente), junto con la capa Bronze/Silver/Gold, para anticipar la ruta antes de Nexo | **Hecho** (F2, ver [Atlas](05_ATLAS_ASSESSMENT_MVP.md)) |
 | R1.3 - Formatos estables | Fabric al modelo nuevo de Ontology, export OWL/TTL y Ossie (experimental) | Plan F4 |
 | R2 - Conectores de publicacion | Crear/actualizar Ontology, Data Agent, Genie Agents por API | **No planificado** (las APIs estan en preview y el paquete por archivo alcanza) |
@@ -156,7 +159,7 @@ Proximos pasos concretos:
 
 1. Validar el paquete con un workspace de Fabric con Fabric IQ habilitado y un workspace de Databricks con Genie (piloto guiado).
 2. Ajustar el generador segun lo que cada plataforma acepte en la practica y fijar la version de formato probada.
-3. Implementar R1.1 y R1.2 (lo que ya sabemos y hoy se pierde en el paquete) segun el [plan](18_PLAN_REPOSICIONAMIENTO.md).
+3. Ajustar F4 (formatos estables) segun el [plan](18_PLAN_REPOSICIONAMIENTO.md); R1.1 y R1.2 ya estan hechos.
 4. Actualizar el export de Fabric al modelo nuevo antes del retiro de la experiencia vieja de Ontology (2027-01-31).
 
 ## 8. Fuentes consultadas

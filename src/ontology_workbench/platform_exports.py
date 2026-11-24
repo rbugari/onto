@@ -11,6 +11,10 @@ import json
 import re
 import unicodedata
 
+from ontology_workbench.export_enrichment import (
+    column_index, concept_tables, fabric_value_type, item_owner, kpi_formula, page_sections,
+    placeholder_counts, property_column, relationship_joins,
+)
 from ontology_workbench.platform_reach import (  # noqa: F401  (re-exported for callers of this module)
     BRIDGE_HINTS, PLATFORM_REACH, TARGET_LABELS, recommend_route, reachable,
 )
@@ -36,8 +40,18 @@ def build_platform_export(
     else:
         raise ValueError("Destino de interoperabilidad no soportado")
     summary = _coverage_summary(coverage, model, target)
+    summary["pending_completion"] = _count_by_type(coverage, "needs_completion")
+    summary["placeholders"] = placeholder_counts(files)
     files["coverage_report.md"] = _coverage_markdown(model, target, coverage, summary)
     return {"files": files, "coverage": coverage, "summary": summary}
+
+
+def _count_by_type(coverage: list[dict[str, str]], status: str) -> dict[str, int]:
+    counts: dict[str, int] = {}
+    for item in coverage:
+        if item["status"] == status:
+            counts[item["element_type"]] = counts.get(item["element_type"], 0) + 1
+    return counts
 
 
 class _ReleaseModel:
@@ -62,6 +76,12 @@ class _ReleaseModel:
         self.by_id = {str(item["id"]): item for item in [*self.concepts, *self.kpis, *self.rules, *self.assets]}
         self.concept_ids = {str(item["id"]) for item in self.concepts}
         self.asset_ids = {str(item["id"]) for item in self.assets}
+        self.columns = column_index(self)
+        self.tables_by_concept = concept_tables(self)
+        self.joins = relationship_joins(self, self.columns, self.tables_by_concept)
+        self.example_questions = [
+            str(spec["example_question"]) for spec in self.query_catalog.values() if spec.get("example_question")
+        ]
 
     def synonyms_for(self, item_id: str) -> list[str]:
         return [str(item["name"]) for item in self.synonyms if item_id in item.get("linked_candidate_ids", [])]
@@ -108,10 +128,16 @@ def _fabric_files(model: _ReleaseModel, settings: dict[str, str]) -> tuple[dict[
         properties = [name_property]
         for prop in model.properties:
             if concept["id"] in prop.get("linked_candidate_ids", []):
+                match = property_column(model, str(concept["id"]), str(prop["name"]), model.columns, model.tables_by_concept)
+                value_type = fabric_value_type(match[2]) if match else None
                 properties.append({"id": _bigint(entity_id, prop["id"]), "name": _fabric_name(str(prop["name"])),
-                                   "redefines": None, "baseTypeNamespaceType": None, "valueType": "String"})
-                coverage.append(_cov("property", prop["name"], "needs_completion", "Propiedad de EntityType",
-                                     "Revisar el tipo de dato (se genera String) y vincularla a una columna."))
+                                   "redefines": None, "baseTypeNamespaceType": None, "valueType": value_type or "String"})
+                if value_type:
+                    coverage.append(_cov("property", prop["name"], "native", "Propiedad de EntityType",
+                                         f"Tipo {value_type} tomado de {match[0]}.{match[1]}; vincularla a esa columna en el DataBinding."))
+                else:
+                    coverage.append(_cov("property", prop["name"], "needs_completion", "Propiedad de EntityType",
+                                         "Revisar el tipo de dato (se genera String; no hay columna aprobada que lo respalde) y vincularla a una columna."))
         parts[f"EntityTypes/{entity_id}/definition.json"] = {
             "id": entity_id, "namespace": "usertypes", "baseEntityTypeId": None,
             "name": _fabric_name(str(concept["name"])), "entityIdParts": [name_property["id"]],
@@ -141,8 +167,10 @@ def _fabric_files(model: _ReleaseModel, settings: dict[str, str]) -> tuple[dict[
             coverage.append(_cov("data_binding", binding["name"], "outside_platform", "Plan B en ONTO", BRIDGE_HINTS["fabric"]))
     _asset_coverage(model, "fabric", coverage)
     for kpi in model.kpis:
+        formula = kpi_formula(model, str(kpi["id"]))
         coverage.append(_cov("kpi", kpi["name"], "instructions", "Instrucciones del Data Agent",
-                             "Para calcularlo, agregar una medida en el modelo semantico o un ejemplo SQL al Data Agent."))
+                             "La formula DAX del modelo semantico va en las instrucciones; validarla antes de usarla." if formula
+                             else "Para calcularlo, agregar una medida en el modelo semantico o un ejemplo SQL al Data Agent."))
     for rule in model.rules:
         coverage.append(_cov("business_rule", rule["name"], "instructions", "Instrucciones del Data Agent", ""))
     for item in model.synonyms:
@@ -173,7 +201,7 @@ def _fabric_files(model: _ReleaseModel, settings: dict[str, str]) -> tuple[dict[
     files[f"{agent_dir}/draft/stage_config.json"] = _json(
         {
             "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/stageConfiguration/1.0.0/schema.json",
-            "aiInstructions": _instructions(model),
+            "aiInstructions": _instructions(model, "fabric"),
         }
     )
     files["fabric/README_IMPLEMENTACION.md"] = _fabric_readme(model, ontology_name)
@@ -209,6 +237,13 @@ def _databricks_files(model: _ReleaseModel, settings: dict[str, str]) -> tuple[d
         "-- Revisar identificadores antes de ejecutar. Requiere permiso MODIFY/APPLY TAG sobre cada objeto.", "",
     ]
     tables: dict[str, str] = {}
+    databricks_joins = [
+        join for join in model.joins
+        if reachable(_table_platform(model, join["left_table"]), "databricks")
+        and reachable(_table_platform(model, join["right_table"]), "databricks")
+    ]
+    for binding, business, asset in model.binding_pairs():
+        bindings_by_business.setdefault(str(business["id"]), []).append(asset)
     for binding, business, asset in model.binding_pairs():
         bindings_by_business.setdefault(str(business["id"]), []).append(asset)
         if not reachable(model.asset_platform(asset), "databricks"):
@@ -225,7 +260,6 @@ def _databricks_files(model: _ReleaseModel, settings: dict[str, str]) -> tuple[d
         sql_lines.append(f"ALTER TABLE {table} SET TAGS ('onto_domain' = '{_sql_text(model.domain)}', 'onto_release' = '{model.release_id}');")
         coverage.append(_cov("data_binding", binding["name"], "native", "Comentario y tags en Unity Catalog", ""))
     _asset_coverage(model, "databricks", coverage)
-    files["databricks/unity_catalog_comments.sql"] = "\n".join(sql_lines) + "\n"
 
     for item in [*model.concepts, *model.kpis]:
         files[f"databricks/pages/{_slug(str(item['name']))}.md"] = _page_markdown(model, item, bindings_by_business, catalog)
@@ -233,15 +267,29 @@ def _databricks_files(model: _ReleaseModel, settings: dict[str, str]) -> tuple[d
                              "Page (Unity Catalog semantics)", "Importar con 'Bulk import pages' desde la carpeta pages/."))
     for kpi in model.kpis:
         assets = bindings_by_business.get(str(kpi["id"]), [])
-        source = _three_part(model.asset_table(assets[0]), catalog) if assets else "COMPLETAR.catalogo.tabla"
-        files[f"databricks/metric_views/{_slug(str(kpi['name']))}.yaml"] = _metric_view_yaml(model, kpi, source)
+        source_table = model.asset_table(assets[0]) if assets else ""
+        source = _three_part(source_table, catalog) if assets else "COMPLETAR.catalogo.tabla"
+        joins = [join for join in databricks_joins if join["left_table"] == source_table]
+        files[f"databricks/metric_views/{_slug(str(kpi['name']))}.yaml"] = _metric_view_yaml(model, kpi, source, joins, catalog)
         coverage.append(_cov("kpi", kpi["name"], "needs_completion", "Metric view (YAML 1.1)",
                              "Completar la expresion SQL agregada de la medida y la tabla fuente."))
     for relation in model.relationships:
-        coverage.append(_cov("relationship", relation["name"], "instructions", "Page y instrucciones de Genie",
-                             "Si ambos conceptos tienen tabla, declarar el join en el Genie Agent (join_specs)."))
+        has_join = any(join["relationship"] == relation["name"] for join in databricks_joins)
+        coverage.append(_cov("relationship", relation["name"], "native" if has_join else "instructions",
+                             "Join del Genie Agent (join_specs)" if has_join else "Page y instrucciones de Genie",
+                             "" if has_join else "Si ambos conceptos tienen tabla y su clave, declarar el join en el Genie Agent (join_specs)."))
     for prop in model.properties:
-        coverage.append(_cov("property", prop["name"], "instructions", "Page del concepto", ""))
+        owner_concept = next((str(item) for item in prop.get("linked_candidate_ids", []) if str(item) in model.concept_ids), "")
+        match = property_column(model, owner_concept, str(prop["name"]), model.columns, model.tables_by_concept)
+        if match and reachable(_table_platform(model, match[0]), "databricks"):
+            table = _three_part(match[0], catalog)
+            sql_lines.append(
+                f"ALTER TABLE {table} ALTER COLUMN `{match[1]}` COMMENT '{_sql_text(str(prop['name']) + ': ' + str(prop['definition']))}';"
+            )
+            coverage.append(_cov("property", prop["name"], "native", "Comentario de columna en Unity Catalog", ""))
+        else:
+            coverage.append(_cov("property", prop["name"], "instructions", "Page del concepto", ""))
+    files["databricks/unity_catalog_comments.sql"] = "\n".join(sql_lines) + "\n"
     for rule in model.rules:
         coverage.append(_cov("business_rule", rule["name"], "instructions", "Instrucciones del Genie Agent", ""))
     for item in model.synonyms:
@@ -249,11 +297,18 @@ def _databricks_files(model: _ReleaseModel, settings: dict[str, str]) -> tuple[d
     for item in model.constraints:
         coverage.append(_cov("constraint", item["name"], "instructions", "Instrucciones del Genie Agent", ""))
 
-    instructions = _instructions(model)
+    instructions = _instructions(model, "databricks")
     files["databricks/genie_workspace_instructions.md"] = instructions
-    files["databricks/genie_agent_create_request.json"] = _json(_genie_request(model, settings, tables, instructions))
+    files["databricks/genie_agent_create_request.json"] = _json(
+        _genie_request(model, settings, tables, instructions, databricks_joins, catalog)
+    )
     files["databricks/README_IMPLEMENTACION.md"] = _databricks_readme(model)
     return files, coverage
+
+
+def _table_platform(model: _ReleaseModel, table: str) -> str:
+    return next((model.asset_platform(asset) for asset in model.assets if model.asset_table(asset) == table), "other")
+
 
 
 def _page_markdown(model: _ReleaseModel, item: dict[str, object], bindings: dict[str, list[dict[str, object]]], catalog: str) -> str:
@@ -261,16 +316,28 @@ def _page_markdown(model: _ReleaseModel, item: dict[str, object], bindings: dict
     related = [
         str(rel["name"]) for rel in model.relationships if item_id in rel.get("linked_candidate_ids", [])
     ]
-    properties = [str(prop["name"]) for prop in model.properties if item_id in prop.get("linked_candidate_ids", [])]
+    properties = []
+    for prop in model.properties:
+        if item_id in prop.get("linked_candidate_ids", []):
+            match = property_column(model, item_id, str(prop["name"]), model.columns, model.tables_by_concept)
+            value_type = fabric_value_type(match[2]) if match else None
+            properties.append(f"{prop['name']} ({match[1]}, {value_type})" if value_type else str(prop["name"]))
     assets = [_three_part(model.asset_table(asset), catalog) for asset in bindings.get(item_id, [])]
     evidence = dict(item.get("source_binding", {}))
+    sections = page_sections(model, item, model.example_questions)
+    owner = item_owner(model, item_id)
     lines = [
         f"# {item['name']}", "",
         f"**Dominio:** {model.domain}  ",
+        f"**Responsable:** {owner or 'COMPLETAR_RESPONSABLE'}  ",
         f"**Descripcion:** {_one_line(str(item['definition']))}  ",
         f"**Sinonimos:** {', '.join(model.synonyms_for(item_id)) or '-'}", "",
         "## Definicion", "", str(item["definition"]), "",
     ]
+    if sections["usage"]:
+        lines += ["## Uso de negocio", "", *[f"- {text}" for text in sections["usage"]], ""]
+    if sections["examples"]:
+        lines += ["## Ejemplos", "", *[f"- {question}" for question in sections["examples"]], ""]
     if properties:
         lines += ["## Propiedades", "", *[f"- {name}" for name in properties], ""]
     if related:
@@ -285,12 +352,29 @@ def _page_markdown(model: _ReleaseModel, item: dict[str, object], bindings: dict
     return "\n".join(lines)
 
 
-def _metric_view_yaml(model: _ReleaseModel, kpi: dict[str, object], source: str) -> str:
+def _metric_view_yaml(
+    model: _ReleaseModel, kpi: dict[str, object], source: str, joins: list[dict[str, str]], catalog: str
+) -> str:
     synonyms = model.synonyms_for(str(kpi["id"]))[:10]
-    lines = [
+    formula = kpi_formula(model, str(kpi["id"]))
+    lines = []
+    if formula:
+        lines.append(f"# Propuesta (DAX del modelo semantico; convertir a SQL agregado y validar): {formula}")
+    lines += [
         "version: 1.1",
         f"source: {source}",
         f"comment: {json.dumps(_one_line(str(kpi['definition'])), ensure_ascii=False)}",
+    ]
+    if joins:
+        lines.append("joins:")
+        for join in joins:
+            alias = _slug(join["right_table"].split(".")[-1]).replace("-", "_")
+            lines += [
+                f"  - name: {alias}",
+                f"    source: {_three_part(join['right_table'], catalog)}",
+                f"    \"on\": source.{join['left_column']} = {alias}.{join['right_column']}",
+            ]
+    lines += [
         "measures:",
         f"  - name: {_slug(str(kpi['name'])).replace('-', '_')}",
         '    expr: "COMPLETAR_EXPRESION_AGREGADA"',
@@ -302,10 +386,32 @@ def _metric_view_yaml(model: _ReleaseModel, kpi: dict[str, object], source: str)
     return "\n".join(lines) + "\n"
 
 
-def _genie_request(model: _ReleaseModel, settings: dict[str, str], tables: dict[str, str], instructions: str) -> dict[str, object]:
-    questions = [
-        str(spec.get("example_question")) for spec in model.query_catalog.values() if spec.get("example_question")
-    ] or [f"Que es {concept['name']}?" for concept in model.concepts[:5]]
+def _genie_request(
+    model: _ReleaseModel, settings: dict[str, str], tables: dict[str, str], instructions: str,
+    joins: list[dict[str, str]], catalog: str,
+) -> dict[str, object]:
+    questions = list(model.example_questions) or [f"Que es {concept['name']}?" for concept in model.concepts[:5]]
+    table_sources = {identifier: [_one_line(description)[:1000]] for identifier, description in tables.items()}
+    join_specs = []
+    for join in joins:
+        left, right = _three_part(join["left_table"], catalog), _three_part(join["right_table"], catalog)
+        left_alias, right_alias = (_slug(name.split(".")[-1]).replace("-", "_") for name in (join["left_table"], join["right_table"]))
+        table_sources.setdefault(left, [])
+        table_sources.setdefault(right, [])
+        join_specs.append({
+            "id": _hex_id(model.release_id, "join", left, right, join["left_column"]),
+            "left": {"identifier": left, "alias": left_alias},
+            "right": {"identifier": right, "alias": right_alias},
+            "sql": [
+                f"`{left_alias}`.`{join['left_column']}` = `{right_alias}`.`{join['right_column']}`",
+                "--rt=FROM_RELATIONSHIP_TYPE_MANY_TO_ONE--",
+            ],
+        })
+    instruction_block: dict[str, object] = {
+        "text_instructions": [{"id": _hex_id(model.release_id, "instructions"), "content": [instructions]}],
+    }
+    if join_specs:
+        instruction_block["join_specs"] = sorted(join_specs, key=lambda item: item["id"])
     space = {
         "version": 2,
         "config": {
@@ -316,13 +422,11 @@ def _genie_request(model: _ReleaseModel, settings: dict[str, str], tables: dict[
         },
         "data_sources": {
             "tables": [
-                {"identifier": identifier, "description": [_one_line(description)[:1000]]}
-                for identifier, description in sorted(tables.items())
+                {"identifier": identifier, **({"description": description} if description else {})}
+                for identifier, description in sorted(table_sources.items())
             ]
         },
-        "instructions": {
-            "text_instructions": [{"id": _hex_id(model.release_id, "instructions"), "content": [instructions]}],
-        },
+        "instructions": instruction_block,
     }
     return {
         "title": f"{model.domain} (ONTO)",
@@ -367,7 +471,7 @@ def _asset_coverage(model: _ReleaseModel, target: str, coverage: list[dict[str, 
             coverage.append(_cov("technical_asset", asset["name"], "outside_platform", f"Sistema de origen: {platform}", BRIDGE_HINTS[target]))
 
 
-def _instructions(model: _ReleaseModel) -> str:
+def _instructions(model: _ReleaseModel, target: str) -> str:
     def block(title: str, items: list[dict[str, object]]) -> list[str]:
         if not items:
             return []
@@ -375,7 +479,9 @@ def _instructions(model: _ReleaseModel) -> str:
         for item in items:
             synonyms = model.synonyms_for(str(item["id"]))
             suffix = f" (sinonimos: {', '.join(synonyms)})" if synonyms else ""
-            rows.append(f"- **{item['name']}**{suffix}: {_one_line(str(item['definition']))}")
+            formula = kpi_formula(model, str(item["id"])) if target == "fabric" and item in model.kpis else ""
+            formula_text = f" Formula propuesta (DAX del modelo semantico, a validar): `{formula}`." if formula else ""
+            rows.append(f"- **{item['name']}**{suffix}: {_one_line(str(item['definition']))}{formula_text}")
         return [f"## {title}", "", *rows, ""]
 
     lines = [
@@ -420,6 +526,7 @@ def _coverage_markdown(model: _ReleaseModel, target: str, coverage: list[dict[st
         f"- Release: `{model.release_id}`",
         f"- Elementos: {summary['total']}; implementables en la plataforma: {summary['implementable_in_platform']}.",
         f"- Ruta recomendada: **{summary['recommended_route']}**. {summary['route_reason']}", "",
+        *_pending_lines(summary),
         "| Elemento | Nombre | Resultado | Donde queda | Accion |", "| --- | --- | --- | --- | --- |",
     ]
     for item in coverage:
@@ -427,6 +534,18 @@ def _coverage_markdown(model: _ReleaseModel, target: str, coverage: list[dict[st
             f"| {item['element_type']} | {item['name']} | {COVERAGE_LABELS[item['status']]} | {item['target_artifact']} | {item['action'] or '-'} |"
         )
     return "\n".join(lines) + "\n"
+
+
+def _pending_lines(summary: dict[str, object]) -> list[str]:
+    pending, placeholders = dict(summary["pending_completion"]), dict(summary["placeholders"])
+    if not pending and not placeholders:
+        return ["Pendientes de completar en la plataforma: ninguno.", ""]
+    lines = ["## Pendientes de completar", ""]
+    if pending:
+        lines.append("- Elementos a completar: " + ", ".join(f"{kind} {count}" for kind, count in sorted(pending.items())) + ".")
+    if placeholders:
+        lines.append("- Marcas `COMPLETAR` en archivos: " + ", ".join(f"`{path}` ({count})" for path, count in placeholders.items()) + ".")
+    return [*lines, ""]
 
 
 def _cov(element_type: str, name: object, status: str, target_artifact: str, action: str) -> dict[str, str]:
