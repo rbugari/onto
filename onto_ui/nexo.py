@@ -535,6 +535,8 @@ def _render_package(package: dict[str, object]) -> None:
     metrics[2].metric(t("Falta completar"), counts.get("needs_completion", 0))
     metrics[3].metric(t("Fuera de alcance"), counts.get("outside_platform", 0))
     st.caption(str(summary["route_reason"]))
+    for warning in summary.get("warnings", []):
+        st.warning(t(warning))
     st.download_button(
         t('Descargar paquete para {v0} (.zip)', v0=summary['target_label']),
         data=_zip_files(dict(export["files"])),

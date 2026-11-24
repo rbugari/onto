@@ -323,6 +323,7 @@ EN = {
     "Fabric": "Fabric", "Databricks": "Databricks",
     "Entidades en Silver o Bronze sin definición de negocio: {v0}": "Silver or Bronze entities without a business definition: {v0}",
     "Entidades sin definición en ninguna capa: {v0}": "Entities without a definition in any layer: {v0}",
+    "La release no tiene conceptos aprobados: la ontologia sale sin entidades. Cargar documentacion de negocio en Atlas y aprobar conceptos en Nexo.": "The release has no approved concepts: the ontology has no entities. Load business documentation in Atlas and approve concepts in Nexo.",
 }
 
 

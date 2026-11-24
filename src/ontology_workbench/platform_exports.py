@@ -31,6 +31,10 @@ COVERAGE_LABELS = {
     "outside_platform": "Fuera del alcance de la plataforma (puente o plan B)",
 }
 INSTRUCTION_CHAR_LIMIT = 19_000
+NO_CONCEPTS_WARNING = (
+    "La release no tiene conceptos aprobados: la ontologia sale sin entidades. "
+    "Cargar documentacion de negocio en Atlas y aprobar conceptos en Nexo."
+)
 
 
 def build_platform_export(
@@ -45,12 +49,19 @@ def build_platform_export(
     else:
         raise ValueError("Destino de interoperabilidad no soportado")
     summary = _coverage_summary(coverage, model, target)
+    summary["warnings"] = _release_warnings(model)
     files.update(build_open_standard_files(model))
     summary["open_standards"] = sorted(path for path in files if path.startswith("open_standards/"))
     summary["pending_completion"] = _count_by_type(coverage, "needs_completion")
     summary["placeholders"] = placeholder_counts(files)
     files["coverage_report.md"] = _coverage_markdown(model, target, coverage, summary)
     return {"files": files, "coverage": coverage, "summary": summary}
+
+
+def _release_warnings(model: _ReleaseModel) -> list[str]:
+    if model.concepts:
+        return []
+    return [NO_CONCEPTS_WARNING]
 
 
 def _count_by_type(coverage: list[dict[str, str]], status: str) -> dict[str, int]:
@@ -492,6 +503,7 @@ def _coverage_markdown(model: _ReleaseModel, target: str, coverage: list[dict[st
         f"- Release: `{model.release_id}`",
         f"- Elementos: {summary['total']}; implementables en la plataforma: {summary['implementable_in_platform']}.",
         f"- Ruta recomendada: **{summary['recommended_route']}**. {summary['route_reason']}", "",
+        *[f"> **Atencion:** {warning}" for warning in summary.get("warnings", [])],
         *_pending_lines(summary),
         "| Elemento | Nombre | Resultado | Donde queda | Accion |", "| --- | --- | --- | --- | --- |",
     ]

@@ -201,13 +201,13 @@ def build_business_context_inventory(
             inventory["chunking"] = _chunking_summary(chunks)
             return inventory
         except Exception as exc:
-            fallback = _build_inventory_heuristic(project, documents, chunks)
+            fallback = _build_inventory_heuristic(project, documents, chunks, document_texts)
             fallback["scan_mode"] = "heuristic-fallback"
             fallback["scanner_warning"] = str(exc)
             fallback["chunking"] = _chunking_summary(chunks)
             return fallback
 
-    heuristic = _build_inventory_heuristic(project, documents, chunks)
+    heuristic = _build_inventory_heuristic(project, documents, chunks, document_texts)
     heuristic["scan_mode"] = "heuristic"
     heuristic["chunking"] = _chunking_summary(chunks)
     return heuristic
@@ -403,6 +403,7 @@ def _build_inventory_heuristic(
     project: OntologyProject,
     documents: list[DocumentRecord],
     chunks: list[dict[str, object]],
+    document_texts: dict[str, str] | None = None,
 ) -> dict[str, object]:
     inventory = _inventory_shell(project, documents)
     seen_terms: set[str] = set()
@@ -415,9 +416,13 @@ def _build_inventory_heuristic(
         document_id = str(chunk["document_id"])
         text = str(chunk["text"])
         evidence = _chunk_evidence(chunk)
+        in_code_block = _fence_open_at(document_texts, document_id, int(chunk.get("char_start", 0)))
         for raw_line in text.splitlines():
             line = raw_line.strip()
-            if len(line) < 4:
+            if line.startswith(("```", "~~~")):
+                in_code_block = not in_code_block
+                continue
+            if in_code_block or len(line) < 4:
                 continue
 
             table_cells = _markdown_table_cells(line)
@@ -524,6 +529,25 @@ def _build_inventory_heuristic(
                 )
 
     return inventory
+
+
+def _fence_open_at(document_texts: dict[str, str] | None, document_id: str, offset: int) -> bool:
+    """Whether a fenced code block (``` or ~~~) is still open at a character offset of the document.
+
+    Chunks overlap and may start inside a block, so the state is recomputed from the full text instead of carried over.
+    Code and diagram lines (for example Mermaid `A->>B: message`) look like `term: definition` and are not business context.
+    """
+    if not document_texts or offset <= 0:
+        return False
+    text = document_texts.get(document_id, "").strip()
+    fences, position = 0, 0
+    for line in text.splitlines(keepends=True):
+        if position >= offset:
+            break
+        if line.lstrip().startswith(("```", "~~~")):
+            fences += 1
+        position += len(line)
+    return fences % 2 == 1
 
 
 def _markdown_table_cells(line: str) -> list[str]:
