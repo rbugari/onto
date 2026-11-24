@@ -46,6 +46,16 @@ def _inventory(chunk_size: int, overlap: int) -> dict:
 
 
 class CodeBlockTests(unittest.TestCase):
+    def test_bold_markers_do_not_leak_into_terms_and_definitions(self) -> None:
+        document = DocumentRecord("doc-2", "p", "db.md", "", "functional_docs", "text/markdown", "now", "extracted")
+        text = "**Motor:** MySQL 8.0+ / MariaDB\n**Tabla:** `clientes`\n"
+        chunks = build_document_chunks([document], {"doc-2": text})
+        with patch.dict(os.environ, {"ONTO_LLM_PROVIDER": "disabled"}):
+            inventory = build_business_context_inventory(OntologyProject("p", "P"), [document], {"doc-2": text}, chunks=chunks)
+        self.assertEqual(
+            {(item["term"], item["definition"]) for item in inventory["definitions"]},
+            {("Motor", "MySQL 8.0+ / MariaDB"), ("Tabla", "clientes")},
+        )
     def test_terms_in_fenced_blocks_are_not_business_definitions(self) -> None:
         terms = {item["term"] for item in _inventory(6_000, 500)["definitions"]}
         self.assertEqual(terms, {"Cliente", "Pedido", "Factura"})

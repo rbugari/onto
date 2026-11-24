@@ -642,6 +642,7 @@ def _clean_markdown_text(value: str) -> str:
     text = re.sub(r"^(?:#{1,6}|>|[-*])\s+", "", text)
     text = re.sub(r"`([^`]+)`", r"\1", text)
     text = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", text)
+    text = text.replace("**", "").strip("* ")
     return re.sub(r"\s+", " ", text).strip()
 
 
