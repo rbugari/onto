@@ -15,6 +15,11 @@ from ontology_workbench.export_enrichment import (
     column_index, concept_tables, fabric_value_type, item_owner, kpi_formula, page_sections,
     placeholder_counts, property_column, relationship_joins,
 )
+from ontology_workbench.fabric_ontology import (
+    FORMAT_VERSION as FABRIC_FORMAT_VERSION, RETIREMENT_NOTICE, build_ontology_parts, platform_file,
+)
+from ontology_workbench.fabric_ontology import ontology_name as ontology_display_name
+from ontology_workbench.open_standards import build_open_standard_files
 from ontology_workbench.platform_reach import (  # noqa: F401  (re-exported for callers of this module)
     BRIDGE_HINTS, PLATFORM_REACH, TARGET_LABELS, recommend_route, reachable,
 )
@@ -40,6 +45,8 @@ def build_platform_export(
     else:
         raise ValueError("Destino de interoperabilidad no soportado")
     summary = _coverage_summary(coverage, model, target)
+    files.update(build_open_standard_files(model))
+    summary["open_standards"] = sorted(path for path in files if path.startswith("open_standards/"))
     summary["pending_completion"] = _count_by_type(coverage, "needs_completion")
     summary["placeholders"] = placeholder_counts(files)
     files["coverage_report.md"] = _coverage_markdown(model, target, coverage, summary)
@@ -116,52 +123,13 @@ class _ReleaseModel:
 # ---------------------------------------------------------------- Fabric
 
 def _fabric_files(model: _ReleaseModel, settings: dict[str, str]) -> tuple[dict[str, str], list[dict[str, str]]]:
-    coverage: list[dict[str, str]] = []
-    ontology_name = _fabric_name(settings.get("ontology_name") or f"{model.domain}_ontology")
-    entity_ids: dict[str, str] = {}
-    parts: dict[str, dict[str, object]] = {"definition.json": {}}
-    for concept in model.concepts:
-        entity_id = _bigint(model.release_id, concept["id"])
-        entity_ids[str(concept["id"])] = entity_id
-        name_property = {"id": _bigint(entity_id, "name"), "name": "Nombre", "redefines": None,
-                         "baseTypeNamespaceType": None, "valueType": "String"}
-        properties = [name_property]
-        for prop in model.properties:
-            if concept["id"] in prop.get("linked_candidate_ids", []):
-                match = property_column(model, str(concept["id"]), str(prop["name"]), model.columns, model.tables_by_concept)
-                value_type = fabric_value_type(match[2]) if match else None
-                properties.append({"id": _bigint(entity_id, prop["id"]), "name": _fabric_name(str(prop["name"])),
-                                   "redefines": None, "baseTypeNamespaceType": None, "valueType": value_type or "String"})
-                if value_type:
-                    coverage.append(_cov("property", prop["name"], "native", "Propiedad de EntityType",
-                                         f"Tipo {value_type} tomado de {match[0]}.{match[1]}; vincularla a esa columna en el DataBinding."))
-                else:
-                    coverage.append(_cov("property", prop["name"], "needs_completion", "Propiedad de EntityType",
-                                         "Revisar el tipo de dato (se genera String; no hay columna aprobada que lo respalde) y vincularla a una columna."))
-        parts[f"EntityTypes/{entity_id}/definition.json"] = {
-            "id": entity_id, "namespace": "usertypes", "baseEntityTypeId": None,
-            "name": _fabric_name(str(concept["name"])), "entityIdParts": [name_property["id"]],
-            "displayNamePropertyId": name_property["id"], "namespaceType": "Custom",
-            "visibility": "Visible", "properties": properties,
-        }
-        coverage.append(_cov("concept", concept["name"], "native", "EntityType de la ontologia", ""))
-    for relation in model.relationships:
-        linked = [str(item) for item in relation.get("linked_candidate_ids", [])]
-        if len(linked) == 2 and all(item in entity_ids for item in linked):
-            relation_id = _bigint(model.release_id, relation["id"])
-            parts[f"RelationshipTypes/{relation_id}/definition.json"] = {
-                "namespace": "usertypes", "id": relation_id, "name": _fabric_name(str(relation["name"])),
-                "namespaceType": "Custom", "source": {"entityTypeId": entity_ids[linked[0]]},
-                "target": {"entityTypeId": entity_ids[linked[1]]},
-            }
-            coverage.append(_cov("relationship", relation["name"], "native", "RelationshipType", ""))
-        else:
-            coverage.append(_cov("relationship", relation["name"], "instructions", "Instrucciones del Data Agent",
-                                 "La relacion no une dos conceptos; se describe como instruccion."))
+    display_name = ontology_display_name(settings.get("ontology_name") or f"{model.domain}_ontology")
+    parts, ontology_rows = build_ontology_parts(model)
+    coverage: list[dict[str, str]] = [_cov(*row) for row in ontology_rows]
     for binding, business, asset in model.binding_pairs():
         platform = model.asset_platform(asset)
         if reachable(platform, "fabric"):
-            coverage.append(_cov("data_binding", binding["name"], "needs_completion", "DataBinding a tabla de Lakehouse",
+            coverage.append(_cov("data_binding", binding["name"], "needs_completion", "Data binding de la ontologia (tabla de respaldo)",
                                  f"Vincular '{business['name']}' con {model.asset_table(asset)} desde Fabric (requiere tabla en Lakehouse)."))
         else:
             coverage.append(_cov("data_binding", binding["name"], "outside_platform", "Plan B en ONTO", BRIDGE_HINTS["fabric"]))
@@ -171,30 +139,27 @@ def _fabric_files(model: _ReleaseModel, settings: dict[str, str]) -> tuple[dict[
         coverage.append(_cov("kpi", kpi["name"], "instructions", "Instrucciones del Data Agent",
                              "La formula DAX del modelo semantico va en las instrucciones; validarla antes de usarla." if formula
                              else "Para calcularlo, agregar una medida en el modelo semantico o un ejemplo SQL al Data Agent."))
-    for rule in model.rules:
-        coverage.append(_cov("business_rule", rule["name"], "instructions", "Instrucciones del Data Agent", ""))
     for item in model.synonyms:
-        coverage.append(_cov("synonym", item["name"], "instructions", "Instrucciones del Data Agent", ""))
+        linked = [str(link) for link in item.get("linked_candidate_ids", [])]
+        on_entity = any(link in model.concept_ids for link in linked)
+        coverage.append(_cov("synonym", item["name"], "native" if on_entity else "instructions",
+                             "Synonym del entity type" if on_entity else "Instrucciones del Data Agent", ""))
     for item in model.constraints:
         coverage.append(_cov("constraint", item["name"], "instructions", "Instrucciones del Data Agent", ""))
 
-    item_dir = f"fabric/ontology/{ontology_name}.Ontology"
-    platform_file = _platform_file("Ontology", ontology_name, model.release_id)
-    files = {f"{item_dir}/.platform": _json(platform_file)}
-    files.update({f"{item_dir}/{path}": _json(payload) for path, payload in parts.items()})
+    item_dir = f"fabric/ontology/{display_name}.Ontology"
+    files = {f"{item_dir}/.platform": _json(platform_file(display_name, model.release_id))}
+    files.update({f"{item_dir}/{path}": text for path, text in parts.items()})
+    request_parts = [{"path": ".platform", "payload": _b64(files[f"{item_dir}/.platform"]), "payloadType": "InlineBase64"}]
+    request_parts += [{"path": path, "payload": _b64(text), "payloadType": "InlineBase64"} for path, text in parts.items()]
     files["fabric/ontology/create_ontology_request.json"] = _json(
         {
-            "displayName": ontology_name,
-            "description": f"Ontologia preparada por ONTO desde la release {model.release_id}.",
-            "definition": {
-                "parts": [
-                    {"path": path, "payload": _b64(_json(payload)), "payloadType": "InlineBase64"}
-                    for path, payload in {".platform": {"metadata": {"type": "Ontology", "displayName": ontology_name}}, **parts}.items()
-                ]
-            },
+            "displayName": display_name,
+            "description": f"Ontologia preparada por ONTO desde la release {model.release_id}."[:256],
+            "definition": {"parts": request_parts},
         }
     )
-    agent_dir = f"fabric/data_agent/{ontology_name}_agent.DataAgent/Files/Config"
+    agent_dir = f"fabric/data_agent/{display_name}_agent.DataAgent/Files/Config"
     files[f"{agent_dir}/data_agent.json"] = _json(
         {"$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/dataAgent/2.1.0/schema.json"}
     )
@@ -204,19 +169,20 @@ def _fabric_files(model: _ReleaseModel, settings: dict[str, str]) -> tuple[dict[
             "aiInstructions": _instructions(model, "fabric"),
         }
     )
-    files["fabric/README_IMPLEMENTACION.md"] = _fabric_readme(model, ontology_name)
+    files["fabric/README_IMPLEMENTACION.md"] = _fabric_readme(model, display_name)
     return files, coverage
 
 
 def _fabric_readme(model: _ReleaseModel, ontology_name: str) -> str:
     return "\n".join([
         f"# Implementar la release {model.release_id} en Microsoft Fabric", "",
-        "Este paquete lo genero ONTO. No publica nada: el equipo de Fabric lo importa y lo completa.", "",
+        "Este paquete lo genero ONTO. No publica nada: el equipo de Fabric lo importa y lo completa.",
+        f"Formato: `{FABRIC_FORMAT_VERSION}`. {RETIREMENT_NOTICE}", "",
         "## 1. Ontologia (Fabric IQ)", "",
-        f"- Carpeta `ontology/{ontology_name}.Ontology/`: formato de integracion Git. Copiarla al repositorio conectado al workspace y sincronizar.",
+        f"- Carpeta `ontology/{ontology_name}.Ontology/`: formato de integracion Git (TMDL). Copiarla al repositorio conectado al workspace y sincronizar.",
         "- Alternativa por API: `POST https://api.fabric.microsoft.com/v1/workspaces/{workspaceId}/ontologies` con el cuerpo de `ontology/create_ontology_request.json`.",
-        "- Contiene tipos de entidad (conceptos aprobados), propiedades y relaciones. Cada entidad trae la propiedad `Nombre` como identificador por defecto.",
-        "- Los enlaces a datos (DataBindings) se completan en Fabric: requieren una tabla de Lakehouse y el mapeo columna-propiedad. Ver `coverage_report.md`.", "",
+        "- Contiene entity types (conceptos aprobados, con descripcion y sinonimos), propiedades, relaciones y reglas. Si un concepto no tiene propiedades aprobadas se agrega `Nombre` como propiedad por defecto.",
+        "- La ontologia se entrega sin tablas de respaldo: los data bindings (tabla de Lakehouse y columna por propiedad) se agregan en Fabric. Ver `coverage_report.md`.", "",
         "## 2. Data Agent", "",
         f"- Carpeta `data_agent/{ontology_name}_agent.DataAgent/`: `aiInstructions` con conceptos, KPIs, reglas, sinonimos y la regla de abstencion.",
         "- Agregar como fuente de datos el Lakehouse, Warehouse o modelo semantico que corresponda y publicar el agente.", "",
@@ -552,30 +518,9 @@ def _cov(element_type: str, name: object, status: str, target_artifact: str, act
     return {"element_type": element_type, "name": str(name), "status": status, "target_artifact": target_artifact, "action": action}
 
 
-def _platform_file(item_type: str, display_name: str, seed: str) -> dict[str, object]:
-    digest = hashlib.sha256(f"{seed}:{item_type}:{display_name}".encode()).hexdigest()
-    return {
-        "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
-        "metadata": {"type": item_type, "displayName": display_name},
-        "config": {"version": "2.0", "logicalId": f"{digest[:8]}-{digest[8:12]}-{digest[12:16]}-{digest[16:20]}-{digest[20:32]}"},
-    }
-
-
-def _fabric_name(value: str) -> str:
-    ascii_value = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode("ascii")
-    clean = re.sub(r"[^A-Za-z0-9_-]+", "_", ascii_value).strip("_-")
-    if not clean or not clean[0].isalpha():
-        clean = f"E_{clean}"
-    return clean[:128]
-
-
 def _slug(value: str) -> str:
     ascii_value = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode("ascii")
     return re.sub(r"[^a-z0-9]+", "-", ascii_value.casefold()).strip("-")[:80] or "item"
-
-
-def _bigint(*seeds: object) -> str:
-    return str(int(hashlib.sha256(":".join(map(str, seeds)).encode()).hexdigest()[:15], 16) or 1)
 
 
 def _hex_id(*seeds: object) -> str:

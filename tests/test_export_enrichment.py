@@ -67,9 +67,9 @@ class ExportEnrichmentTests(unittest.TestCase):
 
     def test_fabric_properties_take_their_type_from_the_bound_column_and_keep_unknowns_for_review(self) -> None:
         files = build_platform_export(_release(), "fabric")["files"]
-        entity = next(json.loads(text) for path, text in files.items() if path.endswith("definition.json") and "Cliente" in text and "EntityTypes" in path)
-        types = {prop["name"]: prop["valueType"] for prop in entity["properties"]}
-        self.assertEqual(types["Nombre"], "String")
+        entity = files["fabric/ontology/ventas_ontology.Ontology/entities/Cliente.tmdl"]
+        self.assertIn("\tproperty Nombre\n\t\tdataType: string", entity)
+        self.assertIn("\tproperty Apodo\n\t\tdataType: string", entity)
         export = build_platform_export(_release(), "fabric")
         status = {item["name"]: item["status"] for item in export["coverage"] if item["element_type"] == "property"}
         self.assertEqual(status, {"Nombre": "native", "Total": "native", "Apodo": "needs_completion"})
@@ -77,8 +77,8 @@ class ExportEnrichmentTests(unittest.TestCase):
 
     def test_total_property_is_double_in_fabric(self) -> None:
         files = build_platform_export(_release(), "fabric")["files"]
-        pedido = next(json.loads(text) for path, text in files.items() if "EntityTypes" in path and "Pedido" in text)
-        self.assertIn("Double", {prop["valueType"] for prop in pedido["properties"]})
+        pedido = files["fabric/ontology/ventas_ontology.Ontology/entities/Pedido.tmdl"]
+        self.assertIn("\tproperty Total\n\t\tdataType: double", pedido)
 
     def test_databricks_joins_come_from_the_key_column_in_metric_view_and_genie_agent(self) -> None:
         files = build_platform_export(_release(), "databricks", {"catalog": "main"})["files"]

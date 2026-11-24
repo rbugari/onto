@@ -6,6 +6,7 @@ Items that need a person (SQL for a KPI, ids of the platform) stay as placeholde
 from __future__ import annotations
 
 import re
+import unicodedata
 
 from ontology_workbench.cross_source import key_signature, normalize_entity
 
@@ -106,6 +107,24 @@ def item_owner(model, item_id: str) -> str:
 
 def placeholder_counts(files: dict[str, str]) -> dict[str, int]:
     return {path: text.count("COMPLETAR") for path, text in sorted(files.items()) if "COMPLETAR" in text}
+
+
+def identifier(value: str) -> str:
+    """Letters, digits and underscore, starting with a letter (valid TMDL/RDF local name)."""
+    ascii_value = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode("ascii")
+    clean = re.sub(r"[^A-Za-z0-9_]+", "_", ascii_value).strip("_")
+    if not clean or not clean[0].isalpha():
+        clean = f"E_{clean}"
+    return clean[:100]
+
+
+def unique_name(name: str, used: set[str]) -> str:
+    candidate, number = name, 2
+    while candidate.casefold() in {item.casefold() for item in used}:
+        candidate = f"{name}_{number}"
+        number += 1
+    used.add(candidate)
+    return candidate
 
 
 def _join(many_table: str, one_table: str, index) -> dict[str, str] | None:

@@ -2157,21 +2157,32 @@ class PlatformExportTests(unittest.TestCase):
             "agent_context_pack": {"query_catalog": {"q": {"example_question": "Cuantos clientes activos hay?"}}},
         }
 
-    def test_fabric_export_builds_valid_ontology_definition(self) -> None:
+    def test_fabric_export_builds_tmdl_ontology_for_the_new_experience(self) -> None:
         export = build_platform_export(self._release("fabric"), "fabric", {"ontology_name": "Ventas ñ 2026"})
         files = export["files"]
-        entity_paths = [path for path in files if "/EntityTypes/" in path]
-        self.assertEqual(len(entity_paths), 2)
-        entity = json.loads(files[entity_paths[0]])
-        self.assertRegex(entity["name"], r"^[a-zA-Z][a-zA-Z0-9_-]{0,127}$")
-        self.assertTrue(entity["id"].isdigit() and 0 < int(entity["id"]) < 2**63)
-        self.assertIn("Ventas_n_2026.Ontology/.platform", " ".join(files))
-        relation = json.loads(next(content for path, content in files.items() if "/RelationshipTypes/" in path))
-        self.assertEqual({relation["source"]["entityTypeId"], relation["target"]["entityTypeId"]},
-                         {json.loads(files[path])["id"] for path in entity_paths})
+        base = "fabric/ontology/Ventas_n_2026.Ontology"
+        self.assertEqual(json.loads(files[f"{base}/.platform"])["config"]["version"], "2.0")
+        entity_paths = sorted(path for path in files if path.startswith(f"{base}/entities/"))
+        self.assertEqual([path.rsplit("/", 1)[-1] for path in entity_paths], ["Cliente_activo.tmdl", "Pedido.tmdl"])
+        entity = files[f"{base}/entities/Cliente_activo.tmdl"]
+        self.assertIn("/// Cliente con compra en 12 meses.\nentity Cliente_activo", entity)
+        self.assertIn("\tsynonym Cuenta", entity)
+        self.assertIn("\tproperty Zona\n\t\tdataType: string", entity)
+        self.assertIn("\tproperty Nombre\n", files[f"{base}/entities/Pedido.tmdl"])
+        self.assertIn("entityRelationship realiza\n\tfromEntity: Cliente_activo\n\ttoEntity: Pedido", files[f"{base}/entityRelationships.tmdl"])
+        rule = files[f"{base}/rules/Anulados.tmdl"]
+        self.assertIn("statement: Un pedido anulado no cuenta como venta.", rule)
+        self.assertIn("ruleReferencedEntity Pedido", rule)
+        model = files[f"{base}/model.tmdl"]
+        self.assertIn("ref entity Cliente_activo", model)
+        self.assertIn("ref namespace default", model)
+        self.assertIn("ref rule Anulados", model)
         request = json.loads(files["fabric/ontology/create_ontology_request.json"])
-        decoded = {part["path"]: json.loads(base64.b64decode(part["payload"])) for part in request["definition"]["parts"]}
-        self.assertEqual(decoded[".platform"]["metadata"]["type"], "Ontology")
+        self.assertLessEqual(len(request["description"]), 256)
+        decoded = {part["path"]: base64.b64decode(part["payload"]).decode("utf-8") for part in request["definition"]["parts"]}
+        self.assertEqual(json.loads(decoded[".platform"])["metadata"]["type"], "Ontology")
+        self.assertEqual(decoded["entities/Cliente_activo.tmdl"], entity)
+        self.assertEqual(decoded["model.tmdl"], model)
         stage = json.loads(next(content for path, content in files.items() if path.endswith("stage_config.json")))
         self.assertIn("Un pedido anulado no cuenta como venta.", stage["aiInstructions"])
         self.assertIn("Cuenta", stage["aiInstructions"])

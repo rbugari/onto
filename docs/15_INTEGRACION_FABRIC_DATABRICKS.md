@@ -7,9 +7,9 @@ Relacion con el foco: ONTO **no compite** con la ontologia de Fabric ni con la d
 
 | Pregunta | Respuesta corta |
 | --- | --- |
-| Como entiende Fabric una ontologia | Como un item **Ontology** de Fabric IQ: tipos de entidad con propiedades, relaciones y vinculos a tablas de Lakehouse. Las definiciones, reglas y KPIs en lenguaje natural van al **Data Agent** como instrucciones. |
+| Como entiende Fabric una ontologia | Como un item **Ontology** de Fabric IQ (experiencia nueva, TMDL): tipos de entidad con descripcion, sinonimos y propiedades, relaciones y reglas, y vinculos opcionales a tablas. Los KPIs y lo que no tiene entidad van al **Data Agent** como instrucciones. |
 | Como entiende Databricks una ontologia | Como la **capa semantica de Unity Catalog** (Genie Ontology): Pages (conceptos de negocio), metric views (KPIs gobernados), dominios, comentarios y tags en tablas y columnas. Genie Agents la consume para responder. |
-| Como les entregamos lo aprobado hoy | Nexo genera, desde una release aprobada, un **paquete de archivos** que cada plataforma importa: JSON de definicion de item (Fabric), Markdown, YAML y SQL (Databricks), y los cuerpos de request listos para la API. |
+| Como les entregamos lo aprobado hoy | Nexo genera, desde una release aprobada, un **paquete de archivos** que cada plataforma importa: TMDL y cuerpo REST (Fabric), Markdown, YAML y SQL (Databricks), y archivos en estandares abiertos (OWL/Turtle y Ossie experimental). |
 | Hace falta conector | No para la release 1. El paquete se importa con Git integration, la API REST o el editor SQL. El conector directo es la release 2. |
 | Que pasa con lo que no entra | El paquete incluye un **reporte de cobertura** por elemento y recomienda la ruta: **A** (todo en la plataforma), **B** (mixta: plataforma + ONTO como plan B) o **C** (ninguna tabla alcanzable: ONTO como plan B, salvo que se construya un puente a los datos). |
 
@@ -26,21 +26,23 @@ flowchart LR
 
 ### 2.1 Microsoft Fabric (Fabric IQ)
 
-- **Item Ontology** (preview). Definicion en partes:
-  - `.platform` y `definition.json`;
-  - `EntityTypes/{id}/definition.json`: nombre (regex `^[a-zA-Z][a-zA-Z0-9_-]{0,127}$`), id numerico, propiedades tipadas (`String`, `Boolean`, `DateTime`, `Object`, `BigInt`, `Double`) y propiedad de nombre visible;
-  - `EntityTypes/{id}/DataBindings/{guid}.json`: vinculo a una tabla de Lakehouse (requiere ids de workspace e item). Eventhouse solo para series de tiempo;
-  - `RelationshipTypes/{id}/definition.json`: relacion origen/destino entre tipos de entidad;
-  - `Documents`, `Overviews`, `ResourceLinks` (por ejemplo un reporte de Power BI).
-- La definicion **no tiene campo de descripcion** para entidades. Por eso las definiciones, reglas de negocio, sinonimos y KPIs van al **Data Agent**:
+- **Item Ontology** (preview, **experiencia nueva basada en TMDL**; la anterior, de JSON por entity type, se retira el **2027-01-31**). Partes de la definicion (documentacion de Microsoft Learn consultada el 2026-11-24):
+  - `.platform` (version de config `2.0`), `database.tmdl` y `model.tmdl` (con `ref entity`, `ref namespace default` y `ref rule`);
+  - `namespaces/default.tmdl` (obligatorio);
+  - `entities/{nombre}.tmdl`: tipo de entidad con descripcion (`///`), `synonym`, `keyProperty` opcional y propiedades (`dataType`: `string`, `int64`, `double`, `dateTime`, `boolean`, `decimal`). Pueden definirse **sin tabla de respaldo** (ontology-first); el binding (`backingTable` y `backingConfiguration`) se agrega despues;
+  - `entityRelationships.tmdl`: relaciones entre entidades (`fromEntity`, `toEntity`; el respaldo en una relacion de tabla es opcional);
+  - `rules/{regla}.tmdl`: regla en lenguaje natural (`statement`) con las entidades que referencia;
+  - `tables/`, `relationships.tmdl`, `expressions.tmdl` y `metrics/`: tablas de respaldo DirectLake, relaciones TOM, la conexion al Lakehouse y metricas (DAX de un modelo semantico). ONTO **no los genera** porque no conoce el workspace ni el Lakehouse.
+- Tambien importa y exporta **RDF/Turtle/OWL** en una ontologia vacia: `owl:Class` es entity type, `owl:DatatypeProperty` es propiedad (con `rdfs:domain`), `owl:ObjectProperty` es relacion, `rdfs:label` es nombre, `rdfs:comment` es descripcion y `skos:altLabel` es sinonimo.
+- Los KPIs, restricciones y reglas sin entidad referenciada van al **Data Agent** como instrucciones:
   - `Files/Config/data_agent.json`;
   - `Files/Config/draft/stage_config.json` con `aiInstructions`;
   - por fuente: `datasource.json` con `dataSourceInstructions` y descripciones de elementos, y `fewshots.json` (pares pregunta/consulta).
-- Formas de crear: API REST `POST /v1/workspaces/{workspaceId}/ontologies` con las partes en base64, o carpeta del item en un repo conectado por **Git integration**.
+- Formas de crear: API REST `POST /v1/workspaces/{workspaceId}/ontologies` (`displayName` solo letras, numeros y `_`, `description` hasta 256 caracteres y `definition.parts` en base64), o carpeta del item en un repo conectado por **Git integration**.
 
 ### 2.2 Databricks (Unity Catalog semantics / Genie)
 
-- **Pages** (beta): conceptos de negocio con dominio, responsable, sinonimos, descripcion, cuerpo y activos relacionados. Se crean en la UI o por *bulk import* desde documentos. No vimos API publica.
+- **Pages**: conceptos de negocio con dominio, responsable, sinonimos, descripcion, cuerpo y activos relacionados. Se crean en la UI o por *bulk import* desde documentos. Los **Wikis** (documentar una tabla) y las relaciones entre metric views estan en Beta. La pagina de Pages ya no lleva la etiqueta Beta; confirmar el estado GA antes de afirmarlo a un cliente.
 - **Metric views**: KPIs gobernados en YAML (version 1.1) con `source`, `joins`, `dimensions` y `measures` (nombre, expresion, comentario, sinonimos, formato). Se crean con `CREATE VIEW ... WITH METRICS LANGUAGE YAML AS $$ ... $$`.
 - **Dominios y certificacion**: tags gobernados.
 - **Comentarios, tags y constraints** de Unity Catalog: por SQL (`COMMENT ON`, `SET TAGS`, PK/FK).
@@ -51,14 +53,14 @@ flowchart LR
 
 | Elemento aprobado en Nexo | Fabric IQ | Databricks | Si no entra |
 | --- | --- | --- | --- |
-| Concepto / entidad | Tipo de entidad (Ontology) | Page | - |
-| Propiedad | Propiedad del tipo de entidad (tipo a completar) | Seccion de la Page | - |
-| Relacion | Tipo de relacion | Page e instrucciones del Genie Agent y join spec (si la release incluye la columna clave) | - |
-| Sinonimo | Instruccion del Data Agent | Sinonimos de Page y columnas | - |
-| Regla de negocio | Instruccion del Data Agent | Instruccion del Genie Agent / Page | - |
+| Concepto / entidad | Entity type (con descripcion y sinonimos) | Page | - |
+| Propiedad | Propiedad del entity type (tipo desde la columna aprobada) | Seccion de la Page y comentario de columna | - |
+| Relacion | Entity relationship | Page e instrucciones del Genie Agent y join spec (si la release incluye la columna clave) | - |
+| Sinonimo | `synonym` del entity type | Sinonimos de Page y columnas | - |
+| Regla de negocio | Rule (si referencia una entidad aprobada) o instruccion del Data Agent | Instruccion del Genie Agent / Page | - |
 | KPI | Instruccion del Data Agent (+ medida en el modelo semantico) | Metric view (expresion a completar) | - |
 | Activo tecnico | Tabla del Lakehouse / modelo Power BI | Tabla de Unity Catalog | Plan B si la fuente esta fuera de alcance |
-| Binding | DataBinding (requiere ids) | `COMMENT ON` + tags | Plan B si la fuente esta fuera de alcance |
+| Binding | Tabla de respaldo (se agrega en Fabric; requiere ids) | `COMMENT ON` + tags | Plan B si la fuente esta fuera de alcance |
 
 Estados del reporte de cobertura:
 
@@ -98,7 +100,8 @@ data/interoperability/<proyecto>/<release>/<destino>/<paquete>/
   export/
     coverage_report.md
     fabric/
-      ontology/<Nombre>.Ontology/.platform, definition.json, EntityTypes/..., RelationshipTypes/...
+      ontology/<Nombre>.Ontology/.platform, database.tmdl, model.tmdl, namespaces/default.tmdl,
+                                  entities/<Entidad>.tmdl, entityRelationships.tmdl, rules/<Regla>.tmdl
       ontology/create_ontology_request.json        # cuerpo listo para la API REST
       data_agent/<Nombre>_agent.DataAgent/Files/Config/data_agent.json, draft/stage_config.json
       README_IMPLEMENTACION.md
@@ -109,6 +112,10 @@ data/interoperability/<proyecto>/<release>/<destino>/<paquete>/
       genie_workspace_instructions.md
       genie_agent_create_request.json               # cuerpo listo para la API de Genie
       README_IMPLEMENTACION.md
+    open_standards/                                  # en ambos paquetes
+      ontology.ttl                                  # OWL/Turtle: Fabric lo importa en una ontologia vacia
+      semantic_model.ossie.yaml                     # Apache Ossie 0.3.0.dev0, EXPERIMENTAL (JSON = YAML valido)
+      README.md
 ```
 
 La pantalla muestra la ruta recomendada, cuantos elementos se implementan en la plataforma, la tabla de cobertura y un boton para **descargar el paquete en ZIP**. Parametros opcionales: nombre de la ontologia (Fabric); catalogo y warehouse (Databricks).
@@ -120,8 +127,8 @@ Validado con las demos: la demo comercial (fuente Power BI) recomienda **ruta A*
 **Fabric**
 
 1. Revisar `coverage_report.md`.
-2. Opcion Git: copiar la carpeta `<Nombre>.Ontology` al repo conectado al workspace y sincronizar. Opcion API: enviar `create_ontology_request.json` a `POST https://api.fabric.microsoft.com/v1/workspaces/{workspaceId}/ontologies` con identidad Entra autorizada.
-3. En el editor de la ontologia: completar tipos de propiedad y vincular cada tipo de entidad a su tabla de Lakehouse.
+2. Opcion Git: copiar la carpeta `<Nombre>.Ontology` (TMDL, experiencia nueva) al repo conectado al workspace y sincronizar. Opcion API: enviar `create_ontology_request.json` a `POST https://api.fabric.microsoft.com/v1/workspaces/{workspaceId}/ontologies` con identidad Entra autorizada. Opcion TTL: crear una ontologia vacia e importar `open_standards/ontology.ttl` (revisar el resumen de importacion: elementos preservados, ajustados o no soportados).
+3. En el editor de la ontologia: completar los tipos marcados y agregar los data bindings (tabla de Lakehouse y columna por propiedad).
 4. Crear el Data Agent (o copiar la carpeta `.DataAgent`) y agregar las fuentes de datos. Las instrucciones ya vienen redactadas.
 
 **Databricks**
@@ -134,8 +141,9 @@ Validado con las demos: la demo comercial (fuente Power BI) recomienda **ruta A*
 
 ## 6. Limites conocidos
 
-- Fabric IQ Ontology y Databricks Pages estan en preview/beta: los formatos pueden cambiar. El generador esta aislado en `platform_exports.py` para ajustarlo sin tocar Atlas ni Nexo.
-- ONTO no conoce ids de workspace, lakehouse ni warehouse: los DataBindings de Fabric y el `warehouse_id` de Databricks se completan en la plataforma (o se pasan como parametro).
+- Fabric IQ Ontology esta en preview y Apache Ossie esta en incubacion (version 0.3 dev): los formatos pueden cambiar. El generador de Fabric esta aislado en `fabric_ontology.py` y el de estandares abiertos en `open_standards.py`; el export de Ossie es **experimental** y la version de la especificacion se declara en el archivo. El export a OWL/TTL no representa reglas, KPIs ni restricciones.
+- La ontologia de Fabric se entrega **sin tablas de respaldo** (ontology-first). Si un concepto no tiene propiedades aprobadas se agrega `Nombre` como propiedad por defecto. No verificamos la importacion en un workspace real: eso lo cubre el piloto de [validacion en plataformas](pilotos/PILOTO_VALIDACION_PLATAFORMAS.md).
+- ONTO no conoce ids de workspace, lakehouse ni warehouse: los data bindings de Fabric y el `warehouse_id` de Databricks se completan en la plataforma (o se pasan como parametro).
 - Las expresiones de KPI no se inventan: el metric view sale con `COMPLETAR_EXPRESION_AGREGADA`. Si el KPI esta vinculado a una medida de un modelo Power BI, su DAX se incluye como **propuesta** (comentario en el YAML y en las instrucciones del Data Agent de Fabric) para que el equipo de datos la convierta a SQL y la valide.
 - Los tipos de propiedad se toman de la columna aprobada que coincide por nombre con la propiedad (`bim.dataType` o `fabric.dataType`); sin columna respaldada salen como `String` y quedan marcados "completar".
 - Los joins (metric views y `join_specs` de Genie) solo se generan cuando una relacion aprobada une dos conceptos con tabla y la release incluye la columna clave (por ejemplo `cliente_id` hacia `id`); si falta, se informa y no se inventa.
@@ -150,19 +158,19 @@ Validado con las demos: la demo comercial (fuente Power BI) recomienda **ruta A*
 | R1 - Paquetes de archivos | Generador Fabric + Databricks, reporte de cobertura, ruta A/B/C con puentes sugeridos, descarga ZIP en Nexo, tests | **Hecho** |
 | R1.1 - Completar desde el origen | Tipos de propiedad desde la metadata tecnica; joins desde relaciones aprobadas y claves; Pages completas (responsable, uso de negocio, ejemplos, propiedades tipadas, fuentes); comentarios de columna; formula DAX propuesta para KPIs; conteo de pendientes. Sin ejemplos SQL ni benchmarks (ver limites) | **Hecho** (F3) |
 | R1.2 - Viabilidad por plataforma en Atlas | Atlas estima por fuente si es alcanzable por la plataforma destino (y por que puente), junto con la capa Bronze/Silver/Gold, para anticipar la ruta antes de Nexo | **Hecho** (F2, ver [Atlas](05_ATLAS_ASSESSMENT_MVP.md)) |
-| R1.3 - Formatos estables | Fabric al modelo nuevo de Ontology, export OWL/TTL y Ossie (experimental) | Plan F4 |
+| R1.3 - Formatos estables | Fabric al modelo nuevo de Ontology (TMDL), export OWL/TTL y Ossie (experimental) | **Hecho** (F4); pendiente validar en un workspace real |
 | R2 - Conectores de publicacion | Crear/actualizar Ontology, Data Agent, Genie Agents por API | **No planificado** (las APIs estan en preview y el paquete por archivo alcanza) |
 | R2.1 - DataBindings | Seleccion de Lakehouse/tabla/columna en Nexo y generacion de `DataBindings` de Fabric | **No planificado** |
 | R3 - Importar lo existente | Leer semantic models, metric views, Pages y ontologias exportadas como evidencia de Atlas y cruzarlas con los sistemas que la plataforma no ve. Reemplaza la sincronizacion bidireccional | Plan F5 (opcional) |
 
 Proximos pasos concretos:
 
-1. Validar el paquete con un workspace de Fabric con Fabric IQ habilitado y un workspace de Databricks con Genie (piloto guiado).
-2. Ajustar el generador segun lo que cada plataforma acepte en la practica y fijar la version de formato probada.
-3. Ajustar F4 (formatos estables) segun el [plan](18_PLAN_REPOSICIONAMIENTO.md); R1.1 y R1.2 ya estan hechos.
-4. Actualizar el export de Fabric al modelo nuevo antes del retiro de la experiencia vieja de Ontology (2027-01-31).
+1. Validar el paquete con un workspace de Fabric con Fabric IQ habilitado y un workspace de Databricks con Genie, siguiendo la [plantilla de piloto](pilotos/PILOTO_VALIDACION_PLATAFORMAS.md). Es lo que falta antes de afirmar que los formatos cargan.
+2. Ajustar los generadores segun lo que cada plataforma acepte en la practica y fijar la version de formato probada.
+3. Decidir F5 (importar lo que la plataforma ya tiene) despues del piloto. El plan esta en [18_PLAN_REPOSICIONAMIENTO.md](18_PLAN_REPOSICIONAMIENTO.md).
 
 ## 8. Fuentes consultadas
 
-- Microsoft Fabric REST API: definiciones de item `Ontology` y `DataAgent`, y creacion de items por definicion (documentacion oficial de Microsoft Fabric).
+- Microsoft Fabric (consultado el 2026-11-24): [Ontology (new) item definition](https://learn.microsoft.com/en-us/rest/api/fabric/articles/item-management/definitions/ontology-definition), [Create ontology](https://learn.microsoft.com/en-us/rest/api/fabric/ontology/items/create-ontology), [Ontology overview](https://learn.microsoft.com/en-us/fabric/iq/ontology/overview), [Import and export ontologies](https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-import-export) y [Semantic views](https://learn.microsoft.com/en-us/fabric/fundamentals/semantic-views-overview). Definiciones de item `DataAgent` de la REST API de Fabric.
+- Apache Ossie (incubating): [sitio](https://ossie.apache.org/) y [especificacion core 0.3.0.dev0](https://github.com/apache/ossie/blob/main/core-spec/spec.md).
 - Databricks: [Unity Catalog semantics](https://docs.databricks.com/aws/en/uc-semantics/), [Pages](https://docs.databricks.com/aws/en/uc-semantics/pages), [Domains](https://docs.databricks.com/aws/en/uc-semantics/domains), [Agent metadata](https://docs.databricks.com/aws/en/uc-semantics/agent-metadata), [Metric views](https://docs.databricks.com/aws/en/metric-views/), [Referencia YAML](https://docs.databricks.com/aws/en/metric-views/yaml-ref), [Genie set-up](https://docs.databricks.com/aws/en/genie/set-up), [Genie Conversation API](https://docs.databricks.com/aws/en/genie/conversation-api), [Genie One](https://docs.databricks.com/aws/en/genie-one/chat).

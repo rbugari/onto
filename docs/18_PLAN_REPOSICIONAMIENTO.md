@@ -31,6 +31,16 @@ Estado: aprobado para ejecutar fase a fase. Cada fase tiene un prompt autonomo e
 
 F4 es urgente por fecha: la experiencia vieja de Ontology en Fabric se retira el 31/01/2027. F2 y F3 son el diferencial.
 
+### Estado (2026-11-24)
+
+| Fase | Estado |
+| --- | --- |
+| F1 Foco y limpieza | Hecha |
+| F2 Capa y viabilidad en Atlas | Hecha |
+| F3 Contenido semantico en el paquete | Hecha (sin ejemplos SQL ni benchmarks: la release no guarda SQL aprobado) |
+| F4 Formatos estables | Hecha en codigo y tests; **falta validar en workspaces reales** ([plantilla de piloto](pilotos/PILOTO_VALIDACION_PLATAFORMAS.md)). Hallazgo: la ontologia nueva de Fabric es TMDL, no el JSON anterior |
+| F5 Importar lo existente | Opcional; decidir despues del piloto |
+
 ## No hacer
 
 - Conectores de publicacion directa (release 2 del [doc 15](15_INTEGRACION_FABRIC_DATABRICKS.md)).
