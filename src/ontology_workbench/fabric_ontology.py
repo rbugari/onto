@@ -90,7 +90,7 @@ def _entity(model, concept: dict[str, object], name: str, coverage: list[Coverag
     for prop in model.properties:
         if concept_id not in prop.get("linked_candidate_ids", []):
             continue
-        match = property_column(model, concept_id, str(prop["name"]), model.columns, model.tables_by_concept)
+        match = property_column(model, concept_id, prop, model.columns, model.tables_by_concept)
         value_type = fabric_value_type(match[2]) if match else None
         properties.append((unique_name(identifier(str(prop["name"])), property_names), prop, _TMDL_TYPES.get(value_type or "String", "string")))
         if value_type:

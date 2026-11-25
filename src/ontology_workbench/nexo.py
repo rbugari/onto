@@ -180,6 +180,7 @@ def build_ontology_release(
         for candidate in approved
         if candidate["candidate_type"] == "technical_asset"
     ]
+    technical_assets, adopted_bindings = _adopt_backing_assets(technical_assets, approved, approved_model_elements)
     canonical_ontology = {
         "format": "nexo-canonical-ontology-v0.2",
         "project_id": dict(draft["manifest"])["project_id"],
@@ -200,7 +201,7 @@ def build_ontology_release(
         "relationships": _canonical_model_elements(approved_model_elements, "relationship"),
         "synonyms": _canonical_model_elements(approved_model_elements, "synonym"),
         "constraints": _canonical_model_elements(approved_model_elements, "constraint"),
-        "data_bindings": _canonical_model_elements(approved_model_elements, "source_binding"),
+        "data_bindings": _canonical_model_elements(approved_model_elements, "source_binding") + adopted_bindings,
         "ownership": _ownership(approved_model_elements),
         "warning": (
             "Las relaciones y restricciones solo aparecen cuando una persona las agrega y aprueba explicitamente."
@@ -473,6 +474,44 @@ def _canonical_candidate(candidate: dict[str, object]) -> dict[str, object]:
     return canonical
 
 
+def _adopt_backing_assets(
+    technical_assets: list[dict[str, object]],
+    approved: list[dict[str, object]],
+    approved_model_elements: list[dict[str, object]],
+) -> tuple[list[dict[str, object]], list[dict[str, object]]]:
+    """Add to the release the tables that back approved entities and the columns mapped by approved properties.
+
+    Discovery drafts attach them to the entity (`backing_assets`) or property (`bound_asset`) instead of listing them
+    as review candidates; approving the entity or property adopts them, with a binding from the entity to each table.
+    """
+    assets = list(technical_assets)
+    known = {str(asset["id"]) for asset in assets}
+    bindings: list[dict[str, object]] = []
+
+    def adopt(raw: dict[str, object]) -> None:
+        if str(raw["candidate_id"]) not in known:
+            known.add(str(raw["candidate_id"]))
+            assets.append(_canonical_candidate(raw))
+
+    for candidate in approved:
+        if candidate["candidate_type"] != "concept":
+            continue
+        for raw in candidate.get("backing_assets", []):
+            adopt(raw)
+            if dict(raw.get("technical_metadata", {})).get("bim.objectType") == "table":
+                bindings.append({
+                    "id": f"binding-{candidate['candidate_id']}-{raw['candidate_id']}",
+                    "name": f"{candidate['name']} en {raw['name']}",
+                    "definition": f"{candidate['name']} se respalda en la tabla {raw['name']}, segun las fuentes citadas por el modelo.",
+                    "owner": "",
+                    "linked_candidate_ids": [candidate["candidate_id"], raw["candidate_id"]],
+                })
+    for element in approved_model_elements:
+        if element.get("element_type") == "property" and element.get("bound_asset"):
+            adopt(element["bound_asset"])
+    return assets, bindings
+
+
 def _canonical_model_elements(
     elements: list[dict[str, object]], element_type: str
 ) -> list[dict[str, object]]:
@@ -483,6 +522,7 @@ def _canonical_model_elements(
             "definition": element["definition"],
             "owner": element.get("owner", ""),
             "linked_candidate_ids": list(element.get("linked_candidate_ids", [])),
+            **({"bound_asset_id": element["bound_asset_id"]} if element.get("bound_asset_id") else {}),
         }
         for element in elements
         if element.get("element_type") == element_type

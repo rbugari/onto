@@ -257,7 +257,7 @@ def _databricks_files(model: _ReleaseModel, settings: dict[str, str]) -> tuple[d
                              "" if has_join else "Si ambos conceptos tienen tabla y su clave, declarar el join en el Genie Agent (join_specs)."))
     for prop in model.properties:
         owner_concept = next((str(item) for item in prop.get("linked_candidate_ids", []) if str(item) in model.concept_ids), "")
-        match = property_column(model, owner_concept, str(prop["name"]), model.columns, model.tables_by_concept)
+        match = property_column(model, owner_concept, prop, model.columns, model.tables_by_concept)
         if match and reachable(_table_platform(model, match[0]), "databricks"):
             table = _three_part(match[0], catalog)
             sql_lines.append(
@@ -296,7 +296,7 @@ def _page_markdown(model: _ReleaseModel, item: dict[str, object], bindings: dict
     properties = []
     for prop in model.properties:
         if item_id in prop.get("linked_candidate_ids", []):
-            match = property_column(model, item_id, str(prop["name"]), model.columns, model.tables_by_concept)
+            match = property_column(model, item_id, prop, model.columns, model.tables_by_concept)
             value_type = fabric_value_type(match[2]) if match else None
             properties.append(f"{prop['name']} ({match[1]}, {value_type})" if value_type else str(prop["name"]))
     assets = [_three_part(model.asset_table(asset), catalog) for asset in bindings.get(item_id, [])]

@@ -49,9 +49,21 @@ def concept_tables(model) -> dict[str, list[str]]:
     return tables
 
 
-def property_column(model, concept_id: str, property_name: str, index, tables) -> tuple[str, str, str] | None:
-    """(table, column, data type) of the bound column that matches a property by name."""
-    wanted = _norm(property_name)
+def property_column(model, concept_id: str, prop: dict[str, object], index, tables) -> tuple[str, str, str] | None:
+    """(table, column, data type) of the column behind a property.
+
+    An explicit link (`bound_asset_id`, proposed with the property and approved by a person) wins; otherwise the
+    property is matched by name against the columns of the tables bound to its concept.
+    """
+    asset = model.by_id.get(str(prop.get("bound_asset_id", "")))
+    if asset is not None and model.asset_kind(asset) == "column":
+        table = model.asset_table(asset)
+        metadata = dict(asset.get("technical_metadata", {}))
+        name = str(metadata.get("fabric.column") or str(asset["name"]).split("[")[-1].rstrip("]").split(".")[-1])
+        found = index.get(table, {}).get(_norm(name))
+        if found:
+            return table, found[0], found[1]
+    wanted = _norm(str(prop["name"]))
     for table in tables.get(concept_id, []):
         found = index.get(table, {}).get(wanted)
         if found:

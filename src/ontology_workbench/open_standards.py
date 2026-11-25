@@ -57,7 +57,7 @@ def _turtle(model) -> str:
         owner = next((str(item) for item in prop.get("linked_candidate_ids", []) if str(item) in names), "")
         if not owner:
             continue
-        match = property_column(model, owner, str(prop["name"]), model.columns, model.tables_by_concept)
+        match = property_column(model, owner, prop, model.columns, model.tables_by_concept)
         xsd = _XSD.get(fabric_value_type(match[2]) or "String", "string") if match else "string"
         local = unique_name(f"{names[owner]}_{identifier(str(prop['name']))}", property_names)
         lines += [
