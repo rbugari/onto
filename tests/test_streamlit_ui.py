@@ -88,6 +88,121 @@ class StreamlitUiTests(unittest.TestCase):
     def assertNoExceptions(self, app: AppTest) -> None:  # noqa: N802
         self.assertEqual([item.value for item in app.exception], [])
 
+    def test_simple_discovery_generates_and_opens_the_same_draft(self) -> None:
+        project = self.service.create_project("Discovery UI simple")
+        self.service.import_discovery_file(project.id, "clientes.sql", b"CREATE TABLE clientes (id INT PRIMARY KEY);")
+        app = self._app("Atlas", project.id)
+        self.assertNoExceptions(app)
+        app.text_input(key=f"discovery-scope-{project.id}").set_value("Comercial")
+        app.button(key=f"discovery-generate-{project.id}").click().run()
+        self.assertNoExceptions(app)
+        self.assertEqual(list(app.error), [])
+        self.assertTrue(any(item.value == "Propuesta de ontologia" for item in app.subheader))
+        draft = self.service.list_nexo_drafts(project.id)[0]
+        app.button(key=f"discovery-review-{project.id}").click().run()
+        self.assertNoExceptions(app)
+        self.assertTrue(app.title[0].value.startswith("Nexo"))
+        self.assertEqual(app.selectbox(key=f"nexo-draft-select-{project.id}").value, draft["draft_id"])
+        self.assertEqual(self.service.list_nexo_releases(project.id), [])
+
+    def test_simple_discovery_empty_and_inferred_proposal_in_both_languages(self) -> None:
+        app = self._app("Atlas", self.empty_project_id)
+        self.assertTrue(app.button(key=f"discovery-generate-{self.empty_project_id}").disabled)
+        project = self.service.create_project("Propuesta UI")
+        self.service.import_discovery_file(project.id, "clientes.sql", b"CREATE TABLE clientes (id INT);")
+        proposal = {"mode": "model_inference", "entities": [
+            {"name": "Cliente", "definition": "Empresa compradora, por confirmar", "source_refs": [],
+             "properties": [{"name": "Identificador", "definition": "Clave propuesta", "source_refs": []}]}],
+            "relationships": [], "questions": ["El cliente es una empresa?"], "references": {}}
+        with patch("ontology_workbench.service.build_discovery_proposal", return_value=proposal):
+            self.service.generate_discovery_draft(project.id, "Comercial")
+        for language, heading in (("es", "Preguntas prioritarias"), ("en", "Priority questions")):
+            app = self._app("Atlas", project.id, language=language)
+            self.assertNoExceptions(app)
+            self.assertTrue(any(item.value == heading for item in app.subheader))
+            self.assertTrue(any("Empresa compradora" in item.value for item in app.markdown))
+            self.assertTrue(any("confirm" in item.value for item in app.warning))
+
+    def test_discovery_business_cores_questions_and_supporting_review(self) -> None:
+        project = self.service.create_project("Nucleo UI")
+        self.service.import_discovery_file(project.id, "clientes.sql", b"CREATE TABLE clientes (id INT);")
+        proposal = {"mode": "model_inference", "entities": [
+            {"name": "Cliente", "definition": "Contraparte comercial", "importance": "core",
+             "reason": "Central para cobrar", "source_refs": [], "properties": []},
+            {"name": "Categoria", "definition": "Clasificacion", "importance": "supporting",
+             "reason": "Catalogo auxiliar", "source_refs": [], "properties": []}],
+            "business_cores": [{"name": "Cobranza", "definition": "Gestionar pendientes",
+                                "entities": ["Cliente"], "source_refs": []}],
+            "rules": [{"name": "Limite de cobro", "definition": "Hipotesis: no superar deuda",
+                       "validation_needed": "Confirmar deuda de referencia", "entities": ["Cliente"], "source_refs": []}],
+            "relationships": [], "questions": [], "references": {},
+            "business_questions": [{"question": "Que deuda prevalece?", "why": "Conciliar importes",
+                                    "priority": "high", "entities": ["Cliente"], "source_refs": []}],
+            "technical_questions": [{"question": "Cual es la clave vigente?", "why": "Evitar duplicados",
+                                     "priority": "high", "entities": ["Cliente"], "source_refs": []}],
+            "analytical_questions": [{"question": "Quienes deben mas?", "value": "Priorizar cobranza",
+                                      "readiness": "validation_required", "missing": ["Validar saldos y traer filas"],
+                                      "entities": ["Cliente"], "source_refs": []}]}
+        with patch("ontology_workbench.service.build_discovery_proposal", return_value=proposal):
+            draft = self.service.generate_discovery_draft(project.id, "Comercial")
+        for language, heading, pending in (("es", "Nucleos del negocio", "Requiere validacion y datos"),
+                                            ("en", "Business cores", "Validation and data required")):
+            app = self._app("Atlas", project.id, language=language)
+            self.assertNoExceptions(app)
+            self.assertTrue(any(item.value == heading for item in app.subheader))
+            self.assertTrue(any(item.value == pending for item in app.caption))
+            self.assertTrue(any("Quienes deben mas?" in item.value for item in app.markdown))
+            self.assertTrue(any("Validar saldos y traer filas" in item.value for item in app.markdown))
+        app = self._app("Nexo", project.id)
+        self.assertNoExceptions(app)
+        draft_id = draft["manifest"]["draft_id"]
+        tables = [item.value for item in app.dataframe if "Confianza" in item.value.columns]
+        self.assertEqual(tables[0]["Nombre"].tolist(), ["Cliente", "Limite de cobro"])
+        app.toggle(key=f"nexo-supporting-{draft_id}").set_value(True).run()
+        self.assertNoExceptions(app)
+        tables = [item.value for item in app.dataframe if "Confianza" in item.value.columns]
+        self.assertEqual(tables[0]["Nombre"].tolist(), ["Cliente", "Categoria", "Limite de cobro"])
+        self.assertEqual(self.service.get_nexo_draft(project.id, draft_id)["manifest"]["candidate_summary"]["pending_review"], 3)
+        self.assertEqual(self.service.list_nexo_releases(project.id), [])
+
+    def test_incremental_method_restart_confirmation_and_read_only_history(self) -> None:
+        project = self.service.create_project("Metodo iterativo UI")
+        self.service.import_discovery_file(project.id, "clientes.sql", b"CREATE TABLE clientes (id INT);")
+        proposal = {"mode": "model_inference", "entities": [{"name": "Cliente", "definition": "Original",
+            "source_refs": [], "properties": []}], "relationships": [], "questions": [], "references": {}}
+        with patch("ontology_workbench.service.build_discovery_proposal", return_value=proposal):
+            first = self.service.generate_discovery_draft(project.id, "Comercial")
+        self.service.update_nexo_candidate(project.id, first["manifest"]["draft_id"], first["candidates"][0]["candidate_id"],
+            "approved", "Ana", "Negocio", "Definicion validada")
+        proposal["entities"][0]["definition"] = "Modificacion pendiente"
+        with patch("ontology_workbench.service.build_discovery_proposal", return_value=proposal):
+            second = self.service.generate_discovery_draft(project.id, "Comercial")
+        for language, historical in (("es", "Version historica de solo lectura"), ("en", "Read-only historical version")):
+            with patch.object(WorkbenchService, "list_nexo_drafts", return_value=[first["manifest"], second["manifest"]]):
+                app = self._app("Nexo", project.id, language=language)
+            self.assertNoExceptions(app)
+            self.assertEqual(app.selectbox(key=f"nexo-draft-select-{project.id}").value, second["manifest"]["draft_id"])
+            self.assertTrue(any("Modificacion pendiente" in item.value for item in app.markdown))
+            self.assertTrue(any("Original" == item.value for item in app.markdown))
+            app.selectbox(key=f"nexo-draft-select-{project.id}").set_value(first["manifest"]["draft_id"]).run()
+            self.assertNoExceptions(app)
+            self.assertTrue(any(item.value == historical for item in app.info))
+            self.assertFalse(any(str(item.key).startswith("nexo-decide-") for item in app.button))
+            app.button(key=f"nexo-open-active-{project.id}").click().run()
+            self.assertNoExceptions(app)
+            self.assertEqual(app.selectbox(key=f"nexo-draft-select-{project.id}").value, second["manifest"]["draft_id"])
+        app = self._app("Atlas", project.id)
+        app.button_group(key=f"discovery-mode-{project.id}").set_value("restart").run()
+        self.assertNoExceptions(app)
+        self.assertTrue(app.button(key=f"discovery-generate-{project.id}").disabled)
+        app.checkbox(key=f"discovery-restart-{project.id}").check().run()
+        self.assertFalse(app.button(key=f"discovery-generate-{project.id}").disabled)
+        with patch("ontology_workbench.service.build_discovery_proposal", return_value=proposal):
+            app.button(key=f"discovery-generate-{project.id}").click().run()
+        self.assertNoExceptions(app)
+        self.assertEqual(self.service.get_active_nexo_draft(project.id)["manifest"]["lifecycle"]["mode"], "restart")
+        self.assertEqual(self.service.get_active_nexo_draft(project.id)["manifest"]["candidate_summary"]["approved"], 0)
+
     def test_every_area_renders_for_full_and_empty_projects(self) -> None:
         for project_id in (self.project_id, self.empty_project_id):
             for area, title in (("Atlas", "Atlas"), ("Nexo", "Nexo"), ("Argos", "Argos"), ("Proyecto", "Proyecto")):
@@ -111,13 +226,13 @@ class StreamlitUiTests(unittest.TestCase):
         self.assertNoExceptions(app)
         self.assertEqual(app.session_state["selected_project_id"], self.project_id)
         self.assertEqual(app.session_state["active_product_area"], "Atlas")
-        self.assertIn("Assessment", app.radio[0].options[0])
+        self.assertIn("Initial ontology", app.radio[0].options[0])
         app.selectbox(key="ui-language").set_value("es").run()
         self.assertNoExceptions(app)
         self.assertEqual(app.session_state["active_product_area"], "Atlas")
 
     def test_english_screens_and_atlas_selection_survive_language_switch(self) -> None:
-        for area, title in (("Atlas", "Atlas · Readiness assessment"), ("Nexo", "Nexo · Validate knowledge"),
+        for area, title in (("Atlas", "Atlas · Initial ontology"), ("Nexo", "Nexo · Validate knowledge"),
                             ("Argos", "Argos · Business investigation"), ("Proyecto", "Project")):
             with self.subTest(area=area):
                 app = self._app(area, language="en")
@@ -407,6 +522,7 @@ class StreamlitUiTests(unittest.TestCase):
         settings = LlmSettings(provider="ollama", model="controlled-fixture", api_key_present=False)
 
         def response(messages, configured):
+            self.assertIn("Llamada 1/1", progress.return_value.progress.call_args.kwargs["text"])
             payload = json.loads(messages[1]["content"])
             chunk_id = payload["evidence"][0]["chunk_id"]
             quotes = {"significado": "Pedidos de venta.", "granularidad": "Una fila por pedido.", "identificacion": "Clave pedido_id."}
@@ -416,7 +532,8 @@ class StreamlitUiTests(unittest.TestCase):
 
         with patch("ontology_workbench.service.load_llm_settings", return_value=settings), patch(
             "onto_ui.atlas.load_llm_settings", return_value=settings), patch(
-            "ontology_workbench.explanatory_analysis.call_llm_json", side_effect=response) as provider:
+            "ontology_workbench.explanatory_analysis.call_llm_json", side_effect=response) as provider, patch(
+            "onto_ui.atlas.st.progress") as progress:
             app = self._app("Atlas", project.id)
             app.button(key=f"atlas-semantic-evaluate-{project.id}").click().run()
             self.assertNoExceptions(app)

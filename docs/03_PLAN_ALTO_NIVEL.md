@@ -69,7 +69,7 @@ La implementacion del MVP permite a Nexo crear un draft desde Atlas, conservar c
 
 **Gate:** se puede identificar sistema de registro, version y estado de sincronizacion de cada elemento publicado.
 
-La implementacion del MVP permite que una release aprobada genere un paquete local de interoperabilidad para Microsoft Fabric o Databricks. El paquete contiene mapping de entidades, reglas, KPIs y estructuras canonicas, manifest de despliegue y, en `export/`, los archivos que cada plataforma importa (item Ontology y Data Agent de Fabric IQ; Pages, metric views, SQL de Unity Catalog y request de Genie Agents), con reporte de cobertura y ruta recomendada A/B/C. Queda en `ready_for_review`: no usa credenciales, no transporta datos de negocio ni ejecuta publicaciones externas. El plan de conectores (R1.1 a R3) esta en [15_INTEGRACION_FABRIC_DATABRICKS.md](15_INTEGRACION_FABRIC_DATABRICKS.md).
+La implementacion del MVP permite que una release aprobada genere un paquete local de interoperabilidad para Microsoft Fabric o Databricks. El paquete contiene mapping de entidades, reglas, KPIs y estructuras canonicas, manifest de despliegue y, en `export/`, los archivos que cada plataforma importa (item Ontology y Data Agent de Fabric IQ; Pages, metric views, SQL de Unity Catalog y request de Genie Agents), con reporte de cobertura y ruta recomendada A/B/C. Queda en `ready_for_review`: no usa credenciales, no transporta datos de negocio ni ejecuta publicaciones externas. El plan de formatos y fases (R1.1 a R1.3; los conectores de publicacion no estan planificados) esta en [15_INTEGRACION_FABRIC_DATABRICKS.md](15_INTEGRACION_FABRIC_DATABRICKS.md).
 
 ## Fase 4 - Runtime / Investigador generico MVP
 

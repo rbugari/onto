@@ -3,6 +3,33 @@
 Estado: MVP operativo implementado
 Producto: 1 de 3 de ONTO
 
+## Entrada simple: de archivos a borrador
+
+Desde 2026-10-19, el recorrido principal de Atlas es **ambito + archivos -> propuesta de ontologia -> revision**. ONTO se usa como acelerador; no exige registrar previamente sistemas, casos de uso, responsables ni un producto de datos. La configuracion y el diagnostico anteriores siguen disponibles en Detalle avanzado.
+
+1. Abrir o crear un proyecto y escribir el ambito, por ejemplo Comercial.
+2. Cargar juntos los archivos disponibles: esquemas SQL/DDL, metadata CSV, modelos BIM/TMDL/PBIP o documentos. El contenido determina si un CSV es metadata; JSON con modelo/tablas se trata como modelo semantico. Los formatos tecnicos se procesan con sus importadores existentes, no mediante interpretacion libre del LLM.
+3. Accionar Generar borrador de ontologia. Se incorporan archivos, extrae contexto documental, genera el assessment interno y propone un modelo de negocio compacto. No hace falta ejecutar manualmente scanner, diagnostico ni contraste de cobertura.
+4. Revisar los nucleos de negocio propuestos y su justificacion, entidades principales, reglas y calculos. Las propiedades, relaciones y entidades secundarias quedan desplegables. Descargar el borrador JSON o abrir Revisar y validar, que selecciona ese mismo borrador en Nexo.
+
+La sintesis actual (v4) prioriza de uno a seis nucleos segun procesos, decisiones y valor de negocio, no cantidad de tablas. El LLM distingue entidades core y supporting, justificando su importancia, sin una lista fija de conceptos por industria. Las reglas incluyen el fundamento contextual y la validacion que falta; no certifican funcionamiento actual.
+
+El [metodo de trabajo iterativo](17_METODO_DE_TRABAJO_ITERATIVO.md) incorpora Actualizar propuesta, Ampliar alcance y Empezar de cero con confirmacion. La nueva sintesis recibe las decisiones previas; conserva aprobaciones y rechazos, regenera pendientes y propone cambios por separado sin aplicarlos automaticamente. Cada generacion correcta establece una nueva version activa; las anteriores quedan de solo lectura. Los proyectos existentes permiten elegir su base en la primera actualizacion.
+
+Propone hasta cinco preguntas por grupo: **preguntas de negocio** para aclarar significado y decisiones; **dudas tecnicas** con la evidencia faltante y el bloqueo concreto; y **preguntas para analizar** que un usuario de negocio podria formular con esa data. Estas ultimas indican fuentes, entidades y faltantes. Sus estados son requiere datos actuales, requiere validacion y datos, o no soportada con los insumos actuales. Metadata y documentos no permiten afirmar respuestas sobre filas no consultadas. No se ejecutan consultas ni se incorporan automaticamente estas sugerencias al catalogo aprobado de Argos.
+
+En los nuevos borradores inferidos, Nexo recibe solo conceptos consolidados, reglas, propiedades y relaciones de la propuesta. Los candidatos originales del scanner y los activos tecnicos se conservan en discovery_source_context, no como decisiones adicionales ni como rechazos automaticos. La vista inicial prioriza conceptos core; Incluir conceptos secundarios permite revisar el resto. Los contadores y la condicion de release siguen considerando todas las decisiones activas, incluidas las secundarias. Los borradores anteriores se conservan sin migrar ni modificar sus decisiones.
+
+La sintesis usa una llamada adicional al proveedor configurado y respeta su politica de datos. El scanner documental mantiene sus llamadas por bloques. El presupuesto es de 90.000 caracteres serializados para fuentes y estructura y otros 90.000 para decisiones previas, mas el envoltorio y el prompt; no se recorta silenciosamente el alcance. El transporte usa identificadores cortos y JSON compacto, conservando todos los objetos, metadata, relaciones y textos; las referencias originales se restituyen al guardar la propuesta. Si la estructura completa no entra en el presupuesto, se envia una **forma compacta**: una fuente por tabla con sus columnas (`nombre:tipo`) y las claves foraneas entre tablas, sin los nodos de columna ni las relaciones "contiene"; solo si aun asi no entra se solicita reducir el alcance o usar el detalle avanzado. Con un esquema real de 35 tablas y 269 columnas el payload pasa de mas de 90.000 a unos 30.000 caracteres. El modelo puede indicar en cada propiedad la columna que la respalda (`column: tabla.columna`); una columna desconocida se descarta sin invalidar la propuesta. Una relacion con extremos desconocidos o reflexiva se descarta y queda registrada con su motivo (`discarded_relationships`) en lugar de invalidar toda la propuesta. Sin LLM habilitado, se generan solo candidatos de las fuentes y la aplicacion advierte que el resultado es mucho mas ruidoso y no propone propiedades, relaciones ni reglas (con documentacion tecnica real, el heuristico produjo 188 entidades casi todas ruido frente a 12 conceptos de negocio con LLM). Un fallo del scanner LLM o una propuesta invalida detiene el recorrido, sin disfrazarlo de exito local.
+
+Primera prueba manual con SQL y una descripcion funcional breve: [Nalub discovery simple](casos/nalub_mariadb/README.md#primer-test-recomendado-discovery-simple). El documento ontologico completo se conserva como referencia del revisor, no como entrada de esa prueba.
+
+Las propuestas LLM se guardan como candidatos y elementos de modelo **pendientes**, etiquetados model_inference. Sus referencias deben existir, pero son contexto: no prueban significado, no aumentan cobertura documental y no aprueban conocimiento. Las preguntas se guardan en el borrador; por ahora se responde aportando documentacion y generando otro borrador. Se admiten documentos solos o estructura sola; la calidad semantica requiere revision humana.
+
+Repetir un archivo identico con el mismo nombre no duplica la carga. Una estructura modificada reemplaza los objetos de su procedencia; un documento modificado reemplaza su entrada activa, conservando el archivo original y las evidencias historicas. La procedencia automatica inicial usa el nombre del archivo, no certifica que cada archivo corresponda a un sistema distinto; se puede corregir en Detalle avanzado.
+
+La conexion Fabric existente sigue siendo opcional, de solo metadata. No se agregan conectores, muestreo de filas, aprobaciones automaticas ni publicaciones externas. La descarga del borrador no equivale a la entrega aprobada para Fabric o Databricks.
+
 ## Que es Atlas
 
 Atlas prepara la evidencia tecnica y funcional de un dominio. No pretende declarar una ontologia final: produce un baseline reproducible que permite saber con que evidencia se cuenta, que falta y que conviene priorizar antes de pasar a Nexo.
@@ -146,6 +173,7 @@ El scanner admite una configuracion local `ONTO_LLM_*` o una referencia explicit
 - Los adaptadores técnicos disponibles son `model.bim`, TMDL, paquetes PBIP ZIP, payloads JSON de semantic model, DDL generico (`.sql`), exports de `information_schema.columns` (CSV), el descubrimiento de metadata Fabric de solo lectura y la ingesta de DDL MariaDB. Databricks y otras plataformas se cargan por archivo exportado; no hay descubrimiento remoto.
 - El scanner fragmenta documentos, conserva `source_chunk_id` y el fragmento de evidencia, y los runners Risk y Ventas deduplican por contenido. Las citas por pagina/seccion dependen del parser de cada formato y quedan como evolucion posterior.
 - Los gaps se basan en reglas iniciales y no reemplazan una revision funcional.
+- El scanner heuristico (sin LLM) ignora los bloques de codigo (``` y ~~~, por ejemplo diagramas Mermaid) y los marcadores de negrita, pero trata como termino toda linea `Etiqueta: texto` de documentacion tecnica: es ruidoso y no reemplaza al LLM.
 - Un modelo importado antes de la captura de evidencia puede usarse como inventario, pero Atlas lo marcara como gap hasta reimportar su archivo tecnico original.
 - El paquete se guarda en carpetas locales y no publica en ninguna plataforma externa.
 

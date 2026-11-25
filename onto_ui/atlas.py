@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from collections import Counter
+import json
 
 import streamlit as st
 
@@ -17,7 +18,7 @@ from ontology_workbench.context_scanner import (
     load_llm_settings,
 )
 from ontology_workbench.service import USE_CASE_PRIORITIES, WorkbenchService
-from onto_ui.common import reviewer
+from onto_ui.common import render_discovery_proposal, reviewer
 from onto_ui.labels import (
     ACCESS_MODE_LABELS,
     ATLAS_REVIEW_LABELS,
@@ -43,22 +44,123 @@ def render_atlas(service: WorkbenchService, project_id: str) -> None:
     inventory = service.get_business_context_inventory(project.id)
     assessments = service.list_atlas_assessments(project.id)
 
-    st.title(t("Atlas · Diagnóstico de preparación"))
-    st.caption(
-        t("Reúne la metadata de todos los sistemas del dominio y la documentación de negocio para saber "
-        "qué está listo, qué falta, cómo se conectan los sistemas y qué podrá implementar la plataforma destino.")
-    )
-    _render_progress(project, documents, inventory, assessments)
+    st.title(t("Atlas · Ontologia inicial"))
+    _render_discovery(service, project, documents)
+    _render_fabric_connector(service, project.id)
+    with st.expander(t("Detalle avanzado")):
+        _render_progress(project, documents, inventory, assessments)
+        scope_tab, sources_tab, context_tab, diagnosis_tab = localized_tabs(STEP_TITLES, key=f"atlas-tabs-{project_id}")
+        with scope_tab:
+            _render_scope(service, project)
+        with sources_tab:
+            _render_sources(service, project)
+        with context_tab:
+            _render_context(service, project.id, documents, inventory)
+        with diagnosis_tab:
+            _render_diagnosis(service, project, assessments)
 
-    scope_tab, sources_tab, context_tab, diagnosis_tab = localized_tabs(STEP_TITLES, key=f"atlas-tabs-{project_id}")
-    with scope_tab:
-        _render_scope(service, project)
-    with sources_tab:
-        _render_sources(service, project)
-    with context_tab:
-        _render_context(service, project.id, documents, inventory)
-    with diagnosis_tab:
-        _render_diagnosis(service, project, assessments)
+
+def _open_discovery_review(project_id: str, draft_id: str) -> None:
+    st.session_state[f"nexo-draft-select-{project_id}"] = draft_id
+    st.session_state["product-navigation"] = "Nexo"
+    st.session_state["active_product_area"] = "Nexo"
+
+
+def _render_discovery(service, project, documents) -> None:
+    existing = service.list_nexo_drafts(project.id)
+    active_id = project.metadata.get("discovery.active_draft_id")
+    mode = "update"
+    base_id = active_id
+    restart_confirmed = False
+    if existing:
+        mode_labels = {"update": "Actualizar propuesta", "extend": "Ampliar alcance", "restart": "Empezar de cero"}
+        mode = st.segmented_control(t("Operacion"), list(mode_labels), default="update",
+            format_func=option_labels(list(mode_labels), mode_labels.get), key=f"discovery-mode-{project.id}") or "update"
+        if active_id:
+            st.caption(t("Version activa: {id}", id=active_id))
+        elif mode != "restart":
+            manifests = {item["draft_id"]: item for item in existing}
+            base_id = st.selectbox(t("Base de conocimiento"), list(manifests),
+                format_func=option_labels(list(manifests), lambda identifier: identifier + " · " +
+                    t("{count} aprobados", count=manifests[identifier]["candidate_summary"]["approved"])),
+                key=f"discovery-base-{project.id}")
+        if mode == "restart":
+            restart_confirmed = st.checkbox(t("Confirmo empezar sin heredar decisiones; el historial se conserva"),
+                                           key=f"discovery-restart-{project.id}")
+    scope = st.text_input(t("Ambito"), value=project.metadata.get("discovery.scope", project.name),
+                          placeholder=t("Ejemplo: Comercial"), key=f"discovery-scope-{project.id}")
+    uploaded = st.file_uploader(t("Informacion disponible"),
+        type=sorted(set(SUPPORTED_FILE_EXTENSIONS + METADATA_FILE_TYPES)), accept_multiple_files=True,
+        key=f"discovery-files-{project.id}")
+    files = [{"Archivo": source.filename or source.name, "Tipo": t("Estructura")}
+             for source in project.sources]
+    files.extend({"Archivo": document.filename, "Tipo": t("Documento")} for document in documents)
+    if files:
+        with st.expander(t("Informacion incorporada ({count})", count=len(files))):
+            st.dataframe(localize_rows(files), hide_index=True, width="stretch")
+    if not load_llm_settings().enabled:
+        st.warning(t("Sin LLM habilitado: solo se extraen candidatos de las fuentes. Con documentación técnica el resultado es mucho más ruidoso y no propone propiedades, relaciones ni reglas. Habilitá un proveedor LLM para una propuesta de negocio."))
+    action = "Generar borrador de ontologia" if not existing else mode_labels[mode]
+    if st.button(t(action), type="primary", icon=":material/auto_awesome:",
+                 key=f"discovery-generate-{project.id}", disabled=not (uploaded or files or project.concepts)
+                 or (mode == "restart" and not restart_confirmed)):
+        errors = []
+        with st.status(t("Preparando ontologia"), expanded=True) as status:
+            for file in uploaded or []:
+                try:
+                    service.import_discovery_file(project.id, file.name, file.getvalue())
+                except Exception:
+                    errors.append(file.name)
+            if errors:
+                status.update(label=t("Revisar archivos"), state="error")
+                st.error(t("No se pudieron incorporar: {files}. No se genero un borrador.", files=", ".join(errors)))
+            else:
+                try:
+                    st.write(t("Analizando fuentes y proponiendo entidades y relaciones"))
+                    service.generate_discovery_draft(project.id, scope, mode=mode,
+                        confirm_restart=restart_confirmed, base_draft_id=base_id)
+                except ValueError as exc:
+                    status.update(label=t("No se pudo generar el borrador"), state="error")
+                    st.error(str(exc))
+                except Exception:
+                    status.update(label=t("No se pudo generar el borrador"), state="error")
+                    st.error(t("Los archivos incorporados se conservaron. Reintenta la generacion."))
+                else:
+                    st.rerun()
+    drafts = [item for item in service.list_nexo_drafts(project.id) if "discovery" in item
+              and (not active_id or item["draft_id"] == active_id)]
+    if not drafts:
+        return
+    draft = service.get_nexo_draft(project.id, str(drafts[0]["draft_id"]))
+    proposal = draft["manifest"]["discovery"]
+    st.subheader(t("Propuesta de ontologia"))
+    st.caption(proposal["scope"])
+    st.warning(t("Borrador pendiente de revision. Las inferencias del modelo no son hechos confirmados."))
+    lifecycle = draft["manifest"].get("lifecycle")
+    if lifecycle:
+        summary = lifecycle["summary"]
+        st.caption(t("Conservados: {kept} · Regenerados: {renewed} · Cambios: {changes} · Nuevos: {new}",
+            kept=summary["preserved"], renewed=summary["regenerated"], changes=summary["changes"], new=summary["new"]))
+        decided = [item for item in draft["candidates"] + draft.get("model_elements", [])
+                   if item["status"] in {"approved", "rejected"}]
+        if decided:
+            with st.expander(t("Conocimiento y decisiones conservadas")):
+                st.dataframe(localize_rows([{"Nombre": item["name"], "Definicion": item["definition"],
+                    "Estado": item["status"]} for item in decided]), hide_index=True, width="stretch")
+    if proposal.get("project_updated_at") != project.updated_at or scope.strip() != proposal["scope"]:
+        st.info(t("El alcance o las fuentes cambiaron. Genera un nuevo borrador para incorporarlos."))
+    if proposal["mode"] == "model_inference":
+        render_discovery_proposal(proposal, f"atlas-{draft['manifest']['draft_id']}")
+        with st.expander(t("Referencias y supuestos del modelo")):
+            st.json(proposal)
+    else:
+        st.dataframe(localize_rows([{"Nombre": item["name"], "Definicion": item["definition"]}
+                                    for item in draft["candidates"]]), hide_index=True, width="stretch")
+    st.download_button(t("Descargar borrador JSON"), json.dumps(draft, ensure_ascii=False, indent=2),
+        file_name=f"{project.id}-borrador.json", mime="application/json", icon=":material/download:",
+        key=f"discovery-download-{project.id}")
+    st.button(t("Revisar y validar"), icon=":material/fact_check:", key=f"discovery-review-{project.id}",
+        on_click=_open_discovery_review, args=(project.id, str(draft["manifest"]["draft_id"])))
 
 
 def _render_progress(project, documents, inventory, assessments) -> None:
@@ -268,7 +370,6 @@ def _render_sources(service: WorkbenchService, project) -> None:
                     st.toast(t('{v0}: {v1} tablas y {v2} columnas.', v0=selected.name, v1=summary['tables'], v2=summary['columns']))
                     st.rerun()
 
-    _render_fabric_connector(service, project.id)
     if sources:
         _render_source_editor(service, project)
         _render_source_objects(project)
@@ -544,9 +645,37 @@ def _render_diagnosis(service: WorkbenchService, project, assessments: list[dict
         if st.button(t("Evaluar cobertura con LLM"), icon=":material/psychology:",
                      key=f"atlas-semantic-evaluate-{project.id}"):
             try:
-                with st.spinner(t("Contrastando universo y evidencia…")):
-                    service.create_semantic_atlas_assessment(project.id, client_id, domain_id, data_product_id,
-                                                            max_calls=int(max_calls))
+                with st.status(t("Preparando contraste LLM"), expanded=True) as status:
+                    progress = st.progress(0.0, text=t("Preparando universo y documentos"))
+                    activity = st.empty()
+
+                    def show_progress(update):
+                        planned = update["planned_calls"]
+                        completed = update["calls_completed"]
+                        fraction = min(completed / planned, 1.0) if planned else 0.0
+                        if update["cache_reused"]:
+                            progress.progress(1.0, text=t("Resultado reutilizado: 0 llamadas nuevas"))
+                        elif update["event"] == "request_started":
+                            label = t("Llamada {current}/{planned} · limite {budget}",
+                                      current=update["calls_made"], planned=planned, budget=update["max_calls"])
+                            status.update(label=label, expanded=True)
+                            progress.progress(fraction, text=label)
+                            phase = t("Contrastando documentos") if update["phase"] == "contrast" else t("Consolidando evidencias")
+                            activity.caption(t("{phase}: {count} elementos · {names}. Esperando respuesta del proveedor.",
+                                               phase=phase, count=update["element_count"], names=", ".join(update["element_names"])))
+                        else:
+                            progress.progress(fraction, text=t("{completed}/{planned} llamadas finalizadas · limite {budget}",
+                                              completed=completed, planned=planned, budget=update["max_calls"]))
+                            if update["error"]:
+                                activity.caption(t("La ultima respuesta no pudo validarse; el resultado registrara el fallo."))
+
+                    package = service.create_semantic_atlas_assessment(
+                        project.id, client_id, domain_id, data_product_id,
+                        max_calls=int(max_calls), on_progress=show_progress)
+                    analysis = package["explanatory_coverage"]["analysis"]
+                    successful = analysis["status"] == "complete"
+                    status.update(label=t("Contraste completado") if successful else t("Contraste incompleto; revisar resultado"),
+                                  state="complete" if successful else "error", expanded=not successful)
             except ValueError as exc:
                 st.error(str(exc))
             else:

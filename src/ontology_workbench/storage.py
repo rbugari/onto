@@ -8,6 +8,7 @@ from collections import Counter
 from pathlib import Path
 
 from ontology_workbench.models import DocumentRecord, OntologyProject, ProjectSnapshot, utc_now_iso
+from ontology_workbench.discovery_lifecycle import apply_approved_change
 
 
 class ProjectStore:
@@ -299,6 +300,8 @@ class ProjectStore:
         project_id = str(manifest["project_id"])
         draft_id = str(manifest["draft_id"])
         draft_dir = self._nexo_draft_dir(project_id, draft_id)
+        if draft_dir.exists():
+            self.require_active_nexo_draft(project_id, draft_id)
         for name in ("input", "working", "review", "output"):
             (draft_dir / name).mkdir(parents=True, exist_ok=True)
         self._write_json(draft_dir / "draft_manifest.json", manifest)
@@ -338,6 +341,11 @@ class ProjectStore:
             "draft_path": str(draft_dir),
         }
 
+    def require_active_nexo_draft(self, project_id: str, draft_id: str) -> None:
+        active_id = self.load_project(project_id).metadata.get("discovery.active_draft_id")
+        if active_id and active_id != draft_id:
+            raise ValueError("Version historica de solo lectura. Revisa la version de trabajo activa.")
+
     def update_nexo_candidate(
         self,
         project_id: str,
@@ -350,6 +358,7 @@ class ProjectStore:
     ) -> dict[str, object]:
         if status not in {"approved", "rejected", "pending_review"}:
             raise ValueError("Invalid Nexo candidate status")
+        self.require_active_nexo_draft(project_id, draft_id)
         draft = self.load_nexo_draft(project_id, draft_id)
         candidates = list(draft["candidates"])
         candidate = next((item for item in candidates if item.get("candidate_id") == candidate_id), None)
@@ -368,20 +377,7 @@ class ProjectStore:
         candidate["decision"] = decision
         decisions = list(draft["review_decisions"])
         decisions.append(decision)
-        draft_dir = self._nexo_draft_dir(project_id, draft_id)
-        status_counts = Counter(str(item.get("status", "pending_review")) for item in candidates)
-        type_counts = Counter(str(item.get("candidate_type", "unknown")) for item in candidates)
-        manifest = dict(draft["manifest"])
-        manifest["candidate_summary"] = {
-            "total": len(candidates),
-            "pending_review": status_counts["pending_review"],
-            "approved": status_counts["approved"],
-            "rejected": status_counts["rejected"],
-            **dict(type_counts),
-        }
-        self._write_json(draft_dir / "draft_manifest.json", manifest)
-        self._write_json(draft_dir / "working" / "candidates.json", candidates)
-        self._write_json(draft_dir / "review" / "review_decisions.json", decisions)
+        self._save_nexo_candidate_state(project_id, draft_id, draft, candidates, decisions)
         return candidate
 
     def bulk_update_nexo_candidates(
@@ -475,6 +471,7 @@ class ProjectStore:
     def save_nexo_consolidation_suggestions(
         self, project_id: str, draft_id: str, suggestions: dict[str, object]
     ) -> None:
+        self.require_active_nexo_draft(project_id, draft_id)
         draft_dir = self._nexo_draft_dir(project_id, draft_id)
         if not (draft_dir / "draft_manifest.json").exists():
             raise FileNotFoundError(f"Nexo draft not found: {draft_id}")
@@ -500,6 +497,7 @@ class ProjectStore:
     ) -> dict[str, object]:
         if status not in {"pending_review", "accepted_as_review_plan", "rejected", "applied"}:
             raise ValueError("Invalid Nexo consolidation suggestion status")
+        self.require_active_nexo_draft(project_id, draft_id)
         package = self.load_nexo_consolidation_suggestions(project_id, draft_id)
         if package is None:
             raise FileNotFoundError("No Nexo consolidation suggestions found")
@@ -528,6 +526,7 @@ class ProjectStore:
     def apply_nexo_consolidation_suggestion(
         self, project_id: str, draft_id: str, suggestion_id: str, reviewer: str, note: str
     ) -> dict[str, object]:
+        self.require_active_nexo_draft(project_id, draft_id)
         package = self.load_nexo_consolidation_suggestions(project_id, draft_id)
         if package is None:
             raise FileNotFoundError("No Nexo consolidation suggestions found")
@@ -838,6 +837,11 @@ class ProjectStore:
         candidates: list[dict[str, object]],
         decisions: list[dict[str, object]],
     ) -> None:
+        self.require_active_nexo_draft(project_id, draft_id)
+        draft["candidates"] = candidates
+        for item in list(candidates):
+            apply_approved_change(draft, "candidates", item)
+        candidates = draft["candidates"]
         status_counts = Counter(str(item.get("status", "pending_review")) for item in candidates)
         type_counts = Counter(str(item.get("candidate_type", "unknown")) for item in candidates)
         manifest = dict(draft["manifest"])
@@ -861,6 +865,11 @@ class ProjectStore:
         elements: list[dict[str, object]],
         decisions: list[dict[str, object]],
     ) -> None:
+        self.require_active_nexo_draft(project_id, draft_id)
+        draft["model_elements"] = elements
+        for item in list(elements):
+            apply_approved_change(draft, "model_elements", item)
+        elements = draft["model_elements"]
         status_counts = Counter(str(item.get("status", "pending_review")) for item in elements)
         type_counts = Counter(str(item.get("element_type", "unknown")) for item in elements)
         manifest = dict(draft["manifest"])

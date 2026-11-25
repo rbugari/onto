@@ -52,6 +52,435 @@ from ontology_workbench.mariadb_adapter import (
 from ontology_workbench.semantic_model_importer import parse_tmdl_text
 
 
+class SimpleDiscoveryTests(unittest.TestCase):
+    def test_lifecycle_preserves_decisions_and_replaces_only_pending(self) -> None:
+        from ontology_workbench.discovery_lifecycle import reconcile_discovery_draft, apply_approved_change
+
+        original = {"manifest": {"draft_id": "first", "discovery": {"references": {}}},
+            "candidates": [{"candidate_id": name, "candidate_type": "concept", "name": name,
+                            "definition": "Original", "status": status, "decision": {"reviewer": "Ana"}}
+                           for name, status in (("Cliente", "approved"), ("Oferta", "rejected"), ("Pedido", "pending_review"))],
+            "model_elements": [], "review_decisions": [], "model_element_decisions": []}
+        original = reconcile_discovery_draft(original, None)
+        fresh = deepcopy(original)
+        fresh["manifest"]["draft_id"] = "second"
+        for candidate in fresh["candidates"]:
+            candidate.update({"definition": "Nuevo", "status": "pending_review", "decision": None})
+        result = reconcile_discovery_draft(fresh, original)
+        self.assertEqual([item["name"] for item in result["candidates"] if item.get("change_of")], ["Cliente"])
+        self.assertEqual(next(item for item in result["candidates"] if item["name"] == "Cliente")["status"], "approved")
+        self.assertEqual(next(item for item in result["candidates"] if item["name"] == "Oferta")["status"], "rejected")
+        self.assertEqual(next(item for item in result["candidates"] if item["name"] == "Pedido")["definition"], "Nuevo")
+        change = next(item for item in result["candidates"] if item.get("change_of") and item["name"] == "Cliente")
+        change["status"] = "approved"
+        apply_approved_change(result, "candidates", change)
+        clients = [item for item in result["candidates"] if item["name"] == "Cliente"]
+        self.assertEqual(len(clients), 1)
+        self.assertEqual(clients[0]["definition"], "Nuevo")
+        self.assertEqual(result["manifest"]["lifecycle"]["applied_changes"][0]["before"]["definition"], "Original")
+        self.assertEqual(original["candidates"][0]["definition"], "Original")
+
+    @staticmethod
+    def _lifecycle_input(definition="Original", status="pending_review"):
+        return {"manifest": {"draft_id": "base", "discovery": {"references": {"object:cliente": {"name": "cliente"}}}},
+            "candidates": [{"candidate_id": "cliente", "candidate_type": "concept", "name": "Cliente",
+                "definition": definition, "status": status, "source_refs": ["object:cliente"], "decision": None}],
+            "model_elements": [], "review_decisions": [], "model_element_decisions": []}
+
+    def test_rejected_changes_do_not_resurface_without_new_evidence(self) -> None:
+        from ontology_workbench.discovery_lifecycle import reconcile_discovery_draft
+
+        original = reconcile_discovery_draft(self._lifecycle_input(status="approved"), None)
+        changed = reconcile_discovery_draft(self._lifecycle_input("Primera modificacion"), original)
+        revision = next(item for item in changed["candidates"] if item.get("change_of"))
+        revision["status"] = "rejected"
+        unchanged = reconcile_discovery_draft(self._lifecycle_input(), changed)
+        rephrased = reconcile_discovery_draft(self._lifecycle_input("Misma idea reformulada"), unchanged)
+        self.assertFalse(any(item["status"] == "pending_review" for item in rephrased["candidates"]))
+        self.assertTrue(any(item.get("change_of") and item["status"] == "rejected" for item in rephrased["candidates"]))
+        new_evidence = self._lifecycle_input("Modificacion con evidencia")
+        new_evidence["manifest"]["discovery"]["references"]["object:cliente"]["metadata"] = {"nueva": "informacion"}
+        reopened = reconcile_discovery_draft(new_evidence, rephrased)
+        self.assertTrue(any(item.get("change_of") and item["status"] == "pending_review" for item in reopened["candidates"]))
+
+    def test_rejected_knowledge_requires_new_evidence_for_reconsideration(self) -> None:
+        from ontology_workbench.discovery_lifecycle import reconcile_discovery_draft
+
+        original = reconcile_discovery_draft(self._lifecycle_input(status="rejected"), None)
+        rephrased = reconcile_discovery_draft(self._lifecycle_input("Otra redaccion"), original)
+        self.assertEqual(len(rephrased["candidates"]), 1)
+        self.assertEqual(rephrased["candidates"][0]["status"], "rejected")
+        source = self._lifecycle_input("Nueva interpretacion")
+        source["manifest"]["discovery"]["references"]["object:cliente"]["verified"] = "nuevo contexto"
+        changed = reconcile_discovery_draft(source, original)
+        revision = next(item for item in changed["candidates"] if item.get("change_of"))
+        self.assertEqual(revision["change_kind"], "reconsideration")
+        self.assertEqual(revision["status"], "pending_review")
+
+    def test_property_identity_includes_owner_and_relationship_direction(self) -> None:
+        from ontology_workbench.discovery_lifecycle import reconcile_discovery_draft
+
+        source = self._lifecycle_input(status="approved")
+        source["candidates"].append({"candidate_id": "pedido", "candidate_type": "concept", "name": "Pedido",
+            "definition": "Operacion", "status": "approved"})
+        source["model_elements"] = [{"element_id": name, "element_type": kind, "name": label,
+            "definition": "Validado", "status": "approved", "linked_candidate_ids": links}
+            for name, kind, label, links in (("saldo-cliente", "property", "Saldo", ["cliente"]),
+                ("saldo-pedido", "property", "Saldo", ["pedido"]),
+                ("ida", "relationship", "Vinculo", ["cliente", "pedido"]),
+                ("vuelta", "relationship", "Vinculo", ["pedido", "cliente"]))]
+        baseline = reconcile_discovery_draft(source, None)
+        source["candidates"].reverse()
+        source["model_elements"].reverse()
+        for item in source["candidates"] + source["model_elements"]:
+            item["status"] = "pending_review"
+        result = reconcile_discovery_draft(source, baseline)
+        self.assertEqual(len(result["model_elements"]), 4)
+        self.assertTrue(all(item["status"] == "approved" for item in result["model_elements"]))
+        self.assertEqual(len({item["element_id"] for item in result["model_elements"]}), 4)
+
+    def test_omission_does_not_delete_decisions_or_leave_orphaned_properties(self) -> None:
+        from ontology_workbench.discovery_lifecycle import reconcile_discovery_draft
+
+        original = self._lifecycle_input()
+        original["model_elements"] = [{"element_id": "saldo", "element_type": "property", "name": "Saldo",
+            "definition": "Monto", "status": "approved", "linked_candidate_ids": ["cliente"]}]
+        baseline = reconcile_discovery_draft(original, None)
+        omitted = self._lifecycle_input()
+        omitted["candidates"] = []
+        result = reconcile_discovery_draft(omitted, baseline)
+        self.assertEqual(len(result["candidates"]), 1)
+        self.assertEqual(result["model_elements"][0]["status"], "approved")
+        self.assertEqual(result["model_elements"][0]["linked_candidate_ids"], [result["candidates"][0]["candidate_id"]])
+
+    def test_rename_is_a_reviewable_change_not_automatic_approval(self) -> None:
+        from ontology_workbench.discovery_lifecycle import reconcile_discovery_draft, apply_approved_change
+
+        baseline = reconcile_discovery_draft(self._lifecycle_input(status="approved"), None)
+        identifier = baseline["candidates"][0]["candidate_id"]
+        renamed = self._lifecycle_input()
+        renamed["candidates"][0].update({"name": "Contraparte comercial", "existing_id": identifier})
+        result = reconcile_discovery_draft(renamed, baseline)
+        revision = next(item for item in result["candidates"] if item.get("change_of"))
+        self.assertEqual(revision["status"], "pending_review")
+        self.assertEqual(result["candidates"][0]["name"], "Cliente")
+        revision["status"] = "approved"
+        apply_approved_change(result, "candidates", revision)
+        renamed["candidates"][0].pop("existing_id")
+        again = reconcile_discovery_draft(renamed, result)
+        self.assertEqual(len(again["candidates"]), 1)
+        self.assertEqual(again["candidates"][0]["candidate_id"], identifier)
+
+    @staticmethod
+    def _with_reasoning(proposal):
+        for entity in proposal["entities"]:
+            entity.update({"importance": "core", "reason": "Interviene en la operacion principal"})
+        names = [entity["name"] for entity in proposal["entities"]]
+        proposal.update({
+            "business_cores": [{"name": "Gestion comercial", "definition": "Operaciones comerciales",
+                                "entities": names, "source_refs": ["s1"]}],
+            "rules": [{"name": "Importe", "definition": "Hipotesis: sumar importes",
+                       "validation_needed": "Confirmar composicion", "entities": names, "source_refs": ["s1"]}],
+            "business_questions": [{"question": proposal["questions"][0], "why": "Define la operacion",
+                                    "priority": "high", "entities": names, "source_refs": ["s1"]}],
+            "technical_questions": [{"question": "Que clave vincula los registros?", "why": "Evitar cruces ambiguos",
+                                     "priority": "high", "entities": names, "source_refs": ["s1"]}],
+            "analytical_questions": [{"question": "Que clientes tienen mayor deuda?", "value": "Priorizar cobros",
+                                      "readiness": "data_required", "missing": ["Filas actuales"],
+                                      "entities": names, "source_refs": ["s1"]}],
+        })
+        return proposal
+
+    def test_nalub_compact_request_preserves_the_complete_input(self) -> None:
+        from ontology_workbench.context_scanner import LlmSettings
+        from ontology_workbench.discovery import build_discovery_proposal
+
+        inputs = ROOT_DIR / "docs" / "casos" / "nalub_mariadb" / "input"
+        with TemporaryDirectory() as directory:
+            service = WorkbenchService(ProjectStore(Path(directory) / "projects"))
+            project = service.create_project("Nalub compacto")
+            for path in (inputs / "nalub_schema.sql", inputs / "documentation" / "NALUB_CONTEXTO_FUNCIONAL_BREVE.md"):
+                service.import_discovery_file(project.id, path.name, path.read_bytes())
+            project = service.get_project(project.id)
+            project.metadata["discovery.scope"] = "Nalub comercial"
+            documents = service.list_context_documents(project.id)
+            texts = {item.document_id: service.store.load_document_text(project.id, item.document_id)
+                     for item in documents}
+            chunks = build_document_chunks(documents, texts)
+            response = {"entities": [{"name": "Pago", "definition": "Cobro, por confirmar",
+                "source_refs": ["s1"], "properties": [{"name": "Importe", "definition": "Monto, por confirmar",
+                                                         "source_refs": ["s1"]}]}],
+                "relationships": [], "questions": ["Como se concilia la deuda?"]}
+            response = self._with_reasoning(response)
+            with patch("ontology_workbench.discovery.load_llm_settings", return_value=LlmSettings("ollama", "test", False)), \
+                    patch("ontology_workbench.discovery._call_llm", return_value=json.dumps(response)) as call:
+                result = build_discovery_proposal(project, chunks)
+            request = call.call_args.args[0][1]["content"]
+            payload = json.loads(request)
+            self.assertLessEqual(len(request), 90_000)
+            self.assertEqual(len(project.concepts), 288)
+            self.assertEqual(len(payload["sources"]), len(project.concepts) + len(chunks))
+            self.assertEqual(len(payload["relationships"]), len(project.relations))
+            for item, source in zip(project.concepts, payload["sources"].values()):
+                self.assertEqual(source, {"name": item.name, "metadata": item.metadata, "tags": item.tags})
+            for relation, original in zip(payload["relationships"], project.relations):
+                self.assertEqual(result["references"]["object:" + original.source_id], payload["sources"][relation["source"]])
+                self.assertEqual(result["references"]["object:" + original.target_id], payload["sources"][relation["target"]])
+                self.assertEqual(relation["type"], original.relation_type)
+            self.assertEqual(list(payload["sources"].values())[-len(chunks):],
+                             [{"filename": chunk["filename"], "text": chunk["text"]} for chunk in chunks])
+            reference = "object:" + project.concepts[0].id
+            self.assertEqual(result["entities"][0]["source_refs"], [reference])
+            self.assertEqual(result["entities"][0]["properties"][0]["source_refs"], [reference])
+            for key in ("business_cores", "rules", "business_questions", "technical_questions", "analytical_questions"):
+                self.assertEqual(result[key][0]["source_refs"], [reference])
+            self.assertEqual(result["prompt_version"], "simple-discovery-v4")
+            decisions = [{"id": f"known-{index}", "type": "concept", "definition": "x" * 1000,
+                          "name": "Validado", "status": "approved"} for index in range(30)]
+            with patch("ontology_workbench.discovery.load_llm_settings", return_value=LlmSettings("ollama", "test", False)), \
+                    patch("ontology_workbench.discovery._call_llm", return_value=json.dumps(response)) as call:
+                build_discovery_proposal(project, chunks, decisions)
+            incremental = json.loads(call.call_args.args[0][1]["content"])
+            self.assertEqual(incremental["sources"], payload["sources"])
+            self.assertEqual(incremental["previous_decisions"], decisions)
+            self.assertGreater(len(call.call_args.args[0][1]["content"]), 90_000)
+
+    def test_incremental_generation_keeps_an_active_version_and_human_decisions(self) -> None:
+        with TemporaryDirectory() as directory, patch.dict(os.environ, {"ONTO_LLM_PROVIDER": "disabled"}):
+            service = WorkbenchService(ProjectStore(Path(directory) / "projects"))
+            project = service.create_project("Continuidad")
+            service.import_discovery_file(project.id, "clientes.sql", b"CREATE TABLE clientes (id INT);")
+            proposal = {"mode": "model_inference", "entities": [{"name": "Cliente", "definition": "Comprador",
+                "source_refs": [], "properties": []}], "relationships": [], "questions": [], "references": {}}
+            with patch("ontology_workbench.service.build_discovery_proposal", return_value=proposal):
+                first = service.generate_discovery_draft(project.id, "Comercial")
+            identifier = first["candidates"][0]["candidate_id"]
+            service.update_nexo_candidate(project.id, first["manifest"]["draft_id"], identifier,
+                                          "approved", "Ana", "Negocio", "Cliente validado")
+            with patch("ontology_workbench.service.build_discovery_proposal", return_value=deepcopy(proposal)) as model:
+                second = service.generate_discovery_draft(project.id, "Comercial", mode="extend")
+            self.assertEqual(second["candidates"][0]["status"], "approved")
+            self.assertEqual(second["candidates"][0]["candidate_id"], identifier)
+            self.assertEqual(model.call_args.args[2][0]["reason"], "Cliente validado")
+            self.assertEqual(service.get_active_nexo_draft(project.id)["manifest"]["draft_id"], second["manifest"]["draft_id"])
+            self.assertEqual(len(service.list_nexo_drafts(project.id)), 2)
+            with self.assertRaisesRegex(ValueError, "historica"):
+                service.update_nexo_candidate(project.id, first["manifest"]["draft_id"], identifier,
+                                              "rejected", "Ana", "Negocio", "No editar historial")
+            with self.assertRaisesRegex(ValueError, "Confirma"):
+                service.generate_discovery_draft(project.id, "Comercial", mode="restart")
+            with patch("ontology_workbench.service.build_discovery_proposal", return_value=deepcopy(proposal)):
+                restarted = service.generate_discovery_draft(project.id, "Comercial", mode="restart", confirm_restart=True)
+            self.assertEqual(restarted["candidates"][0]["status"], "pending_review")
+            self.assertEqual(service.get_nexo_draft(project.id, first["manifest"]["draft_id"])["candidates"][0]["status"], "approved")
+
+    def test_incremental_change_is_applied_only_after_human_approval(self) -> None:
+        with TemporaryDirectory() as directory, patch.dict(os.environ, {"ONTO_LLM_PROVIDER": "disabled"}):
+            service = WorkbenchService(ProjectStore(Path(directory) / "projects"))
+            project = service.create_project("Cambio aprobado")
+            service.import_discovery_file(project.id, "cliente.sql", b"CREATE TABLE cliente (id INT);")
+            proposal = {"mode": "model_inference", "entities": [{"name": "Cliente", "definition": "Original",
+                "source_refs": [], "properties": []}], "relationships": [], "questions": [], "references": {}}
+            with patch("ontology_workbench.service.build_discovery_proposal", return_value=deepcopy(proposal)):
+                first = service.generate_discovery_draft(project.id, "Comercial")
+            original_id = first["candidates"][0]["candidate_id"]
+            service.update_nexo_candidate(project.id, first["manifest"]["draft_id"], original_id,
+                                          "approved", "Ana", "Negocio", "Validado")
+            proposal["entities"][0]["definition"] = "Nueva definicion"
+            with patch("ontology_workbench.service.build_discovery_proposal", return_value=deepcopy(proposal)):
+                changed = service.generate_discovery_draft(project.id, "Comercial")
+            change = next(item for item in changed["candidates"] if item.get("change_of"))
+            self.assertEqual(changed["manifest"]["candidate_summary"]["approved"], 1)
+            self.assertEqual(changed["manifest"]["candidate_summary"]["pending_review"], 1)
+            with self.assertRaisesRegex(ValueError, "pending_review"):
+                service.publish_nexo_release(project.id, changed["manifest"]["draft_id"], "Ana", "No publicar cambios pendientes")
+            service.update_nexo_candidate(project.id, changed["manifest"]["draft_id"], change["candidate_id"],
+                                          "approved", "Ana", "Negocio", "Acepto la modificacion")
+            saved = service.get_active_nexo_draft(project.id)
+            self.assertEqual(len(saved["candidates"]), 1)
+            self.assertEqual(saved["candidates"][0]["candidate_id"], original_id)
+            self.assertEqual(saved["candidates"][0]["definition"], "Nueva definicion")
+            self.assertEqual(saved["manifest"]["lifecycle"]["applied_changes"][0]["before"]["definition"], "Original")
+
+    def test_failed_or_stale_generation_does_not_replace_the_active_version(self) -> None:
+        with TemporaryDirectory() as directory, patch.dict(os.environ, {"ONTO_LLM_PROVIDER": "disabled"}):
+            service = WorkbenchService(ProjectStore(Path(directory) / "projects"))
+            project = service.create_project("Fallo incremental")
+            service.import_discovery_file(project.id, "cliente.sql", b"CREATE TABLE cliente (id INT);")
+            proposal = {"mode": "model_inference", "entities": [{"name": "Cliente", "definition": "Original",
+                "source_refs": [], "properties": []}], "relationships": [], "questions": [], "references": {}}
+            with patch("ontology_workbench.service.build_discovery_proposal", return_value=deepcopy(proposal)):
+                first = service.generate_discovery_draft(project.id, "Comercial")
+            draft_id = first["manifest"]["draft_id"]
+            with patch("ontology_workbench.service.build_discovery_proposal", side_effect=ValueError("fallo simulado")):
+                with self.assertRaisesRegex(ValueError, "fallo simulado"):
+                    service.generate_discovery_draft(project.id, "Comercial")
+            def reviewed_during_generation(*args):
+                service.update_nexo_candidate(project.id, draft_id, first["candidates"][0]["candidate_id"],
+                    "approved", "Ana", "Negocio", "Revision concurrente")
+                return deepcopy(proposal)
+            with patch("ontology_workbench.service.build_discovery_proposal", side_effect=reviewed_during_generation):
+                with self.assertRaisesRegex(ValueError, "base cambio"):
+                    service.generate_discovery_draft(project.id, "Comercial")
+            self.assertEqual(service.get_active_nexo_draft(project.id)["manifest"]["draft_id"], draft_id)
+            self.assertEqual(len(service.list_nexo_drafts(project.id)), 1)
+            self.assertEqual(service.get_active_nexo_draft(project.id)["candidates"][0]["status"], "approved")
+
+    def test_reasoning_rejects_unknown_entities_and_claims_of_answerability(self) -> None:
+        from ontology_workbench.discovery import _validate_proposal
+
+        proposal = self._with_reasoning({"entities": [{"name": "Cliente", "definition": "Comprador",
+            "source_refs": ["s1"], "properties": []}], "relationships": [], "questions": ["Que es cliente?"]})
+        _validate_proposal(proposal, {"s1"})
+        for key, field, value in (("business_cores", "entities", ["Inventado"]),
+                                  ("technical_questions", "source_refs", ["inventado"]),
+                                  ("analytical_questions", "readiness", "answerable"),
+                                  ("analytical_questions", "missing", []),
+                                  ("entities", "importance", "irrelevant")):
+            with self.subTest(key=key, field=field):
+                invalid = deepcopy(proposal)
+                invalid[key][0][field] = value
+                with self.assertRaises(ValueError):
+                    _validate_proposal(invalid, {"s1"})
+
+    def test_nalub_ddl_preserves_all_columns_and_relationships(self) -> None:
+        path = ROOT_DIR / "docs" / "casos" / "nalub_mariadb" / "input" / "nalub_schema.sql"
+        generic = parse_sql_ddl(path.read_text(encoding="utf-8"))
+        specific = parse_mariadb_schema_dump(path)
+        self.assertEqual(generic["column_count"], 255)
+        self.assertEqual(generic["relationship_count"], 25)
+        self.assertEqual(generic["model"], specific["model"])
+        parsed = parse_sql_ddl("CREATE TABLE demo (id INT CHECK (id >= 0), "
+                               "label VARCHAR(50) DEFAULT 'a,b)', attrs MAP<STRING, INT>, next_id INT);")
+        self.assertEqual([column["name"] for column in parsed["model"]["tables"][0]["columns"]],
+                         ["id", "label", "attrs", "next_id"])
+
+    def test_distributed_case_detects_mixed_files_without_declaring_systems(self) -> None:
+        inputs = ROOT_DIR / "docs" / "casos" / "ventas_distribuidas" / "input"
+        with TemporaryDirectory() as directory, patch.dict(os.environ, {"ONTO_LLM_PROVIDER": "disabled"}):
+            service = WorkbenchService(ProjectStore(Path(directory) / "projects"))
+            project = service.create_project("Distribuido simple")
+            for filename in ("erp_mariadb.sql", "lakehouse_databricks_columns.csv", "powerbi_ventas.bim", "crm_sqlserver.sql"):
+                service.import_discovery_file(project.id, filename, (inputs / filename).read_bytes())
+            for path in sorted((inputs / "documentation").glob("*.md")):
+                service.import_discovery_file(project.id, path.name, path.read_bytes())
+            draft = service.generate_discovery_draft(project.id, "Comercial")
+            current = service.get_project(project.id)
+            self.assertEqual(len(current.sources), 4)
+            self.assertEqual(len(service.list_context_documents(project.id)), 3)
+            self.assertTrue(all(source.status == "inventoried" for source in current.sources))
+            self.assertEqual(current.use_cases, [])
+            self.assertTrue(draft["candidates"])
+            source_id = current.sources[0].source_id
+            service.import_discovery_file(project.id, "erp_mariadb.sql", b"CREATE TABLE clientes (id INT);")
+            self.assertEqual(service.get_project(project.id).sources[0].source_id, source_id)
+            with self.assertRaises(ValueError):
+                service.import_discovery_file(project.id, "invalido.bim", b"not-json")
+            self.assertEqual(len(service.get_project(project.id).sources), 4)
+
+    def test_documents_only_and_empty_input(self) -> None:
+        with TemporaryDirectory() as directory, patch.dict(os.environ, {"ONTO_LLM_PROVIDER": "disabled"}):
+            service = WorkbenchService(ProjectStore(Path(directory) / "projects"))
+            project = service.create_project("Documentos")
+            with self.assertRaises(ValueError):
+                service.generate_discovery_draft(project.id, "Comercial")
+            with self.assertRaises(ValueError):
+                service.import_discovery_file(project.id, "vacio.sql", b"")
+            content = b"# Glosario\nCliente: empresa que compra productos.\n"
+            service.import_discovery_file(project.id, "glosario.md", content)
+            service.import_discovery_file(project.id, "glosario.md", content)
+            draft = service.generate_discovery_draft(project.id, "Comercial")
+            self.assertEqual(draft["manifest"]["discovery"]["mode"], "structure_only")
+            self.assertEqual(len(service.list_context_documents(project.id)), 1)
+            self.assertEqual(service.get_project(project.id).sources, [])
+            self.assertTrue(draft["candidates"])
+            previous = service.list_context_documents(project.id)[0]
+            service.import_discovery_file(project.id, "glosario.md", b"Cliente: persona o empresa compradora.")
+            documents = service.list_context_documents(project.id)
+            self.assertEqual(len(documents), 1)
+            self.assertNotEqual(documents[0].document_id, previous.document_id)
+            self.assertTrue(Path(previous.stored_path).exists())
+
+    def test_policy_and_size_limit_prevent_model_calls(self) -> None:
+        from ontology_workbench.context_scanner import LlmSettings
+        from ontology_workbench.discovery import build_discovery_proposal
+        from ontology_workbench.models import Concept, OntologyProject
+
+        project = OntologyProject(id="policy", name="Policy", metadata={"discovery.scope": "Comercial"})
+        project.concepts = [Concept(id="large", name="x" * 90_001)]
+        with patch("ontology_workbench.discovery.load_llm_settings", return_value=LlmSettings(
+                "azure_openai", "test", True, data_policy="local_only")), \
+                patch("ontology_workbench.discovery._call_llm") as call:
+            self.assertEqual(build_discovery_proposal(project, [])["mode"], "structure_only")
+            call.assert_not_called()
+        with patch("ontology_workbench.discovery.load_llm_settings", return_value=LlmSettings("ollama", "test", False)), \
+                patch("ontology_workbench.discovery._call_llm") as call:
+            with self.assertRaisesRegex(ValueError, "supera el limite"):
+                build_discovery_proposal(project, [])
+            call.assert_not_called()
+
+    def test_model_proposal_becomes_pending_candidates_and_relationships(self) -> None:
+        from ontology_workbench.context_scanner import LlmSettings
+
+        with TemporaryDirectory() as directory, patch.dict(os.environ, {"ONTO_LLM_PROVIDER": "disabled"}):
+            service = WorkbenchService(ProjectStore(Path(directory) / "projects"))
+            project = service.create_project("Modelo simple")
+            service.import_discovery_file(project.id, "ventas.sql", b"CREATE TABLE ventas (id INT);")
+            reference = "object:" + service.get_project(project.id).concepts[0].id
+            proposal = {"entities": [
+                {"name": name, "definition": "Interpretacion pendiente", "source_refs": ["s1"],
+                 "properties": []} for name in ("Cliente", "Venta")],
+                "relationships": [{"name": "compra", "definition": "Por confirmar", "source": "Cliente",
+                                   "target": "Venta", "source_refs": ["s1"]}],
+                "questions": ["La venta es una factura?"]}
+            settings = LlmSettings("ollama", "test", False)
+            proposal = self._with_reasoning(proposal)
+            with patch("ontology_workbench.discovery.load_llm_settings", return_value=settings), \
+                    patch("ontology_workbench.discovery._call_llm", return_value=json.dumps(proposal)) as call:
+                draft = service.generate_discovery_draft(project.id, "Comercial")
+            self.assertEqual(call.call_count, 1)
+            inferred = [item for item in draft["candidates"] if item["candidate_type"] == "concept"]
+            self.assertEqual(len(inferred), 2)
+            self.assertEqual(len(draft["candidates"]), 3)
+            self.assertFalse(any(item["candidate_type"] == "technical_asset" for item in draft["candidates"]))
+            context = draft["manifest"]["discovery_source_context"]
+            self.assertTrue(any(item["candidate_type"] == "technical_asset" for item in context["candidates"]))
+            rule = next(item for item in draft["candidates"] if item["candidate_type"] == "business_rule")
+            self.assertEqual(rule["status"], "pending_review")
+            self.assertEqual(rule["linked_candidate_ids"], [item["candidate_id"] for item in inferred])
+            self.assertEqual(service.list_nexo_releases(project.id), [])
+            self.assertTrue(all(item["evidence"]["evidence_status"] == "inferred" for item in inferred))
+            self.assertTrue(all(item["source_refs"] == [reference] for item in inferred))
+            self.assertEqual(draft["model_elements"][0]["status"], "pending_review")
+            self.assertEqual(draft["model_elements"][0]["source_refs"], [reference])
+            saved = service.get_nexo_draft(project.id, draft["manifest"]["draft_id"])
+            self.assertIn(proposal["questions"][0], saved["manifest"]["discovery"]["questions"])
+            proposal["entities"][0]["source_refs"] = ["invented"]
+            with patch("ontology_workbench.discovery.load_llm_settings", return_value=settings), \
+                    patch("ontology_workbench.discovery._call_llm", return_value=json.dumps(proposal)):
+                with self.assertRaisesRegex(ValueError, "propuesta LLM valida"):
+                    service.generate_discovery_draft(project.id, "Comercial")
+            self.assertEqual(len(service.list_nexo_drafts(project.id)), 1)
+
+    def test_files_to_draft_without_manual_setup(self) -> None:
+        with TemporaryDirectory() as directory, patch.dict(os.environ, {"ONTO_LLM_PROVIDER": "disabled"}):
+            service = WorkbenchService(ProjectStore(Path(directory) / "projects"))
+            project = service.create_project("Discovery simple")
+            schema = b"CREATE TABLE clientes (id INT PRIMARY KEY, nombre VARCHAR(100));"
+            service.import_discovery_file(project.id, "comercial.sql", schema)
+            service.import_discovery_file(project.id, "comercial.sql", schema)
+            service.import_discovery_file(project.id, "glosario.md", b"# Cliente\nCliente: empresa que compra productos.")
+            result = service.generate_discovery_draft(project.id, "Comercial")
+            current = service.get_project(project.id)
+            self.assertEqual(len(current.sources), 1)
+            self.assertEqual(len(service.list_context_documents(project.id)), 1)
+            self.assertEqual(current.use_cases, [])
+            self.assertEqual(current.metadata["discovery.scope"], "Comercial")
+            self.assertTrue(result["candidates"])
+            self.assertTrue(all(item["status"] == "pending_review" for item in result["candidates"]))
+            self.assertEqual(service.list_nexo_releases(project.id), [])
+
+
 class ExplanatoryCoverageTests(unittest.TestCase):
     def setUp(self) -> None:
         from ontology_workbench.explanatory_scope import build_explanatory_scope
@@ -318,6 +747,54 @@ class ExplanatoryAnalysisTests(unittest.TestCase):
                 self.assertEqual(result["groups"]["entity"]["failed"], 4)
                 self.assertEqual(result["groups"]["entity"]["counts"]["explained"], 0)
                 self.assertNotIn("sensitive provider details", json.dumps(result))
+
+    def test_semantic_progress_reports_inflight_calls_failure_and_budget(self) -> None:
+        from ontology_workbench.explanatory_analysis import analyze_explanatory_scope
+        from ontology_workbench.explanatory_scope import build_explanatory_scope
+        from ontology_workbench.models import Concept
+
+        self.project.concepts = [Concept(id=f"item-{index}", name=f"Objeto {index}", tags=["table"]) for index in range(25)]
+        events = []
+
+        def response(messages, settings):
+            event = events[-1]
+            self.assertEqual(event["event"], "request_started")
+            self.assertEqual(event["calls_made"], event["calls_completed"] + 1)
+            if event["calls_made"] == 2:
+                raise RuntimeError("sensitive provider details")
+            return self.empty_response(messages, settings)
+
+        with patch("ontology_workbench.explanatory_analysis.call_llm_json", side_effect=response) as provider:
+            result = analyze_explanatory_scope(build_explanatory_scope(self.project), self.chunks,
+                                              self.settings(), max_calls=2, on_progress=events.append)
+        self.assertEqual(provider.call_count, 2)
+        self.assertEqual(events[0]["planned_calls"], 3)
+        self.assertEqual([event["event"] for event in events],
+                         ["started", "request_started", "request_finished", "request_started", "request_finished", "finished"])
+        self.assertEqual(events[-1]["calls_completed"], 2)
+        self.assertEqual(events[-1]["max_calls"], 2)
+        self.assertEqual(events[-1]["status"], "partial_failure")
+        self.assertEqual(events[-2]["error"], "provider_error:RuntimeError")
+        self.assertNotIn("sensitive provider details", json.dumps(events))
+        self.assertNotIn("evidence", events[1])
+        self.assertEqual(result["analysis"]["calls_made"], 2)
+
+    def test_semantic_progress_reports_cache_and_blocked_without_calls(self) -> None:
+        from ontology_workbench.explanatory_analysis import analyze_explanatory_scope
+
+        events = []
+        with patch("ontology_workbench.explanatory_analysis.call_llm_json", side_effect=self.empty_response) as provider:
+            first = analyze_explanatory_scope(self.scope, self.chunks, self.settings())
+            analyze_explanatory_scope(self.scope, self.chunks, self.settings(), cached=first, on_progress=events.append)
+            self.assertEqual(provider.call_count, 1)
+        self.assertEqual(len(events), 1)
+        self.assertTrue(events[0]["cache_reused"])
+        self.assertEqual(events[0]["calls_made"], 0)
+        self.assertEqual(events[0]["calls_completed"], 0)
+        events.clear()
+        analyze_explanatory_scope(self.scope, self.chunks, self.settings(provider="disabled"), on_progress=events.append)
+        self.assertEqual(events[0]["status"], "provider_unavailable")
+        self.assertEqual(events[0]["calls_made"], 0)
 
     def test_semantic_contrast_policy_and_budget(self) -> None:
         from ontology_workbench.explanatory_analysis import analyze_explanatory_scope

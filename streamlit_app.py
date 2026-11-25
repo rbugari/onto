@@ -36,7 +36,7 @@ PRODUCT_AREAS = {
 }
 
 PRODUCT_STAGE_LABELS = LocalizedLabels({
-    "Atlas": "1. Atlas · Diagnóstico",
+    "Atlas": "1. Atlas · Ontologia inicial",
     "Nexo": "2. Nexo · Validar conocimiento",
     "Argos": "3. Argos · Investigar el negocio",
 })

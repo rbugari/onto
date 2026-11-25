@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+from collections.abc import Callable
 from copy import deepcopy
 from pathlib import Path
 
@@ -82,7 +83,8 @@ def _validate_response(response: dict, elements: list[dict], chunks: list[dict])
 
 
 def analyze_explanatory_scope(scope: dict, chunks: list[dict], settings: LlmSettings,
-                              max_calls: int = DEFAULT_MAX_CALLS, cached: dict | None = None) -> dict:
+                              max_calls: int = DEFAULT_MAX_CALLS, cached: dict | None = None,
+                              on_progress: Callable[[dict], None] | None = None) -> dict:
     if isinstance(max_calls, bool) or not isinstance(max_calls, int) or not 1 <= max_calls <= 200:
         raise ValueError("El limite de llamadas debe estar entre 1 y 200.")
     prompt = PROMPT_PATH.read_text(encoding="utf-8")
@@ -115,6 +117,16 @@ def analyze_explanatory_scope(scope: dict, chunks: list[dict], settings: LlmSett
                 "configuration": configuration, "fingerprint": fingerprint, "max_calls": max_calls,
                 "calls": [], "calls_made": 0, "cache_reused": False, "status": "not_evaluated",
                 "effective_mode": "none", "human_review_required": True, "human_review_sample": []}
+    completed_calls = 0
+
+    def notify(event, elements=(), phase="", error=""):
+        if on_progress is not None:
+            on_progress({"event": event, "calls_made": analysis["calls_made"],
+                         "calls_completed": completed_calls, "planned_calls": analysis.get("planned_calls", 0),
+                         "max_calls": max_calls, "phase": phase, "element_count": len(elements),
+                         "element_names": [element["name"] for element in elements[:2]],
+                         "status": analysis["status"], "cache_reused": analysis["cache_reused"], "error": error})
+
     if not settings.enabled or settings.provider not in {"openai", "azure_openai", "ollama"}:
         analysis["status"] = "blocked_by_policy" if settings.data_policy == "local_only" and settings.provider != "ollama" else "provider_unavailable"
     elif not targets:
@@ -126,14 +138,18 @@ def analyze_explanatory_scope(scope: dict, chunks: list[dict], settings: LlmSett
             and cached.get("analysis", {}).get("status") == "complete"):
             result = deepcopy(cached)
             result["analysis"].update(cache_reused=True, calls_made=0)
+            analysis = result["analysis"]
+            notify("finished")
             return result
         analysis["effective_mode"] = "llm_semantic_proposals"
         decisions = []
         chunk_batches = _chunk_batches(unique_chunks)
         analysis["planned_calls"] = ((len(targets) + ELEMENT_BATCH_SIZE - 1) // ELEMENT_BATCH_SIZE) * (
             len(chunk_batches) + (1 if len(chunk_batches) > 1 else 0))
+        notify("started")
 
         def request(elements, evidence, phase, findings=None):
+            nonlocal completed_calls
             record = {"phase": phase, "element_ids": [element["element_id"] for element in elements],
                       "chunk_ids": [chunk["chunk_id"] for chunk in evidence], "status": "failed"}
             analysis["calls"].append(record)
@@ -148,19 +164,24 @@ def analyze_explanatory_scope(scope: dict, chunks: list[dict], settings: LlmSett
                 record["error"] = "context_limit"
                 return None
             analysis["calls_made"] += 1
+            notify("request_started", elements, phase)
             try:
-                response = call_llm_json([{"role": "system", "content": prompt},
-                                          {"role": "user", "content": json.dumps(payload, ensure_ascii=True)}], settings)
-            except Exception as exc:
-                record["error"] = f"provider_error:{type(exc).__name__}"
-                return None
-            try:
-                validated = _validate_response(response, elements, evidence)
-            except (ValueError, TypeError) as exc:
-                record["error"] = str(exc) if isinstance(exc, ValueError) else "invalid_response_types"
-                return None
-            record["status"] = "validated"
-            return validated
+                try:
+                    response = call_llm_json([{"role": "system", "content": prompt},
+                                              {"role": "user", "content": json.dumps(payload, ensure_ascii=True)}], settings)
+                except Exception as exc:
+                    record["error"] = f"provider_error:{type(exc).__name__}"
+                    return None
+                try:
+                    validated = _validate_response(response, elements, evidence)
+                except (ValueError, TypeError) as exc:
+                    record["error"] = str(exc) if isinstance(exc, ValueError) else "invalid_response_types"
+                    return None
+                record["status"] = "validated"
+                return validated
+            finally:
+                completed_calls += 1
+                notify("request_finished", elements, phase, record.get("error", ""))
 
         for offset in range(0, len(targets), ELEMENT_BATCH_SIZE):
             elements = targets[offset:offset + ELEMENT_BATCH_SIZE]
@@ -202,7 +223,9 @@ def analyze_explanatory_scope(scope: dict, chunks: list[dict], settings: LlmSett
                             for element_id in [row["element_id"] for row in coverage["elements"]
                                        if row["state"] == state][:3]]
         coverage["analysis"] = analysis
+        notify("finished")
         return coverage
     coverage = build_explanatory_coverage(scope, chunks)
     coverage["analysis"] = analysis
+    notify("finished")
     return coverage

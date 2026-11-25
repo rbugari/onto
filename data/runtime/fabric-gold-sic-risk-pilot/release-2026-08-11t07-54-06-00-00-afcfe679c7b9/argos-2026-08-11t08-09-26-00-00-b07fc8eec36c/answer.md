@@ -1,1 +1,0 @@
-No puedo determinarlo con la evidencia disponible.

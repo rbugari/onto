@@ -1,1 +1,0 @@
-Si no hay pesos positivos, el nivel se calcula mediante el promedio simple de los niveles disponibles.

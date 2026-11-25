@@ -10,7 +10,7 @@ from onto_ui.i18n import LocalizedLabels, localize_rows, localized_tabs, option_
 
 from ontology_workbench.platform_exports import COVERAGE_LABELS
 from ontology_workbench.service import WorkbenchService
-from onto_ui.common import require_reviewer, reviewer
+from onto_ui.common import render_discovery_proposal, require_reviewer, reviewer
 from onto_ui.labels import DECISION_LABELS, short_timestamp
 
 SOURCE_AUTHORITY_LABELS = LocalizedLabels({
@@ -47,19 +47,60 @@ def render_nexo(service: WorkbenchService, project_id: str) -> None:
         st.info(t("Generá primero un diagnóstico en Atlas para crear un draft."))
         return
     drafts = service.list_nexo_drafts(project_id)
-    with st.expander(t("Crear draft desde un diagnóstico Atlas"), expanded=not drafts):
-        _render_draft_creation(service, project_id, assessments)
+    active_id = service.get_project(project_id).metadata.get("discovery.active_draft_id")
+    if not active_id:
+        with st.expander(t("Crear draft desde un diagnóstico Atlas"), expanded=not drafts):
+            _render_draft_creation(service, project_id, assessments)
     if not drafts:
         return
 
     draft_options = {str(item["draft_id"]): item for item in drafts}
+    selection_key = f"nexo-draft-select-{project_id}"
+    if st.session_state.get(selection_key) not in draft_options:
+        st.session_state[selection_key] = active_id if active_id in draft_options else next(iter(draft_options))
     draft_id = st.selectbox(
         t("Draft en revisión"),
         list(draft_options),
         format_func=option_labels(list(draft_options), lambda item: _draft_label(draft_options[item])),
-        key=f"nexo-draft-select-{project_id}",
+        key=selection_key,
     )
     draft = service.get_nexo_draft(project_id, draft_id)
+    if active_id and active_id != draft_id:
+        st.info(t("Version historica de solo lectura"))
+        st.button(t("Abrir version activa"), key=f"nexo-open-active-{project_id}",
+            on_click=_select_active_draft, args=(project_id, active_id))
+        st.dataframe(localize_rows([{"Nombre": item["name"], "Definicion": item["definition"],
+            "Estado": DECISION_LABELS.get(item["status"], item["status"])}
+            for item in draft["candidates"] + draft.get("model_elements", [])]), hide_index=True, width="stretch")
+        with st.expander(t("Referencias y supuestos del modelo")):
+            st.json(draft["manifest"])
+        _render_comparison(service, project_id, draft_id)
+        return
+    if active_id:
+        st.caption(t("Version de trabajo activa"))
+    discovery = draft["manifest"].get("discovery", {})
+    if discovery.get("mode") == "model_inference":
+        st.warning(t("Borrador pendiente de revision. Las inferencias del modelo no son hechos confirmados."))
+        if discovery.get("business_cores"):
+            with st.expander(t("Nucleo y preguntas del borrador")):
+                render_discovery_proposal(discovery, f"nexo-{draft_id}")
+        with st.expander(t("Referencias y supuestos del modelo")):
+            st.json(discovery)
+    candidates = list(draft["candidates"])
+    model_draft = draft
+    if discovery.get("business_cores"):
+        include_supporting = st.toggle(t("Incluir conceptos secundarios"), key=f"nexo-supporting-{draft_id}")
+        if not include_supporting:
+            candidates = [item for item in candidates if item.get("importance", "core") == "core" or item.get("change_of")]
+            candidate_ids = {item["candidate_id"] for item in candidates}
+            model_draft = {**draft, "model_elements": [item for item in draft.get("model_elements", [])
+                if item.get("change_of") or all(link in candidate_ids for link in item.get("linked_candidate_ids", []))]}
+    source_context = draft["manifest"].get("discovery_source_context")
+    if source_context:
+        with st.expander(t("Contexto de fuentes")):
+            st.dataframe(localize_rows([{"Nombre": item["name"],
+                "Tipo": CANDIDATE_TYPE_LABELS.get(item["candidate_type"], item["candidate_type"])}
+                for item in source_context["candidates"]]), hide_index=True, width="stretch")
     summary = dict(draft["manifest"]["candidate_summary"])
     model_summary = dict(draft["manifest"].get("model_element_summary", EMPTY_SUMMARY))
     pending = summary["pending_review"] + model_summary["pending_review"]
@@ -70,9 +111,9 @@ def render_nexo(service: WorkbenchService, project_id: str) -> None:
         key=f"nexo-tabs-{project_id}",
     )
     with review_tab:
-        _render_candidate_review(service, project_id, draft_id, list(draft["candidates"]))
+        _render_candidate_review(service, project_id, draft_id, candidates)
     with model_tab:
-        _render_model_elements(service, project_id, draft_id, draft, model_summary)
+        _render_model_elements(service, project_id, draft_id, model_draft, model_summary)
     with consolidation_tab:
         _render_consolidation(service, project_id, draft_id, list(draft["candidates"]))
     with compare_tab:
@@ -86,7 +127,25 @@ def _draft_label(manifest: dict[str, object]) -> str:
     authority = str(manifest.get("source_authority", "technical"))
     return (
         t('{v0} · {v1} · {v2} pendientes de {v3}', v0=short_timestamp(manifest.get('created_at')), v1=authority, v2=summary.get('pending_review', 0), v3=summary.get('total', 0))
-    )
+    ) + " · " + str(manifest.get("draft_id", ""))[-8:]
+
+
+def _select_active_draft(project_id: str, draft_id: str) -> None:
+    st.session_state[f"nexo-draft-select-{project_id}"] = draft_id
+
+
+def _render_change_context(draft: dict, item: dict, group: str) -> None:
+    if not item.get("change_of"):
+        return
+    id_field = "candidate_id" if group == "candidates" else "element_id"
+    original = next(value for value in draft[group] if value[id_field] == item["change_of"])
+    st.info(t("Propuesta de reconsideracion" if original["status"] == "rejected" else "Propuesta de cambio"))
+    st.caption(t("Version vigente"))
+    st.write(original["definition"])
+    st.caption(t("Decision anterior: {status}", status=DECISION_LABELS.get(original["status"], original["status"])))
+    if (original.get("decision") or {}).get("note"):
+        st.write(original["decision"]["note"])
+    st.caption(t("Nueva propuesta"))
 
 
 def _render_draft_creation(service: WorkbenchService, project_id: str, assessments) -> None:
@@ -167,6 +226,7 @@ def _render_candidate_review(service: WorkbenchService, project_id: str, draft_i
                     "Tipo": CANDIDATE_TYPE_LABELS.get(item["candidate_type"], item["candidate_type"]),
                     "Nombre": item["name"],
                     "Estado": DECISION_LABELS.get(item["status"], item["status"]),
+                    "Propuesta": t("Cambio" if item.get("change_of") else "Vigente"),
                     "Confianza": item.get("confidence", 0),
                     "Sistema": item.get("source_id", ""),
                 }
@@ -189,11 +249,19 @@ def _render_candidate_review(service: WorkbenchService, project_id: str, draft_i
 
 def _render_candidate_detail(service: WorkbenchService, project_id: str, draft_id: str, candidate) -> None:
     st.markdown(f"**{candidate['name']}**")
+    _render_change_context(service.get_nexo_draft(project_id, draft_id), candidate, "candidates")
     st.caption(
         t('{v0} · {v1} · confianza {v2}', v0=CANDIDATE_TYPE_LABELS.get(candidate['candidate_type'], candidate['candidate_type']), v1=DECISION_LABELS.get(candidate['status'], candidate['status']), v2=candidate.get('confidence', 0))
     )
     if candidate.get("definition"):
         st.write(candidate["definition"])
+    if candidate.get("reason"):
+        st.caption(candidate["reason"])
+    if candidate.get("validation_needed"):
+        st.write(t("Validacion pendiente") + ": " + candidate["validation_needed"])
+    if candidate.get("origin") == "model_inference":
+        st.warning(t("Interpretacion inferida. Las referencias son contexto, no respaldo documental."))
+        st.write(", ".join(candidate.get("source_refs", [])))
     evidence = dict(candidate.get("evidence", {}))
     if evidence.get("source_excerpt"):
         st.caption(t('Evidencia · {v0} · {v1}', v0=evidence.get('source_document_id', ''), v1=evidence.get('source_chunk_id', '')))
@@ -288,6 +356,8 @@ def _render_model_elements(service: WorkbenchService, project_id: str, draft_id:
             format_func=option_labels(list(element_options), lambda item: t('{v0} · {v1}', v0=MODEL_ELEMENT_LABELS.get(element_options[item]['element_type'], ''), v1=element_options[item]['name'])),
             key=f"nexo-model-selection-{draft_id}",
         )
+        _render_change_context(draft, element_options[element_id], "model_elements")
+        st.write(element_options[element_id]["definition"])
         status = columns[1].segmented_control(
             t("Decisión"), REVIEW_STATUSES, format_func=option_labels(REVIEW_STATUSES, dict(DECISION_LABELS).get),
             default=element_options[element_id]["status"], key=f"nexo-model-status-{draft_id}-{element_id}",

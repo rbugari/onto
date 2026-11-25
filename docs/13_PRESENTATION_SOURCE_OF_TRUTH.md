@@ -24,7 +24,7 @@ ONTO ayuda a descubrir la evidencia de todos los sistemas del dominio, medir su 
 
 - Atlas: assessment de readiness multi-sistema ("te cuento como estas y que puede implementar tu plataforma").
 - Nexo: registry, validacion y paquete para la plataforma ("que conocimiento esta aprobado y como se entrega").
-- Argos: banco de prueba y runtime de plan B ("funciona de verdad; y cubrimos lo que la plataforma no puede").
+- Argos: banco de prueba ("probamos que el contexto aprobado funciona antes de implementarlo"). Su uso como servidor de plan B esta congelado.
 
 ## Ruta de implementacion
 

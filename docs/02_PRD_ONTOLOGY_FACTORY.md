@@ -18,7 +18,7 @@ ONTO convierte activos tecnicos y documentacion de una organizacion en conocimie
 
 1. un assessment de readiness ontologico, que incluye que puede implementar la plataforma destino;
 2. conocimiento validado, versionado y un paquete para implementarlo en la plataforma;
-3. un Runtime generico para probar ese conocimiento y servir, como plan B, la parte que la plataforma no pueda cubrir.
+3. un banco de prueba para validar ese conocimiento con preguntas reales antes de implementarlo (el servicio permanente de lo que la plataforma no cubre, el plan B, queda congelado).
 
 ## 3. Usuarios y necesidades
 

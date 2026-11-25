@@ -1,12 +1,22 @@
 # ONTO explicado sin tecnicismos: paso a paso
 
-Para: personas de negocio, gerencia, clientes y cualquiera que no trabaje en datos.
+Para: personas de negocio, gerencia, clientes y cualquiera que no trabaje en datos. Si buscás la explicación completa (qué es, qué valor agrega, cómo piensa y cómo se integra, también para perfiles técnicos), leé la [guía completa del producto](ONTO_GUIA_COMPLETA_DEL_PRODUCTO.md) (hay una versión en [PDF](../deliverables/ONTO_Guia_Completa_del_Producto.pdf)).
 
 ## La idea en una frase
 
 **Antes, una persona experta en datos decidía qué significa cada dato, cómo se cruza y qué se puede responder. Ahora preparamos ese conocimiento para que lo use una IA, con personas aprobándolo.**
 
 Lo que ONTO produce no son datos nuevos ni un tablero: produce **contexto**, es decir, el "manual de instrucciones" que una IA necesita para responder bien sobre tu negocio. Y ese manual **se entrega a la plataforma que ya usa la empresa** (Microsoft Fabric, Databricks u otra) para que lo implemente.
+
+## Como empezar y continuar
+
+En Atlas, indicá el ámbito y cargá los archivos disponibles. Generá el borrador, revisá los núcleos, reglas y preguntas, y pasá a Nexo para aprobar o rechazar con un motivo.
+
+Cuando tengas respuestas o nuevos archivos, seguí en el **mismo proyecto**: Actualizar propuesta rehace lo pendiente sin perder decisiones; Ampliar alcance incorpora más contexto con la misma protección. Si algo aprobado necesita cambiar, se presenta aparte y espera tu aceptación. Los rechazos no reaparecen por un simple cambio de redacción sin evidencia nueva.
+
+Empezar de cero exige confirmación: inicia una nueva versión sin heredar decisiones, pero no borra archivos ni historial. Las versiones anteriores quedan para consultar; las entregas ya aprobadas no se actualizan solas. Para responder preguntas, agregá un documento con las aclaraciones y actualizá la propuesta.
+
+Ver el [método completo, paso a paso y con ejemplos](17_METODO_DE_TRABAJO_ITERATIVO.md).
 
 ## Lo más importante: no competimos con Fabric ni con Databricks
 

@@ -20,6 +20,14 @@ Esta automatizacion no cambia el contrato de Nexo: la regla es del runner de dem
 y toda decision conserva revisor, rol, nota y fecha. No representa una aprobacion
 autonoma para un uso de negocio ni reemplaza el workflow de revision humana.
 
+## Continuidad entre versiones
+
+El discovery simple mantiene una version de trabajo activa por proyecto. Al actualizar o ampliar desde Atlas se heredan las decisiones humanas, no se aprueba automaticamente ningun contenido nuevo. Las definiciones aprobadas se conservan; una modificacion se presenta como propuesta pendiente con el antes/despues y el motivo de la decision previa. Aprobar el cambio sustituye el contenido bajo el mismo identificador y registra lo anterior; rechazarlo deja vigente el original. Un rechazo no se reabre por una simple reformulacion sin evidencia nueva relevante.
+
+Los pendientes se regeneran. Una omision del LLM no elimina conocimiento aprobado o rechazado. Las versiones historicas de un proyecto con version activa son de solo lectura; no admiten cambios ni nuevas releases. La proteccion tambien se aplica en persistencia, no solo en pantalla. Las releases existentes siguen siendo inmutables. Sin version activa explicita, los borradores legacy conservan su flujo anterior hasta seleccionar una base en Atlas.
+
+Recorrido, operaciones, ejemplos y limites: [Metodo de trabajo iterativo](17_METODO_DE_TRABAJO_ITERATIVO.md).
+
 ## Alcance implementado
 
 Un draft se crea desde un `run_id` de Atlas y queda bajo:
@@ -78,6 +86,7 @@ Nexo puede generar sugerencias de duplicados exactos de forma local y de casi du
 
 - no cambian candidatos ni sus decisiones;
 - no pueden compartir candidatos entre grupos;
+- no consideran duplicados a dos activos tecnicos del mismo nombre que vienen de sistemas distintos (son tablas distintas), y el LLM solo analiza conocimiento (conceptos, reglas, KPI), no activos tecnicos;
 - quedan en `pending_review`, `accepted_as_review_plan` o `rejected`;
 - requieren una nueva operacion humana antes de aplicar cualquier fusion real.
 
@@ -93,6 +102,8 @@ Una release se emite solamente si:
 - se identifica la persona responsable de emitirla.
 
 La release no vuelve a inferir relaciones: publica conceptos, reglas y KPIs aprobados, más las estructuras canónicas que hayan sido curadas y aprobadas. Esta es una restricción intencional para no presentar inferencias como conocimiento validado.
+
+**Tablas y columnas de la propuesta con LLM.** En el flujo "Ontologia inicial", el modelo cita en `source_refs` las tablas que respaldan cada entidad y puede indicar la columna de cada propiedad (`column`). Esos activos tecnicos no se listan como candidatos de revision: acompanan a la entidad (`backing_assets`) o a la propiedad (`bound_asset`) y la release los adopta **solo cuando la persona aprueba esa entidad o propiedad**, junto con un binding de la entidad a cada tabla. Asi los paquetes obtienen tablas, tipos de datos y joins sin sumar ruido a la revision.
 
 El `agent_context_pack.json` resultante contiene exclusivamente elementos aprobados, sus bindings de evidencia y una instruccion de abstencion fuera de esos limites.
 

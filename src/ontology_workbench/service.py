@@ -4,11 +4,16 @@ import hashlib
 import json
 import re
 import uuid
+from collections.abc import Callable
+from copy import deepcopy
 from pathlib import Path
 
-from ontology_workbench.atlas import PLATFORM_LABELS, build_assessment_package
+from ontology_workbench.atlas import PLATFORM_LABELS, _concept_object_type, build_assessment_package
+from ontology_workbench.cross_source import key_signature, normalize_entity
 from ontology_workbench.data_layers import LAYERS
 from ontology_workbench.explanatory_analysis import analyze_explanatory_scope
+from ontology_workbench.discovery import build_discovery_proposal
+from ontology_workbench.discovery_lifecycle import reconcile_discovery_draft
 from ontology_workbench.bim_importer import build_bim_import_bundle
 from ontology_workbench.context_scanner import (
     build_business_context_inventory,
@@ -28,7 +33,10 @@ from ontology_workbench.models import (
     ValidationIssue,
     utc_now_iso,
 )
-from ontology_workbench.nexo import build_model_element, build_ontology_release, build_registry_draft
+from ontology_workbench.nexo import (
+    build_model_element, build_ontology_release, build_registry_draft,
+    model_element_summary, refresh_candidate_summary,
+)
 from ontology_workbench.nexo_curation import build_consolidation_suggestions
 from ontology_workbench.nexo_diff import compare_nexo_artifacts
 from ontology_workbench.interoperability import TARGETS, build_publication_package
@@ -108,6 +116,222 @@ class WorkbenchService:
 
     def get_project(self, project_id: str) -> OntologyProject:
         return self.store.load_project(project_id)
+
+    def import_discovery_file(self, project_id: str, filename: str, content: bytes) -> dict[str, str]:
+        filename = Path(filename).name
+        if not content:
+            raise ValueError("El archivo esta vacio")
+        project = self.store.load_project(project_id)
+        files = json.loads(project.metadata.get("discovery.files", "{}"))
+        fingerprint = hashlib.sha256(content).hexdigest()
+        if files.get(filename, {}).get("sha256") == fingerprint:
+            return {"filename": filename, "status": "unchanged"}
+        suffix = Path(filename).suffix.lower()
+        technical = suffix in {".sql", ".ddl", ".bim", ".tmdl", ".pbip", ".zip"}
+        if suffix == ".json":
+            payload = json.loads(content.decode("utf-8-sig"))
+            technical = isinstance(payload, dict) and ("model" in payload or "tables" in payload)
+        if suffix in {".csv", ".tsv"}:
+            try:
+                parsed = parse_columns_csv(content.decode("utf-8-sig"))
+                technical = bool(dict(parsed["model"]).get("tables"))
+            except ValueError:
+                technical = False
+        if technical:
+            source_id = files.get(filename, {}).get("source_id")
+            source = next((item for item in project.sources if item.source_id == source_id), None)
+            created = source is None
+            if source is None:
+                platform = "powerbi" if suffix in {".bim", ".tmdl", ".pbip", ".zip", ".json"} else "other"
+                source = self.register_data_source(project_id, Path(filename).stem, platform)
+            try:
+                self.import_source_metadata_file(project_id, source.source_id, filename, content)
+            except Exception:
+                if created:
+                    self.delete_data_source(project_id, source.source_id)
+                raise
+            record = {"sha256": fingerprint, "source_id": source.source_id, "kind": "structure"}
+        else:
+            document = self.upload_context_document(project_id, filename, content, "functional_docs")
+            previous_id = files.get(filename, {}).get("document_id")
+            if previous_id:
+                self.store.save_documents_manifest(project_id, [item for item in self.list_context_documents(project_id)
+                                                               if item.document_id != previous_id])
+            record = {"sha256": fingerprint, "document_id": document.document_id, "kind": "document"}
+        project = self.store.load_project(project_id)
+        files[filename] = record
+        project.metadata["discovery.files"] = json.dumps(files)
+        project.touch()
+        self.store.save_project(project)
+        return {"filename": filename, "status": "imported", "kind": record["kind"]}
+
+    def get_active_nexo_draft(self, project_id: str) -> dict | None:
+        project = self.store.load_project(project_id)
+        active_id = project.metadata.get("discovery.active_draft_id")
+        if active_id:
+            return self.store.load_nexo_draft(project_id, active_id)
+        drafts = self.store.list_nexo_drafts(project_id)
+        return self.store.load_nexo_draft(project_id, str(drafts[0]["draft_id"])) if drafts else None
+
+    def generate_discovery_draft(self, project_id: str, scope: str, mode: str = "update",
+                                 confirm_restart: bool = False, base_draft_id: str | None = None) -> dict[str, object]:
+        if mode not in {"update", "extend", "restart"}:
+            raise ValueError("Modo de generacion invalido")
+        if mode == "restart" and not confirm_restart:
+            raise ValueError("Confirma empezar de cero; las decisiones anteriores quedaran solo en el historial")
+        initial_project = self.store.load_project(project_id)
+        initial_pointer = initial_project.metadata.get("discovery.active_draft_id")
+        if initial_pointer and base_draft_id and base_draft_id != initial_pointer:
+            raise ValueError("La base debe ser la version de trabajo activa")
+        baseline = (self.store.load_nexo_draft(project_id, base_draft_id) if base_draft_id
+                    else self.get_active_nexo_draft(project_id))
+        baseline_id = str(baseline["manifest"]["draft_id"]) if baseline else None
+        baseline_version = json.dumps(baseline, sort_keys=True, ensure_ascii=False)
+        project = self.store.load_project(project_id)
+        if not scope.strip():
+            raise ValueError("Indica el ambito que queres entender")
+        if not project.concepts and not self.list_context_documents(project_id):
+            raise ValueError("Agrega al menos un archivo o conecta una fuente")
+        project.metadata["discovery.scope"] = scope.strip()
+        project.metadata.setdefault("client_id", project.id)
+        project.metadata.setdefault("domain_id", self._slugify(scope))
+        project.metadata.setdefault("data_product_id", project.id)
+        project.touch()
+        self.store.save_project(project)
+        if self.list_context_documents(project_id):
+            inventory = self.scan_business_context(project_id)
+            if inventory.get("scan_mode") == "heuristic-fallback":
+                raise ValueError("El analisis LLM fallo. Los archivos se conservaron; reintenta la generacion.")
+        assessment = self.create_atlas_assessment(
+            project_id, project.metadata["client_id"], project.metadata["domain_id"],
+            project.metadata["data_product_id"],
+        )
+        decision_context = []
+        if baseline and mode != "restart":
+            linked_names = {item["candidate_id"]: item["name"] for item in baseline["candidates"]}
+            for item in baseline["candidates"] + baseline.get("model_elements", []):
+                if item.get("status") in {"approved", "rejected"}:
+                    decision_context.append({"id": item.get("candidate_id", item.get("element_id")),
+                        "type": item.get("candidate_type", item.get("element_type")), "name": item["name"],
+                        "definition": item["definition"], "status": item["status"],
+                        "links": item.get("linked_candidate_ids", []),
+                        "linked_names": [linked_names.get(link, link) for link in item.get("linked_candidate_ids", [])],
+                        "reason": (item.get("decision") or {}).get("note", ""),
+                        "change_of": item.get("change_of")})
+        proposal = build_discovery_proposal(project, self.store.load_context_chunks(project_id), decision_context)
+        draft = self.create_nexo_draft(project_id, str(assessment["manifest"]["run_id"]),
+                                       source_authority="hybrid", persist=False)
+        if proposal["mode"] == "model_inference":
+            draft["manifest"]["discovery_source_context"] = {
+                "candidates": draft["candidates"], "model_elements": draft["model_elements"],
+                "authority_review": draft["manifest"].get("authority_review", {}),
+            }
+            draft["candidates"] = []
+            draft["model_elements"] = []
+            draft["manifest"]["authority_review"] = {"matches": [], "gaps": []}
+        entity_ids = {}
+        for entity in proposal["entities"]:
+            candidate_id = f"discovery-entity-{len(entity_ids) + 1}"
+            entity_ids[entity["name"]] = candidate_id
+            draft["candidates"].append({
+                "candidate_id": candidate_id, "candidate_type": "concept", "name": entity["name"],
+                "definition": entity["definition"], "status": "pending_review", "confidence": 0.0,
+                "importance": entity.get("importance", "core"), "reason": entity.get("reason", ""),
+                "existing_id": entity.get("existing_id"),
+                "origin": "model_inference", "source_refs": entity["source_refs"], "decision": None,
+                "evidence": {"evidence_status": "inferred", "source_excerpt": "",
+                             "source_document_id": "", "source_chunk_id": ""},
+            })
+            for prop in entity.get("properties", []):
+                element = build_model_element(f"discovery-property-{len(draft['model_elements']) + 1}",
+                    "property", prop["name"], prop["definition"], "", [candidate_id])
+                element.update({"origin": "model_inference", "source_refs": prop["source_refs"],
+                                "existing_id": prop.get("existing_id")})
+                draft["model_elements"].append(element)
+        for relation in proposal["relationships"]:
+            element = build_model_element(f"discovery-relationship-{len(draft['model_elements']) + 1}",
+                "relationship", relation["name"], relation["definition"], "",
+                [entity_ids[relation["source"]], entity_ids[relation["target"]]])
+            element.update({"origin": "model_inference", "source_refs": relation["source_refs"],
+                            "existing_id": relation.get("existing_id")})
+            draft["model_elements"].append(element)
+        for index, rule in enumerate(proposal.get("rules", []), start=1):
+            draft["candidates"].append({
+                "candidate_id": f"discovery-rule-{index}", "candidate_type": "business_rule",
+                "name": rule["name"], "definition": rule["definition"],
+                "validation_needed": rule["validation_needed"],
+                "linked_candidate_ids": [entity_ids[name] for name in rule["entities"]],
+                "importance": "core" if any(entity.get("importance", "core") == "core"
+                    for entity in proposal["entities"] if entity["name"] in rule["entities"]) else "supporting",
+                "status": "pending_review", "confidence": 0.0, "origin": "model_inference",
+                "source_refs": rule["source_refs"], "decision": None,
+                "existing_id": rule.get("existing_id"),
+                "evidence": {"evidence_status": "inferred", "source_excerpt": "",
+                             "source_document_id": "", "source_chunk_id": ""},
+            })
+        self._attach_discovery_assets(draft, proposal, project, entity_ids)
+        proposal["scope"] = scope.strip()
+        proposal["project_updated_at"] = project.updated_at
+        draft["manifest"]["discovery"] = proposal
+        draft = reconcile_discovery_draft(draft, baseline, mode)
+        current_pointer = self.store.load_project(project_id).metadata.get("discovery.active_draft_id")
+        current_base = self.store.load_nexo_draft(project_id, baseline_id) if baseline_id else self.get_active_nexo_draft(project_id)
+        if current_pointer != initial_pointer or json.dumps(current_base, sort_keys=True, ensure_ascii=False) != baseline_version:
+            raise ValueError("La base cambio durante la generacion. Reintenta para incorporar las ultimas decisiones.")
+        draft["manifest"]["candidate_summary"] = refresh_candidate_summary(draft)
+        draft["manifest"]["model_element_summary"] = model_element_summary(draft["model_elements"])
+        self.store.save_nexo_draft(draft)
+        current = self.store.load_project(project_id)
+        current.metadata["discovery.active_draft_id"] = str(draft["manifest"]["draft_id"])
+        self.store.save_project(current)
+        return draft
+
+    @staticmethod
+    def _attach_discovery_assets(draft: dict, proposal: dict, project: OntologyProject, entity_ids: dict[str, str]) -> None:
+        """Attach to each proposed entity the tables that back it, and to each property the column it maps to.
+
+        The model cites the tables of an entity in `source_refs` and may name the column of a property. These are
+        deterministic metadata of the imported sources, so they do not become review candidates: they ride on the
+        entity (`backing_assets`) and the property (`bound_asset`) and the release adopts them when the person approves
+        the entity or property. That keeps the review simple and still gives the packages tables, types and joins.
+        """
+        context = draft["manifest"].get("discovery_source_context") or {}
+        assets = [item for item in context.get("candidates", []) if item["candidate_type"] == "technical_asset"]
+        kind = lambda item: item.get("technical_metadata", {}).get("bim.objectType")
+        tables = {(item.get("source_id", ""), item["name"]): item for item in assets if kind(item) == "table"}
+        columns: dict[tuple[str, str], list[dict]] = {}
+        for item in assets:
+            if kind(item) == "column":
+                column = item["name"].split("[")[-1].rstrip("]")
+                columns.setdefault((item["technical_metadata"].get("bim.table", ""), column), []).append(item)
+        concepts = {f"object:{item.id}": item for item in project.concepts}
+        candidates = {item["candidate_id"]: item for item in draft["candidates"]}
+        properties = {(element["linked_candidate_ids"][0], element["name"]): element
+                      for element in draft["model_elements"] if element["element_type"] == "property"}
+        for entity in proposal["entities"]:
+            entity_id = entity_ids[entity["name"]]
+            backing: dict[str, dict] = {}
+            for reference in entity["source_refs"]:
+                concept = concepts.get(reference)
+                if concept is None or _concept_object_type(concept.tags, concept.metadata) != "table":
+                    continue
+                table = tables.get((concept.metadata.get("source.id", ""), concept.name))
+                if table is None:
+                    continue
+                backing[table["candidate_id"]] = deepcopy(table)
+                entity_key = normalize_entity(table["name"])
+                for (table_name, column_name), found in columns.items():
+                    if table_name == table["name"] and key_signature(column_name, entity_key):
+                        backing[found[0]["candidate_id"]] = deepcopy(found[0])
+            if backing:
+                candidates[entity_id]["backing_assets"] = list(backing.values())
+            for prop in entity.get("properties", []):
+                column_key = str(prop.get("column", "")).rsplit(".", 1)
+                matches = columns.get((column_key[0], column_key[-1])) if len(column_key) == 2 else None
+                element = properties.get((entity_id, prop["name"]))
+                if matches and element is not None:
+                    element["bound_asset_id"] = matches[0]["candidate_id"]
+                    element["bound_asset"] = deepcopy(matches[0])
 
     def list_runtime_investigations(
         self, project_id: str, release_id: str
@@ -969,7 +1193,7 @@ class WorkbenchService:
 
     def create_semantic_atlas_assessment(
         self, project_id: str, client_id: str, domain_id: str, data_product_id: str,
-        max_calls: int = 40,
+        max_calls: int = 40, on_progress: Callable[[dict], None] | None = None,
     ) -> dict[str, object]:
         settings = load_llm_settings()
         documents = self.store.list_documents(project_id)
@@ -986,7 +1210,8 @@ class WorkbenchService:
                 break
         package = self.create_atlas_assessment(project_id, client_id, domain_id, data_product_id)
         package["explanatory_coverage"] = analyze_explanatory_scope(
-            package["explanatory_scope"], chunks, settings, max_calls=max_calls, cached=cached)
+            package["explanatory_scope"], chunks, settings, max_calls=max_calls, cached=cached,
+            on_progress=on_progress)
         package["package_path"] = str(self.store.save_atlas_assessment(package))
         return package
 
@@ -1025,8 +1250,11 @@ class WorkbenchService:
         assessment_run_id: str,
         source_authority: str = "technical",
         query_catalog: object = None,
+        persist: bool = True,
     ) -> dict[str, object]:
         project = self.store.load_project(project_id)
+        if persist and project.metadata.get("discovery.active_draft_id"):
+            raise ValueError("Hay una version de trabajo activa. Actualiza o amplia la propuesta desde Atlas.")
         assessment = next(
             (
                 item
@@ -1058,8 +1286,9 @@ class WorkbenchService:
             source_authority=source_authority,
             query_catalog=query_catalog,
         )
-        draft_path = self.store.save_nexo_draft(draft)
-        draft["draft_path"] = str(draft_path)
+        if persist:
+            draft_path = self.store.save_nexo_draft(draft)
+            draft["draft_path"] = str(draft_path)
         return draft
 
     def list_nexo_drafts(self, project_id: str) -> list[dict[str, object]]:
@@ -1174,6 +1403,7 @@ class WorkbenchService:
     ) -> dict[str, object]:
         if not released_by.strip():
             raise ValueError("Released by is required")
+        self.store.require_active_nexo_draft(project_id, draft_id)
         draft = self.store.load_nexo_draft(project_id, draft_id)
         release_id = f"release-{utc_now_iso().replace(':', '-').replace('+', '-')}-{uuid.uuid4().hex[:12]}"
         release = build_ontology_release(draft, release_id, released_by.strip(), release_note.strip())

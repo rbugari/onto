@@ -1,4 +1,6 @@
-# Prompts de ejecucion por fase
+# Prompts de ejecucion por fase (historico)
+
+Estado: las fases F1 a F4 ya se ejecutaron (ver el estado en [docs/18_PLAN_REPOSICIONAMIENTO.md](../../docs/18_PLAN_REPOSICIONAMIENTO.md)); F5 es opcional y se decide despues del piloto. Estos prompts se conservan como referencia para repetir o retomar una fase.
 
 Plan: [docs/18_PLAN_REPOSICIONAMIENTO.md](../../docs/18_PLAN_REPOSICIONAMIENTO.md).
 

@@ -27,6 +27,10 @@ _FOREIGN_KEY_RE = re.compile(
 _INLINE_REFERENCE_RE = re.compile(
     r"REFERENCES\s+(?P<to_table>[`\"\[\]\w.$-]+)\s*\((?P<to_column>[^)]+)\)", re.IGNORECASE
 )
+_SQL_TOKEN_RE = re.compile(
+    r"""'(?:''|\\.|[^'\\])*'|"(?:""|\\.|[^"\\])*"|`(?:``|[^`])*`|\[(?:\]\]|[^\]])*\]|.""",
+    re.DOTALL,
+)
 _COLUMN_HEADERS = {
     "catalog": ("table_catalog", "catalog", "catalog_name", "database", "table_cat"),
     "schema": ("table_schema", "schema", "schema_name", "owner", "table_schem"),
@@ -148,27 +152,33 @@ def _column_definition(item: str) -> dict[str, str] | None:
 
 def _balanced_body(text: str, open_index: int) -> str | None:
     depth = 0
-    for index in range(open_index, len(text)):
-        char = text[index]
+    for token in _SQL_TOKEN_RE.finditer(text, open_index):
+        char = token.group()
         if char == "(":
             depth += 1
         elif char == ")":
             depth -= 1
             if depth == 0:
-                return text[open_index + 1:index]
+                return text[open_index + 1:token.start()]
     return None
 
 
 def _split_top_level(body: str) -> list[str]:
     items: list[str] = []
     depth = 0
+    type_depth = 0
     current: list[str] = []
-    for char in body:
-        if char in "(<":
+    for token in _SQL_TOKEN_RE.finditer(body):
+        char = token.group()
+        if char == "(":
             depth += 1
-        elif char in ")>":
+        elif char == ")":
             depth -= 1
-        if char == "," and depth == 0:
+        elif char == "<" and depth == 0:
+            type_depth += 1
+        elif char == ">" and depth == 0 and type_depth:
+            type_depth -= 1
+        if char == "," and depth == 0 and type_depth == 0:
             items.append("".join(current).strip())
             current = []
             continue

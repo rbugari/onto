@@ -4,7 +4,7 @@ ONTO prepara el conocimiento de negocio que las plataformas necesitan y no puede
 
 **ONTO no compite con la ontologia de Fabric ni con la de Databricks.** La ruta por defecto es implementar en la plataforma del cliente. El plan B (servir desde ONTO lo que la plataforma no cubre) queda como caso excepcional y congelado. Plan de evolucion: [reposicionamiento](docs/18_PLAN_REPOSICIONAMIENTO.md).
 
-**Empezar por:** [Objetivo, alcance y foco](docs/OBJETIVO_ALCANCE_Y_FOCO.md). Para personas no tecnicas: [Guia paso a paso](docs/GUIA_PASO_A_PASO_NO_TECNICA.md). La direccion completa del producto esta en la [documentacion de producto](docs/README.md).
+**Empezar por:** la [Guia completa del producto](docs/ONTO_GUIA_COMPLETA_DEL_PRODUCTO.md) ([PDF](deliverables/ONTO_Guia_Completa_del_Producto.pdf)), que explica que es ONTO, que valor agrega, como piensa y como se integra. Luego, [Objetivo, alcance y foco](docs/OBJETIVO_ALCANCE_Y_FOCO.md). Para personas no tecnicas: [Guia paso a paso](docs/GUIA_PASO_A_PASO_NO_TECNICA.md). La direccion completa del producto esta en la [documentacion de producto](docs/README.md) y el estado y los pasos futuros en el [plan de reposicionamiento](docs/18_PLAN_REPOSICIONAMIENTO.md).
 
 La Factory se organiza en tres productos independientes y conectables:
 
@@ -49,7 +49,10 @@ Se traducen navegacion, controles, ayudas, encabezados y pedidos estructurados d
 - **Nexo** en cinco pestanas: revision de candidatos (lista y detalle con evidencia), modelo canonico, consolidacion, comparacion y release/interoperabilidad. Release local reconstruible con `agent_context_pack`.
 - **Argos**: conversacion tipo chat sobre una release aprobada, abstencion explicita, preguntas iniciales y graficos definidos por el catalogo, y pestana de analistas con catalogo de consultas y bateria de evaluacion.
 - Query catalog por release: routing, parametros, binding requerido, adapter, perfil de conexion, limites, `example_question` y `visualization`.
-- Interoperabilidad: desde una release, paquetes importables por la plataforma destino (Fabric IQ: Ontology + Data Agent; Databricks: Pages, metric views, Unity Catalog, Genie Agents), con reporte de cobertura, ruta recomendada A/B/C y descarga ZIP. Sin publicacion externa. Ver `docs/15_INTEGRACION_FABRIC_DATABRICKS.md`.
+- Interoperabilidad: desde una release, paquetes importables por la plataforma destino (Fabric IQ: Ontology en formato nuevo TMDL + Data Agent; Databricks: Pages, metric views, Unity Catalog, Genie Agents) y, en ambos, OWL/Turtle y un modelo Apache Ossie experimental, con reporte de cobertura, ruta recomendada A/B/C y descarga ZIP. Sin publicacion externa. Ver `docs/15_INTEGRACION_FABRIC_DATABRICKS.md`.
+- Atlas muestra por sistema la capa (Bronze/Silver/Gold) y si Fabric y Databricks lo alcanzan, con la ruta A/B/C por plataforma.
+- Con un proveedor LLM configurado, la propuesta de ontologia incluye entidades, propiedades tipadas, relaciones y reglas; sin LLM el resultado es heuristico y mucho mas pobre (la aplicacion lo advierte).
+- Casos con repositorios reales: `scripts/run_local_repos_case.py` (Nalub legacy y Pedidos, DW de prueba).
 - Demo distribuida sintetica: `docs/casos/ventas_distribuidas/` y `scripts/run_distributed_demo.py` (ERP MariaDB, lakehouse Databricks, Power BI, CRM SQL Server y planillas), hasta release y paquetes para ambas plataformas (ruta B).
 - Demo comercial sintetica: `docs/casos/comercial_powerbi/` y `scripts/run_commercial_sales_demo.py` ejecutan Atlas, Nexo, Argos y el paquete Fabric (ruta A) sin datos reales.
 - Caso Nalub: `scripts/run_nalub_case.py` ingesta el schema del backup y el contexto funcional, genera una release con cinco capacidades MariaDB y puede ejecutar consultas live read-only con un perfil de conexion local.
@@ -70,6 +73,9 @@ El caso `nalub-case` valida un flujo schema-first sobre MariaDB legacy. La relea
   - `atlas.py`, `cross_source.py`, `external_metadata.py`, `bim_importer.py`, `semantic_model_importer.py`, `mariadb_schema.py`: assessment, alineacion entre sistemas e importadores.
   - `context_scanner.py`: extraccion de texto y scanner de contexto.
   - `nexo.py`, `nexo_curation.py`, `nexo_diff.py`: drafts, consolidacion, comparacion y releases.
+  - `discovery.py`, `discovery_lifecycle.py`: propuesta de ontologia con LLM, continuidad de decisiones entre versiones.
+  - `platform_reach.py`, `data_layers.py`, `platform_coverage.py`: alcance por plataforma, capa Bronze/Silver/Gold y brechas de Atlas.
+  - `platform_exports.py`, `fabric_ontology.py`, `open_standards.py`, `export_enrichment.py`: paquetes para Fabric (TMDL), Databricks, OWL/Turtle y Ossie.
   - `runtime.py`, `runtime_evaluation.py`, `query_catalog.py`, `result_views.py`: Argos, evaluacion, catalogo y presentacion de resultados.
   - `fabric_adapter.py`, `mariadb_adapter.py`, `local_data_adapter.py`, `connection_profiles.py`, `interoperability.py`: conectores y mappings.
 - `tests/test_workbench_service.py`: pruebas de servicio y contratos.
