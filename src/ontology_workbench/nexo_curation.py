@@ -39,6 +39,7 @@ def _llm_duplicate_groups(candidates: list[dict[str, object]], settings) -> list
                     "definition": str(candidate["definition"])[:700],
                 }
                 for candidate in candidates
+                if candidate["candidate_type"] != "technical_asset"
             ],
             ensure_ascii=False,
         )
@@ -55,9 +56,10 @@ def _llm_duplicate_groups(candidates: list[dict[str, object]], settings) -> list
 
 
 def _exact_duplicate_groups(candidates: list[dict[str, object]]) -> list[dict[str, object]]:
-    by_key: dict[tuple[str, str], list[dict[str, object]]] = {}
+    by_key: dict[tuple[str, str, str], list[dict[str, object]]] = {}
     for candidate in candidates:
-        key = (str(candidate["candidate_type"]), _normalize(str(candidate["name"])))
+        # The same table name in two systems is two assets, never a duplicate: the source is part of the identity.
+        key = (str(candidate["candidate_type"]), _normalize(str(candidate["name"])), str(candidate.get("source_id", "")))
         by_key.setdefault(key, []).append(candidate)
     groups: list[dict[str, object]] = []
     for members in by_key.values():

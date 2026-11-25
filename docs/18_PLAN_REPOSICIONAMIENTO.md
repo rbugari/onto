@@ -31,15 +31,30 @@ Estado: aprobado para ejecutar fase a fase. Cada fase tiene un prompt autonomo e
 
 F4 es urgente por fecha: la experiencia vieja de Ontology en Fabric se retira el 31/01/2027. F2 y F3 son el diferencial.
 
-### Estado (2026-11-24)
+### Estado (2026-11-25)
 
-| Fase | Estado |
+| Fase / trabajo | Estado |
 | --- | --- |
 | F1 Foco y limpieza | Hecha |
 | F2 Capa y viabilidad en Atlas | Hecha |
 | F3 Contenido semantico en el paquete | Hecha (sin ejemplos SQL ni benchmarks: la release no guarda SQL aprobado) |
 | F4 Formatos estables | Hecha en codigo y tests; **falta validar en workspaces reales** ([plantilla de piloto](pilotos/PILOTO_VALIDACION_PLATAFORMAS.md)). Hallazgo: la ontologia nueva de Fabric es TMDL, no el JSON anterior |
+| Pruebas con repos reales | Hechas (`scripts/run_local_repos_case.py`): Nalub legacy + Pedidos y DW de taxis. Corregido: bloques de codigo y negritas en el scanner, ontologia vacia sin aviso |
+| LLM: propiedades, relaciones y tablas | Hecho en el flujo "Ontologia inicial": payload compacto, relaciones invalidas descartadas con motivo, tablas y columnas viajan a la release al aprobar la entidad/propiedad. Con datos reales: 12 entidades, 9 reglas, 59 propiedades tipadas y 8 joins |
+| LLM: consolidacion de duplicados | Ya existia; corregido: tablas de distintos sistemas con el mismo nombre ya no se proponen como duplicadas y el LLM ya no recibe los activos tecnicos |
 | F5 Importar lo existente | Opcional; decidir despues del piloto |
+
+### Pendiente
+
+1. **Validar los paquetes en workspaces reales** de Fabric y Databricks (piloto). Es lo que falta antes de prometer los formatos a un cliente.
+2. **Integrar el trabajo sin commitear del flujo "Ontologia inicial"** (`discovery.py`, `discovery_lifecycle.py`, cambios en `service.py`, UI y tests) junto con lo de estas ramas: contiene la compactacion, el descarte de relaciones, la columna por propiedad, las tablas de respaldo y el aviso sin LLM. Subir `prompt_version` a v5 (hoy sigue en v4 por un test).
+3. **Progreso y limites del LLM:** el borrador con LLM tarda unos 5 minutos con 4 documentos y no muestra progreso; falta limite de llamadas y estimacion.
+4. **Calidad sin LLM:** el scanner heuristico sigue siendo ruidoso con documentacion tecnica (`Charset`, `Motor`, `Version`). Recomendar el LLM como camino normal.
+5. **Propiedades y relaciones desde el esquema:** las claves foraneas del esquema (`bim-relationship`) no viajan a la release; hoy los joins salen del modelo del LLM o de relaciones curadas.
+6. **Consolidacion de propiedades y relaciones:** hoy solo se consolidan candidatos (entidades, reglas, KPIs), no los elementos del modelo canonico.
+7. **Genie:** ejemplos pregunta-SQL y benchmarks, si algun dia la release guarda SQL aprobado.
+8. **F5** (importar semantic models, metric views, Pages y TTL existentes como evidencia) despues del piloto.
+9. **Estado GA** de Pages y Genie Ontology: confirmar antes de afirmarlo a un cliente.
 
 ## No hacer
 
